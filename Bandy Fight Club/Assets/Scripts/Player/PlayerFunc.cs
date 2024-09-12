@@ -36,6 +36,10 @@ public class PlayerFunc : MonoBehaviour
     [SerializeField] float dodgeBurstTime = 0.15f;
     [SerializeField] float dodgeTime = 0.5f;
     [SerializeField] Vector2 dodgeDirection;
+    [SerializeField] float dodgeAcceleration = 0.1f;
+
+    [SerializeField] float dodgeBufferTime = 0.1f;
+    float dodgeBufferTimer;
 
     //grav
     [SerializeField] float baseGravity = 20;
@@ -71,11 +75,18 @@ public class PlayerFunc : MonoBehaviour
             }
         }
 
-        if (inputs.dodgePressed)
+        UFunc.TickTimer(ref dodgeBufferTimer);
+        if (inputs.dodgePressed) dodgeBufferTimer = dodgeBufferTime;
+
+        if (!isDodging)
         {
-            int direction = 1;
-            if (inputs.leftHeld) direction = -1;
-            StartDodge(new Vector2(direction,0));
+            if (dodgeBufferTimer > 0)
+            {
+                dodgeBufferTimer = 0;
+                int direction = 1;
+                if (inputs.leftHeld) direction = -1;
+                StartDodge(new Vector2(direction,0));
+            }
         }
     }
 
@@ -86,6 +97,10 @@ public class PlayerFunc : MonoBehaviour
         float yVel = rb.velocity.y;
 
         float targetSideSpeed = movementSpeed * sideInputDirection;
+        if (isDodging)
+        {
+            targetSideSpeed = dodgeLowerSpeed * dodgeDirection.x;
+        }
 
         if (!isDodging)
         {
@@ -98,6 +113,7 @@ public class PlayerFunc : MonoBehaviour
         }
 
         xVel = UFunc.RoundToDecimal(xVel, 2); //rounding the xVel to the nearest hundredth 
+        if (Mathf.Abs(xVel) < 0.05f) xVel = 0;
         rb.velocity = new Vector2(xVel, yVel);  
 
         //funcs
@@ -106,8 +122,13 @@ public class PlayerFunc : MonoBehaviour
             float thisMultAcceleration = 1;
             float thisFlatAcceleration = 1;
 
-            thisMultAcceleration = accelerationCurve * (1 - Mathf.Pow(1 - (multAccleration * (1 - Mathf.Pow(1 - (1 / accelerationCurve), 1 / Time.fixedDeltaTime))), Time.fixedDeltaTime));
+            float mAccel = multAccleration;
+            if (isDodging) mAccel = dodgeAcceleration;
+
+            thisMultAcceleration = accelerationCurve * (1 - Mathf.Pow(1 - (mAccel * (1 - Mathf.Pow(1 - (1 / accelerationCurve), 1 / Time.fixedDeltaTime))), Time.fixedDeltaTime));
             thisFlatAcceleration = UFunc.FloatToDirection(targetSideSpeed - rb.velocity.x) * Mathf.Min(flatAccleration * movementSpeed, Mathf.Abs(targetSideSpeed - rb.velocity.x)) * Time.fixedDeltaTime; //add flat acceleration, make sure we dont overshoot target speed
+
+            //if (isDodging) thisFlatAcceleration = 0;
 
             xVel = rb.velocity.x + thisFlatAcceleration; //add flat acceleration, make sure we dont overshoot target speed
             xVel += ((targetSideSpeed - rb.velocity.x) * thisMultAcceleration); //add mult acceleration
@@ -123,7 +144,7 @@ public class PlayerFunc : MonoBehaviour
         }
         void DodgeMovement()
         {
-            yVel = 0;
+            yVel = 0; 
 
             if (isDodgingBurst)
             {
@@ -131,7 +152,8 @@ public class PlayerFunc : MonoBehaviour
             }
             else
             {
-                xVel = (Mathf.Max(Mathf.Abs(xVel) - (dodgeSpeedDecaySpeed*Time.fixedDeltaTime), dodgeLowerSpeed)) * dodgeDirection.x;
+                HandleAcceleration();
+                //xVel = (Mathf.Max(Mathf.Abs(xVel) - (dodgeSpeedDecaySpeed*Time.fixedDeltaTime), dodgeLowerSpeed)) * dodgeDirection.x;
             }
         }
     }
