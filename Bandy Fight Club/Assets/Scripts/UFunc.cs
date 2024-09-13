@@ -148,4 +148,28 @@ public class UFunc
     {
         return Mathf.Lerp(n1, n2, (t/(exp*exp) - (1/(Mathf.Pow(exp,2*t)))) + 1);
     }
+
+    public static float FullToNegativeRangeAngle(float a)
+    {
+        if (a > 180) a -= 360;
+        if (a < -180) a += 360;
+        return a;
+    }
+
+    public static Vector2 SlopeIntersect(float slope1, Vector2 pos1, float slope2, Vector2 pos2)
+    {
+        float x = (pos2.y + (slope2*-pos2.x) - pos1.y - (slope1*-pos1.x)) / (slope1 - slope2);
+
+        return new Vector3(x, slope1*(x-pos1.x) + pos1.y);
+    }
+
+    public static T[] ListToArray<T>(List<T> list)
+    {
+        T[] array = new T[list.Count];
+        for (int i = 0; i < array.Length; i++)
+        {
+            array[i] = list[i];
+        }
+        return array;
+    }
 }
