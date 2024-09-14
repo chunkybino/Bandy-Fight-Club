@@ -172,4 +172,29 @@ public class UFunc
         }
         return array;
     }
+    public static List<T> FlipList<T>(List<T> list)
+    {
+        List<T> newList = new List<T>();
+        for (int i = list.Count-1; i >= 0; i--)
+        {
+            newList.Add(list[i]);
+        }
+        return newList;
+    }
+
+    public static bool IsBetweenVector2(Vector2 vec, Vector2 low, Vector2 high)
+    {
+        bool yes = true;
+        if (low.x < high.x) {
+            if (vec.x < low.x || vec.x > high.x) yes = false;
+        } else {
+            if (vec.x > low.x || vec.x < high.x) yes = false;
+        }
+        if (low.y < high.y) {
+            if (vec.y < low.y || vec.y > high.y) yes = false;
+        } else {
+            if (vec.y > low.y || vec.y < high.y) yes = false;
+        }
+        return yes;
+    }
 }
