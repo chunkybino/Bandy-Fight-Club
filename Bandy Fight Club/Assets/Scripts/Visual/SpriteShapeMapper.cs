@@ -12,6 +12,12 @@ public class SpriteShapeMapper : MonoBehaviour
 
     public List<LineRenderer> childLines;
 
+    public float lineZOffset = 0.2f;
+
+    /*public SpriteShapeController shapeControl;
+    public Transform[] shapePoints = new Transform[0];
+    public float minShapePointDistance = 0.04f;*/
+
     void Update()
     {
         List<Vector3> linePoints = new List<Vector3>();
@@ -19,6 +25,11 @@ public class SpriteShapeMapper : MonoBehaviour
         foreach (SpriteShapePoint point in points)
         {
             if (!point) continue;
+            if (point.dontDoForFrame)
+            {
+                point.dontDoForFrame = false;
+                continue;
+            }
 
             foreach(Vector3 p in point.points)
             {
@@ -28,8 +39,7 @@ public class SpriteShapeMapper : MonoBehaviour
         }
 
         Vector3[] lineArray = UFunc.ListToArray(linePoints);
-        line.positionCount = lineArray.Length;
-        line.SetPositions(lineArray);
+        SetLinePoints(line, lineArray);
 
         DoSecondLines(secondLinePoints);
 
@@ -41,14 +51,20 @@ public class SpriteShapeMapper : MonoBehaviour
                 {
                     childLines.Add(Instantiate(line, this.transform));
                 }
-                childLines[i].positionCount = list[i].secondLinePoints.Length;
-                childLines[i].SetPositions(list[i].secondLinePoints);
+                SetLinePoints(childLines[i], list[i].secondLinePoints);
                 childLines[i].gameObject.SetActive(true);
             }
             for (int i = list.Count; i < childLines.Count; i++) //disabl extra lines
             {
-                childLines[i].gameObject.SetActive(false);
+                childLines[i].gameObject.SetActive(false); 
             }
+        }
+
+        void SetLinePoints(LineRenderer theLine, Vector3[] thePoints)
+        {
+            for (int i = 0; i < thePoints.Length; i++) {thePoints[i] += new Vector3(0,0,-lineZOffset);}
+            theLine.positionCount = thePoints.Length;
+            theLine.SetPositions(thePoints);
         }
     }
 }

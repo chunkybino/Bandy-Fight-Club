@@ -132,6 +132,11 @@ public class UFunc
         return new Vector3(Mathf.Lerp(n1.x,n2.x,t),Mathf.Lerp(n1.y,n2.y,t),Mathf.Lerp(n1.z,n2.z,t));
     }
 
+    public static float InverseLerpUnclamped(float n1, float n2, float n3)
+    {
+        return (n3-n1)/(n2-n1);
+    }
+
     public static float EaseOutPoly(float t, float exp)
     {
         return -Mathf.Pow(-Mathf.Clamp(t,0,1) + 1, exp) + 1;
@@ -160,7 +165,15 @@ public class UFunc
     {
         float x = (pos2.y + (slope2*-pos2.x) - pos1.y - (slope1*-pos1.x)) / (slope1 - slope2);
 
-        return new Vector3(x, slope1*(x-pos1.x) + pos1.y);
+        return new Vector2(x, slope1*(x-pos1.x) + pos1.y);
+    }
+
+    public static float SlopeDifference(float s1, float s2)
+    {
+        float perpSlope = 1/s1;
+        float x = 1/Mathf.Sqrt(s1*s1 + 1);
+        Vector2 perpPos = new Vector2(x, s1*x);
+        return Vector2.Distance(SlopeIntersect(perpSlope, perpPos, s2, new Vector2(0,0)),perpPos);
     }
 
     public static T[] ListToArray<T>(List<T> list)
@@ -182,6 +195,10 @@ public class UFunc
         return newList;
     }
 
+    public static bool Between01(float n)
+    {
+        return n >= 0 && n <= 1;
+    }
     public static bool IsBetweenVector2(Vector2 vec, Vector2 low, Vector2 high)
     {
         bool yes = true;

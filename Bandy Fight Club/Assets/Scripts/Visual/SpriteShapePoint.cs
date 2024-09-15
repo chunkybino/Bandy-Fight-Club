@@ -16,11 +16,15 @@ public class SpriteShapePoint : MonoBehaviour
     public bool onlyDoInLine2Bounds;
     public bool flipIntersectionPointOrder;
     public bool movePastIntersection;
-    public float movePastIntersectionFactor; //place a point this much distance between the intersection and one of the innnerpoints
-    public bool movePastIntersectionDoOtherPoint; //change the innnerpoit we choose for the above variable
+    public Transform movePastIntersectionPosPoint;
+    public Transform[] overIntersectBoundPoints = new Transform[0];
+    public SpriteShapePoint[] overIntersectBoundDisablePoints = new SpriteShapePoint[0];
+    public float slopeSimularRange = 0.05f;
 
     public bool doSecondLine;
     public Vector3[] secondLinePoints = new Vector3[2];
+
+    public bool dontDoForFrame;
 
     void Update()
     {
@@ -37,6 +41,7 @@ public class SpriteShapePoint : MonoBehaviour
 
             if (notNull)
             {
+                points.Clear();
                 DoIntersectionPoint();
             }
         }
@@ -51,11 +56,17 @@ public class SpriteShapePoint : MonoBehaviour
         Vector2 intersect = UFunc.SlopeIntersect(slope1, intersectionInnerPoint1.position, slope2, intersectionInnerPoint2.position);
 
         bool inLine1Bounds = UFunc.IsBetweenVector2(intersect, intersectionOuterPoint1.position, intersectionInnerPoint1.position);
+        float intersectLerp1 = UFunc.InverseLerpUnclamped(intersectionInnerPoint1.position.x, intersectionOuterPoint1.position.x, intersect.x);
         bool inLine2Bounds = UFunc.IsBetweenVector2(intersect, intersectionOuterPoint2.position, intersectionInnerPoint2.position);
+        float intersectLerp2 = UFunc.InverseLerpUnclamped(intersectionInnerPoint2.position.x, intersectionOuterPoint2.position.x, intersect.x);
 
         bool shouldDo = true;
-        if (onlyDoInLine1Bounds && !inLine1Bounds) shouldDo = false;
-        if (onlyDoInLine2Bounds && !inLine2Bounds) shouldDo = false;
+        if (!UFunc.Between01(intersectLerp1) && onlyDoInLine1Bounds) shouldDo = false;
+        if (!UFunc.Between01(intersectLerp2) && onlyDoInLine2Bounds) shouldDo = false;
+
+        float slopeDiff = UFunc.SlopeDifference(slope1,slope2);
+        bool simularSlope = slopeDiff < slopeSimularRange;
+        if (simularSlope) shouldDo = false;
 
         if (shouldDo)
         {
@@ -67,48 +78,70 @@ public class SpriteShapePoint : MonoBehaviour
             {
                 doSecondLine = true;
 
-                Vector3 lerpPos = intersectionInnerPoint1.position;
-                if (movePastIntersectionDoOtherPoint) lerpPos = intersectionInnerPoint2.position;
-                Vector2 movePastPos = UFunc.LerpVector3(pos, lerpPos, movePastIntersectionFactor);
-                //points.Insert(0, movePastPos);
+                Vector3 inPos = intersectionInnerPoint1.position;
+                Vector3 outPos = intersectionOuterPoint1.position;
+                Vector2 dis = dis1;
+                float movePastFactor = Mathf.InverseLerp(inPos.x, outPos.x, intersect.x);
+
+                Vector2 movePastPos = UFunc.LerpVector3(inPos, pos, 1-movePastFactor);
+
                 secondLinePoints[0] = pos;
                 secondLinePoints[1] = movePastPos;
+                if (movePastIntersectionPosPoint) movePastIntersectionPosPoint.position = movePastPos;
             }
         }
         else
         {
-            Vector2 dis3 = intersectionInnerPoint2.position-intersectionInnerPoint1.position;
-            float slope3 = dis3.y/dis3.x;
+            bool overIntersectBounds = intersectLerp2 >= 1;
 
-            bool right1 = false;
-            int sign1Flip = 0;
-            if (dis1.x < 0) sign1Flip++;
-            if (dis3.x < 0) sign1Flip++;
-
-            if (sign1Flip != 1){
-                right1 = slope1 > slope3;
-            } else {
-                right1 = slope1 < slope3;
-            }
-
-            bool right2 = false;
-            int sign2Flip = 0;
-            if (dis2.x < 0) sign2Flip++;
-            if (dis3.x < 0) sign2Flip++;
-
-            if (sign2Flip != 1){
-                right2 = slope2 > slope3;
-            } else {
-                right2 = slope2 < slope3;
-            }
-
-            if (right1 == right2)
+            if (!overIntersectBounds || simularSlope)
             {
-                points = new List<Vector3>() {intersectionInnerPoint2.position};
+                Vector2 dis3 = intersectionInnerPoint2.position-intersectionInnerPoint1.position;
+                float slope3 = dis3.y/dis3.x;
+
+                bool right1 = false;
+                int sign1Flip = 0;
+                if (dis1.x < 0) sign1Flip++;
+                if (dis3.x < 0) sign1Flip++;
+
+                if (sign1Flip != 1){
+                    right1 = slope1 > slope3;
+                } else {
+                    right1 = slope1 < slope3;
+                }
+
+                bool right2 = false;
+                int sign2Flip = 0;
+                if (dis2.x < 0) sign2Flip++;
+                if (dis3.x < 0) sign2Flip++;
+
+                if (sign2Flip != 1){
+                    right2 = slope2 > slope3;
+                } else {
+                    right2 = slope2 < slope3;
+                }
+
+                if (right1 == right2)
+                {
+                    points.Add(intersectionInnerPoint2.position);
+                }
+                else
+                {
+                    points.Add(intersectionInnerPoint1.position);
+                    points.Add(intersectionInnerPoint2.position);
+                }
             }
             else
             {
-                points = new List<Vector3>() {intersectionInnerPoint1.position,intersectionInnerPoint2.position};
+                points.Clear();
+                foreach (Transform p in overIntersectBoundPoints)
+                {
+                    points.Add(p.position);
+                }
+                foreach (SpriteShapePoint p in overIntersectBoundDisablePoints)
+                {
+                    p.dontDoForFrame = true;
+                }
             }
         }
 
