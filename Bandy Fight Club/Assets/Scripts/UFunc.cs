@@ -91,6 +91,19 @@ public class UFunc
     {
         return AngleToVec(VecToAngle(vec)+rot) * vec.magnitude;
     }
+    public static Vector2 RotateVecByVec(Vector2 vec, Vector2 rotVec)
+    {
+        if (rotVec.y == 0) return vec;
+        if (rotVec.x == 0) return new Vector2(-vec.y,vec.x);
+
+        float slope = rotVec.y/rotVec.x;
+        float perpSlope = -1/slope;
+        float slope1x = vec.x/Mathf.Sqrt(slope*slope + 1);
+        float slope2x = vec.y/Mathf.Sqrt(1/(slope*slope) + 1);
+        float perpSlopex = slope1x-(slope2x*Mathf.Sign(slope));
+
+        return new Vector2(perpSlopex, -((perpSlopex-slope1x)/slope)+(slope*slope1x));
+    }
 
     public static List<string> SeperateStringByUnderscore(string thing)
     {
