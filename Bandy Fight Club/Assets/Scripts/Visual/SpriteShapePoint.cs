@@ -68,7 +68,7 @@ public class SpriteShapePoint : MonoBehaviour
         bool simularSlope = slopeDiff < slopeSimularRange;
         if (simularSlope) shouldDo = false;
 
-        if (shouldDo)
+        else if (shouldDo)
         {
             Vector3 pos = intersect;
             transform.position = pos;
@@ -80,10 +80,9 @@ public class SpriteShapePoint : MonoBehaviour
 
                 Vector3 inPos = intersectionInnerPoint1.position;
                 Vector3 outPos = intersectionOuterPoint1.position;
-                Vector2 dis = dis1;
                 float movePastFactor = Mathf.InverseLerp(inPos.x, outPos.x, intersect.x);
 
-                Vector2 movePastPos = UFunc.LerpVector3(inPos, pos, 1-movePastFactor);
+                Vector3 movePastPos = UFunc.LerpVector3(inPos, pos, 1-movePastFactor);
 
                 secondLinePoints[0] = pos;
                 secondLinePoints[1] = movePastPos;

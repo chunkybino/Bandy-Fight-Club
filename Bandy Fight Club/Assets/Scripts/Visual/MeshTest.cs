@@ -14,6 +14,8 @@ public class MeshTest : MonoBehaviour
     public Vector3[] vertices;
     public Triangle[] triangles;
 
+    public bool doWorldSpace;
+
     void Update()
     {
         mesh = meshFilter.mesh;
@@ -23,7 +25,9 @@ public class MeshTest : MonoBehaviour
             vertices = new Vector3[verticeReferences.Length];
             for (int i = 0; i < verticeReferences.Length; i++)
             {
-                vertices[i] = verticeReferences[i].position - transform.position + new Vector3(0,0,-0.1f);
+                Vector3 offset = new Vector3(0,0,-0.1f);
+                if (doWorldSpace) offset -= transform.position;
+                vertices[i] = verticeReferences[i].position + offset;
             }
         }
 

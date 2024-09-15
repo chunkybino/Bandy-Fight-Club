@@ -14,6 +14,8 @@ public class SpriteShapeMapper : MonoBehaviour
 
     public float lineZOffset = 0.2f;
 
+    public bool doLocalSpace;
+
     /*public SpriteShapeController shapeControl;
     public Transform[] shapePoints = new Transform[0];
     public float minShapePointDistance = 0.04f;*/
@@ -62,7 +64,9 @@ public class SpriteShapeMapper : MonoBehaviour
 
         void SetLinePoints(LineRenderer theLine, Vector3[] thePoints)
         {
-            for (int i = 0; i < thePoints.Length; i++) {thePoints[i] += new Vector3(0,0,-lineZOffset);}
+            Vector3 offset = new Vector3(0,0,-lineZOffset);
+            if (doLocalSpace) offset += transform.position;
+            for (int i = 0; i < thePoints.Length; i++) {thePoints[i] += offset;}
             theLine.positionCount = thePoints.Length;
             theLine.SetPositions(thePoints);
         }
