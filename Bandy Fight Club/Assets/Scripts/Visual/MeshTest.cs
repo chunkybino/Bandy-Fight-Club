@@ -18,7 +18,7 @@ public class MeshTest : MonoBehaviour
 
     void Update()
     {
-        mesh = meshFilter.mesh;
+        mesh = meshFilter.sharedMesh;
 
         if (doVerticeReferences)
         {

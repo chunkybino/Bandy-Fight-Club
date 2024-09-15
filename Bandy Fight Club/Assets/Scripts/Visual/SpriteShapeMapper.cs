@@ -37,13 +37,13 @@ public class SpriteShapeMapper : MonoBehaviour
             {
                 linePoints.Add(p);
             }
-            if (point.doSecondLine) secondLinePoints.Add(point);
+            //if (point.doSecondLine) secondLinePoints.Add(point);
         }
 
         Vector3[] lineArray = UFunc.ListToArray(linePoints);
         SetLinePoints(line, lineArray);
 
-        DoSecondLines(secondLinePoints);
+        /*DoSecondLines(secondLinePoints);
 
         void DoSecondLines(List<SpriteShapePoint> list)
         {
@@ -60,7 +60,7 @@ public class SpriteShapeMapper : MonoBehaviour
             {
                 childLines[i].gameObject.SetActive(false); 
             }
-        }
+        }*/
 
         void SetLinePoints(LineRenderer theLine, Vector3[] thePoints)
         {

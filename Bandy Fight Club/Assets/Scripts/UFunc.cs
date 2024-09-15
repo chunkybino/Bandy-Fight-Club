@@ -194,6 +194,14 @@ public class UFunc
         }
         return newList;
     }
+    public static List<T> AppendArrayToList<T>(List<T> list, T[] array)
+    {
+        foreach (T a in array)
+        {
+            list.Add(a);
+        }
+        return list;
+    }
 
     public static bool Between01(float n)
     {
