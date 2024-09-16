@@ -23,9 +23,16 @@ public class MeshTest : MonoBehaviour
     public Vector2 uvRotation;
     public int[] uvRotationVerticeReferences = new int[2];
 
+    public bool instanceMesh;
+
     void Update()
     {
-        mesh = meshFilter.sharedMesh;
+        if (instanceMesh)
+        {
+            instanceMesh = false;
+            mesh = new Mesh();
+            meshFilter.sharedMesh = mesh;
+        }
 
         //verticies
         if (doVerticeReferences)
