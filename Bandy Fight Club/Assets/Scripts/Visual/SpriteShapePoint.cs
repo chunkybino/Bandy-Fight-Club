@@ -62,18 +62,20 @@ public class SpriteShapePoint : MonoBehaviour
 
         if (doIfSlopeDifference && slopePoint1 && slopePoint2)
         {
+            doSelf = false;
+
             Vector3 diff1 = transform.position-slopePoint1.position;
             Vector3 diff2 = transform.position-slopePoint2.position;
 
             float slopeDiff = UFunc.SlopeDifference(diff1.y/diff1.x,diff2.y/diff2.x);
 
-            if (!slopeGreaterThan)
+            if (slopeGreaterThan == slopeDiff > 0) 
             {
-                if (slopeDiff < 0) doSelf = false;
+                points.Add(transform.position);
             }
             else
             {
-                if (slopeDiff > 0) doSelf = false;
+                points.Add(UFunc.LerpVector3(slopePoint1.position, slopePoint2.position, 0.5f));
             }
         }
 

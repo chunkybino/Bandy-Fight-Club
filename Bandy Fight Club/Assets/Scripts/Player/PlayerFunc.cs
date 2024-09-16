@@ -32,7 +32,6 @@ public class PlayerFunc : MonoBehaviour
     [SerializeField] bool isDodgingBurst;
     [SerializeField] float dodgeBurstSpeed = 16;
     [SerializeField] float dodgeLowerSpeed = 9;
-    [SerializeField] float dodgeSpeedDecaySpeed = 25;
     [SerializeField] float dodgeBurstTime = 0.15f;
     [SerializeField] float dodgeTime = 0.5f;
     [SerializeField] Vector2 dodgeDirection;

@@ -216,18 +216,18 @@ MonoBehaviour:
   - {fileID: 2128504746}
   UV:
   - {x: 0, y: 0}
-  - {x: 0, y: 0.5400749}
-  - {x: 1.0193211, y: 0.545373}
-  - {x: 1.3835086, y: 0.071615905}
-  - {x: 1.0193211, y: 0.545373}
-  - {x: 1.2913208, y: 0.051525805}
+  - {x: 0.000000007450581, y: -0.540075}
+  - {x: -0.98993814, y: -0.5452206}
+  - {x: -1.4534403, y: -0.21085444}
+  - {x: -0.98993814, y: -0.5452206}
+  - {x: -1.2913208, y: -0.051526316}
   vertices:
-  - {x: -2.7435164, y: 1.6126896, z: -0.1}
-  - {x: -2.2190669, y: 1.4837186, z: -0.1}
-  - {x: -1.9705061, y: 2.4722838, z: -0.1}
-  - {x: -2.3435879, y: 2.9390688, z: -0.1}
-  - {x: -1.9705061, y: 2.4722838, z: -0.1}
-  - {x: -2.3851113, y: 2.8543458, z: -0.1}
+  - {x: 0.35519832, y: 1.3456247, z: -0.1}
+  - {x: 0.26435548, y: 1.8780048, z: -0.1}
+  - {x: -0.71234375, y: 1.7165654, z: -0.1}
+  - {x: -1.1130002, y: 1.3090003, z: -0.1}
+  - {x: -0.71234375, y: 1.7165654, z: -0.1}
+  - {x: -0.926391, y: 1.1792114, z: -0.1}
   triangles:
   - p1: 2
     p2: 1
@@ -243,7 +243,7 @@ MonoBehaviour:
     p3: 0
   doWorldSpace: 0
   verticeRotationVec: {x: 1, y: 0}
-  uvRotation: {x: 0.5244496, y: -0.12897098}
+  uvRotation: {x: -0.09084284, y: 0.5323801}
   uvRotationVerticeReferences: 0100000000000000
 --- !u!4 &717742
 Transform:
@@ -284,14 +284,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 60068801}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0.04556614, w: 0.9989614}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 3, y: 3, z: 3}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 2011315598}
   m_Father: {fileID: 271081476}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -5.223}
 --- !u!1 &90760424
 GameObject:
   m_ObjectHideFlags: 0
@@ -339,7 +339,6 @@ MonoBehaviour:
   isDodgingBurst: 0
   dodgeBurstSpeed: 16
   dodgeLowerSpeed: 4
-  dodgeSpeedDecaySpeed: 25
   dodgeBurstTime: 0.15
   dodgeTime: 0.3
   dodgeDirection: {x: 1, y: 0}
@@ -477,7 +476,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   points:
-  - {x: -1.9705061, y: 2.4722838, z: 0}
+  - {x: -0.71234375, y: 1.7165654, z: 0}
   doByIntersection: 1
   intersectionInnerPoint1: {fileID: 543497495}
   intersectionInnerPoint2: {fileID: 1640700113}
@@ -547,7 +546,7 @@ Transform:
   m_GameObject: {fileID: 126276106}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0.2631188, w: 0.9647635}
-  m_LocalPosition: {x: -0.336, y: 0.43, z: 0}
+  m_LocalPosition: {x: -0.336, y: 0.43, z: -0.11}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -566,7 +565,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   points:
-  - {x: -0.336, y: 1.4300001, z: 0}
+  - {x: -0.336, y: 1.4300001, z: -0.11}
   doByIntersection: 0
   intersectionInnerPoint1: {fileID: 0}
   intersectionInnerPoint2: {fileID: 0}
@@ -730,7 +729,7 @@ Transform:
   m_GameObject: {fileID: 224089066}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: 0.5656272, w: 0.82466114}
-  m_LocalPosition: {x: 0.019971445, y: -0.2793336, z: 0}
+  m_LocalPosition: {x: 0.46119297, y: -0.009211272, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -762,8 +761,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 252027124}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: 0, z: -0.26312009, w: 0.9647631}
-  m_LocalPosition: {x: -0.434, y: 1.974, z: 0}
+  m_LocalRotation: {x: -0, y: 0, z: -0.26312047, w: 0.96476305}
+  m_LocalPosition: {x: -0.434, y: 1.974, z: -0.161}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -779,12 +778,12 @@ ParentConstraint:
   m_Enabled: 1
   serializedVersion: 2
   m_Weight: 1
-  m_TranslationAtRest: {x: -0.434, y: 1.974, z: 0}
-  m_RotationAtRest: {x: 0, y: 0, z: -30.51054}
+  m_TranslationAtRest: {x: -0.434, y: 1.974, z: -0.161}
+  m_RotationAtRest: {x: 0, y: 0, z: -30.510586}
   m_TranslationOffsets:
-  - {x: -0.434, y: 1.322, z: 0}
+  - {x: -0.434, y: 1.322, z: -0.161}
   m_RotationOffsets:
-  - {x: 0, y: 0, z: -30.51054}
+  - {x: 0, y: 0, z: -30.510586}
   m_AffectTranslationX: 1
   m_AffectTranslationY: 1
   m_AffectTranslationZ: 1
@@ -809,7 +808,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   points:
-  - {x: -0.434, y: 2.974, z: 0}
+  - {x: -0.434, y: 2.974, z: -0.161}
   doByIntersection: 0
   intersectionInnerPoint1: {fileID: 0}
   intersectionInnerPoint2: {fileID: 0}
@@ -868,14 +867,15 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 271081475}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0.68291175, w: 0.73050094}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.092, y: 0.145, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 60068802}
+  - {fileID: 1691625384}
   m_Father: {fileID: 664624927}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -86.143}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &273999667
 GameObject:
   m_ObjectHideFlags: 0
@@ -906,8 +906,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   points:
-  - {x: -2.3851113, y: 2.8543458, z: 0}
-  - {x: -2.3435879, y: 2.9390688, z: 0}
+  - {x: -0.92639095, y: 1.1792114, z: 0}
+  - {x: -1.113, y: 1.3090003, z: 0}
   doByIntersection: 1
   intersectionInnerPoint1: {fileID: 523856339}
   intersectionInnerPoint2: {fileID: 484549954}
@@ -970,6 +970,86 @@ Transform:
   - {fileID: 1307622969}
   m_Father: {fileID: 1157205691}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &288716650
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 288716651}
+  - component: {fileID: 288716652}
+  m_Layer: 0
+  m_Name: point 6, 2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &288716651
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 288716650}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: 0.25782225, w: 0.9661924}
+  m_LocalPosition: {x: -1.102, y: 1.738, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1442033590}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 29.882}
+--- !u!114 &288716652
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 288716650}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e2c16039ca53794fb602e1f2a8e9e27, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  points:
+  - {x: -1.102, y: 2.738, z: 0}
+  doByIntersection: 0
+  intersectionInnerPoint1: {fileID: 0}
+  intersectionInnerPoint2: {fileID: 0}
+  intersectionOuterPoint1: {fileID: 0}
+  intersectionOuterPoint2: {fileID: 0}
+  intersectPoint: {fileID: 0}
+  movePastPoint: {fileID: 0}
+  intersect1Points:
+    points: []
+    aboveIntersectPoints: []
+    belowIntersectPoints: []
+  intersect2Points:
+    points: []
+    aboveIntersectPoints: []
+    belowIntersectPoints: []
+  intersectBothPoints:
+    points: []
+    aboveIntersectPoints: []
+    belowIntersectPoints: []
+  intersectNoSameIntersectDirectionPoints:
+    points: []
+    aboveIntersectPoints: []
+    belowIntersectPoints: []
+  intersectNoDiffIntersectDirectionPoints:
+    points: []
+    aboveIntersectPoints: []
+    belowIntersectPoints: []
+  doIfSlopeDifference: 0
+  slopePoint1: {fileID: 0}
+  slopePoint2: {fileID: 0}
+  slopeGreaterThan: 0
+  doMeshPoints: 0
+  meshPoints: []
+  flipPointOrder: 0
 --- !u!1 &292188174
 GameObject:
   m_ObjectHideFlags: 0
@@ -1162,11 +1242,11 @@ LineRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 1
   m_Positions:
-  - {x: -0.834, y: 2.944, z: 0.99000007}
-  - {x: -1.1179652, y: 3.0156813, z: 0.99000007}
-  - {x: -2.3435879, y: 2.9390688, z: 0.99000007}
-  - {x: -2.3075347, y: 2.3150806, z: 0.99000007}
-  - {x: -1.0093466, y: 2.4005942, z: 0.99000007}
+  - {x: -3.1430001, y: 2.9359999, z: 1.3900001}
+  - {x: -3.3569999, y: 2.5370002, z: 1.3900001}
+  - {x: -3.363, y: 1.3090003, z: 1.3900001}
+  - {x: -2.738, y: 1.3030002, z: 1.3900001}
+  - {x: -2.736, y: 2.604, z: 1.3900001}
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 0.1
@@ -1256,7 +1336,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   points:
-  - {x: -1.1179652, y: 3.0156813, z: 0}
+  - {x: -1.107, y: 2.5370002, z: 0}
   doByIntersection: 0
   intersectionInnerPoint1: {fileID: 0}
   intersectionInnerPoint2: {fileID: 0}
@@ -1299,13 +1379,93 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 324179343}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: 0.3524921, w: 0.9358148}
   m_LocalPosition: {x: -0.31, y: 0.096, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 391009163}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 41.28}
+--- !u!1 &369537093
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 369537094}
+  - component: {fileID: 369537095}
+  m_Layer: 0
+  m_Name: shoulderpoint (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &369537094
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 369537093}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: 0.9980276, w: -0.06277679}
+  m_LocalPosition: {x: -0.802, y: 2.029, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1442033590}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -67.984}
+--- !u!114 &369537095
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 369537093}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e2c16039ca53794fb602e1f2a8e9e27, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  points:
+  - {x: -0.802, y: 3.029, z: 0}
+  doByIntersection: 0
+  intersectionInnerPoint1: {fileID: 0}
+  intersectionInnerPoint2: {fileID: 0}
+  intersectionOuterPoint1: {fileID: 0}
+  intersectionOuterPoint2: {fileID: 0}
+  intersectPoint: {fileID: 0}
+  movePastPoint: {fileID: 0}
+  intersect1Points:
+    points: []
+    aboveIntersectPoints: []
+    belowIntersectPoints: []
+  intersect2Points:
+    points: []
+    aboveIntersectPoints: []
+    belowIntersectPoints: []
+  intersectBothPoints:
+    points: []
+    aboveIntersectPoints: []
+    belowIntersectPoints: []
+  intersectNoSameIntersectDirectionPoints:
+    points: []
+    aboveIntersectPoints: []
+    belowIntersectPoints: []
+  intersectNoDiffIntersectDirectionPoints:
+    points: []
+    aboveIntersectPoints: []
+    belowIntersectPoints: []
+  doIfSlopeDifference: 1
+  slopePoint1: {fileID: 252027125}
+  slopePoint2: {fileID: 324179345}
+  slopeGreaterThan: 1
+  doMeshPoints: 0
+  meshPoints: []
+  flipPointOrder: 0
 --- !u!1 &391009162
 GameObject:
   m_ObjectHideFlags: 0
@@ -1734,16 +1894,16 @@ MonoBehaviour:
   - {fileID: 1691625384}
   UV:
   - {x: 0, y: 0}
-  - {x: 0, y: -1.2280147}
-  - {x: -0.6250219, y: -1.2309607}
-  - {x: -0.62066525, y: 0.07003343}
-  - {x: -0.089257434, y: 0.27894005}
+  - {x: 0, y: -1.2280146}
+  - {x: -0.6250219, y: -1.2309608}
+  - {x: -0.62066525, y: 0.0700333}
+  - {x: -0.21204793, y: 0.40004054}
   vertices:
-  - {x: -1.1179652, y: 3.0156813, z: -0.1}
-  - {x: -2.3435879, y: 2.9390688, z: -0.1}
-  - {x: -2.3075347, y: 2.3150806, z: -0.1}
-  - {x: -1.0093466, y: 2.4005942, z: -0.1}
-  - {x: -0.834, y: 2.944, z: -0.1}
+  - {x: -1.107, y: 2.5370002, z: -0.1}
+  - {x: -1.113, y: 1.3090003, z: -0.1}
+  - {x: -0.488, y: 1.3030002, z: -0.1}
+  - {x: -0.486, y: 2.604, z: -0.1}
+  - {x: -0.893, y: 2.9359999, z: -0.1}
   triangles:
   - p1: 2
     p2: 1
@@ -1756,7 +1916,7 @@ MonoBehaviour:
     p3: 0
   doWorldSpace: 0
   verticeRotationVec: {x: 0, y: 0}
-  uvRotation: {x: 1.2256227, y: 0.07661247}
+  uvRotation: {x: 0.006000042, y: 1.2279999}
   uvRotationVerticeReferences: 0000000001000000
 --- !u!1 &461585137
 GameObject:
@@ -1842,7 +2002,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   points:
-  - {x: -2.3435879, y: 2.9390688, z: 0}
+  - {x: -1.113, y: 1.3090003, z: 0}
   doByIntersection: 0
   intersectionInnerPoint1: {fileID: 0}
   intersectionInnerPoint2: {fileID: 0}
@@ -2246,13 +2406,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 547211738}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: 0, z: -0.2631192, w: 0.96476334}
-  m_LocalPosition: {x: -0.29, y: 1.1399999, z: 0}
+  m_LocalRotation: {x: -0, y: 0, z: -0.26311973, w: 0.9647632}
+  m_LocalPosition: {x: -0.29, y: 1.1399999, z: -0.303}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1442033590}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0.28, z: -30.51}
 --- !u!1773428102 &547211740
 ParentConstraint:
   m_ObjectHideFlags: 0
@@ -2263,12 +2423,12 @@ ParentConstraint:
   m_Enabled: 1
   serializedVersion: 2
   m_Weight: 1
-  m_TranslationAtRest: {x: -0.29, y: 1.14, z: 0}
-  m_RotationAtRest: {x: 0, y: 0, z: -30.510431}
+  m_TranslationAtRest: {x: -0.29, y: 1.1399999, z: -0.303}
+  m_RotationAtRest: {x: 0, y: 0, z: -30.510475}
   m_TranslationOffsets:
-  - {x: -0.29, y: 0.48799992, z: 0}
+  - {x: -0.29, y: 0.48799992, z: -0.303}
   m_RotationOffsets:
-  - {x: 0, y: 0, z: -30.510439}
+  - {x: 0, y: 0, z: -30.510483}
   m_AffectTranslationX: 1
   m_AffectTranslationY: 1
   m_AffectTranslationZ: 1
@@ -2293,7 +2453,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   points:
-  - {x: -0.29, y: 2.1399999, z: 0}
+  - {x: -0.29, y: 2.1399999, z: -0.303}
   doByIntersection: 0
   intersectionInnerPoint1: {fileID: 0}
   intersectionInnerPoint2: {fileID: 0}
@@ -2353,7 +2513,7 @@ Transform:
   m_GameObject: {fileID: 561139186}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 1.08}
+  m_LocalPosition: {x: -2.25, y: 0, z: 1.08}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2389,7 +2549,7 @@ Transform:
   m_GameObject: {fileID: 591437703}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0.2631188, w: 0.9647635}
-  m_LocalPosition: {x: -0.9268788, y: 0.4655782, z: 0}
+  m_LocalPosition: {x: -0.81129557, y: 0.5024138, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2404,7 +2564,7 @@ PositionConstraint:
   m_GameObject: {fileID: 591437703}
   m_Enabled: 1
   serializedVersion: 2
-  m_Weight: 0.302
+  m_Weight: 0.144
   m_TranslationAtRest: {x: -0.85, y: 0.48, z: 0}
   m_TranslationOffset: {x: -0.095219016, y: -0.9683485, z: 0}
   m_AffectTranslationX: 1
@@ -2428,7 +2588,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   points:
-  - {x: -0.9268788, y: 1.4655782, z: 0}
+  - {x: -0.81129557, y: 1.5024137, z: 0}
   doByIntersection: 0
   intersectionInnerPoint1: {fileID: 0}
   intersectionInnerPoint2: {fileID: 0}
@@ -2570,7 +2730,7 @@ Transform:
   m_GameObject: {fileID: 659092361}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.0032642782, y: 0.28465176, z: 0}
+  m_LocalPosition: {x: -0.0019350648, y: 0.16873527, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2602,13 +2762,13 @@ Transform:
   m_GameObject: {fileID: 664624926}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.88, y: 1.7119999, z: 0}
+  m_LocalPosition: {x: -0.88, y: 1.609, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 271081476}
   m_Father: {fileID: 461585138}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0.262}
+  m_LocalEulerAnglesHint: {x: 1, y: 0, z: 0}
 --- !u!1773428102 &664624928
 ParentConstraint:
   m_ObjectHideFlags: 0
@@ -2619,10 +2779,10 @@ ParentConstraint:
   m_Enabled: 1
   serializedVersion: 2
   m_Weight: 1
-  m_TranslationAtRest: {x: -0.88, y: 1.7119999, z: 0}
+  m_TranslationAtRest: {x: -0.88, y: 1.609, z: 0}
   m_RotationAtRest: {x: 0, y: 0, z: 0}
   m_TranslationOffsets:
-  - {x: -0.88, y: 1.06, z: 0}
+  - {x: -0.88, y: 0.957, z: 0}
   m_RotationOffsets:
   - {x: 0, y: 0, z: 0}
   m_AffectTranslationX: 1
@@ -2695,7 +2855,7 @@ Transform:
   m_GameObject: {fileID: 715536987}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.0048874617, y: 0.42619163, z: 0}
+  m_LocalPosition: {x: -0.004550636, y: 0.39681038, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2711,6 +2871,7 @@ GameObject:
   m_Component:
   - component: {fileID: 740324088}
   - component: {fileID: 740324089}
+  - component: {fileID: 740324090}
   m_Layer: 0
   m_Name: point (3)
   m_TagString: Untagged
@@ -2727,7 +2888,7 @@ Transform:
   m_GameObject: {fileID: 740324087}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0.2631188, w: 0.9647635}
-  m_LocalPosition: {x: -1.149, y: -0.696, z: 0}
+  m_LocalPosition: {x: -1.0665358, y: -0.8839285, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2746,7 +2907,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   points:
-  - {x: -1.149, y: 0.30400002, z: 0}
+  - {x: -1.0665358, y: 0.11607152, z: 0}
   doByIntersection: 0
   intersectionInnerPoint1: {fileID: 0}
   intersectionInnerPoint2: {fileID: 0}
@@ -2781,6 +2942,26 @@ MonoBehaviour:
   doMeshPoints: 0
   meshPoints: []
   flipPointOrder: 0
+--- !u!1818360608 &740324090
+PositionConstraint:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 740324087}
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Weight: 0.071
+  m_TranslationAtRest: {x: -1.08, y: -0.881, z: 0}
+  m_TranslationOffset: {x: -0.11836356, y: -2.293247, z: 0}
+  m_AffectTranslationX: 1
+  m_AffectTranslationY: 1
+  m_AffectTranslationZ: 1
+  m_Active: 1
+  m_IsLocked: 1
+  m_Sources:
+  - sourceTransform: {fileID: 2028547266}
+    weight: 1
 --- !u!1 &779797261
 GameObject:
   m_ObjectHideFlags: 0
@@ -2838,13 +3019,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 813742835}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0.24850357, w: 0.968631}
+  m_LocalRotation: {x: -0, y: -0, z: -0.5138161, w: 0.8579004}
   m_LocalPosition: {x: 0.311, y: 0.163, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 391009163}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -28.778}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -61.837}
 --- !u!114 &813742837
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2858,7 +3039,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   points:
-  - {x: -1.0093466, y: 2.4005942, z: 0}
+  - {x: -0.486, y: 2.604, z: 0}
   doByIntersection: 0
   intersectionInnerPoint1: {fileID: 0}
   intersectionInnerPoint2: {fileID: 0}
@@ -3002,11 +3183,11 @@ LineRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 1
   m_Positions:
-  - {x: -1.9705061, y: 2.4722838, z: 0.89000005}
-  - {x: -2.2190669, y: 1.4837186, z: 0.89000005}
-  - {x: -2.7435164, y: 1.6126896, z: 0.89000005}
-  - {x: -2.3851113, y: 2.8543458, z: 0.89000005}
-  - {x: -2.3435879, y: 2.9390688, z: 0.89000005}
+  - {x: -2.9623437, y: 1.7165654, z: 0.89000005}
+  - {x: -1.9856446, y: 1.8780048, z: 0.89000005}
+  - {x: -1.8948016, y: 1.3456247, z: 0.89000005}
+  - {x: -3.176391, y: 1.1792114, z: 0.89000005}
+  - {x: -3.363, y: 1.3090003, z: 0.89000005}
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 0.1
@@ -3200,7 +3381,7 @@ Transform:
   m_GameObject: {fileID: 933777786}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0.000000089406946, w: 1}
-  m_LocalPosition: {x: 0.02803564, y: 0.06796697, z: 0}
+  m_LocalPosition: {x: 0.030400723, y: 0.16982326, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3263,7 +3444,7 @@ Transform:
   m_GameObject: {fileID: 969829969}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.2}
+  m_LocalPosition: {x: 0, y: 0, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3346,14 +3527,14 @@ LineRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 1
   m_Positions:
-  - {x: -0.834, y: 2.944, z: 1.0899999}
-  - {x: -0.434, y: 2.974, z: 1.0899999}
-  - {x: -0.29, y: 2.1399999, z: 1.0899999}
-  - {x: -0.336, y: 1.4300001, z: 1.0899999}
-  - {x: -0.53, y: 0.17400002, z: 1.0899999}
-  - {x: -1.149, y: 0.30400002, z: 1.0899999}
-  - {x: -0.9268788, y: 1.4655782, z: 1.0899999}
-  - {x: -1.2610562, y: 2.6702743, z: 1.0899999}
+  - {x: -3.0971398, y: 2.9800565, z: 1.8900001}
+  - {x: -2.684, y: 2.974, z: 1.7290001}
+  - {x: -2.54, y: 2.1399999, z: 1.5870001}
+  - {x: -2.586, y: 1.4300001, z: 1.7800001}
+  - {x: -2.78, y: 0.17400002, z: 1.8900001}
+  - {x: -3.316536, y: 0.11607152, z: 1.8900001}
+  - {x: -3.0612955, y: 1.5024137, z: 1.8900001}
+  - {x: -3.3119102, y: 2.6084716, z: 1.8900001}
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 0.1
@@ -3411,7 +3592,7 @@ LineRenderer:
     generateLightingData: 0
   m_MaskInteraction: 0
   m_UseWorldSpace: 1
-  m_Loop: 0
+  m_Loop: 1
   m_ApplyActiveColorSpace: 1
 --- !u!1 &1066638426
 GameObject:
@@ -3470,7 +3651,7 @@ Transform:
   m_GameObject: {fileID: 1088296980}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.0048874617, y: 0.42619163, z: 0}
+  m_LocalPosition: {x: -0.004550636, y: 0.39681038, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3493,8 +3674,8 @@ Mesh:
     firstVertex: 0
     vertexCount: 6
     localAABB:
-      m_Center: {x: -2.3570113, y: 2.2113938, z: -0.1}
-      m_Extent: {x: 0.3865052, y: 0.7276751, z: 0}
+      m_Center: {x: -0.37890092, y: 1.5286081, z: -0.1}
+      m_Extent: {x: 0.73409927, y: 0.3493967, z: 0}
   m_Shapes:
     vertices: []
     shapes: []
@@ -3573,7 +3754,7 @@ Mesh:
       format: 0
       dimension: 0
     m_DataSize: 120
-    _typelessdata: c6952fc09d6cce3fcdccccbd000000000000000031050ec07eeabd3fcdccccbd0000000059420a3f8b39fcbfe6391e40cdccccbd1d79823f919d0b3f58fd15c0b4193c40cdccccbdcf16b13f5cab923d8b39fcbfe6391e40cdccccbd1d79823f919d0b3faaa518c09aad3640cdccccbd004aa53fb90c533d
+    _typelessdata: 8edcb53e6e3dac3fcdccccbd00000000000000009a59873e7662f03fcdccccbd000000325b420abf295c36bf6ab8db3fcdccccbd966c7dbf94930bbfca768ebf528da73fcdccccbd550ababf3aea57be295c36bf6ab8db3fcdccccbd966c7dbf94930bbff6276dbf66f0963fcdccccbd004aa5bf420d53bd
   m_CompressedMesh:
     m_Vertices:
       m_NumItems: 0
@@ -3751,7 +3932,7 @@ Transform:
   m_GameObject: {fileID: 1123753761}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0.2631188, w: 0.9647635}
-  m_LocalPosition: {x: -0.978, y: 1.328, z: 0}
+  m_LocalPosition: {x: -1.033, y: 1.238, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3770,7 +3951,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   points:
-  - {x: -0.978, y: 2.328, z: 0}
+  - {x: -1.033, y: 2.238, z: 0}
   doByIntersection: 0
   intersectionInnerPoint1: {fileID: 0}
   intersectionInnerPoint2: {fileID: 0}
@@ -3829,7 +4010,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1157205690}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0.5833465, w: -0.81222343}
+  m_LocalRotation: {x: -0, y: -0, z: 0.75886554, w: 0.65124744}
   m_LocalPosition: {x: -0.007, y: -0.005, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -3842,7 +4023,7 @@ Transform:
   - {fileID: 110376848}
   - {fileID: 273999669}
   m_Father: {fileID: 1380465901}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -288.627}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 98.729}
 --- !u!1 &1171441811
 GameObject:
   m_ObjectHideFlags: 0
@@ -3976,8 +4157,8 @@ Mesh:
     firstVertex: 0
     vertexCount: 5
     localAABB:
-      m_Center: {x: -1.588794, y: 2.665381, z: -0.1}
-      m_Extent: {x: 0.75479394, y: 0.3503003, z: 0}
+      m_Center: {x: -0.7995, y: 2.1195002, z: -0.1}
+      m_Extent: {x: 0.31350002, y: 0.8164998, z: 0}
   m_Shapes:
     vertices: []
     shapes: []
@@ -4056,7 +4237,7 @@ Mesh:
       format: 0
       dimension: 0
     m_DataSize: 100
-    _typelessdata: 7c198fbfec004140cdccccbd000000000000000058fd15c0b4193c40cdccccbd00000000962f9dbfa6ae13c0482a1440cdccccbd6f0120bf1f909dbf453281bf56a31940cdccccbdebe31ebfb06d8f3d068155bf7f6a3c40cdccccbd9accb6bd3bd18e3e
+    _typelessdata: 2db28dbf365e2240cdccccbd0000000000000000c9768ebf528da73fcdccccbd00000000952f9dbf23dbf9beb6c8a63fcdccccbd6f0120bf20909dbffed4f8bef0a72640cdccccbdebe31ebf9e6d8f3da69b64bf6ce73b40cdccccbd182359be1dd2cc3e
   m_CompressedMesh:
     m_Vertices:
       m_NumItems: 0
@@ -4149,8 +4330,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1270843303}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: 0, z: -0.68291175, w: 0.73050094}
-  m_LocalPosition: {x: -1.1928962, y: 1.6999261, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.797, y: 1.4410002, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -4229,7 +4410,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   points:
-  - {x: -2.7435164, y: 1.6126896, z: 0}
+  - {x: 0.35519832, y: 1.3456247, z: 0}
   doByIntersection: 0
   intersectionInnerPoint1: {fileID: 0}
   intersectionInnerPoint2: {fileID: 0}
@@ -4291,7 +4472,7 @@ Transform:
   m_GameObject: {fileID: 1307622968}
   serializedVersion: 2
   m_LocalRotation: {x: 2.3283062e-10, y: 4.6566123e-10, z: -0.000000007131347, w: 1}
-  m_LocalPosition: {x: 0.044566005, y: 0.07344876, z: 0}
+  m_LocalPosition: {x: 0.18261923, y: 0.145691, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4490,7 +4671,7 @@ Transform:
   m_GameObject: {fileID: 1372335164}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.1}
+  m_LocalPosition: {x: 0, y: 0, z: 0.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -4659,16 +4840,16 @@ MonoBehaviour:
   - {fileID: 1691625384}
   UV:
   - {x: 0, y: 0}
-  - {x: 0, y: -1.2280147}
-  - {x: -0.6250219, y: -1.2309607}
-  - {x: -0.62066525, y: 0.07003343}
-  - {x: -0.089257434, y: 0.27894005}
+  - {x: 0, y: -1.2280146}
+  - {x: -0.6250219, y: -1.2309608}
+  - {x: -0.62066525, y: 0.0700333}
+  - {x: -0.21204793, y: 0.40004054}
   vertices:
-  - {x: -1.1179652, y: 3.0156813, z: -0.1}
-  - {x: -2.3435879, y: 2.9390688, z: -0.1}
-  - {x: -2.3075347, y: 2.3150806, z: -0.1}
-  - {x: -1.0093466, y: 2.4005942, z: -0.1}
-  - {x: -0.834, y: 2.944, z: -0.1}
+  - {x: -1.107, y: 2.5370002, z: -0.1}
+  - {x: -1.113, y: 1.3090003, z: -0.1}
+  - {x: -0.488, y: 1.3030002, z: -0.1}
+  - {x: -0.486, y: 2.604, z: -0.1}
+  - {x: -0.893, y: 2.9359999, z: -0.1}
   triangles:
   - p1: 2
     p2: 1
@@ -4681,7 +4862,7 @@ MonoBehaviour:
     p3: 0
   doWorldSpace: 0
   verticeRotationVec: {x: 0, y: 0}
-  uvRotation: {x: 1.2256227, y: 0.07661247}
+  uvRotation: {x: 0.006000042, y: 1.2279999}
   uvRotationVerticeReferences: 0000000001000000
 --- !u!1 &1380465900
 GameObject:
@@ -4708,14 +4889,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1380465900}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: 0, z: -0.68291175, w: 0.73050094}
-  m_LocalPosition: {x: -2.190968, y: 1.6376517, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.802, y: 0.44099998, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1157205691}
   m_Father: {fileID: 461585138}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -123.082}
+  m_LocalEulerAnglesHint: {x: 0, y: -50.658, z: -60.111}
 --- !u!1773428102 &1380465902
 ParentConstraint:
   m_ObjectHideFlags: 0
@@ -4772,7 +4953,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1691625384}
+  - {fileID: 369537094}
+  - {fileID: 2118496890}
   - {fileID: 252027125}
   - {fileID: 547211739}
   - {fileID: 126276107}
@@ -4780,6 +4962,8 @@ Transform:
   - {fileID: 740324088}
   - {fileID: 591437704}
   - {fileID: 1123753762}
+  - {fileID: 2071454976}
+  - {fileID: 288716651}
   m_Father: {fileID: 461585138}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1480754501
@@ -4881,7 +5065,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   points:
-  - {x: -2.2190669, y: 1.4837186, z: 0}
+  - {x: 0.26435548, y: 1.8780048, z: 0}
   doByIntersection: 0
   intersectionInnerPoint1: {fileID: 0}
   intersectionInnerPoint2: {fileID: 0}
@@ -5093,7 +5277,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   points:
-  - {x: -2.3075347, y: 2.3150806, z: 0}
+  - {x: -0.488, y: 1.3030002, z: 0}
   doByIntersection: 0
   intersectionInnerPoint1: {fileID: 0}
   intersectionInnerPoint2: {fileID: 0}
@@ -5185,7 +5369,7 @@ Transform:
   m_GameObject: {fileID: 1659849024}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.0048874617, y: 0.42619163, z: 0}
+  m_LocalPosition: {x: -0.004550636, y: 0.39681038, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5201,7 +5385,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1691625384}
   - component: {fileID: 1691625386}
-  - component: {fileID: 1691625385}
   m_Layer: 0
   m_Name: shoulderpoint
   m_TagString: Untagged
@@ -5217,40 +5400,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1691625383}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: 0, z: -0.5580474, w: 0.8298091}
-  m_LocalPosition: {x: -0.834, y: 1.944, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: 0.9980276, w: -0.06277679}
+  m_LocalPosition: {x: -0.105, y: 0.182, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1442033590}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -67.842}
---- !u!1773428102 &1691625385
-ParentConstraint:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1691625383}
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Weight: 1
-  m_TranslationAtRest: {x: -0.834, y: 1.944, z: 0}
-  m_RotationAtRest: {x: 0, y: 0, z: -67.84174}
-  m_TranslationOffsets:
-  - {x: -0.834, y: 1.292, z: 0}
-  m_RotationOffsets:
-  - {x: 0, y: 0, z: -67.84173}
-  m_AffectTranslationX: 1
-  m_AffectTranslationY: 1
-  m_AffectTranslationZ: 1
-  m_AffectRotationX: 1
-  m_AffectRotationY: 1
-  m_AffectRotationZ: 1
-  m_Active: 1
-  m_IsLocked: 1
-  m_Sources:
-  - sourceTransform: {fileID: 891540962}
-    weight: 1
+  m_Father: {fileID: 271081476}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -67.984}
 --- !u!114 &1691625386
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5264,7 +5420,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   points:
-  - {x: -0.834, y: 2.944, z: 0}
+  - {x: -0.893, y: 2.9359999, z: 0}
   doByIntersection: 0
   intersectionInnerPoint1: {fileID: 0}
   intersectionInnerPoint2: {fileID: 0}
@@ -5292,10 +5448,10 @@ MonoBehaviour:
     points: []
     aboveIntersectPoints: []
     belowIntersectPoints: []
-  doIfSlopeDifference: 0
+  doIfSlopeDifference: 1
   slopePoint1: {fileID: 252027125}
   slopePoint2: {fileID: 324179345}
-  slopeGreaterThan: 0
+  slopeGreaterThan: 1
   doMeshPoints: 0
   meshPoints: []
   flipPointOrder: 0
@@ -5324,8 +5480,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1704079890}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: 0, z: -0.12854192, w: 0.99170405}
-  m_LocalPosition: {x: -2.5486624, y: 0.27023828, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: 0.7588655, w: 0.65124744}
+  m_LocalPosition: {x: 0.5915531, y: 0.66086674, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -5578,14 +5734,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   points:
-  - {fileID: 1691625386}
+  - {fileID: 2118496893}
   - {fileID: 252027127}
   - {fileID: 547211741}
   - {fileID: 126276108}
   - {fileID: 488559777}
   - {fileID: 740324089}
   - {fileID: 591437706}
-  - {fileID: 2028547265}
+  - {fileID: 2071454973}
   line: {fileID: 1024166445}
   childLines: []
   lineZOffset: 0.18
@@ -5819,7 +5975,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   points:
-  - {x: -1.2610562, y: 2.6702743, z: 0}
+  - {x: -0.772, y: 2.3710003, z: 0}
   doByIntersection: 0
   intersectionInnerPoint1: {fileID: 0}
   intersectionInnerPoint2: {fileID: 0}
@@ -8412,6 +8568,246 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!1 &2071454972
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2071454976}
+  - component: {fileID: 2071454973}
+  - component: {fileID: 2071454975}
+  - component: {fileID: 2071454974}
+  m_Layer: 0
+  m_Name: point (6)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2071454973
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2071454972}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e2c16039ca53794fb602e1f2a8e9e27, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  points:
+  - {x: -1.0619103, y: 2.6084716, z: 0}
+  doByIntersection: 0
+  intersectionInnerPoint1: {fileID: 0}
+  intersectionInnerPoint2: {fileID: 0}
+  intersectionOuterPoint1: {fileID: 0}
+  intersectionOuterPoint2: {fileID: 0}
+  intersectPoint: {fileID: 0}
+  movePastPoint: {fileID: 0}
+  intersect1Points:
+    points: []
+    aboveIntersectPoints: []
+    belowIntersectPoints: []
+  intersect2Points:
+    points: []
+    aboveIntersectPoints: []
+    belowIntersectPoints: []
+  intersectBothPoints:
+    points: []
+    aboveIntersectPoints: []
+    belowIntersectPoints: []
+  intersectNoSameIntersectDirectionPoints:
+    points: []
+    aboveIntersectPoints: []
+    belowIntersectPoints: []
+  intersectNoDiffIntersectDirectionPoints:
+    points: []
+    aboveIntersectPoints: []
+    belowIntersectPoints: []
+  doIfSlopeDifference: 0
+  slopePoint1: {fileID: 0}
+  slopePoint2: {fileID: 0}
+  slopeGreaterThan: 0
+  doMeshPoints: 0
+  meshPoints: []
+  flipPointOrder: 0
+--- !u!1818360608 &2071454974
+PositionConstraint:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2071454972}
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Weight: 0.189
+  m_TranslationAtRest: {x: -1.116, y: 1.554, z: 0}
+  m_TranslationOffset: {x: -0.064409494, y: 0.010295033, z: 0}
+  m_AffectTranslationX: 1
+  m_AffectTranslationY: 1
+  m_AffectTranslationZ: 1
+  m_Active: 1
+  m_IsLocked: 1
+  m_Sources:
+  - sourceTransform: {fileID: 813742836}
+    weight: 0.45668575
+  - sourceTransform: {fileID: 1691625384}
+    weight: 1
+--- !u!114 &2071454975
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2071454972}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f72fc81bf936dd4e830014ee865138a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  posCon: {fileID: 2071454974}
+  weightBasedOffSourceDistance: 1
+  closeTransformCompare: {fileID: 288716651}
+--- !u!4 &2071454976
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2071454972}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: 0.25782225, w: 0.9661924}
+  m_LocalPosition: {x: -1.0619103, y: 1.6084716, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1442033590}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 29.882}
+--- !u!1 &2118496889
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2118496890}
+  - component: {fileID: 2118496893}
+  - component: {fileID: 2118496892}
+  - component: {fileID: 2118496891}
+  m_Layer: 0
+  m_Name: shoulderpoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2118496890
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2118496889}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: 0.9980276, w: -0.06277679}
+  m_LocalPosition: {x: -0.8471397, y: 1.9800565, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1442033590}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -67.984}
+--- !u!1818360608 &2118496891
+PositionConstraint:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2118496889}
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Weight: 0.37
+  m_TranslationAtRest: {x: -0.811, y: 2.014, z: 0}
+  m_TranslationOffset: {x: -0.050964236, y: 0.10272288, z: 0}
+  m_AffectTranslationX: 1
+  m_AffectTranslationY: 1
+  m_AffectTranslationZ: 1
+  m_Active: 1
+  m_IsLocked: 1
+  m_Sources:
+  - sourceTransform: {fileID: 813742836}
+    weight: 0.24568424
+  - sourceTransform: {fileID: 1691625384}
+    weight: 1
+  - sourceTransform: {fileID: 324179345}
+    weight: 0.2247755
+--- !u!114 &2118496892
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2118496889}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f72fc81bf936dd4e830014ee865138a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  posCon: {fileID: 2118496891}
+  weightBasedOffSourceDistance: 1
+  closeTransformCompare: {fileID: 369537094}
+--- !u!114 &2118496893
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2118496889}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e2c16039ca53794fb602e1f2a8e9e27, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  points:
+  - {x: -0.8471397, y: 2.9800565, z: 0}
+  doByIntersection: 0
+  intersectionInnerPoint1: {fileID: 0}
+  intersectionInnerPoint2: {fileID: 0}
+  intersectionOuterPoint1: {fileID: 0}
+  intersectionOuterPoint2: {fileID: 0}
+  intersectPoint: {fileID: 0}
+  movePastPoint: {fileID: 0}
+  intersect1Points:
+    points: []
+    aboveIntersectPoints: []
+    belowIntersectPoints: []
+  intersect2Points:
+    points: []
+    aboveIntersectPoints: []
+    belowIntersectPoints: []
+  intersectBothPoints:
+    points: []
+    aboveIntersectPoints: []
+    belowIntersectPoints: []
+  intersectNoSameIntersectDirectionPoints:
+    points: []
+    aboveIntersectPoints: []
+    belowIntersectPoints: []
+  intersectNoDiffIntersectDirectionPoints:
+    points: []
+    aboveIntersectPoints: []
+    belowIntersectPoints: []
+  doIfSlopeDifference: 1
+  slopePoint1: {fileID: 252027125}
+  slopePoint2: {fileID: 324179345}
+  slopeGreaterThan: 1
+  doMeshPoints: 0
+  meshPoints: []
+  flipPointOrder: 0
 --- !u!1 &2128504745
 GameObject:
   m_ObjectHideFlags: 0
@@ -8437,7 +8833,7 @@ Transform:
   m_GameObject: {fileID: 2128504745}
   serializedVersion: 2
   m_LocalRotation: {x: 2.3283062e-10, y: 4.6566123e-10, z: -0.000000007131347, w: 1}
-  m_LocalPosition: {x: 0.026014924, y: -0.01906091, z: 0}
+  m_LocalPosition: {x: 0.026014864, y: -0.019060895, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []
