@@ -53,7 +53,7 @@ public class MeshTest : MonoBehaviour
         Vector3 vectice1 = vertices[0];
         for (int i = 0; i < vertices.Length; i++)
         {
-            Vector2 vertice = vertices[i] - vectice1;//-transform.position;//-vertices[uvOffsetPivot]
+            Vector2 vertice = vertices[i] - vectice1 - pointAnchor.position;
             UV[i] = new Vector2(vertice.y, vertice.x); 
         }
         //rotate uv

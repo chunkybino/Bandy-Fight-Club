@@ -124,7 +124,6 @@ public class SpriteShapePoint : MonoBehaviour
         //movepast point
         if (intersectLine1 && intersectLine2 && movePastPoint)
         {
-
             Vector3 inPos = intersectionInnerPoint1.position;
             Vector3 outPos = intersectionOuterPoint1.position;
             float movePastFactor = Mathf.InverseLerp(inPos.x, outPos.x, intersect.x); //move the point closer to the inner point, the closer the outer and intersect point are to eachother
