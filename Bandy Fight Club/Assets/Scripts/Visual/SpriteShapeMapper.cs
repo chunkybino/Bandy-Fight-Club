@@ -16,9 +16,7 @@ public class SpriteShapeMapper : MonoBehaviour
 
     public bool doLocalSpace;
 
-    /*public SpriteShapeController shapeControl;
-    public Transform[] shapePoints = new Transform[0];
-    public float minShapePointDistance = 0.04f;*/
+    public Transform pointAnchor;
 
     void Update()
     {
@@ -30,7 +28,7 @@ public class SpriteShapeMapper : MonoBehaviour
 
             foreach(Vector3 p in point.points)
             {
-                linePoints.Add(p);
+                linePoints.Add(p - pointAnchor.position);
             }
         }
 

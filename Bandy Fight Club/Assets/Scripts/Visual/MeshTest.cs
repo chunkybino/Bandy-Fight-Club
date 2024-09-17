@@ -5,6 +5,8 @@ using UnityEngine;
 [ExecuteInEditMode]
 public class MeshTest : MonoBehaviour
 {
+    public Transform pointAnchor;
+
     public MeshFilter meshFilter;
     public Mesh mesh;
 
@@ -42,9 +44,7 @@ public class MeshTest : MonoBehaviour
             {
                 Vector3 offset = new Vector3(0,0,-0.1f);
                 if (doWorldSpace) offset -= transform.position;
-                vertices[i] = verticeReferences[i].position + offset;
-                //Vector2 rotVec = UFunc.RotateVecByVec(vertices[i], verticeRotationVec);
-                //vertices[i] = new Vector3(rotVec.x,rotVec.y,vertices[i].z);
+                vertices[i] = verticeReferences[i].position + offset - pointAnchor.position;
             }
         }
 
