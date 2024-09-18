@@ -16,14 +16,22 @@ public class PlayerFunc : MonoBehaviour
     [SerializeField] float multAccleration = 0.5f;
     [SerializeField] float flatAccleration = 0.3f;
     float accelerationCurve = 100; //for making acceleration values easier to deal with
+    [SerializeField] float currentMultAcceleration;
+    [SerializeField] float currentFlatAcceleration;
+    float currentAccelerationMult = 1;
 
     [SerializeField] float maintainSpeed;
+    [SerializeField] float reachMaxSpeedForTimeTimer;
+
+    //ground
+    bool grounded;
 
     //facing
     public int facing;
 
     //jumping
-    [SerializeField] float jumpHeight = 2.5f;
+    [SerializeField] float jumpHeight = 7;
+    [SerializeField] float airJumpHeight = 4;
     [SerializeField] int totalAirJumps = 1;
     int airJumpsLeft = 0;
     [SerializeField] float jumpReleaseFallFactor = 0.9f;
@@ -47,19 +55,22 @@ public class PlayerFunc : MonoBehaviour
 
     //jump dash
     [SerializeField] float dashJumpHeight = 3;
+    [SerializeField] float dashJumpSpeed = 28;
+
+    [SerializeField] float dashJumpAccel = 0.1f;
+    [SerializeField] float dashJumpAccelTime = 0.6f;
+
     [SerializeField] float dashJumpGrav = 0.6f;
     [SerializeField] float dashJumpGravTime = 0.6f;
-    [SerializeField] float dashJumpSpeed = 28;
 
     //grav
     [SerializeField] float baseGravity = 20;
     [SerializeField] float currentGrav;
-    [SerializeField] List<float> gravMults = new List<float>();
+    float currentGravMult = 1;
+    List<float> gravMults = new List<float>();
 
     void Update()
     {
-        bool grounded = groundCheck.grounded;
-
         //side inputs
         sideInputDirection = 0;
         if (inputs.leftHeld) sideInputDirection--;
@@ -86,7 +97,7 @@ public class PlayerFunc : MonoBehaviour
                 {
                     if (airJumpsLeft > 0)
                     {
-                        JumpToHeight(jumpHeight);
+                        JumpToHeight(airJumpHeight);
                         airJumpsLeft--;
                     }
                 }
@@ -114,6 +125,8 @@ public class PlayerFunc : MonoBehaviour
 
     void FixedUpdate()
     {
+        grounded = groundCheck.grounded;
+
         //momentum
         float xVel = rb.velocity.x;
         float yVel = rb.velocity.y;
@@ -126,6 +139,7 @@ public class PlayerFunc : MonoBehaviour
 
         //total grav
         currentGrav = baseGravity;
+        currentGrav *= currentGravMult;
         foreach (float g in gravMults)
         {
             currentGrav *= g;
@@ -159,15 +173,27 @@ public class PlayerFunc : MonoBehaviour
             thisMultAcceleration = accelerationCurve * (1 - Mathf.Pow(1 - (mAccel * (1 - Mathf.Pow(1 - (1 / accelerationCurve), 1 / Time.fixedDeltaTime))), Time.fixedDeltaTime));
             thisFlatAcceleration = UFunc.FloatToDirection(targetSideSpeed - rb.velocity.x) * Mathf.Min(flatAccleration * movementSpeed, Mathf.Abs(targetSideSpeed - rb.velocity.x)) * Time.fixedDeltaTime; //add flat acceleration, make sure we dont overshoot target speed
 
+            //acceleration mults
+            thisMultAcceleration *= currentAccelerationMult;
+            thisFlatAcceleration *= currentAccelerationMult;
+
             xVel = rb.velocity.x + thisFlatAcceleration; //add flat acceleration, make sure we dont overshoot target speed
 
             xVel += ((targetSideSpeed - rb.velocity.x) * thisMultAcceleration); //add mult acceleration
         } 
         void MaintainingSpeed()
         {
-            if (UFunc.Sign(sideInputDirection) == UFunc.Sign(maintainSpeed) && maintainSpeed != 0) //if our input direction and maintain direciton are the same
+            bool inDirectionOfSpeed = UFunc.Sign(sideInputDirection) == UFunc.Sign(maintainSpeed);
+
+            if (inDirectionOfSpeed && maintainSpeed != 0) //if our input direction and maintain direciton are the same
             {
                 xVel = maintainSpeed;
+            }
+
+            print(grounded.ToString() + "   " + inDirectionOfSpeed.ToString());
+            if ((grounded || !inDirectionOfSpeed) && rb.velocity.y < 5) //dont dont reset if we're rising
+            {
+                maintainSpeed = 0;
             }
         }
         void VerticalMovementStuff()
@@ -242,13 +268,37 @@ public class PlayerFunc : MonoBehaviour
         EndDodge();
 
         JumpToHeight(dashJumpHeight, dashJumpGrav);
-        maintainSpeed = dashJumpSpeed;
 
-        gravMults.Add(dashJumpGrav);
-        Invoke("EndDashJumpGrav", dashJumpGravTime);
+        maintainSpeed = dashJumpSpeed * sideInputDirection;
+        rb.velocity = new Vector2(maintainSpeed, rb.velocity.y);
+
+        DoAccelerationMult(dashJumpAccel, dashJumpAccelTime);
+        DoGravMult(dashJumpGrav, dashJumpGravTime);
     }
-    void EndDashJumpGrav()
+
+    void DoAccelerationMult(float mult, float time)
     {
-        gravMults.Remove(dashJumpGrav);
+        currentAccelerationMult = mult;
+
+        CancelInvoke("EndAccelerationMult");
+        Invoke("EndAccelerationMult", time);
+    }
+    void EndAccelerationMult()
+    {
+        CancelInvoke("EndAccelerationMult");
+        currentAccelerationMult = 1;
+    }
+
+    void DoGravMult(float mult, float time)
+    {
+        currentGravMult = mult;
+
+        CancelInvoke("EndGravMult");
+        Invoke("EndGravMult", time);
+    }
+    void EndGravMult()
+    {
+        CancelInvoke("EndGravMult");
+        currentGravMult = 1;
     }
 }

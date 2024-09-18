@@ -609,9 +609,13 @@ MonoBehaviour:
   movementSpeed: 14
   multAccleration: 0.5
   flatAccleration: 0.3
+  currentMultAcceleration: 0
+  currentFlatAcceleration: 0
   maintainSpeed: 0
+  reachMaxSpeedForTimeTimer: 0
   facing: 1
   jumpHeight: 8
+  airJumpHeight: 4
   totalAirJumps: 1
   jumpReleaseFallFactor: 0.85
   jumpBufferTime: 0.1
@@ -624,13 +628,14 @@ MonoBehaviour:
   dodgeDirection: {x: 1, y: 0}
   dodgeAcceleration: 0.3
   dodgeBufferTime: 0.1
-  dashJumpHeight: 3
-  dashJumpGrav: 0.6
-  dashJumpGravTime: 0.6
+  dashJumpHeight: 3.5
   dashJumpSpeed: 28
+  dashJumpAccel: 0.35
+  dashJumpAccelTime: 0.4
+  dashJumpGrav: 0.8
+  dashJumpGravTime: 0.6
   baseGravity: 90
   currentGrav: 0
-  gravMults: []
 --- !u!114 &90760426
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3986,7 +3991,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &404555080
 Transform:
   m_ObjectHideFlags: 0
@@ -3997,8 +4002,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 3, y: 3, z: 3}
-  m_ConstrainProportionsScale: 1
+  m_LocalScale: {x: 2.5, y: 3, z: 3}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1511062793}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4910,7 +4915,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &461585138
 Transform:
   m_ObjectHideFlags: 0
