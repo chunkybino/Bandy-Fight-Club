@@ -164,7 +164,7 @@ public class SpriteShapePoint : MonoBehaviour
         }
         else
         {
-            if (Mathf.Sign(intersectLerp1) == Mathf.Sign(intersectLerp2))
+            if (UFunc.Sign(intersectLerp1) == UFunc.Sign(intersectLerp2))
             {
                 points = AppendTransformToVector3(points, intersectNoSameIntersectDirectionPoints.points);
             }

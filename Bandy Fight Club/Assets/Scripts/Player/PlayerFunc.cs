@@ -17,6 +17,8 @@ public class PlayerFunc : MonoBehaviour
     [SerializeField] float flatAccleration = 0.3f;
     float accelerationCurve = 100; //for making acceleration values easier to deal with
 
+    [SerializeField] float maintainSpeed;
+
     //facing
     public int facing;
 
@@ -43,8 +45,16 @@ public class PlayerFunc : MonoBehaviour
     [SerializeField] float dodgeBufferTime = 0.1f;
     float dodgeBufferTimer;
 
+    //jump dash
+    [SerializeField] float dashJumpHeight = 3;
+    [SerializeField] float dashJumpGrav = 0.6f;
+    [SerializeField] float dashJumpGravTime = 0.6f;
+    [SerializeField] float dashJumpSpeed = 28;
+
     //grav
     [SerializeField] float baseGravity = 20;
+    [SerializeField] float currentGrav;
+    [SerializeField] List<float> gravMults = new List<float>();
 
     void Update()
     {
@@ -66,17 +76,24 @@ public class PlayerFunc : MonoBehaviour
 
         if (jumpBufferTimer > 0)
         {
-            if (grounded)
+            if (!isDodging)
             {
-                JumpToHeight(jumpHeight);
+                if (grounded)
+                {
+                    JumpToHeight(jumpHeight);
+                }
+                else
+                {
+                    if (airJumpsLeft > 0)
+                    {
+                        JumpToHeight(jumpHeight);
+                        airJumpsLeft--;
+                    }
+                }
             }
             else
             {
-                if (airJumpsLeft > 0) 
-                {
-                    JumpToHeight(jumpHeight);
-                    airJumpsLeft--;
-                }
+                if (grounded) DoDashJump();
             }
         }
 
@@ -107,9 +124,18 @@ public class PlayerFunc : MonoBehaviour
             targetSideSpeed = dodgeLowerSpeed * dodgeDirection.x;
         }
 
+        //total grav
+        currentGrav = baseGravity;
+        foreach (float g in gravMults)
+        {
+            currentGrav *= g;
+        }
+
         if (!isDodging)
         {
             HandleAcceleration();
+            MaintainingSpeed();
+
             VerticalMovementStuff();
         }
         else
@@ -133,11 +159,17 @@ public class PlayerFunc : MonoBehaviour
             thisMultAcceleration = accelerationCurve * (1 - Mathf.Pow(1 - (mAccel * (1 - Mathf.Pow(1 - (1 / accelerationCurve), 1 / Time.fixedDeltaTime))), Time.fixedDeltaTime));
             thisFlatAcceleration = UFunc.FloatToDirection(targetSideSpeed - rb.velocity.x) * Mathf.Min(flatAccleration * movementSpeed, Mathf.Abs(targetSideSpeed - rb.velocity.x)) * Time.fixedDeltaTime; //add flat acceleration, make sure we dont overshoot target speed
 
-            //if (isDodging) thisFlatAcceleration = 0;
-
             xVel = rb.velocity.x + thisFlatAcceleration; //add flat acceleration, make sure we dont overshoot target speed
+
             xVel += ((targetSideSpeed - rb.velocity.x) * thisMultAcceleration); //add mult acceleration
         } 
+        void MaintainingSpeed()
+        {
+            if (UFunc.Sign(sideInputDirection) == UFunc.Sign(maintainSpeed) && maintainSpeed != 0) //if our input direction and maintain direciton are the same
+            {
+                xVel = maintainSpeed;
+            }
+        }
         void VerticalMovementStuff()
         {
             if (!inputs.jumpHeld && rb.velocity.y > 0 && enableJumpReleaseFall) //when we release jump during a jump, cut upwards speed every frame
@@ -145,7 +177,7 @@ public class PlayerFunc : MonoBehaviour
                 yVel = Mathf.Clamp(rb.velocity.y * Mathf.Pow(jumpReleaseFallFactor, Time.fixedDeltaTime * 50), 0, rb.velocity.y);
             }
 
-            yVel -= baseGravity * Time.fixedDeltaTime;
+            yVel -= currentGrav * Time.fixedDeltaTime;
         }
         void DodgeMovement()
         {
@@ -158,7 +190,6 @@ public class PlayerFunc : MonoBehaviour
             else
             {
                 HandleAcceleration();
-                //xVel = (Mathf.Max(Mathf.Abs(xVel) - (dodgeSpeedDecaySpeed*Time.fixedDeltaTime), dodgeLowerSpeed)) * dodgeDirection.x;
             }
         }
     }
@@ -166,6 +197,10 @@ public class PlayerFunc : MonoBehaviour
     void JumpToHeight(float height)
     {
         Jump(Mathf.Sqrt(2*baseGravity*height) + (baseGravity*0.5f*Time.fixedDeltaTime));
+    }
+    void JumpToHeight(float height, float gravMult)
+    {
+        Jump(Mathf.Sqrt(2*baseGravity*gravMult*height) + (baseGravity*gravMult*0.5f*Time.fixedDeltaTime));
     }
     void Jump(float force)
     {
@@ -199,5 +234,21 @@ public class PlayerFunc : MonoBehaviour
 
         CancelInvoke("EndDodge");
         CancelInvoke("EndDodgeBurst");
+    }
+
+    void DoDashJump()
+    {
+        jumpBufferTimer = 0;
+        EndDodge();
+
+        JumpToHeight(dashJumpHeight, dashJumpGrav);
+        maintainSpeed = dashJumpSpeed;
+
+        gravMults.Add(dashJumpGrav);
+        Invoke("EndDashJumpGrav", dashJumpGravTime);
+    }
+    void EndDashJumpGrav()
+    {
+        gravMults.Remove(dashJumpGrav);
     }
 }
