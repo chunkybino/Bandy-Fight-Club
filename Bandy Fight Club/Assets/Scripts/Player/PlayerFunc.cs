@@ -17,6 +17,9 @@ public class PlayerFunc : MonoBehaviour
     [SerializeField] float flatAccleration = 0.3f;
     float accelerationCurve = 100; //for making acceleration values easier to deal with
 
+    //facing
+    public int facing;
+
     //jumping
     [SerializeField] float jumpHeight = 2.5f;
     [SerializeField] int totalAirJumps = 1;
@@ -52,6 +55,9 @@ public class PlayerFunc : MonoBehaviour
         if (inputs.leftHeld) sideInputDirection--;
         if (inputs.rightHeld) sideInputDirection++;
 
+        if (sideInputDirection != 0) facing = Mathf.RoundToInt(Mathf.Sign(sideInputDirection)); 
+        transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x)*facing,transform.localScale.y,transform.localScale.z);
+
         //jumping
         UFunc.TickTimer(ref jumpBufferTimer);
         if (inputs.jumpPressed) jumpBufferTimer = jumpBufferTime;
@@ -82,8 +88,8 @@ public class PlayerFunc : MonoBehaviour
             if (dodgeBufferTimer > 0)
             {
                 dodgeBufferTimer = 0;
-                int direction = 1;
-                if (inputs.leftHeld) direction = -1;
+                int direction = sideInputDirection;
+                if (direction == 0) direction = facing;
                 StartDodge(new Vector2(direction,0));
             }
         }

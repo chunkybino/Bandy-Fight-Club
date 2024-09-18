@@ -609,6 +609,7 @@ MonoBehaviour:
   movementSpeed: 14
   multAccleration: 0.5
   flatAccleration: 0.3
+  facing: 1
   jumpHeight: 8
   totalAirJumps: 1
   jumpReleaseFallFactor: 0.85
@@ -1639,6 +1640,7 @@ MonoBehaviour:
   sprite: {fileID: 1454599534}
   referenceTransform: {fileID: 825342496}
   referenceTransformAnchor: {fileID: 90760428}
+  flip: 0
 --- !u!1 &191164199
 GameObject:
   m_ObjectHideFlags: 0
@@ -2038,6 +2040,7 @@ MonoBehaviour:
   sprite: {fileID: 453433192}
   referenceTransform: {fileID: 192249831}
   referenceTransformAnchor: {fileID: 90760428}
+  flip: 0
 --- !u!1 &224089066
 GameObject:
   m_ObjectHideFlags: 0
@@ -2124,6 +2127,7 @@ MonoBehaviour:
   lineZOffset: 0.18
   doLocalSpace: 1
   pointAnchor: {fileID: 90760428}
+  flip: 0
 --- !u!1 &234336162
 GameObject:
   m_ObjectHideFlags: 0
@@ -3576,6 +3580,7 @@ MonoBehaviour:
   lineZOffset: 0.18
   doLocalSpace: 1
   pointAnchor: {fileID: 90760428}
+  flip: 0
 --- !u!43 &358087684
 Mesh:
   m_ObjectHideFlags: 0
@@ -4210,6 +4215,7 @@ MonoBehaviour:
   lineZOffset: 0.18
   doLocalSpace: 1
   pointAnchor: {fileID: 90760428}
+  flip: 0
 --- !u!1 &434963790
 GameObject:
   m_ObjectHideFlags: 0
@@ -4588,7 +4594,7 @@ Transform:
   m_GameObject: {fileID: 453433191}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.1802772, y: 2.8049326, z: -12}
+  m_LocalPosition: {x: -0.1802772, y: 2.8049326, z: 9.89875}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -5201,7 +5207,7 @@ Transform:
   m_GameObject: {fileID: 475529270}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.1788332, y: -2.8409848, z: 4}
+  m_LocalPosition: {x: -1.1788332, y: -2.8409848, z: 10.200001}
   m_LocalScale: {x: 0.75, y: 0.38, z: 0.55}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5890,7 +5896,7 @@ Transform:
   m_GameObject: {fileID: 545175913}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0.277355, w: 0.9607675}
-  m_LocalPosition: {x: 0.771485, y: -0.45663857, z: 10}
+  m_LocalPosition: {x: 0.771485, y: -0.45663857, z: 7.989998}
   m_LocalScale: {x: 0.55, y: 0.55, z: 0.55}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -6121,6 +6127,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 561139187}
+  - component: {fileID: 561139188}
   m_Layer: 0
   m_Name: flan
   m_TagString: Untagged
@@ -6136,7 +6143,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 561139186}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 50}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -6155,6 +6162,40 @@ Transform:
   - {fileID: 223120730}
   m_Father: {fileID: 1511062793}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &561139188
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 561139186}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc8bd33efe87cd3498b951ed2f0551c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerFunc: {fileID: 90760425}
+  facing: 1
+  skeleton: {fileID: 461585138}
+  lines:
+  - {fileID: 1374000721}
+  - {fileID: 1974736069}
+  - {fileID: 1749811381}
+  - {fileID: 959438651}
+  - {fileID: 1960797712}
+  - {fileID: 354892679}
+  - {fileID: 713744170}
+  - {fileID: 429183240}
+  - {fileID: 687007700}
+  - {fileID: 2090344454}
+  - {fileID: 1612865235}
+  - {fileID: 233780450}
+  sprites:
+  - {fileID: 171345327}
+  - {fileID: 775714950}
+  - {fileID: 1022542339}
+  - {fileID: 1656360342}
+  - {fileID: 223120731}
 --- !u!1 &583147307
 GameObject:
   m_ObjectHideFlags: 0
@@ -6948,6 +6989,7 @@ MonoBehaviour:
   lineZOffset: 0.18
   doLocalSpace: 1
   pointAnchor: {fileID: 90760428}
+  flip: 0
 --- !u!1 &691536116
 GameObject:
   m_ObjectHideFlags: 0
@@ -7033,6 +7075,7 @@ MonoBehaviour:
   lineZOffset: 0.18
   doLocalSpace: 1
   pointAnchor: {fileID: 90760428}
+  flip: 0
 --- !u!1 &715536987
 GameObject:
   m_ObjectHideFlags: 0
@@ -7440,6 +7483,7 @@ MonoBehaviour:
   sprite: {fileID: 545175914}
   referenceTransform: {fileID: 1098200365}
   referenceTransformAnchor: {fileID: 90760428}
+  flip: 0
 --- !u!1 &779797261
 GameObject:
   m_ObjectHideFlags: 0
@@ -8951,6 +8995,7 @@ MonoBehaviour:
   lineZOffset: 0.18
   doLocalSpace: 1
   pointAnchor: {fileID: 90760428}
+  flip: 0
 --- !u!43 &964890896
 Mesh:
   m_ObjectHideFlags: 0
@@ -9601,6 +9646,7 @@ MonoBehaviour:
   sprite: {fileID: 475529271}
   referenceTransform: {fileID: 1991410884}
   referenceTransformAnchor: {fileID: 90760428}
+  flip: 0
 --- !u!1 &1024166443
 GameObject:
   m_ObjectHideFlags: 0
@@ -10498,7 +10544,7 @@ Transform:
   m_GameObject: {fileID: 1174997170}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.74227256, y: -2.8442836, z: 4}
+  m_LocalPosition: {x: 0.74227256, y: -2.8442836, z: 4.5599976}
   m_LocalScale: {x: 0.75, y: 0.38, z: 0.55}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -12417,6 +12463,7 @@ MonoBehaviour:
   lineZOffset: 0.18
   doLocalSpace: 1
   pointAnchor: {fileID: 90760428}
+  flip: 0
 --- !u!1 &1377719707
 GameObject:
   m_ObjectHideFlags: 0
@@ -13063,7 +13110,7 @@ Transform:
   m_GameObject: {fileID: 1454599533}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0, z: -0.277355, w: 0.9607675}
-  m_LocalPosition: {x: -0.7271168, y: -0.43656623, z: 0}
+  m_LocalPosition: {x: -0.7271168, y: -0.43656623, z: 1.0200005}
   m_LocalScale: {x: 0.55, y: 0.55, z: 0.55}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -14410,6 +14457,7 @@ MonoBehaviour:
   lineZOffset: 0.18
   doLocalSpace: 1
   pointAnchor: {fileID: 90760428}
+  flip: 0
 --- !u!1 &1615231625
 GameObject:
   m_ObjectHideFlags: 0
@@ -15061,6 +15109,7 @@ MonoBehaviour:
   sprite: {fileID: 1174997171}
   referenceTransform: {fileID: 922566764}
   referenceTransformAnchor: {fileID: 90760428}
+  flip: 0
 --- !u!1 &1659849024
 GameObject:
   m_ObjectHideFlags: 0
@@ -15494,6 +15543,7 @@ MonoBehaviour:
   lineZOffset: 0.18
   doLocalSpace: 1
   pointAnchor: {fileID: 90760428}
+  flip: 0
 --- !u!1 &1750942831
 GameObject:
   m_ObjectHideFlags: 0
@@ -16581,6 +16631,7 @@ MonoBehaviour:
   lineZOffset: 0.18
   doLocalSpace: 1
   pointAnchor: {fileID: 90760428}
+  flip: 0
 --- !u!1 &1972395569
 GameObject:
   m_ObjectHideFlags: 0
@@ -16700,6 +16751,7 @@ MonoBehaviour:
   lineZOffset: 0.18
   doLocalSpace: 1
   pointAnchor: {fileID: 90760428}
+  flip: 0
 --- !u!1 &1977093044
 GameObject:
   m_ObjectHideFlags: 0
@@ -28947,6 +28999,7 @@ MonoBehaviour:
   lineZOffset: 0.18
   doLocalSpace: 1
   pointAnchor: {fileID: 90760428}
+  flip: 0
 --- !u!1 &2111125364
 GameObject:
   m_ObjectHideFlags: 0

@@ -18,6 +18,8 @@ public class SpriteShapeMapper : MonoBehaviour
 
     public Transform pointAnchor;
 
+    public bool flip;
+
     void Update()
     {
         List<Vector3> linePoints = new List<Vector3>();
@@ -28,7 +30,9 @@ public class SpriteShapeMapper : MonoBehaviour
 
             foreach(Vector3 p in point.points)
             {
-                linePoints.Add(p - pointAnchor.position);
+                Vector3 p2 = p - pointAnchor.position;
+                if (flip) p2 = new Vector3(-p2.x,p2.y,p2.z);
+                linePoints.Add(p2);
             }
         }
 
