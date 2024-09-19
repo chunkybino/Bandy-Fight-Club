@@ -189,8 +189,7 @@ public class PlayerFunc : MonoBehaviour
             {
                 xVel = maintainSpeed;
             }
-
-            print(grounded.ToString() + "   " + inDirectionOfSpeed.ToString());
+            
             if ((grounded || !inDirectionOfSpeed) && rb.velocity.y < 5) //dont dont reset if we're rising
             {
                 maintainSpeed = 0;
