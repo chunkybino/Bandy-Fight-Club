@@ -4,15 +4,16 @@ using UnityEngine;
 
 public class PlayerAttack : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public PlayerStatus playerStatus;
+    public PlayerFunc playerFunc;
 
-    // Update is called once per frame
+    public Animator animator;
+    public PlayerAnimation playerAnim;
+
+    public bool isAttacking;
+
     void Update()
     {
-        
+
     }
 }
