@@ -27,6 +27,7 @@ public class SpriteShapeMapper : MonoBehaviour
         foreach (SpriteShapePoint point in points)
         {
             if (!point) continue;
+            if (!point.enabled) continue;
 
             foreach(Vector3 p in point.points)
             {
