@@ -27,6 +27,11 @@ public class MeshTest : MonoBehaviour
 
     public bool instanceMesh;
 
+    void Start()
+    {
+        if (!mesh) instanceMesh = true;
+    }
+
     void Update()
     {
         if (instanceMesh)

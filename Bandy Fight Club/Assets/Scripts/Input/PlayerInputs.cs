@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerInputs : MonoBehaviour
 {
-    public InputsMapping inputMap;
+    public InputMapSO inputMap;
 
     public bool upPressed;
     public bool upHeld;
@@ -50,19 +50,4 @@ public class PlayerInputs : MonoBehaviour
         attackPressed = Input.GetKeyDown(inputMap.attack);
         attackHeld = Input.GetKey(inputMap.attack);
     }
-}
-
-[CreateAssetMenu(fileName = "InputMapSO", menuName = "ScriptableObjects/InputMap")]
-public class InputsMapping : ScriptableObject
-{
-    public string up = "w";
-    public string down = "s";
-    public string left = "a";
-    public string right = "d";
-
-    public string jump = "1";
-
-    public string dodge = "2";
-
-    public string attack = "3";
 }

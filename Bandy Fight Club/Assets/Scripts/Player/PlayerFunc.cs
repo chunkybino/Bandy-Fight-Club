@@ -21,11 +21,13 @@ public class PlayerFunc : MonoBehaviour
     [SerializeField] float currentFlatAcceleration;
     float currentAccelerationMult = 1;
 
-    [SerializeField] float maintainSpeed;
+    [SerializeField] GameObject accelerationAnimator;
+
+    public float maintainSpeed;
     [SerializeField] float reachMaxSpeedForTimeTimer;
 
     //ground
-    bool grounded;
+    public bool grounded;
 
     //facing
     public int facing;
@@ -44,13 +46,13 @@ public class PlayerFunc : MonoBehaviour
     [SerializeField] GameObject canJumpAnimator;
 
     //dodge
-    [SerializeField] bool isDodging;
-    [SerializeField] bool isDodgingBurst;
+    public bool isDodging;
+    public bool isDodgingBurst;
     [SerializeField] float dodgeBurstSpeed = 16;
     [SerializeField] float dodgeLowerSpeed = 9;
     [SerializeField] float dodgeBurstTime = 0.15f;
     [SerializeField] float dodgeTime = 0.5f;
-    [SerializeField] Vector2 dodgeDirection;
+    public Vector2 dodgeDirection;
     [SerializeField] float dodgeAcceleration = 0.1f;
 
     [SerializeField] float dodgeBufferTime = 0.1f;
@@ -188,8 +190,10 @@ public class PlayerFunc : MonoBehaviour
             thisFlatAcceleration = UFunc.FloatToDirection(targetSideSpeed - rb.velocity.x) * Mathf.Min(flatAccleration * movementSpeed, Mathf.Abs(targetSideSpeed - rb.velocity.x)) * Time.fixedDeltaTime; //add flat acceleration, make sure we dont overshoot target speed
 
             //acceleration mults
-            thisMultAcceleration *= currentAccelerationMult;
-            thisFlatAcceleration *= currentAccelerationMult;
+            float mult = currentAccelerationMult;
+            if (accelerationAnimator) if (accelerationAnimator.activeSelf) mult *= accelerationAnimator.transform.localPosition.x;
+            thisMultAcceleration *= mult;
+            thisFlatAcceleration *= mult;
 
             xVel = rb.velocity.x + thisFlatAcceleration; //add flat acceleration, make sure we dont overshoot target speed
 
@@ -267,7 +271,7 @@ public class PlayerFunc : MonoBehaviour
         CancelInvoke("EndDodgeBurst");
         Invoke("EndDodge", dodgeTime-dodgeBurstTime);
     }   
-    void EndDodge()
+    public void EndDodge()
     {
         isDodging = false;
 
@@ -289,7 +293,7 @@ public class PlayerFunc : MonoBehaviour
         DoGravMult(dashJumpGrav, dashJumpGravTime);
     }
 
-    void DoAccelerationMult(float mult, float time)
+    public void DoAccelerationMult(float mult, float time)
     {
         currentAccelerationMult = mult;
 

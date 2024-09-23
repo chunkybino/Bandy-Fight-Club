@@ -16,6 +16,7 @@ public class PlayerAttack : MonoBehaviour
     public string[] attackNames = new string[0];
 
     [SerializeField] int attackIndex = 0;
+    [SerializeField] float attackIndexResetTime = 0.4f; //how long after isAttacking ends
     
     [SerializeField] float attackBufferTime = 0.15f;
     float attackBufferTimer;
@@ -38,6 +39,15 @@ public class PlayerAttack : MonoBehaviour
                 Attack();
             }
         }
+
+        if (!isAttacking)
+        {
+            Invoke("ResetAttackTindex", attackIndexResetTime);
+        }
+        else
+        {
+            CancelInvoke("ResetAttackTindex");
+        }
     }
 
     void Attack()
@@ -53,5 +63,10 @@ public class PlayerAttack : MonoBehaviour
     public void ExitAttackAnim()
     {
         isAttacking = false;
+    }
+
+    public void ResetAttackTindex()
+    {
+        attackIndex = 0;
     }
 }

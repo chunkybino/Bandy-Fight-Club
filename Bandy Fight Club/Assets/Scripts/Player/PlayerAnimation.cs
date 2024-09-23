@@ -7,6 +7,8 @@ public class PlayerAnimation : MonoBehaviour
     public Animator anim;
 
     public PlayerAttack playerAttack;
+    public PlayerFunc playerFunc;
+    public Rigidbody2D rb;
 
     public void PlayAnim(string name)
     {
@@ -16,5 +18,10 @@ public class PlayerAnimation : MonoBehaviour
     public void ExitAnim()
     {  
         playerAttack.ExitAttackAnim();
+    }
+
+    public void DoKnockbackBoost(float force)
+    {
+        rb.velocity = new Vector2(force * playerFunc.facing, rb.velocity.y);
     }
 }

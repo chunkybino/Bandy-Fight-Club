@@ -11,7 +11,10 @@ public class PlayerMeshParent : MonoBehaviour
     public Transform skeleton;
 
     public SpriteShapeMapper[] lines;
+    public MeshTest[] meshes;
     public MeshSpriteStuff[] sprites;
+
+    public bool instanceMeshes;
 
     void Update()
     {
@@ -28,6 +31,15 @@ public class PlayerMeshParent : MonoBehaviour
         {
             if (facing > 0) sprite.flip = false;
             if (facing < 0) sprite.flip = true;
+        }
+
+        if (instanceMeshes)
+        {
+            instanceMeshes = false;
+            foreach (MeshTest mesh in meshes)
+            {
+                mesh.instanceMesh = true;
+            }
         }
     }
 }
