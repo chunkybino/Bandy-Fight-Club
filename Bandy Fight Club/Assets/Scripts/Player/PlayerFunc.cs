@@ -11,7 +11,7 @@ public class PlayerFunc : MonoBehaviour
     public GroundChecker groundCheck;
 
     //side movement
-    [SerializeField] float movementSpeed = 10;
+    [SerializeField] float movementSpeed = 14;
     int sideInputDirection;
 
     [SerializeField] float multAccleration = 0.5f;
@@ -30,17 +30,17 @@ public class PlayerFunc : MonoBehaviour
     public bool grounded;
 
     //facing
-    public int facing;
+    public int facing = 1;
 
     //jumping
-    [SerializeField] float jumpHeight = 7;
+    [SerializeField] float jumpHeight = 8;
     [SerializeField] float airJumpHeight = 4;
     [SerializeField] int totalAirJumps = 1;
     int airJumpsLeft = 0;
-    [SerializeField] float jumpReleaseFallFactor = 0.9f;
+    [SerializeField] float jumpReleaseFallFactor = 0.85f;
     bool enableJumpReleaseFall;
 
-    [SerializeField] float jumpBufferTime = 0.15f;
+    [SerializeField] float jumpBufferTime = 0.1f;
     float jumpBufferTimer;
 
     [SerializeField] GameObject canJumpAnimator;
@@ -48,12 +48,12 @@ public class PlayerFunc : MonoBehaviour
     //dodge
     public bool isDodging;
     public bool isDodgingBurst;
-    [SerializeField] float dodgeBurstSpeed = 16;
-    [SerializeField] float dodgeLowerSpeed = 9;
+    [SerializeField] float dodgeBurstSpeed = 40;
+    [SerializeField] float dodgeLowerSpeed = 10;
     [SerializeField] float dodgeBurstTime = 0.15f;
-    [SerializeField] float dodgeTime = 0.5f;
+    [SerializeField] float dodgeTime = 0.3f;
     public Vector2 dodgeDirection;
-    [SerializeField] float dodgeAcceleration = 0.1f;
+    [SerializeField] float dodgeAcceleration = 0.3f;
 
     [SerializeField] float dodgeBufferTime = 0.1f;
     float dodgeBufferTimer;
@@ -61,17 +61,17 @@ public class PlayerFunc : MonoBehaviour
     [SerializeField] GameObject canDodgeAnimator;
 
     //jump dash
-    [SerializeField] float dashJumpHeight = 3;
-    [SerializeField] float dashJumpSpeed = 28;
+    [SerializeField] float dashJumpHeight = 3.5f;
+    [SerializeField] float dashJumpSpeed = 24;
 
-    [SerializeField] float dashJumpAccel = 0.1f;
-    [SerializeField] float dashJumpAccelTime = 0.6f;
+    [SerializeField] float dashJumpAccel = 0.35f;
+    [SerializeField] float dashJumpAccelTime = 0.4f;
 
-    [SerializeField] float dashJumpGrav = 0.6f;
+    [SerializeField] float dashJumpGrav = 0.8f;
     [SerializeField] float dashJumpGravTime = 0.6f;
 
     //grav
-    [SerializeField] float baseGravity = 20;
+    [SerializeField] float baseGravity = 90;
     [SerializeField] float currentGrav;
     float currentGravMult = 1;
     List<float> gravMults = new List<float>();
@@ -190,7 +190,7 @@ public class PlayerFunc : MonoBehaviour
             thisFlatAcceleration = UFunc.FloatToDirection(targetSideSpeed - rb.velocity.x) * Mathf.Min(flatAccleration * movementSpeed, Mathf.Abs(targetSideSpeed - rb.velocity.x)) * Time.fixedDeltaTime; //add flat acceleration, make sure we dont overshoot target speed
 
             //acceleration mults
-            float mult = currentAccelerationMult;
+            float mult = CalculateAccelerationMultOverride();//currentAccelerationMult;
             if (accelerationAnimator) if (accelerationAnimator.activeSelf) mult *= accelerationAnimator.transform.localPosition.x;
             thisMultAcceleration *= mult;
             thisFlatAcceleration *= mult;
@@ -306,6 +306,17 @@ public class PlayerFunc : MonoBehaviour
         currentAccelerationMult = 1;
     }
 
+    public virtual float CalculateAccelerationMultOverride()
+    {
+        return CalculateAccelerationMult();
+    }
+    public float CalculateAccelerationMult()
+    {
+        float mult = currentAccelerationMult;
+        if (accelerationAnimator) if (accelerationAnimator.activeSelf) mult *= accelerationAnimator.transform.localPosition.x;
+        return mult;
+    }
+
     void DoGravMult(float mult, float time)
     {
         currentGravMult = mult;
@@ -317,5 +328,10 @@ public class PlayerFunc : MonoBehaviour
     {
         CancelInvoke("EndGravMult");
         currentGravMult = 1;
+    }
+
+    public virtual void OnAttack()
+    {
+        //for overrides and stuff i guess
     }
 }

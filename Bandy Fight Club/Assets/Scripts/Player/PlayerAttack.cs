@@ -58,6 +58,8 @@ public class PlayerAttack : MonoBehaviour
 
         playerAnim.PlayAnim(attack);
         isAttacking = true;
+
+        playerFunc.OnAttack();
     }
 
     public void ExitAttackAnim()

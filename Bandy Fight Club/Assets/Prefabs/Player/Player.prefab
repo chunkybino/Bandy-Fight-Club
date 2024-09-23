@@ -140,7 +140,7 @@ Transform:
   m_GameObject: {fileID: 26461663674181730}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.1788332, y: -2.8409848, z: 10.200001}
+  m_LocalPosition: {x: -1.1788332, y: -2.8409848, z: 9.612457}
   m_LocalScale: {x: 0.75, y: 0.38, z: 0.55}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -865,7 +865,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc8bd33efe87cd3498b951ed2f0551c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerFunc: {fileID: 8957986601000083079}
+  playerFunc: {fileID: 3173985440313344023}
   facing: 1
   skeleton: {fileID: 7964651198177828865}
   lines:
@@ -2700,7 +2700,7 @@ Transform:
   m_GameObject: {fileID: 1162099124277357437}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: 0.5656272, w: 0.82466114}
-  m_LocalPosition: {x: 0.024797514, y: -0.07148893, z: 0}
+  m_LocalPosition: {x: 0.2779749, y: -0.14546439, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4893,7 +4893,7 @@ Transform:
   m_GameObject: {fileID: 2333070475432923307}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.1802772, y: 2.8049326, z: 9.89875}
+  m_LocalPosition: {x: -0.1802772, y: 2.8049326, z: 9.458126}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -9762,7 +9762,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   anim: {fileID: 3571065583530574567}
   playerAttack: {fileID: 826615640914190225}
-  playerFunc: {fileID: 8957986601000083079}
+  playerFunc: {fileID: 3173985440313344023}
   rb: {fileID: 4633266257788118767}
 --- !u!210 &5341422069567755535
 SortingGroup:
@@ -9895,7 +9895,7 @@ Transform:
   m_GameObject: {fileID: 5386563023357190490}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0.277355, w: 0.9607675}
-  m_LocalPosition: {x: 0.771485, y: -0.45663857, z: 7.989914}
+  m_LocalPosition: {x: 0.771485, y: -0.45663857, z: 7.100052}
   m_LocalScale: {x: 0.55, y: 0.55, z: 0.55}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -13909,7 +13909,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerStatus: {fileID: 3492214244448277147}
-  playerFunc: {fileID: 8957986601000083079}
+  playerFunc: {fileID: 3173985440313344023}
   inputs: {fileID: 6506595838519733651}
   playerAnim: {fileID: 5214221243728169307}
   isAttacking: 0
@@ -13978,7 +13978,7 @@ Transform:
   m_GameObject: {fileID: 7795332742505789414}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.74227256, y: -2.8442836, z: 4.55954}
+  m_LocalPosition: {x: 0.74227256, y: -2.8442836, z: 3.824379}
   m_LocalScale: {x: 0.75, y: 0.38, z: 0.55}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -14237,7 +14237,7 @@ Transform:
   m_GameObject: {fileID: 7822372411083753976}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0, z: -0.277355, w: 0.9607675}
-  m_LocalPosition: {x: -0.7271168, y: -0.43656623, z: 1.0200005}
+  m_LocalPosition: {x: -0.7271168, y: -0.43656623, z: 1.2416916}
   m_LocalScale: {x: 0.55, y: 0.55, z: 0.55}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -14421,7 +14421,7 @@ Transform:
   m_GameObject: {fileID: 7938889876430366004}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.0029212832, y: 0.40086153, z: -0}
+  m_LocalPosition: {x: -0.25979355, y: 0.6891718, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -15303,7 +15303,7 @@ GameObject:
   - component: {fileID: 4110637717697406780}
   - component: {fileID: 4633266257788118767}
   - component: {fileID: 3492214244448277147}
-  - component: {fileID: 8957986601000083079}
+  - component: {fileID: 3173985440313344023}
   - component: {fileID: 6506595838519733651}
   - component: {fileID: 1172696303370988009}
   m_Layer: 0
@@ -15370,11 +15370,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cec74b2ec5a9dad468bd3ad8a3bd1739, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerFunc: {fileID: 8957986601000083079}
+  playerFunc: {fileID: 0}
   team: {fileID: 1172696303370988009}
   health: 0
   maxHealth: 500
---- !u!114 &8957986601000083079
+--- !u!114 &3173985440313344023
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -15383,7 +15383,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8472132381444169521}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b95a8b5350a422a44955b3b0bf5b1ee2, type: 3}
+  m_Script: {fileID: 11500000, guid: 83cc6b77ea25c7e43830e1eeddb0a516, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 4633266257788118767}
@@ -15413,7 +15413,7 @@ MonoBehaviour:
   dodgeLowerSpeed: 10
   dodgeBurstTime: 0.15
   dodgeTime: 0.3
-  dodgeDirection: {x: 1, y: 0}
+  dodgeDirection: {x: 0, y: 0}
   dodgeAcceleration: 0.3
   dodgeBufferTime: 0.1
   canDodgeAnimator: {fileID: 489794846083307058}
@@ -15425,6 +15425,10 @@ MonoBehaviour:
   dashJumpGravTime: 0.6
   baseGravity: 90
   currentGrav: 0
+  attackOutOfAirDodgeSpeed: 24
+  attackOutOfAirDodgeAccelerationTime: 0.6
+  attackOutOfAirDodgeAccelerationMult: 0.15
+  doAttackOutOfAirDodgeAcceleration: 0
 --- !u!114 &6506595838519733651
 MonoBehaviour:
   m_ObjectHideFlags: 0
