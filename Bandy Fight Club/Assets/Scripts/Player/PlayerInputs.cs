@@ -24,6 +24,9 @@ public class PlayerInputs : MonoBehaviour
     public bool dodgePressed;
     public bool dodgeHeld;
 
+    public bool attackPressed;
+    public bool attackHeld;
+
     void Update()
     {
         upPressed = Input.GetKeyDown(inputMap.up);
@@ -43,6 +46,9 @@ public class PlayerInputs : MonoBehaviour
 
         dodgePressed = Input.GetKeyDown(inputMap.dodge);
         dodgeHeld = Input.GetKey(inputMap.dodge);
+
+        attackPressed = Input.GetKeyDown(inputMap.attack);
+        attackHeld = Input.GetKey(inputMap.attack);
     }
 }
 
@@ -57,4 +63,6 @@ public class InputsMapping : ScriptableObject
     public string jump = "1";
 
     public string dodge = "2";
+
+    public string attack = "3";
 }

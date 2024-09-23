@@ -4,5 +4,7 @@ using UnityEngine;
 
 public class PlayerStatus : MonoBehaviour
 {
+    public PlayerFunc playerFunc;
+
     public int team = 1;
 }

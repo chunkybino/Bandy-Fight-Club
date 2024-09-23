@@ -6,6 +6,7 @@ public class PlayerFunc : MonoBehaviour
 {
     public Rigidbody2D rb;
     public PlayerStatus playerStatus;
+    public PlayerAttack playerAttack;
     public PlayerInputs inputs;
     public GroundChecker groundCheck;
 
@@ -37,8 +38,10 @@ public class PlayerFunc : MonoBehaviour
     [SerializeField] float jumpReleaseFallFactor = 0.9f;
     bool enableJumpReleaseFall;
 
-    [SerializeField] float jumpBufferTime = 0.1f;
+    [SerializeField] float jumpBufferTime = 0.15f;
     float jumpBufferTimer;
+
+    [SerializeField] GameObject canJumpAnimator;
 
     //dodge
     [SerializeField] bool isDodging;
@@ -52,6 +55,8 @@ public class PlayerFunc : MonoBehaviour
 
     [SerializeField] float dodgeBufferTime = 0.1f;
     float dodgeBufferTimer;
+
+    [SerializeField] GameObject canDodgeAnimator;
 
     //jump dash
     [SerializeField] float dashJumpHeight = 3;
@@ -85,7 +90,10 @@ public class PlayerFunc : MonoBehaviour
 
         if (grounded) airJumpsLeft = totalAirJumps;
 
-        if (jumpBufferTimer > 0)
+        bool canJump = true;
+        if (playerAttack.isAttacking && !canDodgeAnimator.activeSelf) canJump = false;
+
+        if (canJump && jumpBufferTimer > 0)
         {
             if (!isDodging)
             {
@@ -108,18 +116,20 @@ public class PlayerFunc : MonoBehaviour
             }
         }
 
+        //dodging
         UFunc.TickTimer(ref dodgeBufferTimer);
         if (inputs.dodgePressed) dodgeBufferTimer = dodgeBufferTime;
 
-        if (!isDodging)
+        bool canDodge = true;
+        if (isDodging) canDodge = false;
+        if (playerAttack.isAttacking && !canDodgeAnimator.activeSelf) canDodge = false;
+        
+        if (canDodge && dodgeBufferTimer > 0)
         {
-            if (dodgeBufferTimer > 0)
-            {
-                dodgeBufferTimer = 0;
-                int direction = sideInputDirection;
-                if (direction == 0) direction = facing;
-                StartDodge(new Vector2(direction,0));
-            }
+            dodgeBufferTimer = 0;
+            int direction = sideInputDirection;
+            if (direction == 0) direction = facing;
+            StartDodge(new Vector2(direction,0));
         }
     }
 
@@ -132,6 +142,10 @@ public class PlayerFunc : MonoBehaviour
         float yVel = rb.velocity.y;
 
         float targetSideSpeed = movementSpeed * sideInputDirection;
+        if (playerAttack.isAttacking)
+        {
+            targetSideSpeed = 0;
+        }
         if (isDodging)
         {
             targetSideSpeed = dodgeLowerSpeed * dodgeDirection.x;
