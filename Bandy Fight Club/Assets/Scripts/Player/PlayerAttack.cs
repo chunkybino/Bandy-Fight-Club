@@ -42,11 +42,11 @@ public class PlayerAttack : MonoBehaviour
 
         if (!isAttacking)
         {
-            Invoke("ResetAttackTindex", attackIndexResetTime);
+            Invoke("ResetAttackIndex", attackIndexResetTime);
         }
         else
         {
-            CancelInvoke("ResetAttackTindex");
+            CancelInvoke("ResetAttackIndex");
         }
     }
 
@@ -67,7 +67,7 @@ public class PlayerAttack : MonoBehaviour
         isAttacking = false;
     }
 
-    public void ResetAttackTindex()
+    public void ResetAttackIndex()
     {
         attackIndex = 0;
     }

@@ -14,9 +14,16 @@ public class PlayerAnimation : MonoBehaviour
 
     void Update()
     {
-        currentAnim = FindAnimation();
+        if (!playerAttack.isAttacking)
+        {
+            currentAnim = FindAnimation();
 
-        PlayAnim(currentAnim);
+            PlayAnim(currentAnim);
+        }
+        else
+        {
+            PlayAnim("BaseBlank");
+        }
     }
 
     string FindAnimation()
