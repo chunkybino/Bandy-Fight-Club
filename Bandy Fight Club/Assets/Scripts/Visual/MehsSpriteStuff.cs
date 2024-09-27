@@ -22,10 +22,5 @@ public class MeshSpriteStuff : MonoBehaviour
         newPos = UFunc.AddVector3ToVector2(transform.position, relativePos);
 
         sprite.position = new Vector3(newPos.x, newPos.y, sprite.position.z);
-        print(gameObject.name + "   " + sprite.position.ToString() + "   " + newPos.ToString());
-    }
-    void LateUpdate()
-    {
-        print(gameObject.name + "   " + sprite.position.ToString() + "   " + newPos.ToString() + "    late");
     }
 }

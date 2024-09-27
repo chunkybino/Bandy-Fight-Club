@@ -8,12 +8,18 @@ public class PlayerAttack : MonoBehaviour
     public PlayerFunc playerFunc;
     public PlayerInputs inputs;
 
+    public ICharacterFunc characterFunc;
+
     public PlayerAnimation playerAnim;
 
     public bool isAttacking;
     public string attackName;
 
     public string[] attackNames = new string[0];
+
+    public PlayerAttackConfig currentAttack;
+
+    public PlayerAttackConfig[] attacks;
 
     [SerializeField] int attackIndex = 0;
     [SerializeField] float attackIndexResetTime = 0.4f; //how long after isAttacking ends
@@ -23,8 +29,15 @@ public class PlayerAttack : MonoBehaviour
 
     [SerializeField] GameObject canAttackAnimator;
 
+    void Awake()
+    {
+        characterFunc = playerFunc.characterFunc;
+    }
+
     void Update()
     {
+        if (characterFunc == null) characterFunc = playerFunc.characterFunc;
+
         UFunc.TickTimer(ref attackBufferTimer);
         if (inputs.attackPressed) attackBufferTimer = attackBufferTime;
 
@@ -52,11 +65,36 @@ public class PlayerAttack : MonoBehaviour
 
     void Attack()
     {
-        string attack = attackNames[attackIndex];
-        attackIndex++;
-        if (attackIndex >= attackNames.Length) attackIndex = 0;
+        string attackName = characterFunc.FindAttackName();
+        PlayerAttackConfig attack = FindAttackByName(attackName);
 
-        playerAnim.PlayAnim(attack);
+        if (attack)
+        {
+            DoAttack(attack);
+        }
+
+        /*string attack = attackNames[attackIndex];
+        attackIndex++;
+        if (attackIndex >= attackNames.Length) attackIndex = 0;*/
+    }
+
+    PlayerAttackConfig FindAttackByName(string name)
+    {
+        foreach (PlayerAttackConfig attack in attacks)
+        {
+            //print(attack.gameObject.name.ToString() + "    " + name);
+            if (attack.gameObject.name == name)
+            {
+                return attack;
+            }
+        }
+        return null;
+    }
+    void DoAttack(PlayerAttackConfig attack)
+    {
+        currentAttack = attack;
+
+        playerAnim.PlayAnim(attack.animationName);
         isAttacking = true;
 
         playerFunc.OnAttack();

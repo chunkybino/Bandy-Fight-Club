@@ -10,6 +10,8 @@ public class PlayerFunc : MonoBehaviour
     public PlayerInputs inputs;
     public GroundChecker groundCheck;
 
+    public ICharacterFunc characterFunc;
+
     //side movement
     [SerializeField] float movementSpeed = 14;
     int sideInputDirection;
@@ -76,7 +78,7 @@ public class PlayerFunc : MonoBehaviour
     float currentGravMult = 1;
     List<float> gravMults = new List<float>();
 
-    void Update()
+    public void Update()
     {
         //side inputs
         sideInputDirection = 0;

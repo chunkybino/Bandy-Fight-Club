@@ -140,7 +140,7 @@ Transform:
   m_GameObject: {fileID: 26461663674181730}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.0976042, y: -2.86663, z: 9.612457}
+  m_LocalPosition: {x: -1.0976042, y: -2.86663, z: 9.612053}
   m_LocalScale: {x: 0.75, y: 0.38, z: 0.55}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -885,6 +885,7 @@ MonoBehaviour:
   - {fileID: 2083535049113708057}
   - {fileID: 2579916404892268626}
   - {fileID: 1394702160751890610}
+  - {fileID: 59913818324532174}
   meshes:
   - {fileID: 1352692967160083734}
   - {fileID: 3558333050227984265}
@@ -897,6 +898,7 @@ MonoBehaviour:
   - {fileID: 1769330409336546323}
   - {fileID: 3706365152497396971}
   - {fileID: 9079600394216148271}
+  - {fileID: 2061449936793213827}
   sprites:
   - {fileID: 5820059994526815173}
   - {fileID: 3639644351103095292}
@@ -11434,7 +11436,7 @@ Transform:
   m_GameObject: {fileID: 5166753245546931066}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: 0.5656272, w: 0.82466114}
-  m_LocalPosition: {x: 0.049710155, y: -0.3139956, z: -0}
+  m_LocalPosition: {x: 0.04414241, y: -0.29898322, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -11886,7 +11888,7 @@ Transform:
   m_GameObject: {fileID: 5386563023357190490}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0.277355, w: 0.9607675}
-  m_LocalPosition: {x: 0.8752347, y: -0.3938563, z: 7.0999603}
+  m_LocalPosition: {x: 0.8752347, y: -0.3938563, z: 7.09993}
   m_LocalScale: {x: 0.55, y: 0.55, z: 0.55}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -16569,7 +16571,7 @@ Transform:
   m_GameObject: {fileID: 7795332742505789414}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.90198624, y: -2.8573225, z: 3.8245697}
+  m_LocalPosition: {x: 0.90198624, y: -2.8573225, z: 3.8245544}
   m_LocalScale: {x: 0.75, y: 0.38, z: 0.55}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -18033,20 +18035,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inputMap: {fileID: 11400000, guid: 3736b76e1ad25af4cab884e4ad236e07, type: 2}
-  upPressed: 0
-  upHeld: 0
-  downPressed: 0
-  downHeld: 0
-  leftPressed: 0
-  leftHeld: 0
-  rightPressed: 0
-  rightHeld: 0
-  jumpPressed: 0
-  jumpHeld: 0
-  dodgePressed: 0
-  dodgeHeld: 0
-  attackPressed: 0
-  attackHeld: 0
 --- !u!114 &1172696303370988009
 MonoBehaviour:
   m_ObjectHideFlags: 0
