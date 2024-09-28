@@ -13,7 +13,7 @@ public class BigQFunc : PlayerFunc, ICharacterFunc
     {
         if (characterFunc == null) characterFunc = this;
     }
-    void Update()
+    new void Update()
     {
         base.Update();
 

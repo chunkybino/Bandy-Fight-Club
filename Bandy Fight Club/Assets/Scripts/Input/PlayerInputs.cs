@@ -6,28 +6,28 @@ public class PlayerInputs : MonoBehaviour
 {
     public InputMapSO inputMap;
 
-    public bool upPressed;// {get {return Input.GetKey(inputMap.up);}}
-    public bool upHeld;// {get {return Input.GetKey(inputMap.up);}}
+    public bool upPressed {get {return Input.GetKey(inputMap.up);}}
+    public bool upHeld {get {return Input.GetKey(inputMap.up);}}
 
-    public bool downPressed;// {get {return Input.GetKeyDown(inputMap.down);}}
-    public bool downHeld;// {get {return Input.GetKey(inputMap.down);}}
+    public bool downPressed {get {return Input.GetKeyDown(inputMap.down);}}
+    public bool downHeld {get {return Input.GetKey(inputMap.down);}}
 
-    public bool leftPressed;// {get {return Input.GetKeyDown(inputMap.left);}}
-    public bool leftHeld;// {get {return Input.GetKey(inputMap.left);}}
+    public bool leftPressed {get {return Input.GetKeyDown(inputMap.left);}}
+    public bool leftHeld {get {return Input.GetKey(inputMap.left);}}
 
-    public bool rightPressed;// {get {return Input.GetKeyDown(inputMap.right);}}
-    public bool rightHeld;// {get {return Input.GetKey(inputMap.right);}}
+    public bool rightPressed {get {return Input.GetKeyDown(inputMap.right);}}
+    public bool rightHeld {get {return Input.GetKey(inputMap.right);}}
 
-    public bool jumpPressed;// {get {return Input.GetKeyDown(inputMap.jump);}}
-    public bool jumpHeld;// {get {return Input.GetKey(inputMap.jump);}}
+    public bool jumpPressed {get {return Input.GetKeyDown(inputMap.jump);}}
+    public bool jumpHeld {get {return Input.GetKey(inputMap.jump);}}
 
-    public bool dodgePressed;// {get {return Input.GetKeyDown(inputMap.dodge);}}
-    public bool dodgeHeld;// {get {return Input.GetKey(inputMap.dodge);}}
+    public bool dodgePressed {get {return Input.GetKeyDown(inputMap.dodge);}}
+    public bool dodgeHeld {get {return Input.GetKey(inputMap.dodge);}}
 
-    public bool attackPressed;// {get {return Input.GetKeyDown(inputMap.attack);}}
-    public bool attackHeld;// {get {return Input.GetKey(inputMap.attack);}}
+    public bool attackPressed {get {return Input.GetKeyDown(inputMap.attack);}}
+    public bool attackHeld {get {return Input.GetKey(inputMap.attack);}}
 
-    void Update()
+    /*void Update()
     {
         upPressed = Input.GetKeyDown(inputMap.up);
         upHeld = Input.GetKey(inputMap.up);
@@ -49,5 +49,5 @@ public class PlayerInputs : MonoBehaviour
 
         attackPressed = Input.GetKeyDown(inputMap.attack);
         attackHeld = Input.GetKey(inputMap.attack);
-    }
+    }*/
 }

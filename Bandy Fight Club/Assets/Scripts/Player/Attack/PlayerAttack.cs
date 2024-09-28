@@ -43,11 +43,15 @@ public class PlayerAttack : MonoBehaviour
         UFunc.TickTimer(ref attackBufferTimer);
         if (inputs.attackPressed) attackBufferTimer = attackBufferTime;
 
+        //if (inputs.attackPressed)print("yeah");
+        print(inputs.attackPressed);
+
         if (attackBufferTimer > 0)
         {
             bool canAttack = !isAttacking;
             if (canAttackAnimator.activeSelf) canAttack = true;
 
+            print(canAttack);
             if (canAttack)
             {
                 attackBufferTimer = 0;

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerAttackConfig : MonoBehaviour
 {
-    public string name {get{return gameObject.name;}}
+    public string attackName {get{return gameObject.name;}}
 
     public string animationName;
 
