@@ -11,4 +11,6 @@ public class PlayerAttackConfig : MonoBehaviour
     public bool cancelOnGroundLand;
 
     public float speedMult = 0;
+
+    public bool lockFacing = true;
 }

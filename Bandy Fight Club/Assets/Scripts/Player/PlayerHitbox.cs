@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class PlayerHitbox : MonoBehaviour, IDamageable
 {
+    public Rigidbody2D rb;
     public PlayerStatus playerStatus;
+    public GroundChecker groundCheck;
 
     public BoxCollider2D hitbox;
     public BoxCollider2D boundingBox;
@@ -14,6 +16,8 @@ public class PlayerHitbox : MonoBehaviour, IDamageable
     Vector2 normalBoundingSize;
     Vector2 normalBoundingOffset;
     public BoxCollider2D hitboxSizeReference;
+
+    [SerializeField] float groundDistance;
 
     void Awake()
     {
@@ -41,14 +45,26 @@ public class PlayerHitbox : MonoBehaviour, IDamageable
         }
     }
 
+    void FixedUpdate()
+    {
+        if (groundCheck.grounded)
+        {
+            //if we in the ground, shift us up
+            float groundHeight = groundCheck.groundHeight;
+            float boundingBottomHeight = boundingBox.transform.position.y + boundingBox.offset.y - boundingBox.size.y/2; //y pos of bottom fo bounding box
+            float groundHeightDelta = boundingBottomHeight - groundHeight;
+            if (groundHeightDelta < 0) //if our boundign box goes below the ground, move us up
+            {
+                rb.transform.position = new Vector3(rb.transform.position.x, rb.transform.position.y - groundHeightDelta, rb.transform.position.z);
+            }
+        }
+    }
+
     public void GetHit(AttackInfo info)
     {
         print(info.damage);
         playerStatus.GetHit(info);
     }
 
-    public TeamHolder team {
-        get{return playerStatus.team;} 
-        set{}
-    }
+    public TeamHolder team {get{return playerStatus.team;} set{}}
 }

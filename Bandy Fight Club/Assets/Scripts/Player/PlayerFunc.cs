@@ -87,7 +87,10 @@ public class PlayerFunc : MonoBehaviour
         if (inputs.leftHeld) sideInputDirection--;
         if (inputs.rightHeld) sideInputDirection++;
 
-        if (sideInputDirection != 0) facing = Mathf.RoundToInt(Mathf.Sign(sideInputDirection)); 
+        bool canChangeFacing = true;
+        if (playerAttack.isAttacking && playerAttack.currentAttack.lockFacing) canChangeFacing = false;
+        if (canChangeFacing && sideInputDirection != 0) facing = Mathf.RoundToInt(Mathf.Sign(sideInputDirection)); 
+        
         transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x)*facing,transform.localScale.y,transform.localScale.z);
 
         //jumping
