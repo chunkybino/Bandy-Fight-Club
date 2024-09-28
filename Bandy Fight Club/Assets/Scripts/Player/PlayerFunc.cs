@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class PlayerFunc : MonoBehaviour
 {
@@ -30,6 +31,7 @@ public class PlayerFunc : MonoBehaviour
 
     //ground
     public bool grounded;
+    public UnityEvent onGroundLand;
 
     //facing
     public int facing = 1;
@@ -139,6 +141,7 @@ public class PlayerFunc : MonoBehaviour
 
     void FixedUpdate()
     {
+        if (!grounded && groundCheck.grounded) GroundLand(); //check if we land on the ground
         grounded = groundCheck.grounded;
 
         //momentum
@@ -148,7 +151,7 @@ public class PlayerFunc : MonoBehaviour
         float targetSideSpeed = movementSpeed * sideInputDirection;
         if (playerAttack.isAttacking)
         {
-            targetSideSpeed = 0;
+            targetSideSpeed *= playerAttack.currentAttack.speedMult; //ussually 0, stop us from moving during attack
         }
         if (isDodging)
         {
@@ -252,6 +255,11 @@ public class PlayerFunc : MonoBehaviour
         jumpBufferTimer = 0;
         enableJumpReleaseFall = true;
         rb.velocity = new Vector2(rb.velocity.x, force);
+    }
+
+    void GroundLand()
+    {
+        onGroundLand?.Invoke();
     }
 
     void StartDodge(Vector2 direction)

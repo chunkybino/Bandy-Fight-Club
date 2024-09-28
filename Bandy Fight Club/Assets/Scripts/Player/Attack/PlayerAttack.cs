@@ -32,6 +32,8 @@ public class PlayerAttack : MonoBehaviour
     void Awake()
     {
         characterFunc = playerFunc.characterFunc;
+
+        playerFunc.onGroundLand.AddListener(OnGroundLand);
     }
 
     void Update()
@@ -82,7 +84,6 @@ public class PlayerAttack : MonoBehaviour
     {
         foreach (PlayerAttackConfig attack in attacks)
         {
-            //print(attack.gameObject.name.ToString() + "    " + name);
             if (attack.gameObject.name == name)
             {
                 return attack;
@@ -108,5 +109,22 @@ public class PlayerAttack : MonoBehaviour
     public void ResetAttackIndex()
     {
         attackIndex = 0;
+    }
+
+    public void CancelAttack()
+    {
+        isAttacking = false;
+        playerAnim.PlayAnim("ActionBlank");
+    }
+
+    void OnGroundLand()
+    {
+        if (currentAttack && isAttacking)
+        {
+            if (currentAttack.cancelOnGroundLand)
+            {
+                CancelAttack();
+            }
+        }
     }
 }

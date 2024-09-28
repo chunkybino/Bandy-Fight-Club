@@ -7,7 +7,7 @@ public class AttackHitbox : MonoBehaviour
     [SerializeField] TeamHolder team;
 
     [SerializeField] float rehitTime = 0.5f;
-    [SerializeField] List<Collider2D> rehitList = new List<Collider2D>();
+    List<Collider2D> rehitList = new List<Collider2D>();
     IEnumerator rehitCorountine;
 
     [SerializeField] AttackInfo attackInfo;
