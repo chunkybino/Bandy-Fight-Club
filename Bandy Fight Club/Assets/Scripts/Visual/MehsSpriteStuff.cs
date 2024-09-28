@@ -15,6 +15,9 @@ public class MeshSpriteStuff : MonoBehaviour
     Vector2 relativePos;
     Vector2 newPos;
 
+    Vector3 relativeRot;
+    Vector3 newRot;
+
     void Update()
     {
         relativePos = referenceTransform.position - referenceTransformAnchor.position;
@@ -22,5 +25,10 @@ public class MeshSpriteStuff : MonoBehaviour
         newPos = UFunc.AddVector3ToVector2(transform.position, relativePos);
 
         sprite.position = new Vector3(newPos.x, newPos.y, sprite.position.z);
+
+        relativeRot = referenceTransform.eulerAngles - referenceTransformAnchor.eulerAngles;
+        if (flip) relativeRot = new Vector3(-relativeRot.x,relativeRot.y,-relativeRot.z);
+        newRot = transform.eulerAngles + relativeRot;
+        sprite.eulerAngles = newRot;
     }
 }
