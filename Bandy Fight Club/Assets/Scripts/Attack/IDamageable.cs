@@ -6,7 +6,7 @@ public interface IDamageable
 {
     TeamHolder team {get; set;}
 
-    void GetHit(AttackInfo info);
+    bool GetHit(AttackInfo info);
 }
 
 [System.Serializable]

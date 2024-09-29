@@ -6,6 +6,7 @@ public class PlayerHitbox : MonoBehaviour, IDamageable
 {
     public Rigidbody2D rb;
     public PlayerStatus playerStatus;
+    public PlayerFunc playerFunc;
     public GroundChecker groundCheck;
 
     public BoxCollider2D hitbox;
@@ -60,10 +61,17 @@ public class PlayerHitbox : MonoBehaviour, IDamageable
         }
     }
 
-    public void GetHit(AttackInfo info)
+    public bool GetHit(AttackInfo info)
     {
-        print(info.damage);
-        playerStatus.GetHit(info);
+        if (!playerFunc.isDodgeIntangible)
+        {
+            playerStatus.GetHit(info);
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 
     public TeamHolder team {get{return playerStatus.team;} set{}}

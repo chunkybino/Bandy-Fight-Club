@@ -62,6 +62,11 @@ public class PlayerFunc : MonoBehaviour
     [SerializeField] float dodgeBufferTime = 0.1f;
     float dodgeBufferTimer;
 
+    [SerializeField] float timeDodging;
+
+    [SerializeField] float dodgeIntangibilityTime = 0.15f;
+    public bool isDodgeIntangible {get{return isDodging && timeDodging < dodgeIntangibilityTime;}}
+
     [SerializeField] GameObject canDodgeAnimator;
 
     //jump dash
@@ -90,7 +95,7 @@ public class PlayerFunc : MonoBehaviour
         bool canChangeFacing = true;
         if (playerAttack.isAttacking && playerAttack.currentAttack.lockFacing) canChangeFacing = false;
         if (canChangeFacing && sideInputDirection != 0) facing = Mathf.RoundToInt(Mathf.Sign(sideInputDirection)); 
-        
+
         transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x)*facing,transform.localScale.y,transform.localScale.z);
 
         //jumping
@@ -139,6 +144,15 @@ public class PlayerFunc : MonoBehaviour
             int direction = sideInputDirection;
             if (direction == 0) direction = facing;
             StartDodge(new Vector2(direction,0));
+        }
+
+        if (isDodging)
+        {
+            UFunc.TickTimer(ref timeDodging);
+        }
+        else
+        {
+            timeDodging = 0;
         }
     }
 
