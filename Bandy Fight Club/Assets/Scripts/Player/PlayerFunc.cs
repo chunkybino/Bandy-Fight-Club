@@ -13,6 +13,8 @@ public class PlayerFunc : MonoBehaviour
 
     public ICharacterFunc characterFunc;
 
+    public bool allowControl;
+
     //side movement
     [SerializeField] float movementSpeed = 14;
     int sideInputDirection;

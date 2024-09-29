@@ -16,11 +16,6 @@ public class PlayerMeshParent : MonoBehaviour
 
     public bool instanceMeshes;
 
-    void Awake()
-    {
-        InstanceMeshes();
-    }
-
     void Update()
     {
         facing = playerFunc.facing;
@@ -44,7 +39,7 @@ public class PlayerMeshParent : MonoBehaviour
         }
     }
 
-    void InstanceMeshes()
+    public void InstanceMeshes()
     {
         instanceMeshes = false;
         foreach (MeshTest mesh in meshes)

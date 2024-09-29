@@ -8,10 +8,13 @@ public class GroundChecker : MonoBehaviour
     public BoxCollider2D colliderReference; //reference this collider when checkign for grounded
     public Vector2 groundCheckPos;
     public Vector2 groundedCheckSize = new Vector2 (1, 0.05f);
+    public float groundCheckDownRange = 0.05f;
     public LayerMask layerMask = 6;
     public float groundHeight;
 
     public bool dontAutoGroundCheck; //only check for ground when prompted
+
+    public List<Collider2D> ignoreColliders = new List<Collider2D>();
 
     void FixedUpdate()
     {
@@ -23,21 +26,22 @@ public class GroundChecker : MonoBehaviour
     {
         if (colliderReference)
         {
-            groundedCheckSize = new Vector2(colliderReference.size.x, groundedCheckSize.y);
-            groundCheckPos = new Vector2(colliderReference.transform.position.x + colliderReference.offset.x, colliderReference.transform.position.y + colliderReference.offset.y - colliderReference.size.y / 2);
+            groundedCheckSize = new Vector2(colliderReference.size.x, colliderReference.size.y);//groundedCheckSize.y);
+            groundCheckPos = new Vector2(colliderReference.transform.position.x + colliderReference.offset.x, colliderReference.transform.position.y + colliderReference.offset.y);// - colliderReference.size.y / 2);
         }
 
         grounded = CheckGrounded(groundCheckPos, groundedCheckSize, layerMask);
 
-        RaycastHit2D raycastHit = Physics2D.BoxCast(new Vector2(groundCheckPos.x, groundCheckPos.y - groundedCheckSize.y / 2), groundedCheckSize, 0, Vector2.down, 0, layerMask);
-        if (raycastHit.collider != null)
+        RaycastHit2D[] raycastHits = Physics2D.BoxCastAll(new Vector2(groundCheckPos.x, groundCheckPos.y - (groundCheckDownRange/2)), new Vector2(groundedCheckSize.x, groundCheckDownRange), 0, Vector2.down, groundedCheckSize.y/2, layerMask);
+        
+        grounded = false;
+        foreach (RaycastHit2D hit in raycastHits)
         {
-            grounded = true;
-            groundHeight = raycastHit.point.y;
-        }
-        else
-        {
-            grounded = false;
+            if (!ignoreColliders.Contains(hit.collider)) //make sure its note one of our ignore colliders
+            {
+                grounded = true;
+                groundHeight = hit.point.y;
+            }
         }
     }
 

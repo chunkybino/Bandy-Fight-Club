@@ -25,10 +25,15 @@ public class AttackHitbox : MonoBehaviour
 
         bool hitTarget = damageable.GetHit(attackInfo);
 
-        if (hitTarget) HitDude();
+        print(hitTarget);
 
-        rehitCorountine = removeFromHitListCorountine(item);
-        StartCoroutine(rehitCorountine);
+        if (hitTarget) 
+        {
+            HitDude();
+
+            rehitCorountine = removeFromHitListCorountine(item);
+            StartCoroutine(rehitCorountine);
+        }
     }
 
     void HitDude()
