@@ -8,6 +8,7 @@ public class PlayerHitbox : MonoBehaviour, IDamageable
     public PlayerStatus playerStatus;
     public PlayerFunc playerFunc;
     public GroundChecker groundCheck;
+    public KnockbackHandler knockbackHandler;
 
     public BoxCollider2D hitbox;
     public BoxCollider2D boundingBox;
@@ -97,11 +98,13 @@ public class PlayerHitbox : MonoBehaviour, IDamageable
         }
     }
 
-    public bool GetHit(AttackInfo info)
+    public bool GetHit(FullAttackInfo fullInfo)
     {
+        AttackInfo info = fullInfo.info;
         if (!isIntangible)
         {
             playerStatus.GetHit(info);
+            knockbackHandler.GetKnockbacked(info.knockback, fullInfo.direction);
             return true;
         }
         else

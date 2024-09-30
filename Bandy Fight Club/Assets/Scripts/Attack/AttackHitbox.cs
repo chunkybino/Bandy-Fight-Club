@@ -12,6 +12,9 @@ public class AttackHitbox : MonoBehaviour
 
     [SerializeField] AttackInfo attackInfo;
 
+    [SerializeField] int direction;
+    [SerializeField] Transform directionReference;
+
     void OnTriggerStay2D(Collider2D item)
     {
         IDamageable damageable = item.GetComponent<IDamageable>();
@@ -21,7 +24,10 @@ public class AttackHitbox : MonoBehaviour
 
         if (team) if (team.team == damageable.team.team) return; //if we on the same team, if this hitbox isnt assigned to a team, hit everyone
 
-        bool hitTarget = damageable.GetHit(attackInfo);
+        direction = UFunc.Sign(directionReference.localScale.x);
+
+        FullAttackInfo fullInfo = new FullAttackInfo() {info = attackInfo, direction = new Vector2(direction,1)};
+        bool hitTarget = damageable.GetHit(fullInfo);
 
         if (hitTarget) 
         {

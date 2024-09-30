@@ -363,4 +363,9 @@ public class PlayerFunc : MonoBehaviour
     {
         //for overrides and stuff i guess
     }
+
+    public void DisableJumpReleaseFall()
+    {
+        enableJumpReleaseFall = false;
+    }
 }

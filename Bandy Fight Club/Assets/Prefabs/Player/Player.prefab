@@ -4893,6 +4893,7 @@ MonoBehaviour:
   playerStatus: {fileID: 3492214244448277147}
   playerFunc: {fileID: 3173985440313344023}
   groundCheck: {fileID: 5061188384587571447}
+  knockbackHandler: {fileID: 2094130834287096051}
   hitbox: {fileID: 2798322378995512335}
   boundingBox: {fileID: 6169362903709148363}
   entityBounding: {fileID: 4394220580777857540}
@@ -6933,6 +6934,18 @@ MonoBehaviour:
   rehitTime: 0.5
   attackInfo:
     damage: 35
+    knockback:
+      name: 
+      vel: {x: 25, y: 0}
+      fixedVel: {x: 0, y: 20}
+      xVelType: 3
+      yVelType: 3
+      normalizeVel: 0
+      dontDoAgainstGroundedTarget: 0
+      acceleration: 0.12
+      accelerationTime: 0.45
+  direction: 0
+  directionReference: {fileID: 4110637717697406780}
 --- !u!1 &3105146183858177674
 GameObject:
   m_ObjectHideFlags: 0
@@ -9127,6 +9140,18 @@ MonoBehaviour:
   rehitTime: 0.5
   attackInfo:
     damage: 40
+    knockback:
+      name: 
+      vel: {x: 30, y: 0}
+      fixedVel: {x: 0, y: 25}
+      xVelType: 3
+      yVelType: 3
+      normalizeVel: 0
+      dontDoAgainstGroundedTarget: 0
+      acceleration: 0.1
+      accelerationTime: 0.5
+  direction: 0
+  directionReference: {fileID: 4110637717697406780}
 --- !u!1 &3875489417325364167
 GameObject:
   m_ObjectHideFlags: 0
@@ -18834,6 +18859,7 @@ GameObject:
   - component: {fileID: 3173985440313344023}
   - component: {fileID: 6506595838519733651}
   - component: {fileID: 1172696303370988009}
+  - component: {fileID: 2094130834287096051}
   m_Layer: 7
   m_Name: Player
   m_TagString: Untagged
@@ -19008,6 +19034,35 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   team: 0
+--- !u!114 &2094130834287096051
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8472132381444169521}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efd9b55d76301774e9bf790d4f2bf78c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 4633266257788118767}
+  playerFunc: {fileID: 3173985440313344023}
+  groundCheck: {fileID: 5061188384587571447}
+  baseKnockbackResistance: {x: 1, y: 1}
+  knockbackResistanceMult: {x: 1, y: 1}
+  doKnockbackToDo:
+    name: 
+    vel: {x: 0, y: 0}
+    fixedVel: {x: 0, y: 0}
+    xVelType: 1
+    yVelType: 1
+    normalizeVel: 0
+    dontDoAgainstGroundedTarget: 0
+    acceleration: 0
+    accelerationTime: 0
+  doKnock: 0
+  knockDirection: {x: 1, y: 0}
 --- !u!1 &8540177098839175594
 GameObject:
   m_ObjectHideFlags: 0
@@ -19457,6 +19512,18 @@ MonoBehaviour:
   rehitTime: 0.5
   attackInfo:
     damage: 30
+    knockback:
+      name: Knee
+      vel: {x: 20, y: 0}
+      fixedVel: {x: 0, y: 20}
+      xVelType: 3
+      yVelType: 3
+      normalizeVel: 0
+      dontDoAgainstGroundedTarget: 0
+      acceleration: 0.15
+      accelerationTime: 0.4
+  direction: 0
+  directionReference: {fileID: 4110637717697406780}
 --- !u!1 &8717194558293452352
 GameObject:
   m_ObjectHideFlags: 0
