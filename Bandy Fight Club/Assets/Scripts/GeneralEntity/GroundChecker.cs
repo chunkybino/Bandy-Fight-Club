@@ -5,11 +5,14 @@ using UnityEngine;
 public class GroundChecker : MonoBehaviour
 {
     public bool grounded;
+    public bool groundGrounded;
+    public bool platformGrounded;
     public BoxCollider2D colliderReference; //reference this collider when checkign for grounded
     public Vector2 groundCheckPos;
     public Vector2 groundedCheckSize = new Vector2 (1, 0.05f);
     public float groundCheckDownRange = 0.05f;
     public LayerMask layerMask = 6;
+    public LayerMask platformLayerMask;
     public float groundHeight;
 
     public bool dontAutoGroundCheck; //only check for ground when prompted
@@ -22,7 +25,7 @@ public class GroundChecker : MonoBehaviour
         DoGroundCheckNow();
     }
 
-    public void DoGroundCheckNow()
+    public void DoGroundCheckNow(bool onlyPlatformGroundAbove = true)
     {
         if (colliderReference)
         {
@@ -32,15 +35,35 @@ public class GroundChecker : MonoBehaviour
 
         grounded = CheckGrounded(groundCheckPos, groundedCheckSize, layerMask);
 
-        RaycastHit2D[] raycastHits = Physics2D.BoxCastAll(new Vector2(groundCheckPos.x, groundCheckPos.y - (groundCheckDownRange/2)), new Vector2(groundedCheckSize.x, groundCheckDownRange), 0, Vector2.down, groundedCheckSize.y/2, layerMask);
+        RaycastHit2D[] raycastHits = Physics2D.BoxCastAll(new Vector2(groundCheckPos.x, groundCheckPos.y - (groundCheckDownRange/2)), new Vector2(groundedCheckSize.x, groundCheckDownRange), 0, Vector2.down, 50, layerMask);
         
         grounded = false;
+        groundGrounded = false;
+        platformGrounded = false;
         foreach (RaycastHit2D hit in raycastHits)
         {
-            if (!ignoreColliders.Contains(hit.collider)) //make sure its note one of our ignore colliders
+            if (ignoreColliders.Contains(hit.collider)) continue; //make sure its note one of our ignore colliders
+
+            if (!grounded) //set ground height to the first ground we find
             {
-                grounded = true;
                 groundHeight = hit.point.y;
+            }
+
+            if (hit.point.y < groundCheckPos.y - (groundCheckDownRange/2) - (groundedCheckSize.y/2)) continue; //if the ground is too far
+
+            if (hit.collider.gameObject.layer == LayerMask.NameToLayer("Ground")) //if its a ground ground
+            {
+                groundGrounded = true;
+                grounded = true;
+            }
+            if (hit.collider.gameObject.layer == LayerMask.NameToLayer("PlatformGround")) //if its a platform
+            {
+                float colliderBottomHeight = groundCheckPos.y - (groundedCheckSize.y/2);
+                if (colliderBottomHeight > groundHeight - 0.025f || !onlyPlatformGroundAbove) //only do if we arnt below the platform, if the variable is true
+                {
+                    platformGrounded = true;
+                    grounded = true;
+                }
             }
         }
     }

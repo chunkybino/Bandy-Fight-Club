@@ -12,6 +12,7 @@ public class PlayerHitbox : MonoBehaviour, IDamageable
     public BoxCollider2D hitbox;
     public BoxCollider2D boundingBox;
     public BoxCollider2D entityBounding;
+    public BoxCollider2D platformBox;
 
     Vector2 normalHitboxSize;
     Vector2 normalHitboxOffset;
@@ -21,6 +22,8 @@ public class PlayerHitbox : MonoBehaviour, IDamageable
 
     public bool isIntangible;
 
+    bool boundBoxSizeChanged = false;
+
     void Awake()
     {
         normalHitboxSize = hitbox.size;
@@ -29,44 +32,68 @@ public class PlayerHitbox : MonoBehaviour, IDamageable
         normalBoundingOffset = boundingBox.offset;
 
         Physics2D.IgnoreCollision(boundingBox, entityBounding);
+        Physics2D.IgnoreCollision(platformBox, entityBounding);
     }
 
     void Update()
     {
+        float startGroundHeight = groundCheck.groundHeight;
+        float startGroundDelta = groundCheck.groundHeight - platformBox.transform.position.y - platformBox.offset.y;
+
+        Vector2 hitSize = normalHitboxSize;
+        Vector2 hitOffset = normalHitboxOffset;
+        Vector2 boundSize = normalBoundingSize;
+        Vector2 boundOffset = normalBoundingOffset;
+
         if (hitboxSizeReference.gameObject.activeSelf)
         {
-            hitbox.size = hitboxSizeReference.size;
-            hitbox.offset = hitboxSizeReference.offset;
-            boundingBox.size = hitboxSizeReference.size;
-            boundingBox.offset = hitboxSizeReference.offset;
+            hitSize = hitboxSizeReference.size;
+            hitOffset = hitboxSizeReference.offset;
+
+            boundSize = hitboxSizeReference.size;
+            boundOffset = hitboxSizeReference.offset;
         }
-        else
-        {
-            hitbox.size = normalHitboxSize;
-            hitbox.offset = normalHitboxOffset;
-            boundingBox.size = normalBoundingSize;
-            boundingBox.offset = normalBoundingOffset;
-        }
+
+        hitbox.size = hitSize;
+        hitbox.offset = hitOffset;
+        boundingBox.size = boundSize;
+        boundingBox.offset = boundOffset;
+
+        //entity bounding
         entityBounding.size = boundingBox.size;
         entityBounding.offset = boundingBox.offset;
 
+        //platform bounding
+        float platformBoxHeight = boundingBox.offset.y + ((platformBox.size.y-boundingBox.size.y)/2);
+        float platformHeightChange = platformBoxHeight - platformBox.transform.localPosition.y;
+        platformBox.size = new Vector2(boundingBox.size.x, platformBox.size.y);
+        platformBox.transform.localPosition = new Vector2(boundingBox.offset.x, platformBoxHeight); //move platform boudning to bottom of normal bbounding
+
+        //shiftup
+        if (platformHeightChange < -0.1f) //if we get moved down
+        {
+            groundCheck.DoGroundCheckNow(false);
+            float groundDelta = startGroundHeight - platformBox.transform.position.y - platformBox.offset.y;
+            //print(groundDelta);
+            if (groundDelta > 0 && startGroundDelta < 0)
+            {
+                CheckForGroundShiftUp();
+            }
+        }
+
+        //intagibility
         isIntangible = playerFunc.isDodgeIntangible;
         entityBounding.enabled = !isIntangible; //disable entity bounding if intagible
     }
 
-    void FixedUpdate()
+    void CheckForGroundShiftUp() //if we in the ground, shift us up
     {
-        if (groundCheck.grounded)
+        float groundHeight = groundCheck.groundHeight;
+        float boundingBottomHeight = boundingBox.transform.position.y + boundingBox.offset.y - (boundingBox.size.y/2); //y pos of bottom fo bounding box
+        float groundHeightDelta = boundingBottomHeight - groundHeight;
+        if (groundHeightDelta < 0) //if our boundign box goes below the ground, move us up
         {
-            //if we in the ground, shift us up
-            float groundHeight = groundCheck.groundHeight;
-            float boundingBottomHeight = boundingBox.transform.position.y + boundingBox.offset.y - (boundingBox.size.y/2); //y pos of bottom fo bounding box
-            float groundHeightDelta = boundingBottomHeight - groundHeight;
-            if (groundHeightDelta < 0) //if our boundign box goes below the ground, move us up
-            {
-                print(groundHeightDelta);
-                rb.transform.position = new Vector3(rb.transform.position.x, rb.transform.position.y - groundHeightDelta, rb.transform.position.z);
-            }
+            rb.transform.position = new Vector3(rb.transform.position.x, rb.transform.position.y - groundHeightDelta, rb.transform.position.z);
         }
     }
 

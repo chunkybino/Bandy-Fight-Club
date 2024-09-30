@@ -19,13 +19,9 @@ public class AttackHitbox : MonoBehaviour
         if (damageable == null) return; //if we find a hitbox
         if (rehitList.Contains(item)) return; //avoid rehits
 
-        print(team.team);
-        print(damageable.team.team);
         if (team) if (team.team == damageable.team.team) return; //if we on the same team, if this hitbox isnt assigned to a team, hit everyone
 
         bool hitTarget = damageable.GetHit(attackInfo);
-
-        print(hitTarget);
 
         if (hitTarget) 
         {
