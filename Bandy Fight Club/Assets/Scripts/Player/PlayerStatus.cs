@@ -44,7 +44,6 @@ public class PlayerStatus : MonoBehaviour
 
     public void Spawn(int playerNum)
     {
-        //playerNumber = gameManager.AddPlayer(this);
         playerNumber = playerNum;
         inputs.inputMap = gameManager.GetInputMap(playerNumber);
         team.team = playerNumber;

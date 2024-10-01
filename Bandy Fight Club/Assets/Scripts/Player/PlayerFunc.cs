@@ -58,6 +58,7 @@ public class PlayerFunc : MonoBehaviour
     //dodge
     public bool isDodging;
     public bool isDodgingBurst;
+    public bool doDodgeMovement;
     [SerializeField] float dodgeBurstSpeed = 40;
     [SerializeField] float dodgeLowerSpeed = 10;
     [SerializeField] float dodgeBurstTime = 0.15f;
@@ -69,11 +70,14 @@ public class PlayerFunc : MonoBehaviour
     float dodgeBufferTimer;
 
     [SerializeField] float timeDodging;
+    [SerializeField] float timeSinceDodge;
 
     [SerializeField] float dodgeIntangibilityTime = 0.15f;
     public bool isDodgeIntangible {get{return isDodging && timeDodging < dodgeIntangibilityTime;}}
 
     [SerializeField] GameObject canDodgeAnimator;
+
+    [SerializeField] float attackOutOfDodgeTime = 0.3f; //how fast we can attack out of a dodge
 
     //jump dash
     [SerializeField] float dashJumpHeight = 3.5f;
@@ -167,12 +171,13 @@ public class PlayerFunc : MonoBehaviour
 
         if (isDodging)
         {
-            UFunc.TickTimer(ref timeDodging);
+            timeDodging += Time.deltaTime;
         }
         else
         {
             timeDodging = 0;
         }
+        timeSinceDodge += Time.deltaTime;
 
         //droping through platform stuff
         UFunc.TickTimer(ref downPlatformBufferTimer);
@@ -210,16 +215,17 @@ public class PlayerFunc : MonoBehaviour
             currentGrav *= g;
         }
 
-        if (!isDodging)
+        bool movementDodging = isDodging || doDodgeMovement; //dodging for the sake of movement
+        if (movementDodging)
+        {
+            DodgeMovement();
+        }
+        else
         {
             HandleAcceleration();
             MaintainingSpeed();
 
             VerticalMovementStuff();
-        }
-        else
-        {
-            DodgeMovement();
         }
 
         xVel = UFunc.RoundToDecimal(xVel, 2); //rounding the xVel to the nearest hundredth 
@@ -233,7 +239,7 @@ public class PlayerFunc : MonoBehaviour
             float thisFlatAcceleration = 1;
 
             float mAccel = multAccleration;
-            if (isDodging) mAccel = dodgeAcceleration;
+            if (movementDodging) mAccel = dodgeAcceleration;
 
             thisMultAcceleration = accelerationCurve * (1 - Mathf.Pow(1 - (mAccel * (1 - Mathf.Pow(1 - (1 / accelerationCurve), 1 / Time.fixedDeltaTime))), Time.fixedDeltaTime));
             thisFlatAcceleration = UFunc.FloatToDirection(targetSideSpeed - rb.velocity.x) * Mathf.Min(flatAccleration * movementSpeed, Mathf.Abs(targetSideSpeed - rb.velocity.x)) * Time.fixedDeltaTime; //add flat acceleration, make sure we dont overshoot target speed
@@ -275,7 +281,7 @@ public class PlayerFunc : MonoBehaviour
         {
             yVel = 0; 
 
-            if (isDodgingBurst)
+            if (timeSinceDodge <= dodgeBurstTime)
             {
                 xVel = dodgeBurstSpeed * dodgeDirection.x;
             }
@@ -313,9 +319,15 @@ public class PlayerFunc : MonoBehaviour
 
         dodgeDirection = direction;
 
+        timeSinceDodge = 0;
+
         CancelInvoke("EndDodge");
         CancelInvoke("EndDodgeBurst");
         Invoke("EndDodgeBurst", dodgeBurstTime);
+
+        doDodgeMovement = false;
+        CancelInvoke("EndDodgeMovement");
+        Invoke("EndDodgeMovement", dodgeTime);
     }
     void EndDodgeBurst()
     {
@@ -327,10 +339,17 @@ public class PlayerFunc : MonoBehaviour
     }   
     public void EndDodge()
     {
+        isDodgingBurst = false;
         isDodging = false;
 
         CancelInvoke("EndDodge");
         CancelInvoke("EndDodgeBurst");
+    }
+    public void EndDodgeMovement()
+    {
+        doDodgeMovement = false;
+
+        CancelInvoke("EndDodgeMovement");
     }
 
     void DoDashJump()
@@ -386,11 +405,32 @@ public class PlayerFunc : MonoBehaviour
 
     public virtual void OnAttack()
     {
-        //for overrides and stuff i guess
+        if (isDodging) doDodgeMovement = true;
+        EndDodge();
     }
 
     public void DisableJumpReleaseFall()
     {
         enableJumpReleaseFall = false;
+    }
+
+    //other script functions, for overriding i guess
+    public virtual bool GetCanAttack()
+    {
+        bool canAttack = !playerAttack.isAttacking;
+        if (isDodging && timeDodging < attackOutOfDodgeTime) canAttack = false;
+        return canAttack;
+    }
+
+    public virtual bool GetIsIntangible()
+    {
+        return isDodgeIntangible;
+    }
+
+    public virtual bool GetDisableEntityCollision()
+    {
+        bool disable = isDodging;
+        if (playerAttack.isAttacking) disable = false;
+        return disable;
     }
 }

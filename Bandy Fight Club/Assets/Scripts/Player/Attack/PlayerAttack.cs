@@ -45,9 +45,9 @@ public class PlayerAttack : MonoBehaviour
 
         if (attackBufferTimer > 0)
         {
-            bool canAttack = !isAttacking;
+            bool canAttack = playerFunc.GetCanAttack();
             if (canAttackAnimator.activeSelf) canAttack = true;
-            
+
             if (canAttack)
             {
                 attackBufferTimer = 0;

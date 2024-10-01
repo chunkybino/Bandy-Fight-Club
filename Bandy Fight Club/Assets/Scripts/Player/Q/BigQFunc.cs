@@ -22,9 +22,14 @@ public class BigQFunc : PlayerFunc, ICharacterFunc
 
     public override void OnAttack()
     {
-        if (isDodging && !grounded) //if we attack out of dodge in the air, let us keep our speed
+        bool dodging = isDodging; //get the variable before it gets set by the base script
+
+        base.OnAttack();
+
+        if (dodging && !grounded) //if we attack out of dodge in the air, let us keep our speed
         {
             EndDodge();
+            doDodgeMovement = false;
             maintainSpeed = attackOutOfAirDodgeSpeed * dodgeDirection.x;
 
             doAttackOutOfAirDodgeAcceleration = true;

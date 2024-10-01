@@ -733,7 +733,7 @@ Transform:
   m_GameObject: {fileID: 198516365833612865}
   serializedVersion: 2
   m_LocalRotation: {x: -0.0073741265, y: 0.0041624843, z: -0.008171085, w: 0.9999308}
-  m_LocalPosition: {x: -0.9857157, y: -2.6195586, z: 8.999855}
+  m_LocalPosition: {x: -0.9857157, y: -2.6195586, z: 8.999809}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -8432,7 +8432,7 @@ BoxCollider2D:
     m_Bits: 4294967295
   m_ForceReceiveLayers:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 2551
   m_ContactCaptureLayers:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -11315,7 +11315,7 @@ Transform:
   m_GameObject: {fileID: 4669064943574059178}
   serializedVersion: 2
   m_LocalRotation: {x: -0.0031346167, y: 0.0011252061, z: -0.00019403169, w: 0.99999446}
-  m_LocalPosition: {x: 0.804473, y: -2.6551096, z: 3.824524}
+  m_LocalPosition: {x: 0.804473, y: -2.6551096, z: 3.8245697}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -12063,7 +12063,7 @@ Transform:
   m_GameObject: {fileID: 5166753245546931066}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: 0.5656272, w: 0.82466114}
-  m_LocalPosition: {x: 0.05271685, y: -0.31217203, z: -0}
+  m_LocalPosition: {x: 0.04246849, y: -0.30473605, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -12516,7 +12516,7 @@ Transform:
   m_GameObject: {fileID: 5386563023357190490}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: 0.035266567, w: 0.99937797}
-  m_LocalPosition: {x: 0.8752347, y: -0.3938563, z: 7.100029}
+  m_LocalPosition: {x: 0.8752347, y: -0.3938563, z: 7.099968}
   m_LocalScale: {x: 0.55, y: 0.55, z: 0.55}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -17975,7 +17975,7 @@ Transform:
   m_GameObject: {fileID: 7938889876430366004}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.0031241775, y: 0.39800337, z: -0}
+  m_LocalPosition: {x: -0.003364861, y: 0.39315706, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -18978,6 +18978,7 @@ MonoBehaviour:
   onGroundLand:
     m_PersistentCalls:
       m_Calls: []
+  groundedLeewayTime: 0.15
   facing: 1
   jumpHeight: 7
   airJumpHeight: 5
@@ -18987,6 +18988,7 @@ MonoBehaviour:
   canJumpAnimator: {fileID: 8549965640782363037}
   isDodging: 0
   isDodgingBurst: 0
+  doDodgeMovement: 0
   dodgeBurstSpeed: 40
   dodgeLowerSpeed: 10
   dodgeBurstTime: 0.15
@@ -18995,8 +18997,10 @@ MonoBehaviour:
   dodgeAcceleration: 0.3
   dodgeBufferTime: 0.1
   timeDodging: 0
+  timeSinceDodge: 0
   dodgeIntangibilityTime: 0.15
   canDodgeAnimator: {fileID: 489794846083307058}
+  attackOutOfDodgeTime: 0
   dashJumpHeight: 4
   dashJumpSpeed: 24
   dashJumpAccel: 0.35
@@ -19886,7 +19890,7 @@ BoxCollider2D:
     m_Bits: 4294967295
   m_ForceReceiveLayers:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 3063
   m_ContactCaptureLayers:
     serializedVersion: 2
     m_Bits: 4294967295

@@ -88,8 +88,8 @@ public class PlayerHitbox : MonoBehaviour, IDamageable
         }
 
         //intagibility
-        isIntangible = playerFunc.isDodgeIntangible;
-        entityBounding.enabled = !isIntangible; //disable entity bounding if intagible
+        isIntangible = playerFunc.GetIsIntangible();//isDodgeIntangible;
+        entityBounding.enabled = !playerFunc.GetDisableEntityCollision();
     }
 
     void CheckForGroundShiftUp() //if we in the ground, shift us up
