@@ -36,6 +36,9 @@ public class PlayerFunc : MonoBehaviour
     public bool grounded;
     public UnityEvent onGroundLand;
 
+    [SerializeField] float groundedLeewayTime = 0.15f;
+    float groundedLeewayTimer;
+
     //facing
     public int facing = 1;
 
@@ -105,6 +108,10 @@ public class PlayerFunc : MonoBehaviour
 
         transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x)*facing,transform.localScale.y,transform.localScale.z);
 
+        //ground leeway
+        if (grounded) groundedLeewayTimer = groundedLeewayTime;
+        UFunc.TickTimer(ref groundedLeewayTimer);
+
         //jumping
         UFunc.TickTimer(ref jumpBufferTimer);
         if (inputs.jumpPressed) jumpBufferTimer = jumpBufferTime;
@@ -118,9 +125,10 @@ public class PlayerFunc : MonoBehaviour
         {
             if (!isDodging)
             {
-                if (grounded)
+                if (grounded || groundedLeewayTimer > 0)
                 {
                     JumpToHeight(jumpHeight);
+                    groundedLeewayTimer = 0;
                 }
                 else
                 {
@@ -133,7 +141,11 @@ public class PlayerFunc : MonoBehaviour
             }
             else
             {
-                if (grounded) DoDashJump();
+                if (grounded || groundedLeewayTimer > 0)
+                {
+                    DoDashJump();
+                    groundedLeewayTimer = 0;
+                }
             }
         }
 
