@@ -4897,9 +4897,10 @@ MonoBehaviour:
   hitbox: {fileID: 2798322378995512335}
   boundingBox: {fileID: 6169362903709148363}
   entityBounding: {fileID: 4394220580777857540}
-  platformBox: {fileID: 5564865063946039417}
+  platformBox: {fileID: 1501640842571845744}
   hitboxSizeReference: {fileID: 1893864069461372615}
   isIntangible: 0
+  dropThroughPlatformTime: 0.1
 --- !u!1 &1986770384813292198
 GameObject:
   m_ObjectHideFlags: 0
@@ -8387,9 +8388,9 @@ GameObject:
   m_Component:
   - component: {fileID: 678355539950539367}
   - component: {fileID: 4394220580777857540}
-  m_Layer: 6
+  m_Layer: 11
   m_Name: EntityBounding
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8421,7 +8422,7 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 512
+    m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -8431,7 +8432,7 @@ BoxCollider2D:
     m_Bits: 4294967295
   m_ForceReceiveLayers:
     serializedVersion: 2
-    m_Bits: 1015
+    m_Bits: 4294967295
   m_ContactCaptureLayers:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -8633,7 +8634,7 @@ MonoBehaviour:
   groundCheckDownRange: 0.05
   layerMask:
     serializedVersion: 2
-    m_Bits: 1088
+    m_Bits: 3136
   platformLayerMask:
     serializedVersion: 2
     m_Bits: 1024
@@ -10532,7 +10533,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5554933899785605468}
-  - component: {fileID: 5564865063946039417}
+  - component: {fileID: 1501640842571845744}
   m_Layer: 9
   m_Name: PlatformBounding
   m_TagString: Untagged
@@ -10549,13 +10550,13 @@ Transform:
   m_GameObject: {fileID: 4504878784347005638}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -2.75, z: 0}
+  m_LocalPosition: {x: 0, y: -3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7526178575541078542}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &5564865063946039417
+--- !u!61 &1501640842571845744
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -10567,17 +10568,17 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 1024
+    m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 576
+    m_Bits: 0
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
     m_Bits: 4294967295
   m_ForceReceiveLayers:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 1024
   m_ContactCaptureLayers:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -10598,7 +10599,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.2, y: 0.5}
+  m_Size: {x: 2.2, y: 0.05}
   m_EdgeRadius: 0
 --- !u!1 &4508797701597359230
 GameObject:
@@ -18961,6 +18962,7 @@ MonoBehaviour:
   rb: {fileID: 4633266257788118767}
   playerStatus: {fileID: 3492214244448277147}
   playerAttack: {fileID: 826615640914190225}
+  playerHitbox: {fileID: 4855450163481974825}
   inputs: {fileID: 6506595838519733651}
   groundCheck: {fileID: 5061188384587571447}
   allowControl: 0
@@ -19003,6 +19005,7 @@ MonoBehaviour:
   dashJumpGravTime: 0.6
   baseGravity: 90
   currentGrav: 0
+  downPlatformBufferTime: 0.15
   attackOutOfAirDodgeSpeed: 24
   attackOutOfAirDodgeAccelerationTime: 0.6
   attackOutOfAirDodgeAccelerationMult: 0.15
@@ -19876,7 +19879,7 @@ BoxCollider2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 512
+    m_Bits: 0
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2

@@ -51,7 +51,7 @@ public class GroundChecker : MonoBehaviour
 
             if (hit.point.y < groundCheckPos.y - (groundCheckDownRange/2) - (groundedCheckSize.y/2)) continue; //if the ground is too far
 
-            if (hit.collider.gameObject.layer == LayerMask.NameToLayer("Ground")) //if its a ground ground
+            if (hit.collider.gameObject.layer == LayerMask.NameToLayer("Ground") || hit.collider.gameObject.tag == "Ground") //if its a ground ground
             {
                 groundGrounded = true;
                 grounded = true;

@@ -25,6 +25,9 @@ public class PlayerHitbox : MonoBehaviour, IDamageable
 
     bool boundBoxSizeChanged = false;
 
+    [SerializeField] float dropThroughPlatformTime = 0.1f;
+    float dropThroughPlatformTimer;
+
     void Awake()
     {
         normalHitboxSize = hitbox.size;
@@ -39,7 +42,7 @@ public class PlayerHitbox : MonoBehaviour, IDamageable
     void Update()
     {
         float startGroundHeight = groundCheck.groundHeight;
-        float startGroundDelta = groundCheck.groundHeight - platformBox.transform.position.y - platformBox.offset.y;
+        float startGroundDelta = groundCheck.groundHeight + (platformBox.size.y/2) - platformBox.transform.position.y;
 
         Vector2 hitSize = normalHitboxSize;
         Vector2 hitOffset = normalHitboxOffset;
@@ -65,17 +68,19 @@ public class PlayerHitbox : MonoBehaviour, IDamageable
         entityBounding.offset = boundingBox.offset;
 
         //platform bounding
-        float platformBoxHeight = boundingBox.offset.y + ((platformBox.size.y-boundingBox.size.y)/2);
+        float platformBoxHeight = boundingBox.offset.y - (boundingBox.size.y/2);
         float platformHeightChange = platformBoxHeight - platformBox.transform.localPosition.y;
         platformBox.size = new Vector2(boundingBox.size.x, platformBox.size.y);
-        platformBox.transform.localPosition = new Vector2(boundingBox.offset.x, platformBoxHeight); //move platform boudning to bottom of normal bbounding
+        platformBox.transform.localPosition = new Vector2(boundingBox.offset.x, platformBoxHeight + (platformBox.size.y/2)); //move platform boudning to bottom of normal bbounding
+
+        UFunc.TickTimer(ref dropThroughPlatformTimer);
+        platformBox.enabled = dropThroughPlatformTimer == 0;
 
         //shiftup
         if (platformHeightChange < -0.1f) //if we get moved down
         {
             groundCheck.DoGroundCheckNow(false);
-            float groundDelta = startGroundHeight - platformBox.transform.position.y - platformBox.offset.y;
-            //print(groundDelta);
+            float groundDelta = startGroundHeight + (platformBox.size.y/2) - platformBox.transform.position.y;
             if (groundDelta > 0 && startGroundDelta < 0)
             {
                 CheckForGroundShiftUp();
@@ -111,6 +116,12 @@ public class PlayerHitbox : MonoBehaviour, IDamageable
         {
             return false;
         }
+    }
+
+    public void DropThroughPlatform()
+    {
+        dropThroughPlatformTimer = dropThroughPlatformTime;
+        platformBox.enabled = false;
     }
 
     public TeamHolder team {get{return playerStatus.team;} set{}}

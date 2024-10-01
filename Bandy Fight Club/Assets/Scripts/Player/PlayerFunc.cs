@@ -8,6 +8,7 @@ public class PlayerFunc : MonoBehaviour
     public Rigidbody2D rb;
     public PlayerStatus playerStatus;
     public PlayerAttack playerAttack;
+    public PlayerHitbox playerHitbox;
     public PlayerInputs inputs;
     public GroundChecker groundCheck;
 
@@ -87,6 +88,10 @@ public class PlayerFunc : MonoBehaviour
     float currentGravMult = 1;
     List<float> gravMults = new List<float>();
 
+    //platform
+    [SerializeField] float downPlatformBufferTime = 0.1f;
+    float downPlatformBufferTimer;
+
     public void Update()
     {
         //side inputs
@@ -155,6 +160,14 @@ public class PlayerFunc : MonoBehaviour
         else
         {
             timeDodging = 0;
+        }
+
+        //droping through platform stuff
+        UFunc.TickTimer(ref downPlatformBufferTimer);
+        if (inputs.downPressed) downPlatformBufferTimer = downPlatformBufferTime;
+        if (downPlatformBufferTimer > 0 && grounded)
+        {
+            playerHitbox.DropThroughPlatform();
         }
     }
 
