@@ -6935,16 +6935,6 @@ MonoBehaviour:
   rehitTime: 0.5
   attackInfo:
     damage: 35
-    knockback:
-      name: 
-      vel: {x: 25, y: 0}
-      fixedVel: {x: 0, y: 20}
-      xVelType: 3
-      yVelType: 3
-      normalizeVel: 0
-      dontDoAgainstGroundedTarget: 0
-      acceleration: 0.12
-      accelerationTime: 0.45
     knockbacks:
     - name: airkick
       vel: {x: 20, y: 0}
@@ -6964,6 +6954,7 @@ MonoBehaviour:
       dontDoAgainstGroundedTarget: 0
       acceleration: 0.12
       accelerationTime: 0.45
+    hitStopTime: 0.06
   direction: 0
   directionReference: {fileID: 4110637717697406780}
 --- !u!1 &3105146183858177674
@@ -9160,16 +9151,6 @@ MonoBehaviour:
   rehitTime: 0.5
   attackInfo:
     damage: 40
-    knockback:
-      name: 
-      vel: {x: 30, y: 0}
-      fixedVel: {x: 0, y: 25}
-      xVelType: 3
-      yVelType: 3
-      normalizeVel: 0
-      dontDoAgainstGroundedTarget: 0
-      acceleration: 0.1
-      accelerationTime: 0.5
     knockbacks:
     - name: highkick
       vel: {x: 15, y: 0}
@@ -9189,6 +9170,7 @@ MonoBehaviour:
       dontDoAgainstGroundedTarget: 0
       acceleration: 0.1
       accelerationTime: 0.5
+    hitStopTime: 0.1
   direction: 0
   directionReference: {fileID: 4110637717697406780}
 --- !u!1 &3875489417325364167
@@ -19557,16 +19539,6 @@ MonoBehaviour:
   rehitTime: 0.5
   attackInfo:
     damage: 30
-    knockback:
-      name: Knee
-      vel: {x: 20, y: 0}
-      fixedVel: {x: 0, y: 20}
-      xVelType: 3
-      yVelType: 3
-      normalizeVel: 0
-      dontDoAgainstGroundedTarget: 0
-      acceleration: 0.15
-      accelerationTime: 0.4
     knockbacks:
     - name: Knee
       vel: {x: 20, y: 0}
@@ -19577,6 +19549,7 @@ MonoBehaviour:
       dontDoAgainstGroundedTarget: 0
       acceleration: 0.15
       accelerationTime: 0.4
+    hitStopTime: 0.04
   direction: 0
   directionReference: {fileID: 4110637717697406780}
 --- !u!1 &8717194558293452352

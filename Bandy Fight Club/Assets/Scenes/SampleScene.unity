@@ -1007,6 +1007,10 @@ MonoBehaviour:
   spawnPoints:
   - {fileID: 96561685}
   - {fileID: 1835542523}
+  isHitStop: 0
+  hitStopSpeed: 0.1
+  hitStopTime: 0.15
+  doHitstop: 0
 --- !u!4 &266986421
 Transform:
   m_ObjectHideFlags: 0
@@ -2113,10 +2117,6 @@ PrefabInstance:
     - target: {fileID: 8472132381444169521, guid: 84f3f989133dc724681733bf06f534d8, type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 8472132381444169521, guid: 84f3f989133dc724681733bf06f534d8, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8620700022088183152, guid: 84f3f989133dc724681733bf06f534d8, type: 3}
       propertyPath: m_Mesh

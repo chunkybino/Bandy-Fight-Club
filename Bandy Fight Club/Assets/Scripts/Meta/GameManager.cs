@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
     public static GameManager singleton;
 
     public float timeScale = 1;
+    float timeScaleFRFR;
 
     public List<PlayerStatus> players = new List<PlayerStatus>();
 
@@ -17,6 +18,12 @@ public class GameManager : MonoBehaviour
     public List<PlayerInfo> playerInfos = new List<PlayerInfo>();
 
     public Transform[] spawnPoints;
+
+    [SerializeField] bool isHitStop;
+    [SerializeField] float hitStopSpeed = 0.05f;
+    [SerializeField] float hitStopTime;
+
+    [SerializeField] bool doHitstop;
 
     void Awake()
     {
@@ -40,7 +47,22 @@ public class GameManager : MonoBehaviour
     {
         CheckSingleton();
 
-        Time.timeScale = timeScale;
+        if (doHitstop)
+        {
+            doHitstop = false;
+            DoHitStop(hitStopTime);
+        }
+
+        if (isHitStop)
+        {
+            timeScaleFRFR = hitStopSpeed;
+        }
+        else
+        {
+            timeScaleFRFR = 1;
+        }
+        timeScaleFRFR *= timeScale;
+        Time.timeScale = timeScaleFRFR;
     }
 
     public int AddPlayer(PlayerStatus player)
@@ -69,6 +91,23 @@ public class GameManager : MonoBehaviour
             playerInfo.player = player;
             playerInfo.playerNumber = playerNum;
         }
+    }
+
+    public static void DoHitStopStatic(float time)
+    {
+        singleton.DoHitStop(time);
+    }
+    public void DoHitStop(float time)
+    {
+        isHitStop = true;
+        //hitStopTime = time;
+        StartCoroutine("EndHitStop", time);
+    }
+
+    IEnumerator EndHitStop(float time)
+    {
+        yield return new WaitForSecondsRealtime(time);
+        isHitStop = false;
     }
 }
 
