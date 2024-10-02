@@ -22,8 +22,6 @@ public class PlayerStatus : MonoBehaviour
     {
         gameManager = GameManager.singleton;
 
-        //Spawn();
-
         onAwake?.Invoke();
     }
 
@@ -44,6 +42,10 @@ public class PlayerStatus : MonoBehaviour
 
     public void Spawn(int playerNum)
     {
+        gameManager = GameManager.singleton;
+
+        gameObject.SetActive(true);
+
         playerNumber = playerNum;
         inputs.inputMap = gameManager.GetInputMap(playerNumber);
         team.team = playerNumber;

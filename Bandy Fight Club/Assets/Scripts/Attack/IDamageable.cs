@@ -13,7 +13,7 @@ public interface IDamageable
 public class AttackInfo
 {
     public int damage;
-    public Knockback knockback;
+    public Knockback[] knockbacks;
 }
 [System.Serializable]
 public class FullAttackInfo

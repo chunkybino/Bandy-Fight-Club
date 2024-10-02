@@ -109,7 +109,10 @@ public class PlayerHitbox : MonoBehaviour, IDamageable
         if (!isIntangible)
         {
             playerStatus.GetHit(info);
-            knockbackHandler.GetKnockbacked(info.knockback, fullInfo.direction);
+            foreach (Knockback knockback in info.knockbacks)
+            {
+                knockbackHandler.GetKnockbacked(knockback, fullInfo.direction);
+            }
             return true;
         }
         else
