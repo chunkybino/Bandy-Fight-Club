@@ -26,6 +26,7 @@ public class PlayerAttack : MonoBehaviour
     
     [SerializeField] float attackBufferTime = 0.15f;
     float attackBufferTimer;
+    float attackHeavyBufferTimer;
 
     [SerializeField] GameObject canAttackAnimator;
 
@@ -42,16 +43,23 @@ public class PlayerAttack : MonoBehaviour
 
         UFunc.TickTimer(ref attackBufferTimer);
         if (inputs.attackPressed) attackBufferTimer = attackBufferTime;
+        UFunc.TickTimer(ref attackHeavyBufferTimer);
+        if (inputs.heavyPressed) attackHeavyBufferTimer = attackBufferTime;
 
-        if (attackBufferTimer > 0)
+        bool canAttack = playerFunc.GetCanAttack();
+        if (canAttackAnimator.activeSelf) canAttack = true;
+
+        if (canAttack)
         {
-            bool canAttack = playerFunc.GetCanAttack();
-            if (canAttackAnimator.activeSelf) canAttack = true;
-
-            if (canAttack)
+            if (attackBufferTimer > 0)
             {
                 attackBufferTimer = 0;
                 Attack();
+            }
+            if (attackHeavyBufferTimer > 0)
+            {
+                attackHeavyBufferTimer = 0;
+                AttackHeavy();
             }
         }
 
@@ -79,6 +87,16 @@ public class PlayerAttack : MonoBehaviour
         attackIndex++;
         if (attackIndex >= attackNames.Length) attackIndex = 0;*/
     }
+    void AttackHeavy()
+    {
+        string attackName = characterFunc.FindAttackHeavyName();
+        PlayerAttackConfig attack = FindAttackByName(attackName);
+
+        if (attack)
+        {
+            DoAttack(attack);
+        }
+    }
 
     PlayerAttackConfig FindAttackByName(string name)
     {
@@ -97,6 +115,8 @@ public class PlayerAttack : MonoBehaviour
 
         playerAnim.PlayAnim(attack.animationName);
         isAttacking = true;
+
+        attack.onAttackStart?.Invoke();
 
         playerFunc.OnAttack();
     }

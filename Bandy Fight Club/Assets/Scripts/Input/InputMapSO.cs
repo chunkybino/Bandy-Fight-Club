@@ -15,4 +15,5 @@ public class InputMapSO : ScriptableObject
     public string dodge = "2";
 
     public string attack = "3";
+    public string heavy = "4";
 }

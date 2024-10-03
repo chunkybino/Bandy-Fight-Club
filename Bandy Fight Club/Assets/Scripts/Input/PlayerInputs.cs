@@ -26,8 +26,11 @@ public class PlayerInputs : MonoBehaviour
     public bool dodgePressed {get {return Input.GetKeyDown(inputMap.dodge) && inputsActive;}}
     public bool dodgeHeld {get {return Input.GetKey(inputMap.dodge) && inputsActive;}}
 
-    public bool attackPressed {get {return Input.GetKeyDown(inputMap.attack);}}
+    public bool attackPressed {get {return Input.GetKeyDown(inputMap.attack) && inputsActive;}}
     public bool attackHeld {get {return Input.GetKey(inputMap.attack) && inputsActive;}}
+
+    public bool heavyPressed {get {return Input.GetKeyDown(inputMap.heavy) && inputsActive;}}
+    public bool heavyHeld {get {return Input.GetKey(inputMap.heavy) && inputsActive;}}
 
     /*void Update()
     {

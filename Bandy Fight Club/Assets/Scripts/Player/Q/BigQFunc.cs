@@ -73,4 +73,10 @@ public class BigQFunc : PlayerFunc, ICharacterFunc
 
         return attackName;
     }
+    public string FindAttackHeavyName()
+    {
+        string attackName = "SaxThrow";
+
+        return attackName;
+    }
 }

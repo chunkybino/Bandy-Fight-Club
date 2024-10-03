@@ -5,4 +5,6 @@ using UnityEngine;
 public interface ICharacterFunc
 {
     string FindAttackName();
+
+    string FindAttackHeavyName();
 }
