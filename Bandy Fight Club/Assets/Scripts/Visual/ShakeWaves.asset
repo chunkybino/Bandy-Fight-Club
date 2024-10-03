@@ -12,4 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 0}
   m_Name: ShakeWaves
   m_EditorClassIdentifier: Assembly-CSharp::ShakeWaves
-  shakeWaves: []
+  shakeWaves:
+  - freq: 1
+    amp: 4
+  - freq: 4
+    amp: 1
+  - freq: 10
+    amp: 0.6
