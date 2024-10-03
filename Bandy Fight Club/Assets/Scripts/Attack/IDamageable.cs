@@ -16,6 +16,7 @@ public class AttackInfo
     public Knockback[] knockbacks;
 
     public float hitStopTime = 0;
+    public float cameraShake = 0;
 }
 [System.Serializable]
 public class FullAttackInfo

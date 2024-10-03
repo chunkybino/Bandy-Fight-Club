@@ -25,6 +25,8 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] bool doHitstop;
 
+    [SerializeField] Shaker cameraShaker;
+
     void Awake()
     {
         CheckSingleton();
@@ -108,6 +110,15 @@ public class GameManager : MonoBehaviour
     {
         yield return new WaitForSecondsRealtime(time);
         isHitStop = false;
+    }
+
+    public static void DoCameraShakeStatic(float strength)
+    {
+        singleton.DoCameraShake(strength);
+    }
+    public void DoCameraShake(float strength)
+    {
+        cameraShaker.DoShake(strength);
     }
 }
 

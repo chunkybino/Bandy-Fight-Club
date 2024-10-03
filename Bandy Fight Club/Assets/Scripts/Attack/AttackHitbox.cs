@@ -40,7 +40,8 @@ public class AttackHitbox : MonoBehaviour
 
     void HitDude()
     {
-        GameManager.DoHitStopStatic(attackInfo.hitStopTime);
+        if (attackInfo.hitStopTime > 0) GameManager.DoHitStopStatic(attackInfo.hitStopTime);
+        if (attackInfo.cameraShake > 0) GameManager.DoCameraShakeStatic(attackInfo.cameraShake);
     }
 
     IEnumerator removeFromHitListCorountine(Collider2D target)
