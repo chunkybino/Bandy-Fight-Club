@@ -12,13 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 0}
   m_Name: BasicBullet
   m_EditorClassIdentifier: Assembly-CSharp::BulletConfig
-  bulletObject: {fileID: 0}
+  bulletObject: {fileID: 2248519488616613682, guid: 178ff2c9a5f5d1e428c410d366e1e69d, type: 3}
   enemyAttackInfo:
-    damage: 0
+    damage: 1
     knockbacks: []
     hitStopTime: 0
     cameraShake: 0
-  speed: 10
+  speed: 25
   pierce: 0
   size: 1
   lifetime: 4

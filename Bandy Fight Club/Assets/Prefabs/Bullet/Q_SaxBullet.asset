@@ -12,13 +12,22 @@ MonoBehaviour:
   m_Script: {fileID: 0}
   m_Name: Q_SaxBullet
   m_EditorClassIdentifier: Assembly-CSharp::BulletConfig
-  bulletObject: {fileID: 0}
+  bulletObject: {fileID: 6550088417826640888, guid: 85e64e33079e0ab478c8226b5760eb75, type: 3}
   enemyAttackInfo:
-    damage: 0
-    knockbacks: []
-    hitStopTime: 0
-    cameraShake: 0
-  speed: 10
-  pierce: 0
+    damage: 50
+    knockbacks:
+    - name: 
+      vel: {x: 20, y: 0}
+      fixedVel: {x: 0, y: 24}
+      xVelType: 3
+      yVelType: 3
+      normalizeVel: 0
+      dontDoAgainstGroundedTarget: 0
+      acceleration: 0.1
+      accelerationTime: 0.6
+    hitStopTime: 0.12
+    cameraShake: 0.7
+  speed: 35
+  pierce: -1
   size: 1
-  lifetime: 4
+  lifetime: 6
