@@ -1677,6 +1677,9 @@ MonoBehaviour:
   cancelOnGroundLand: 0
   speedMult: 0
   lockFacing: 1
+  onAttackStart:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &693089543376193854
 GameObject:
   m_ObjectHideFlags: 0
@@ -6004,6 +6007,9 @@ MonoBehaviour:
   cancelOnGroundLand: 1
   speedMult: 1
   lockFacing: 1
+  onAttackStart:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &2591114613007986053
 GameObject:
   m_ObjectHideFlags: 0
@@ -15474,6 +15480,21 @@ MonoBehaviour:
   cancelOnGroundLand: 0
   speedMult: 0.1
   lockFacing: 0
+  onAttackStart:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3173985440313344023}
+        m_TargetAssemblyTypeName: BigQFunc, Assembly-CSharp
+        m_MethodName: ShootSax
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &6960356942378979731
 GameObject:
   m_ObjectHideFlags: 0
@@ -17318,6 +17339,9 @@ MonoBehaviour:
   cancelOnGroundLand: 0
   speedMult: 0
   lockFacing: 1
+  onAttackStart:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &7625599351409213902
 GameObject:
   m_ObjectHideFlags: 0
@@ -18939,7 +18963,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4110637717697406780
 Transform:
   m_ObjectHideFlags: 0
@@ -19086,6 +19110,7 @@ MonoBehaviour:
   attackOutOfAirDodgeAccelerationTime: 0.6
   attackOutOfAirDodgeAccelerationMult: 0.15
   doAttackOutOfAirDodgeAcceleration: 0
+  saxBulletConfig: {fileID: 11400000, guid: 0777388eff80c5d4ca775e94ebb8ce3b, type: 2}
 --- !u!114 &6506595838519733651
 MonoBehaviour:
   m_ObjectHideFlags: 0

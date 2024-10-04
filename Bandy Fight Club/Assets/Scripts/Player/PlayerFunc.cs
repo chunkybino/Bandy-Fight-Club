@@ -12,6 +12,8 @@ public class PlayerFunc : MonoBehaviour
     public PlayerInputs inputs;
     public GroundChecker groundCheck;
 
+    public int team {get{return playerStatus.team.team;}}
+
     public ICharacterFunc characterFunc;
 
     public bool allowControl;

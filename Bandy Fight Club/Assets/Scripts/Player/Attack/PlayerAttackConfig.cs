@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class PlayerAttackConfig : MonoBehaviour
 {
@@ -13,4 +14,6 @@ public class PlayerAttackConfig : MonoBehaviour
     public float speedMult = 0;
 
     public bool lockFacing = true;
+
+    public UnityEvent onAttackStart;
 }

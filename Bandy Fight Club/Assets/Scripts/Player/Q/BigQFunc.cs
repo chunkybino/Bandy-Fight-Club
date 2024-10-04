@@ -9,6 +9,8 @@ public class BigQFunc : PlayerFunc, ICharacterFunc
     public float attackOutOfAirDodgeAccelerationMult = 0.15f;
     public bool doAttackOutOfAirDodgeAcceleration;
 
+    public BulletConfig saxBulletConfig;
+
     void Awake()
     {
         if (characterFunc == null) characterFunc = this;
@@ -78,5 +80,10 @@ public class BigQFunc : PlayerFunc, ICharacterFunc
         string attackName = "SaxThrow";
 
         return attackName;
+    }
+
+    public void ShootSax()
+    {
+        BulletHandler.ShootBulletStatic(saxBulletConfig, transform.position, new Vector2(facing, 0), team);
     }
 }
