@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 0}
   m_Name: Q_SaxBullet
   m_EditorClassIdentifier: Assembly-CSharp::BulletConfig
-  bulletObject: {fileID: 6550088417826640888, guid: 85e64e33079e0ab478c8226b5760eb75, type: 3}
+  bulletObject: {fileID: 6796440636369131326, guid: 85e64e33079e0ab478c8226b5760eb75, type: 3}
   enemyAttackInfo:
     damage: 50
     knockbacks:
@@ -30,4 +30,4 @@ MonoBehaviour:
   speed: 35
   pierce: -1
   size: 1
-  lifetime: 6
+  lifetime: 3

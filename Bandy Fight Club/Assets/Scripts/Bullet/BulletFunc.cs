@@ -9,7 +9,7 @@ public class BulletFunc : MonoBehaviour
     public Rigidbody2D rb;
     //[SerializeField] Collider2D collider;
 
-    [SerializeField] CircleCollider2D circleCollider;
+    public CircleCollider2D circleCollider;
     [SerializeField] Collider2D bounding;
 
     [SerializeField] LayerMask layerMask;
@@ -23,7 +23,7 @@ public class BulletFunc : MonoBehaviour
     //public bool doAttackDirectionOverride;
     //public Vector2 attackDirectionOverride;
 
-    [SerializeField] SpriteRenderer renderer;
+    public SpriteRenderer renderer;
     [SerializeField] bool rotateInMovementDirection;
     [SerializeField] float speedPerStrech = 30; //strech render in direction more the faster we go, speed needed to stech render scale by 1
     [SerializeField] Vector2 renderScale;
@@ -42,6 +42,8 @@ public class BulletFunc : MonoBehaviour
 
     public int currentPierce;
 
+    public bool dieOnWall;
+
     //public UnityEvent<EnemyHitbox> onEnemyHit;
 
     [SerializeField] List<IDamageable> hitTargetsList = new List<IDamageable>();
@@ -58,7 +60,7 @@ public class BulletFunc : MonoBehaviour
 
     [SerializeField] AttackTelegraph telegraph;*/
 
-    void Start()
+    public void Start()
     {
         speed = config.speed;
         currentPierce = config.pierce;
@@ -84,7 +86,7 @@ public class BulletFunc : MonoBehaviour
         rb.velocity = direction.normalized * speed;
     }
 
-    void Update()
+    public void Update()
     {
         if (renderer && rotateInMovementDirection)
         {
@@ -93,7 +95,7 @@ public class BulletFunc : MonoBehaviour
         }
     }
 
-    void FixedUpdate()
+    public void FixedUpdate()
     {
         if (!doGrav)
         {
@@ -145,7 +147,7 @@ public class BulletFunc : MonoBehaviour
 
             if (hitWall)
             {
-                Die();
+                HitWall(item);
             }
         }
 
@@ -188,11 +190,14 @@ public class BulletFunc : MonoBehaviour
         if (attackInfo.cameraShake > 0) GameManager.DoCameraShakeStatic(attackInfo.cameraShake);
     }
 
-    public void HitWall()
+    public virtual void HitWall(Collider2D wall)
     {
-        Die();
+        print(dieOnWall);
+        if (dieOnWall) Die();
     }
-    void Die()
+
+
+    public void Die()
     {
         /*if (deathParticles)
         {

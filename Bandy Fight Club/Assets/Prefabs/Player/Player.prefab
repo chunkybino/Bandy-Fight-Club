@@ -19080,6 +19080,7 @@ MonoBehaviour:
   airJumpHeight: 5
   totalAirJumps: 1
   jumpReleaseFallFactor: 0.85
+  enableJumpReleaseFall: 0
   jumpBufferTime: 0.1
   canJumpAnimator: {fileID: 8549965640782363037}
   isDodging: 0
@@ -19111,6 +19112,11 @@ MonoBehaviour:
   attackOutOfAirDodgeAccelerationMult: 0.15
   doAttackOutOfAirDodgeAcceleration: 0
   saxBulletConfig: {fileID: 11400000, guid: 0777388eff80c5d4ca775e94ebb8ce3b, type: 2}
+  currentSaxBullet: {fileID: 0}
+  saxGrappleSpeed: 100
+  saxGrappleVel: {x: 0, y: 0}
+  isSaxGrappling: 0
+  saxGrappleSnapDistance: 1
 --- !u!114 &6506595838519733651
 MonoBehaviour:
   m_ObjectHideFlags: 0

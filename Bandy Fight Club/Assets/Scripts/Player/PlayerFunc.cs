@@ -50,7 +50,7 @@ public class PlayerFunc : MonoBehaviour
     [SerializeField] int totalAirJumps = 1;
     int airJumpsLeft = 0;
     [SerializeField] float jumpReleaseFallFactor = 0.85f;
-    bool enableJumpReleaseFall;
+    public bool enableJumpReleaseFall;
 
     [SerializeField] float jumpBufferTime = 0.1f;
     float jumpBufferTimer;
@@ -190,7 +190,7 @@ public class PlayerFunc : MonoBehaviour
         }
     }
 
-    void FixedUpdate()
+    public void FixedUpdate()
     {
         if (!grounded && groundCheck.grounded) GroundLand(); //check if we land on the ground
         grounded = groundCheck.grounded;

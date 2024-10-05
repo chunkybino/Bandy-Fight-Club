@@ -111,6 +111,20 @@ public class UFunc
         return new Vector2(perpSlopex, -((perpSlopex-slope1x)/slope)+(slope*slope1x));
     }
 
+    public static Vector2 BounceVector(Vector2 attackVector, Vector2 wallNormal)
+    {
+        if (RoundToDecimal(wallNormal.x, 1) == 0) return new Vector2(attackVector.x, -attackVector.y);
+        if (RoundToDecimal(wallNormal.y, 1) == 0) return new Vector2(-attackVector.x, attackVector.y);
+
+        float wallPS = wallNormal.y/wallNormal.x; //wall perpendicular slope
+        float wallS = -wallNormal.x/wallNormal.y; //wall slope
+
+        float x = -(wallS*(attackVector.x) + attackVector.y)/(wallPS - wallS);
+        Vector2 bounceVec = -1 * new Vector2(x, 2*wallS*(x-attackVector.x) + attackVector.y);
+
+        return bounceVec;
+    }
+
     public static List<string> SeperateStringByUnderscore(string thing)
     {
         List<string> words = new List<string>(); //make list

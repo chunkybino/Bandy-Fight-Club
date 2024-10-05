@@ -66,7 +66,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.1
 --- !u!1 &4222346916652543117
 GameObject:
   m_ObjectHideFlags: 0
@@ -77,7 +77,6 @@ GameObject:
   m_Component:
   - component: {fileID: 939267702126968232}
   - component: {fileID: 4521466663391286362}
-  - component: {fileID: 6550088417826640888}
   - component: {fileID: 6796440636369131326}
   - component: {fileID: 8270670476711904369}
   - component: {fileID: 3845587466422099736}
@@ -132,50 +131,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
---- !u!114 &6550088417826640888
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4222346916652543117}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f0fed6309e8de14d830cbeb8e2e3084, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  config: {fileID: 11400000, guid: 911e078c33d4fc44987299a69b49e1c5, type: 2}
-  rb: {fileID: 4521466663391286362}
-  circleCollider: {fileID: 8270670476711904369}
-  bounding: {fileID: 1514156296546020105}
-  layerMask:
-    serializedVersion: 2
-    m_Bits: 192
-  team: {fileID: 3845587466422099736}
-  attackInfo:
-    damage: 1
-    knockbacks:
-    - name: 
-      vel: {x: 8, y: 0}
-      fixedVel: {x: 0, y: 5}
-      xVelType: 3
-      yVelType: 3
-      normalizeVel: 0
-      dontDoAgainstGroundedTarget: 0
-      acceleration: 0.4
-      accelerationTime: 0.3
-    hitStopTime: 0
-    cameraShake: 0
-  renderer: {fileID: 1475633148454669172}
-  rotateInMovementDirection: 1
-  speedPerStrech: 30
-  renderScale: {x: 0, y: 0}
-  direction: {x: 1, y: 0}
-  speed: 8
-  doGrav: 0
-  gravity: 0
-  currentPierce: 0
-  reHitTime: 0.5
 --- !u!114 &6796440636369131326
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -203,16 +158,22 @@ MonoBehaviour:
     cameraShake: 0
   renderer: {fileID: 1475633148454669172}
   rotateInMovementDirection: 0
-  speedPerStrech: 30
+  speedPerStrech: 0
   renderScale: {x: 0, y: 0}
   direction: {x: 1, y: 0}
   speed: 8
   doGrav: 0
   gravity: 55
   currentPierce: 0
+  dieOnWall: 1
   reHitTime: 0.5
   bounceCount: 0
+  bounceState: 0
   bounceVel: {x: 9, y: 30}
+  wallBounceForce: 20
+  wallBounceVerticalBoost: 15
+  throwRotationSpeed: 1080
+  bounceRotationSpeed: 360
 --- !u!58 &8270670476711904369
 CircleCollider2D:
   m_ObjectHideFlags: 0

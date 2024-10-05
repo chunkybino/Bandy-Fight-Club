@@ -11,15 +11,32 @@ public class BigQFunc : PlayerFunc, ICharacterFunc
 
     public BulletConfig saxBulletConfig;
 
+    public QSaxBulletFunc currentSaxBullet;
+    [SerializeField] float saxGrappleSpeed = 50f;
+    [SerializeField] Vector2 saxGrappleVel;
+    [SerializeField] bool isSaxGrappling;
+    [SerializeField] float saxGrappleSnapDistance; //when we finishe grapple, snap to the sax location if we are close enough
+
     void Awake()
     {
         if (characterFunc == null) characterFunc = this;
     }
-    new void Update()
+    void Update()
     {
         base.Update();
 
         if (characterFunc == null) characterFunc = this;
+    }
+    void FixedUpdate()
+    {
+        if (!isSaxGrappling)
+        {
+            base.FixedUpdate();
+        }
+        else
+        {
+            rb.velocity = saxGrappleVel;
+        }
     }
 
     public override void OnAttack()
@@ -84,6 +101,40 @@ public class BigQFunc : PlayerFunc, ICharacterFunc
 
     public void ShootSax()
     {
-        BulletHandler.ShootBulletStatic(saxBulletConfig, transform.position, new Vector2(facing, 0), team);
+        if (!currentSaxBullet) //throw sax if we havent already
+        {
+            BulletFunc bullet = BulletHandler.ShootBulletStatic(saxBulletConfig, transform.position, new Vector2(facing, 0), team);
+            QSaxBulletFunc sax = bullet.GetComponent<QSaxBulletFunc>();
+            if (sax) currentSaxBullet = sax;
+        }
+        else
+        {
+            GrappleToSax();
+        }
+    }
+
+    void GrappleToSax()
+    {
+        if (!currentSaxBullet) return;
+
+        currentSaxBullet.GetGrappled();
+
+        isSaxGrappling = true;
+
+        enableJumpReleaseFall = false;
+
+        Vector2 saxDistance = currentSaxBullet.transform.position - transform.position;
+        saxGrappleVel = saxDistance.normalized * saxGrappleSpeed;
+
+        float grappleTime = saxDistance.magnitude/saxGrappleSpeed;
+        Invoke("EndSaxGrapple", grappleTime);
+    }
+    void EndSaxGrapple()
+    {
+        isSaxGrappling = false;
+
+        if (!currentSaxBullet) return;
+        Vector2 saxDistance = currentSaxBullet.transform.position - transform.position;
+        if (saxDistance.magnitude <= saxGrappleSnapDistance) transform.position = currentSaxBullet.transform.position; //snap to sax location
     }
 }
