@@ -9,6 +9,7 @@ public class PlayerFunc : MonoBehaviour
     public PlayerStatus playerStatus;
     public PlayerAttack playerAttack;
     public PlayerHitbox playerHitbox;
+    public PlayerAnimation playerAnimation;
     public PlayerInputs inputs;
     public GroundChecker groundCheck;
 
@@ -434,5 +435,10 @@ public class PlayerFunc : MonoBehaviour
         bool disable = isDodging;
         if (playerAttack.isAttacking) disable = false;
         return disable;
+    }
+
+    public virtual bool GetFallThroughPlatform()
+    {
+        return false;
     }
 }

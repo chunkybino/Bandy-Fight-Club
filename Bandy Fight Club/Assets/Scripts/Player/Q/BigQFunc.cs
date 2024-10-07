@@ -15,7 +15,10 @@ public class BigQFunc : PlayerFunc, ICharacterFunc
     [SerializeField] float saxGrappleSpeed = 50f;
     [SerializeField] Vector2 saxGrappleVel;
     [SerializeField] bool isSaxGrappling;
+    [SerializeField] bool isSaxGrapplingMovement;
     [SerializeField] float saxGrappleSnapDistance; //when we finishe grapple, snap to the sax location if we are close enough
+    [SerializeField] float saxGrappleDelay = 0.2f;
+    [SerializeField] float saxPreGrappleVelDamp = 0.5f; //multiply vel by this every second, 
 
     void Awake()
     {
@@ -35,7 +38,14 @@ public class BigQFunc : PlayerFunc, ICharacterFunc
         }
         else
         {
-            rb.velocity = saxGrappleVel;
+            if (isSaxGrapplingMovement)
+            {
+                rb.velocity = saxGrappleVel;
+            }
+            else
+            {
+                rb.velocity *= Mathf.Pow(saxPreGrappleVelDamp, Time.fixedDeltaTime); //slow down exponentially
+            }
         }
     }
 
@@ -99,21 +109,25 @@ public class BigQFunc : PlayerFunc, ICharacterFunc
         return attackName;
     }
 
-    public void ShootSax()
+    public void SaxThrowAttack()
     {
         if (!currentSaxBullet) //throw sax if we havent already
         {
+            playerAnimation.PlayAnim("Knee");
+
             BulletFunc bullet = BulletHandler.ShootBulletStatic(saxBulletConfig, transform.position, new Vector2(facing, 0), team);
             QSaxBulletFunc sax = bullet.GetComponent<QSaxBulletFunc>();
             if (sax) currentSaxBullet = sax;
         }
         else
         {
-            GrappleToSax();
+            playerAnimation.PlayAnim("AirKick");
+            
+            GrappleToSaxStart();
         }
     }
 
-    void GrappleToSax()
+    void GrappleToSaxStart()
     {
         if (!currentSaxBullet) return;
 
@@ -122,6 +136,18 @@ public class BigQFunc : PlayerFunc, ICharacterFunc
         isSaxGrappling = true;
 
         enableJumpReleaseFall = false;
+
+        Invoke("GrappleToSax", saxGrappleDelay);
+    }
+    void GrappleToSax()
+    {
+        if (!currentSaxBullet) 
+        {
+            EndSaxGrapple();
+            return;
+        }
+
+        isSaxGrapplingMovement = true;
 
         Vector2 saxDistance = currentSaxBullet.transform.position - transform.position;
         saxGrappleVel = saxDistance.normalized * saxGrappleSpeed;
@@ -132,9 +158,15 @@ public class BigQFunc : PlayerFunc, ICharacterFunc
     void EndSaxGrapple()
     {
         isSaxGrappling = false;
+        isSaxGrapplingMovement = false;
 
         if (!currentSaxBullet) return;
         Vector2 saxDistance = currentSaxBullet.transform.position - transform.position;
         if (saxDistance.magnitude <= saxGrappleSnapDistance) transform.position = currentSaxBullet.transform.position; //snap to sax location
+    }
+
+    public override bool GetFallThroughPlatform()
+    {
+        return isSaxGrappling; //go through platform while grappling
     }
 }

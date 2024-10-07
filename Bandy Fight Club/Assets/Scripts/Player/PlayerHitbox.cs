@@ -74,7 +74,9 @@ public class PlayerHitbox : MonoBehaviour, IDamageable
         platformBox.transform.localPosition = new Vector2(boundingBox.offset.x, platformBoxHeight + (platformBox.size.y/2)); //move platform boudning to bottom of normal bbounding
 
         UFunc.TickTimer(ref dropThroughPlatformTimer);
-        platformBox.enabled = dropThroughPlatformTimer == 0;
+        bool fallThrough = dropThroughPlatformTimer > 0;
+        if (playerFunc.GetFallThroughPlatform()) fallThrough = true;
+        platformBox.enabled = !fallThrough;
 
         //shiftup
         if (platformHeightChange < -0.1f) //if we get moved down

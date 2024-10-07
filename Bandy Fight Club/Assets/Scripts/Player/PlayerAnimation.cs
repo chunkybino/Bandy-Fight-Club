@@ -47,6 +47,8 @@ public class PlayerAnimation : MonoBehaviour
 
     public void PlayAnim(string name)
     {
+        if (name == "") return;
+
         anim.Play(name, -1);
     }
 

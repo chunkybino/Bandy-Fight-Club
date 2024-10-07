@@ -15476,7 +15476,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6328962f40e72f4c99bab6fffcac689, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animationName: Knee
+  animationName: ActionExit
   cancelOnGroundLand: 0
   speedMult: 0.1
   lockFacing: 0
@@ -15485,7 +15485,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 3173985440313344023}
         m_TargetAssemblyTypeName: BigQFunc, Assembly-CSharp
-        m_MethodName: ShootSax
+        m_MethodName: SaxThrowAttack
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -19059,6 +19059,7 @@ MonoBehaviour:
   playerStatus: {fileID: 3492214244448277147}
   playerAttack: {fileID: 826615640914190225}
   playerHitbox: {fileID: 4855450163481974825}
+  playerAnimation: {fileID: 5214221243728169307}
   inputs: {fileID: 6506595838519733651}
   groundCheck: {fileID: 5061188384587571447}
   allowControl: 0
@@ -19116,7 +19117,10 @@ MonoBehaviour:
   saxGrappleSpeed: 100
   saxGrappleVel: {x: 0, y: 0}
   isSaxGrappling: 0
+  isSaxGrapplingMovement: 0
   saxGrappleSnapDistance: 1
+  saxGrappleDelay: 0.2
+  saxPreGrappleVelDamp: 0.3
 --- !u!114 &6506595838519733651
 MonoBehaviour:
   m_ObjectHideFlags: 0
