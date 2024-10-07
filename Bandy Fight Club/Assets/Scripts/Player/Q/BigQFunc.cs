@@ -19,6 +19,10 @@ public class BigQFunc : PlayerFunc, ICharacterFunc
     [SerializeField] float saxGrappleSnapDistance; //when we finishe grapple, snap to the sax location if we are close enough
     [SerializeField] float saxGrappleDelay = 0.2f;
     [SerializeField] float saxPreGrappleVelDamp = 0.5f; //multiply vel by this every second, 
+    [SerializeField] Vector2 saxGrappleVecBoost;
+    [SerializeField] float saxGrappleVerticalBoost;
+    [SerializeField] float grappleSaxBoostAccelerationMult = 0.2f;
+    [SerializeField] float grappleSaxBoostAccelerationTime = 0.2f;
 
     void Awake()
     {
@@ -121,7 +125,7 @@ public class BigQFunc : PlayerFunc, ICharacterFunc
         }
         else
         {
-            GrappleToSaxStart();
+            if (currentSaxBullet.grappleable) GrappleToSaxStart();
         }
     }
 
@@ -161,8 +165,19 @@ public class BigQFunc : PlayerFunc, ICharacterFunc
         isSaxGrapplingMovement = false;
 
         if (!currentSaxBullet) return;
+
         Vector2 saxDistance = currentSaxBullet.transform.position - transform.position;
         if (saxDistance.magnitude <= saxGrappleSnapDistance) transform.position = currentSaxBullet.transform.position; //snap to sax location
+
+        enableJumpReleaseFall = false;
+        playerAttack.SetAttackingSpeedMult(1);
+
+        Vector2 boost = saxGrappleVecBoost * saxGrappleVel.normalized;
+        boost += new Vector2(0, saxGrappleVerticalBoost);
+        rb.velocity = boost;
+        maintainSpeed = boost.x;
+
+        DoAccelerationMult(grappleSaxBoostAccelerationMult, grappleSaxBoostAccelerationTime);
     }
 
     public override bool GetFallThroughPlatform()

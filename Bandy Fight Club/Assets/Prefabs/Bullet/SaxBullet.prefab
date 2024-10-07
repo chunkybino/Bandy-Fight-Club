@@ -169,11 +169,12 @@ MonoBehaviour:
   reHitTime: 0.5
   bounceCount: 0
   bounceState: 0
-  bounceVel: {x: 9, y: 30}
+  bounceVel: {x: 8, y: 24}
   wallBounceForce: 20
   wallBounceVerticalBoost: 15
   throwRotationSpeed: 1080
   bounceRotationSpeed: 360
+  getGrappledTimeoutLifetime: 3
 --- !u!58 &8270670476711904369
 CircleCollider2D:
   m_ObjectHideFlags: 0

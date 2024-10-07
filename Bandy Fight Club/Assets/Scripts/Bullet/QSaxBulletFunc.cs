@@ -20,6 +20,10 @@ public class QSaxBulletFunc : BulletFunc
     Vector2 last2FrameVel;
 
     bool isGrappled;
+    public bool grappleable = true;
+    bool isGrappleParried;
+
+    [SerializeField] float getGrappledTimeoutLifetime = 3f;
 
     void Start()
     {
@@ -82,7 +86,14 @@ public class QSaxBulletFunc : BulletFunc
     public void GetGrappled()
     {
         isGrappled = true;
+        grappleable = false;
         rb.velocity = new Vector2(0,0);
         circleCollider.enabled = false;
+        DoLifetime(getGrappledTimeoutLifetime);
+    }
+
+    public void GetGrappleParried(Vector2 direction)
+    {
+        isGrappled = false;
     }
 }

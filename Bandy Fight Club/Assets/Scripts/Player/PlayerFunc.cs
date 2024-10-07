@@ -203,7 +203,7 @@ public class PlayerFunc : MonoBehaviour
         float targetSideSpeed = movementSpeed * sideInputDirection;
         if (playerAttack.isAttacking)
         {
-            targetSideSpeed *= playerAttack.currentAttack.speedMult; //ussually 0, stop us from moving during attack
+            targetSideSpeed *= playerAttack.attackingSpeedMult; //ussually 0, stop us from moving during attack
         }
         if (isDodging)
         {
@@ -261,7 +261,7 @@ public class PlayerFunc : MonoBehaviour
         {
             bool inDirectionOfSpeed = UFunc.Sign(sideInputDirection) == UFunc.Sign(maintainSpeed);
 
-            if (inDirectionOfSpeed && maintainSpeed != 0) //if our input direction and maintain direciton are the same
+            if (inDirectionOfSpeed && maintainSpeed != 0 && Mathf.Abs(maintainSpeed) > Mathf.Abs(xVel)) //if our input direction and maintain direciton are the same
             {
                 xVel = maintainSpeed;
             }

@@ -30,6 +30,8 @@ public class PlayerAttack : MonoBehaviour
 
     [SerializeField] GameObject canAttackAnimator;
 
+    public float attackingSpeedMult = 1;
+
     void Awake()
     {
         characterFunc = playerFunc.characterFunc;
@@ -116,6 +118,8 @@ public class PlayerAttack : MonoBehaviour
         playerAnim.PlayAnim(attack.animationName);
         isAttacking = true;
 
+        SetAttackingSpeedMult(attack.speedMult);
+
         attack.onAttackStart?.Invoke();
 
         playerFunc.OnAttack();
@@ -155,5 +159,10 @@ public class PlayerAttack : MonoBehaviour
                 CancelAttack();
             }
         }
+    }
+
+    public void SetAttackingSpeedMult(float mult)
+    {
+        attackingSpeedMult = mult;
     }
 }

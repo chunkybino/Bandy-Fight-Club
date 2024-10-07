@@ -66,7 +66,7 @@ public class BulletFunc : MonoBehaviour
         currentPierce = config.pierce;
         transform.localScale = new Vector3(config.size,config.size,1);
         if (renderer) renderScale = renderer.transform.localScale;
-        Invoke("Die", config.lifetime);
+        DoLifetime(config.lifetime);
 
         /*if (trailRenderer) trailRenderer.widthMultiplier = trailWidth;
 
@@ -250,6 +250,12 @@ public class BulletFunc : MonoBehaviour
     {
         currentPierce += amount;
     }*/
+
+    public void DoLifetime(float time)
+    {
+        CancelInvoke("Die");
+        Invoke("Die", time);
+    }
 
     public void SetTeam(int i)
     {

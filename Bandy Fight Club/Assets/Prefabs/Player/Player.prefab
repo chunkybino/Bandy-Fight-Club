@@ -1680,6 +1680,7 @@ MonoBehaviour:
   onAttackStart:
     m_PersistentCalls:
       m_Calls: []
+  attackTime: 1
 --- !u!1 &693089543376193854
 GameObject:
   m_ObjectHideFlags: 0
@@ -6010,6 +6011,7 @@ MonoBehaviour:
   onAttackStart:
     m_PersistentCalls:
       m_Calls: []
+  attackTime: 1
 --- !u!1 &2591114613007986053
 GameObject:
   m_ObjectHideFlags: 0
@@ -15495,6 +15497,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  attackTime: 1
 --- !u!1 &6960356942378979731
 GameObject:
   m_ObjectHideFlags: 0
@@ -17342,6 +17345,7 @@ MonoBehaviour:
   onAttackStart:
     m_PersistentCalls:
       m_Calls: []
+  attackTime: 1
 --- !u!1 &7625599351409213902
 GameObject:
   m_ObjectHideFlags: 0
@@ -19121,6 +19125,8 @@ MonoBehaviour:
   saxGrappleSnapDistance: 1
   saxGrappleDelay: 0.2
   saxPreGrappleVelDamp: 0.3
+  saxGrappleVecBoost: {x: 32, y: 24}
+  saxGrappleVerticalBoost: 16
 --- !u!114 &6506595838519733651
 MonoBehaviour:
   m_ObjectHideFlags: 0
