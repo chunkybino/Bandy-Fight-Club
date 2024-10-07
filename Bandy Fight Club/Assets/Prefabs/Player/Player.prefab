@@ -15476,7 +15476,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6328962f40e72f4c99bab6fffcac689, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animationName: ActionExit
+  animationName: 
   cancelOnGroundLand: 0
   speedMult: 0.1
   lockFacing: 0
@@ -15749,7 +15749,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7058902381682686971}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:

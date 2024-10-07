@@ -121,8 +121,6 @@ public class BigQFunc : PlayerFunc, ICharacterFunc
         }
         else
         {
-            playerAnimation.PlayAnim("AirKick");
-            
             GrappleToSaxStart();
         }
     }
@@ -147,9 +145,11 @@ public class BigQFunc : PlayerFunc, ICharacterFunc
             return;
         }
 
+        playerAnimation.PlayAnim("AirKick");
+
         isSaxGrapplingMovement = true;
 
-        Vector2 saxDistance = currentSaxBullet.transform.position - transform.position;
+        Vector2 saxDistance = currentSaxBullet.transform.position - transform.position; 
         saxGrappleVel = saxDistance.normalized * saxGrappleSpeed;
 
         float grappleTime = saxDistance.magnitude/saxGrappleSpeed;

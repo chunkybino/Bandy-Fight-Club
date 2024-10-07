@@ -119,11 +119,19 @@ public class PlayerAttack : MonoBehaviour
         attack.onAttackStart?.Invoke();
 
         playerFunc.OnAttack();
-    }
 
+        CancelInvoke("EndAttack");
+        Invoke("EndAttack", attack.attackTime);
+    }
+    public void EndAttack()
+    {
+        CancelInvoke("EndAttack");
+
+        isAttacking = false;
+    }
     public void ExitAttackAnim()
     {
-        isAttacking = false;
+        EndAttack();
     }
 
     public void ResetAttackIndex()
@@ -134,6 +142,7 @@ public class PlayerAttack : MonoBehaviour
     public void CancelAttack()
     {
         isAttacking = false;
+        CancelInvoke("EndAttack");
         playerAnim.PlayAnim("ActionBlank");
     }
 

@@ -16,4 +16,6 @@ public class PlayerAttackConfig : MonoBehaviour
     public bool lockFacing = true;
 
     public UnityEvent onAttackStart;
+
+    public float attackTime = 1;
 }

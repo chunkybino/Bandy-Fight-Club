@@ -27,6 +27,7 @@ public class PlayerHitbox : MonoBehaviour, IDamageable
 
     [SerializeField] float dropThroughPlatformTime = 0.1f;
     float dropThroughPlatformTimer;
+    bool dropThroughPlatform;
 
     void Awake()
     {
@@ -74,12 +75,12 @@ public class PlayerHitbox : MonoBehaviour, IDamageable
         platformBox.transform.localPosition = new Vector2(boundingBox.offset.x, platformBoxHeight + (platformBox.size.y/2)); //move platform boudning to bottom of normal bbounding
 
         UFunc.TickTimer(ref dropThroughPlatformTimer);
-        bool fallThrough = dropThroughPlatformTimer > 0;
-        if (playerFunc.GetFallThroughPlatform()) fallThrough = true;
-        platformBox.enabled = !fallThrough;
+        dropThroughPlatform = dropThroughPlatformTimer > 0;
+        if (playerFunc.GetFallThroughPlatform()) dropThroughPlatform = true;
+        platformBox.enabled = !dropThroughPlatform;
 
         //shiftup
-        if (platformHeightChange < -0.1f) //if we get moved down
+        if (platformHeightChange < -0.1f && !dropThroughPlatform) //if we get moved down
         {
             groundCheck.DoGroundCheckNow(false);
             float groundDelta = startGroundHeight + (platformBox.size.y/2) - platformBox.transform.position.y;
