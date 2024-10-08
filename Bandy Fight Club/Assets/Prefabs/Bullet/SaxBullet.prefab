@@ -174,7 +174,10 @@ MonoBehaviour:
   wallBounceVerticalBoost: 15
   throwRotationSpeed: 1080
   bounceRotationSpeed: 360
+  grappleable: 1
   getGrappledTimeoutLifetime: 3
+  grappleParrySpeed: 90
+  grappleParryDamageMult: 1.5
 --- !u!58 &8270670476711904369
 CircleCollider2D:
   m_ObjectHideFlags: 0

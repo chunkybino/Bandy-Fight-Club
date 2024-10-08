@@ -25,6 +25,9 @@ public class QSaxBulletFunc : BulletFunc
 
     [SerializeField] float getGrappledTimeoutLifetime = 3f;
 
+    [SerializeField] float grappleParrySpeed = 60;
+    [SerializeField] float grappleParryDamageMult = 1.5f;
+
     void Start()
     {
         base.Start();
@@ -60,6 +63,8 @@ public class QSaxBulletFunc : BulletFunc
     {
         base.HitDude(damageable);
 
+        if (isGrappleParried) Die();
+
         bounceState = true;
         direction = new Vector2(-direction.x,direction.y);
         rb.velocity = new Vector2(UFunc.Sign(direction.x),1) * bounceVel;
@@ -67,6 +72,8 @@ public class QSaxBulletFunc : BulletFunc
 
     public override void HitWall(Collider2D wall)
     {
+        if (isGrappleParried) Die();
+
         bounceState = true;
 
         Vector2 wallPoint = wall.ClosestPoint(transform.position);
@@ -92,8 +99,18 @@ public class QSaxBulletFunc : BulletFunc
         DoLifetime(getGrappledTimeoutLifetime);
     }
 
-    public void GetGrappleParried(Vector2 direction)
+    public void GetGrappleParried(Vector2 parryDirection)
     {
         isGrappled = false;
+        isGrappleParried = true;
+
+        rb.velocity = parryDirection * grappleParrySpeed;
+        direction = parryDirection;
+        doGrav = false;
+        bounceState = false;
+
+        circleCollider.enabled = true;
+
+        attackInfo.damage = Mathf.FloorToInt(attackInfo.damage * grappleParryDamageMult);
     }
 }

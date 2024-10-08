@@ -21,7 +21,8 @@ public class PlayerFunc : MonoBehaviour
 
     //side movement
     [SerializeField] float movementSpeed = 14;
-    int sideInputDirection;
+    [HideInInspector] public int sideInputDirection;
+    [HideInInspector] public int verticalInputDirection;
 
     [SerializeField] float multAccleration = 0.5f;
     [SerializeField] float flatAccleration = 0.3f;
@@ -108,6 +109,11 @@ public class PlayerFunc : MonoBehaviour
         sideInputDirection = 0;
         if (inputs.leftHeld) sideInputDirection--;
         if (inputs.rightHeld) sideInputDirection++;
+
+        //vertical inputs
+        verticalInputDirection = 0;
+        if (inputs.upHeld) verticalInputDirection++;
+        if (inputs.downHeld) verticalInputDirection--;
 
         bool canChangeFacing = true;
         if (playerAttack.isAttacking && playerAttack.currentAttack.lockFacing) canChangeFacing = false;
@@ -415,6 +421,11 @@ public class PlayerFunc : MonoBehaviour
     public void DisableJumpReleaseFall()
     {
         enableJumpReleaseFall = false;
+    }
+
+    public void UpdateFacing()
+    {
+        if (sideInputDirection != 0) facing = Mathf.RoundToInt(Mathf.Sign(sideInputDirection)); 
     }
 
     //other script functions, for overriding i guess

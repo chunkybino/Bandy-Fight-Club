@@ -25,7 +25,7 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField] float attackIndexResetTime = 0.4f; //how long after isAttacking ends
     
     [SerializeField] float attackBufferTime = 0.15f;
-    float attackBufferTimer;
+    [HideInInspector] public float attackBufferTimer;
     float attackHeavyBufferTimer;
 
     [SerializeField] GameObject canAttackAnimator;
