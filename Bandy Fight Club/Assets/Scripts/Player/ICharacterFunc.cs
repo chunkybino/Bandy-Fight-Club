@@ -7,4 +7,6 @@ public interface ICharacterFunc
     string FindAttackName();
 
     string FindAttackHeavyName();
+
+    string FindAnimationName();
 }

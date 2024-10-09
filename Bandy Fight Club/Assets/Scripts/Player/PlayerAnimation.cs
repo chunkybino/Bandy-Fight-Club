@@ -8,13 +8,21 @@ public class PlayerAnimation : MonoBehaviour
 
     public PlayerAttack playerAttack;
     public PlayerFunc playerFunc;
+    public ICharacterFunc characterFunc;
     public Rigidbody2D rb;
 
     public string currentAnim = "Idle";
 
+    void Awake()
+    {
+        characterFunc = playerFunc.characterFunc;
+    }
+
     void Update()
     {
-        if (!playerAttack.isAttacking)
+        if (characterFunc == null) characterFunc = playerFunc.characterFunc;
+
+        if (playerFunc.GetDoAnimation())
         {
             currentAnim = FindAnimation();
 
@@ -28,6 +36,15 @@ public class PlayerAnimation : MonoBehaviour
 
     string FindAnimation()
     {
+        if (characterFunc != null)
+        {
+            string characterAnim = characterFunc.FindAnimationName();
+            if (characterAnim != "")
+            {
+                return characterAnim;
+            }
+        }
+
         string animName = "Idle";
 
         if (!playerFunc.grounded)

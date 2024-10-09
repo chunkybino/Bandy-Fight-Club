@@ -452,4 +452,9 @@ public class PlayerFunc : MonoBehaviour
     {
         return false;
     }
+
+    public virtual bool GetDoAnimation()
+    {
+        return !playerAttack.isAttacking;
+    }
 }

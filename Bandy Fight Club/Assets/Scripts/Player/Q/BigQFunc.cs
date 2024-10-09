@@ -19,6 +19,10 @@ public class BigQFunc : PlayerFunc, ICharacterFunc
     [SerializeField] float saxGrappleSnapDistance; //when we finishe grapple, snap to the sax location if we are close enough
     [SerializeField] float saxGrappleDelay = 0.2f;
     [SerializeField] float saxPreGrappleVelDamp = 0.5f; //multiply vel by this every second, 
+    float timeSaxGrappling;
+    Vector2 saxGrapplePos;
+    [SerializeField] LineRenderer saxGrappleLine;
+    [SerializeField] Transform saxGrappleLineFirePoint;
 
     [SerializeField] Vector2 saxGrappleVecBoost;
     [SerializeField] float saxGrappleVerticalBoost;
@@ -27,6 +31,8 @@ public class BigQFunc : PlayerFunc, ICharacterFunc
 
     [SerializeField] float saxParryVerticalBoost = 8;
     [SerializeField] float saxParryVerticalVelMult = 0.5f;
+    [SerializeField] float saxParryHitstop = 0.15f;
+    [SerializeField] float saxParryCameraShake = 0.5f;
 
     void Awake()
     {
@@ -37,6 +43,18 @@ public class BigQFunc : PlayerFunc, ICharacterFunc
         base.Update();
 
         if (characterFunc == null) characterFunc = this;
+
+        saxGrappleLine.gameObject.SetActive(isSaxGrappling);
+        if (isSaxGrappling)
+        {
+            timeSaxGrappling += Time.deltaTime;
+
+            DoGrappleSaxLine();
+        }
+        else
+        {
+            timeSaxGrappling = 0;
+        }
     }
     void FixedUpdate()
     {
@@ -116,6 +134,14 @@ public class BigQFunc : PlayerFunc, ICharacterFunc
 
         return attackName;
     }
+    public string FindAnimationName()
+    {
+        print(isSaxGrappling);
+        print(isSaxGrapplingMovement);
+        if (isSaxGrappling && !isSaxGrapplingMovement) return "SendGrapple";
+
+        return "";
+    }
 
     public void SaxThrowAttack()
     {
@@ -144,6 +170,8 @@ public class BigQFunc : PlayerFunc, ICharacterFunc
         facing = UFunc.Sign(currentSaxBullet.transform.position.x - transform.position.x);
 
         enableJumpReleaseFall = false;
+
+        playerAnimation.ExitAnim();
 
         Invoke("GrappleToSax", saxGrappleDelay);
     }
@@ -185,7 +213,8 @@ public class BigQFunc : PlayerFunc, ICharacterFunc
         if (inputs.attackHeld)
         {
             Parry();
-        }
+            playerAttack.attackBufferTimer = 0;
+        } 
         else
         {
             Boost();
@@ -206,7 +235,23 @@ public class BigQFunc : PlayerFunc, ICharacterFunc
             UpdateFacing();
             currentSaxBullet.GetGrappleParried(new Vector2(facing, verticalInputDirection).normalized);
             rb.velocity = new Vector2(rb.velocity.x, Mathf.Sqrt(rb.velocity.y*saxParryVerticalVelMult) + saxParryVerticalBoost);
+
+            GameManager.DoHitStopStatic(saxParryHitstop);
+            GameManager.DoCameraShakeStatic(saxParryCameraShake);
         }
+    }
+    void DoGrappleSaxLine()
+    {
+        if (!saxGrappleLine) return;
+
+        if (currentSaxBullet) saxGrapplePos = currentSaxBullet.transform.position;
+
+        float progress = Mathf.Clamp01(timeSaxGrappling/saxGrappleDelay);
+        Vector3 pos2 = UFunc.LerpVector3(saxGrappleLineFirePoint.position, saxGrapplePos, progress);
+
+        saxGrappleLine.positionCount = 2;
+        saxGrappleLine.SetPosition(0, saxGrappleLineFirePoint.position);
+        saxGrappleLine.SetPosition(1, pos2);
     }
 
     public override bool GetCanAttack()
@@ -223,5 +268,10 @@ public class BigQFunc : PlayerFunc, ICharacterFunc
     public override bool GetFallThroughPlatform()
     {
         return isSaxGrappling; //go through platform while grappling
+    }
+    public override bool GetDoAnimation()
+    {
+        if (isSaxGrappling) return true;
+        return base.GetDoAnimation();
     }
 }
