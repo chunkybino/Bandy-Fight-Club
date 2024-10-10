@@ -10,6 +10,9 @@ public class PlayerHitbox : MonoBehaviour, IDamageable
     public GroundChecker groundCheck;
     public KnockbackHandler knockbackHandler;
 
+    public Shaker renderShaker;
+    public float hitShakeStrength = 1;
+
     public BoxCollider2D hitbox;
     public BoxCollider2D boundingBox;
     public BoxCollider2D entityBounding;
@@ -116,6 +119,7 @@ public class PlayerHitbox : MonoBehaviour, IDamageable
             {
                 knockbackHandler.GetKnockbacked(knockback, fullInfo.direction);
             }
+            renderShaker.DoShake(hitShakeStrength, fullInfo.direction);
             return true;
         }
         else

@@ -136,8 +136,6 @@ public class BigQFunc : PlayerFunc, ICharacterFunc
     }
     public string FindAnimationName()
     {
-        print(isSaxGrappling);
-        print(isSaxGrapplingMovement);
         if (isSaxGrappling && !isSaxGrapplingMovement) return "SendGrapple";
 
         return "";

@@ -22,6 +22,9 @@ public class Shaker : MonoBehaviour
     public bool doShakeOrSmthn;
     public float doShakeStr = 1;
 
+    public bool doUnscaledTime;
+    float deltaTime {get{if (doUnscaledTime){return Time.unscaledDeltaTime;}else{return Time.deltaTime;}}}
+
     void Update()
     {
         //if (GameManager.gamePaused) return;
@@ -32,7 +35,7 @@ public class Shaker : MonoBehaviour
             DoShake(doShakeStr);
         }
         
-        currentShakeTime += Time.deltaTime;
+        currentShakeTime += deltaTime;
 
         float timeAmp = 0; //amplitude base don how much the shake has decayd;
         float susTime = currentShakeData.sustainTime*currentShakeData.time; //sustain time is a percentage, so make it not a percentage for the math

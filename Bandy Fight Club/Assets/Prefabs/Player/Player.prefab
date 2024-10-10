@@ -853,6 +853,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3789960489327971250}
   - component: {fileID: 329265763753402867}
+  - component: {fileID: 2937569868654143579}
   m_Layer: 7
   m_Name: flan
   m_TagString: Untagged
@@ -942,6 +943,38 @@ MonoBehaviour:
   - {fileID: 2803217450389087381}
   - {fileID: 2842208979588905209}
   instanceMeshes: 0
+--- !u!114 &2937569868654143579
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 253806987234097496}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96651f70c28d50145acf7bce7f3194a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shakeWaves: {fileID: 11400000, guid: 1f092c553161db441be06585ccc6d1b0, type: 2}
+  speedMult: 8
+  ampMult: 3
+  shakeDecayFactor: 6
+  currentShakeTime: 0
+  totalShakeTime: 1
+  currentShakeData:
+    time: 0
+    sustainTime: 0
+    amp: 0
+    freq: 0
+    dontDoVerticalShake: 0
+  vecAmpMult: {x: 1, y: 0.5}
+  vecFreqMult: {x: 1, y: 1.2}
+  shakeDirection: {x: 0, y: 0}
+  perpendicularAmpVarianceRange: {x: 0.4, y: 0.65}
+  perpendicularFreqVarianceRange: {x: 1.05, y: 1.3}
+  doShakeOrSmthn: 0
+  doShakeStr: 1
+  doUnscaledTime: 0
 --- !u!1 &259869049822703169
 GameObject:
   m_ObjectHideFlags: 0
@@ -4898,6 +4931,8 @@ MonoBehaviour:
   playerFunc: {fileID: 3173985440313344023}
   groundCheck: {fileID: 5061188384587571447}
   knockbackHandler: {fileID: 2094130834287096051}
+  renderShaker: {fileID: 2937569868654143579}
+  hitShakeStrength: 1
   hitbox: {fileID: 2798322378995512335}
   boundingBox: {fileID: 6169362903709148363}
   entityBounding: {fileID: 4394220580777857540}
@@ -19244,7 +19279,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4110637717697406780
 Transform:
   m_ObjectHideFlags: 0
