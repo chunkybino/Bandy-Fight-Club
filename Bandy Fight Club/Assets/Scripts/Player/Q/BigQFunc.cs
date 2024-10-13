@@ -145,16 +145,18 @@ public class BigQFunc : PlayerFunc, ICharacterFunc
     {
         if (!currentSaxBullet) //throw sax if we havent already
         {
-            playerAnimation.PlayAnim("Knee");
-
-            BulletFunc bullet = BulletHandler.ShootBulletStatic(saxBulletConfig, transform.position, new Vector2(facing, 0), team);
-            QSaxBulletFunc sax = bullet.GetComponent<QSaxBulletFunc>();
-            if (sax) currentSaxBullet = sax;
+            playerAnimation.PlayAnim("ThrowSax");
         }
         else
         {
             if (currentSaxBullet.grappleable) GrappleToSaxStart();
         }
+    }
+    public void ShootSax()
+    {
+        BulletFunc bullet = BulletHandler.ShootBulletStatic(saxBulletConfig, transform.position, new Vector2(facing, 0), team);
+        QSaxBulletFunc sax = bullet.GetComponent<QSaxBulletFunc>();
+        if (sax) currentSaxBullet = sax;
     }
 
     void GrappleToSaxStart()
