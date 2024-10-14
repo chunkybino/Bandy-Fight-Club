@@ -99,6 +99,8 @@ public class PlayerFunc : MonoBehaviour
     float currentGravMult = 1;
     List<float> gravMults = new List<float>();
 
+    [SerializeField] GameObject gravMultAnimator;
+
     //platform
     [SerializeField] float downPlatformBufferTime = 0.1f;
     float downPlatformBufferTimer;
@@ -219,6 +221,7 @@ public class PlayerFunc : MonoBehaviour
         //total grav
         currentGrav = baseGravity;
         currentGrav *= currentGravMult;
+        if (gravMultAnimator.activeSelf) currentGrav *= gravMultAnimator.transform.localPosition.x;
         foreach (float g in gravMults)
         {
             currentGrav *= g;

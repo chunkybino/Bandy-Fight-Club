@@ -5914,7 +5914,7 @@ Transform:
   m_Children:
   - {fileID: 7352298424607592142}
   m_Father: {fileID: 7030494931292022016}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 17.554}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 5.957}
 --- !u!1773428102 &4335170416113524721
 ParentConstraint:
   m_ObjectHideFlags: 0
@@ -8630,6 +8630,37 @@ Transform:
   - {fileID: 1191848471025113329}
   - {fileID: 2894121542620045869}
   m_Father: {fileID: 578048592218300950}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &3642695309543445554
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6264745596761973007}
+  m_Layer: 7
+  m_Name: Gravity
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &6264745596761973007
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3642695309543445554}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4926021975201820675}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3653692441653042911
 GameObject:
@@ -11601,7 +11632,7 @@ Transform:
   m_GameObject: {fileID: 4669064943574059178}
   serializedVersion: 2
   m_LocalRotation: {x: -0.0031346167, y: 0.0011252061, z: -0.00019403169, w: 0.99999446}
-  m_LocalPosition: {x: 0.804473, y: -2.6551096, z: 3.8246307}
+  m_LocalPosition: {x: 0.804473, y: -2.6551096, z: 3.8247452}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -11898,7 +11929,7 @@ Transform:
   m_Children:
   - {fileID: 301651134179493510}
   m_Father: {fileID: 16384360078915958}
-  m_LocalEulerAnglesHint: {x: 0.312, y: 0, z: 0.39}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -9.295}
 --- !u!1773428102 &5091162400240785461
 ParentConstraint:
   m_ObjectHideFlags: 0
@@ -12819,7 +12850,7 @@ Transform:
   m_GameObject: {fileID: 5366822158410284803}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.75744486, y: -0.4378916, z: 1.2418671}
+  m_LocalPosition: {x: -0.75744486, y: -0.4378916, z: 1.2431374}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -12956,7 +12987,7 @@ Transform:
   m_GameObject: {fileID: 5386563023357190490}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: 0.035266567, w: 0.99937797}
-  m_LocalPosition: {x: 0.8752347, y: -0.3938563, z: 7.0998535}
+  m_LocalPosition: {x: 0.8752347, y: -0.3938563, z: 7.099533}
   m_LocalScale: {x: 0.55, y: 0.55, z: 0.55}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -18305,7 +18336,7 @@ Transform:
   m_GameObject: {fileID: 7822372411083753976}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: 0.12552704, w: 0.9920902}
-  m_LocalPosition: {x: -0.7574388, y: -0.43789113, z: -20.758186}
+  m_LocalPosition: {x: -0.7574388, y: -0.43789113, z: -20.756863}
   m_LocalScale: {x: 0.55, y: 0.55, z: 0.55}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -18580,7 +18611,7 @@ Transform:
   m_Children:
   - {fileID: 4410117492688473628}
   m_Father: {fileID: 7030494931292022016}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0.17}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 2.367}
 --- !u!1773428102 &6347919003787417649
 ParentConstraint:
   m_ObjectHideFlags: 0
@@ -19580,6 +19611,7 @@ MonoBehaviour:
   dashJumpGravTime: 0.6
   baseGravity: 90
   currentGrav: 0
+  gravMultAnimator: {fileID: 3642695309543445554}
   downPlatformBufferTime: 0.15
   attackOutOfAirDodgeSpeed: 24
   attackOutOfAirDodgeAccelerationTime: 0.6
@@ -19596,6 +19628,7 @@ MonoBehaviour:
   saxPreGrappleVelDamp: 0.3
   saxGrappleLine: {fileID: 2953168748854458469}
   saxGrappleLineFirePoint: {fileID: 9048018130532639703}
+  saxThrowStartVerticalBoost: 16
   saxGrappleVecBoost: {x: 32, y: 24}
   saxGrappleVerticalBoost: 16
   grappleSaxBoostAccelerationMult: 0.1
@@ -19929,6 +19962,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8648649246688847004}
+  - {fileID: 6264745596761973007}
   m_Father: {fileID: 4165469862065817992}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8653319978823525201

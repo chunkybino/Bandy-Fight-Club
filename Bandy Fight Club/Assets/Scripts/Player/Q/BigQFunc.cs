@@ -24,6 +24,8 @@ public class BigQFunc : PlayerFunc, ICharacterFunc
     [SerializeField] LineRenderer saxGrappleLine;
     [SerializeField] Transform saxGrappleLineFirePoint;
 
+    [SerializeField] float saxThrowStartVerticalBoost = 10;
+
     [SerializeField] Vector2 saxGrappleVecBoost;
     [SerializeField] float saxGrappleVerticalBoost;
     [SerializeField] float grappleSaxBoostAccelerationMult = 0.2f;
@@ -146,6 +148,8 @@ public class BigQFunc : PlayerFunc, ICharacterFunc
         if (!currentSaxBullet) //throw sax if we havent already
         {
             playerAnimation.PlayAnim("ThrowSax");
+
+            if (!grounded) rb.velocity = new Vector2(rb.velocity.x, Mathf.Max(rb.velocity.y, saxThrowStartVerticalBoost)); //boost upa  bit when we throw sax when not grounded
         }
         else
         {
@@ -234,7 +238,8 @@ public class BigQFunc : PlayerFunc, ICharacterFunc
         {
             UpdateFacing();
             currentSaxBullet.GetGrappleParried(new Vector2(facing, verticalInputDirection).normalized);
-            rb.velocity = new Vector2(rb.velocity.x, Mathf.Sqrt(rb.velocity.y*saxParryVerticalVelMult) + saxParryVerticalBoost);
+            float verticalVel = Mathf.Sqrt(Mathf.Abs(rb.velocity.y)*saxParryVerticalVelMult) * UFunc.Sign(rb.velocity.y); //take the abs value cause of sqrt, then multiply by sign
+            rb.velocity = new Vector2(rb.velocity.x, verticalVel + saxParryVerticalBoost);
 
             GameManager.DoHitStopStatic(saxParryHitstop);
             GameManager.DoCameraShakeStatic(saxParryCameraShake);
