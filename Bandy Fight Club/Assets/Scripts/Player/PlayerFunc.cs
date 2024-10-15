@@ -105,6 +105,15 @@ public class PlayerFunc : MonoBehaviour
     [SerializeField] float downPlatformBufferTime = 0.1f;
     float downPlatformBufferTimer;
 
+    //blocking
+    public bool isBlocking;
+    public float timeBlocking;
+    [SerializeField] float perfBlockTime = 0.25f;
+    public bool isPerfBlocking;
+
+    [SerializeField] float blockStunTimer;
+    public bool isBlockStun;
+
     public void Update()
     {
         //side inputs
@@ -134,7 +143,10 @@ public class PlayerFunc : MonoBehaviour
         if (grounded) airJumpsLeft = totalAirJumps;
 
         bool canJump = true;
-        if (playerAttack.isAttacking && !canDodgeAnimator.activeSelf) canJump = false;
+        if (playerAttack.isAttacking || isBlockStun)
+        {
+            if (!canDodgeAnimator.activeSelf) canJump = false;
+        }
 
         if (canJump && jumpBufferTimer > 0)
         {
@@ -170,14 +182,34 @@ public class PlayerFunc : MonoBehaviour
 
         bool canDodge = true;
         if (isDodging) canDodge = false;
-        if (playerAttack.isAttacking && !canDodgeAnimator.activeSelf) canDodge = false;
-        
-        if (canDodge && dodgeBufferTimer > 0)
+        if (playerAttack.isAttacking || isBlocking)
         {
-            dodgeBufferTimer = 0;
-            int direction = sideInputDirection;
-            if (direction == 0) direction = facing;
-            StartDodge(new Vector2(direction,0));
+            if (!canDodgeAnimator.activeSelf) canDodge = false;
+        }
+
+        bool canBlock = true;
+        if (isDodging || playerAttack.isAttacking) canBlock = false;
+        
+        if (dodgeBufferTimer > 0)
+        {
+            if (sideInputDirection != 0) //dodge
+            {
+                if (canDodge)
+                {
+                    dodgeBufferTimer = 0;
+                    int direction = sideInputDirection;
+                    if (direction == 0) direction = facing;
+                    StartDodge(new Vector2(direction,0));
+                }
+            }
+            else //block
+            {
+                if (canBlock)
+                {
+                    dodgeBufferTimer = 0;
+                    StartBlock();
+                }
+            }
         }
 
         if (isDodging)
@@ -189,6 +221,32 @@ public class PlayerFunc : MonoBehaviour
             timeDodging = 0;
         }
         timeSinceDodge += Time.deltaTime;
+
+        //more blocking
+        isBlockStun = blockStunTimer > 0;
+
+        if (isBlocking)
+        {
+            if (!isBlockStun)
+            {
+                if (!inputs.dodgeHeld) 
+                {
+                    EndBlock();
+                }
+            }
+            else
+            {
+                UFunc.TickTimer(ref blockStunTimer);
+            }
+
+            isPerfBlocking = timeBlocking < perfBlockTime;
+            timeBlocking += Time.deltaTime;
+        }
+        else
+        {
+            isPerfBlocking = false;
+            blockStunTimer = 0;
+        }
 
         //droping through platform stuff
         UFunc.TickTimer(ref downPlatformBufferTimer);
@@ -378,6 +436,21 @@ public class PlayerFunc : MonoBehaviour
         DoGravMult(dashJumpGrav, dashJumpGravTime);
     }
 
+    public void StartBlock()
+    {
+        isBlocking = true;
+        timeBlocking = 0;
+    }
+    public void EndBlock()
+    {
+        isBlocking = false;
+    }
+
+    public void GetBlockStuned(float time)
+    {
+        blockStunTimer = time;
+    }
+
     public void DoAccelerationMult(float mult, float time)
     {
         currentAccelerationMult = mult;
@@ -436,6 +509,7 @@ public class PlayerFunc : MonoBehaviour
     {
         bool canAttack = !playerAttack.isAttacking;
         if (isDodging && timeDodging < attackOutOfDodgeTime) canAttack = false;
+        if (isBlocking) canAttack = false;
         return canAttack;
     }
 

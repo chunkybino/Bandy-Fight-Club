@@ -159,7 +159,6 @@ public class BulletFunc : MonoBehaviour
             
             foundHit = true;
             HitDude(dam);
-            DoHitStopCameraShake();
         }
     }
 
@@ -175,7 +174,9 @@ public class BulletFunc : MonoBehaviour
         Vector2 attackDirection = direction;
         //if (doAttackDirectionOverride) attackDirection = attackDirectionOverride;
 
-        damageable.GetHit(attackInfo, direction);
+        AttackHitReturnInfo hitInfo = damageable.GetHit(attackInfo, direction);
+
+        DoHitStopCameraShake(hitInfo);
 
         if (currentPierce == 0) Die();
         currentPierce -= 1;
@@ -184,15 +185,14 @@ public class BulletFunc : MonoBehaviour
         StartCoroutine(hitListCoroutine);
     }
 
-    public void DoHitStopCameraShake()
+    public void DoHitStopCameraShake(AttackHitReturnInfo info)
     {
         if (attackInfo.hitStopTime > 0) GameManager.DoHitStopStatic(attackInfo.hitStopTime);
-        if (attackInfo.cameraShake > 0) GameManager.DoCameraShakeStatic(attackInfo.cameraShake);
+        if (attackInfo.cameraShake > 0) GameManager.DoCameraShakeStatic(attackInfo.cameraShake * info.shakeMult);
     }
 
     public virtual void HitWall(Collider2D wall)
     {
-        print(dieOnWall);
         if (dieOnWall) Die();
     }
 

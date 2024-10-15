@@ -6,9 +6,9 @@ public interface IDamageable
 {
     TeamHolder team {get; set;}
 
-    bool GetHit(FullAttackInfo info);
+    AttackHitReturnInfo GetHit(FullAttackInfo info);
 
-    bool GetHit(AttackInfo info, Vector2 direction)
+    AttackHitReturnInfo GetHit(AttackInfo info, Vector2 direction)
     {
         FullAttackInfo fullInfo = new FullAttackInfo() {info = info, direction = direction};
         return GetHit(fullInfo);
@@ -20,6 +20,8 @@ public class AttackInfo
 {
     public int damage;
     public Knockback[] knockbacks;
+
+    public float blockStun = 0.4f;
 
     public float hitStopTime = 0;
     public float cameraShake = 0;

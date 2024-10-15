@@ -50,6 +50,8 @@ public class PlayerAnimation : MonoBehaviour
 
         string animName = "Idle";
 
+        if (playerFunc.isBlocking) return "Block";
+
         if (!playerFunc.grounded)
         {
             if (rb.velocity.y > 0.1f)

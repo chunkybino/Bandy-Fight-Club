@@ -32,6 +32,10 @@ public class PlayerHitbox : MonoBehaviour, IDamageable
     float dropThroughPlatformTimer;
     bool dropThroughPlatform;
 
+    [SerializeField] float guardingCameraShakeMult = 0.5f;
+
+    [SerializeField] Knockback perfBlockReturnKnockback; //when we perf block, knock the enemy back a bit
+
     void Awake()
     {
         normalHitboxSize = hitbox.size;
@@ -109,23 +113,48 @@ public class PlayerHitbox : MonoBehaviour, IDamageable
         }
     }
 
-    public bool GetHit(FullAttackInfo fullInfo)
+    public AttackHitReturnInfo GetHit(FullAttackInfo fullInfo)
     {
+        AttackHitReturnInfo returnInfo = new AttackHitReturnInfo();
+
         AttackInfo info = fullInfo.info;
         if (!isIntangible)
         {
-            playerStatus.GetHit(info);
-            foreach (Knockback knockback in info.knockbacks)
+            if (!playerFunc.isBlocking) //get hity=
             {
-                knockbackHandler.GetKnockbacked(knockback, fullInfo.direction);
+                playerStatus.GetHit(info);
+                foreach (Knockback knockback in info.knockbacks)
+                {
+                    knockbackHandler.GetKnockbacked(knockback, fullInfo.direction);
+                }
+                renderShaker.DoShake(hitShakeStrength, fullInfo.direction);
             }
-            renderShaker.DoShake(hitShakeStrength, fullInfo.direction);
-            return true;
+            else //if we guard
+            {
+                foreach (Knockback knockback in info.knockbacks)
+                {
+                    knockbackHandler.GetKnockbacked(knockback, fullInfo.direction);
+                }
+                returnInfo.blocked = true;
+                returnInfo.shakeMult = guardingCameraShakeMult;
+
+                playerFunc.GetBlockStuned(info.blockStun);
+
+                if (playerFunc.isPerfBlocking)
+                {
+                    returnInfo.doReturnKnockback = true;
+                    returnInfo.returnKnockback = perfBlockReturnKnockback;
+                }
+            }
+
+            returnInfo.hit = true;
         }
         else
         {
-            return false;
+            returnInfo.hit = false;
         }
+
+        return returnInfo;
     }
 
     public void DropThroughPlatform()

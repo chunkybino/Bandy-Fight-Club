@@ -15,6 +15,8 @@ public class AttackHitbox : MonoBehaviour
     [SerializeField] int direction;
     [SerializeField] Transform directionReference;
 
+    [SerializeField] KnockbackHandler knockbackHandler;
+
     void OnTriggerStay2D(Collider2D item)
     {
         IDamageable damageable = item.GetComponent<IDamageable>();
@@ -27,21 +29,26 @@ public class AttackHitbox : MonoBehaviour
         direction = UFunc.Sign(directionReference.localScale.x);
 
         FullAttackInfo fullInfo = new FullAttackInfo() {info = attackInfo, direction = new Vector2(direction,1)};
-        bool hitTarget = damageable.GetHit(fullInfo);
+        AttackHitReturnInfo hitInfo = damageable.GetHit(fullInfo);
 
-        if (hitTarget) 
+        if (hitInfo.hit) 
         {
-            HitDude();
+            HitDude(hitInfo);
 
             rehitCorountine = removeFromHitListCorountine(item);
             StartCoroutine(rehitCorountine);
         }
     }
 
-    void HitDude()
+    void HitDude(AttackHitReturnInfo info)
     {
         if (attackInfo.hitStopTime > 0) GameManager.DoHitStopStatic(attackInfo.hitStopTime);
-        if (attackInfo.cameraShake > 0) GameManager.DoCameraShakeStatic(attackInfo.cameraShake);
+        if (attackInfo.cameraShake > 0) GameManager.DoCameraShakeStatic(attackInfo.cameraShake * info.shakeMult);
+
+        if (info.doReturnKnockback && knockbackHandler != null)
+        {
+            knockbackHandler.GetKnockbacked(info.returnKnockback, -direction);
+        }
     }
 
     IEnumerator removeFromHitListCorountine(Collider2D target)
@@ -50,4 +57,16 @@ public class AttackHitbox : MonoBehaviour
         yield return new WaitForSeconds(rehitTime);
         rehitList.Remove(target);
     }
+}
+
+public class AttackHitReturnInfo
+{
+    public bool hit = false;
+    public bool blocked = false;
+    public bool perfBlocked = false;
+
+    public bool doReturnKnockback;
+    public Knockback returnKnockback;
+
+    public float shakeMult = 1;
 }
