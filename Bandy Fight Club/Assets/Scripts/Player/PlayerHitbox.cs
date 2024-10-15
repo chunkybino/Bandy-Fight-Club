@@ -123,6 +123,7 @@ public class PlayerHitbox : MonoBehaviour, IDamageable
             if (!playerFunc.isBlocking) //get hity=
             {
                 playerStatus.GetHit(info);
+                playerFunc.GetStunned(info.stunTime);
                 foreach (Knockback knockback in info.knockbacks)
                 {
                     knockbackHandler.GetKnockbacked(knockback, fullInfo.direction);

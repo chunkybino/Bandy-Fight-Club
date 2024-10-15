@@ -114,6 +114,12 @@ public class PlayerFunc : MonoBehaviour
     [SerializeField] float blockStunTimer;
     public bool isBlockStun;
 
+    //hit stun
+    [SerializeField] float stunTimer;
+    public bool isStun;
+    [SerializeField] float stunSpeedMult = 0.4f;
+    [SerializeField] float stunAccelerationMult = 0.2f;
+    
     public void Update()
     {
         //side inputs
@@ -136,13 +142,20 @@ public class PlayerFunc : MonoBehaviour
         if (grounded) groundedLeewayTimer = groundedLeewayTime;
         UFunc.TickTimer(ref groundedLeewayTimer);
 
+        //stun
+        isStun = stunTimer > 0;
+        if (isStun)
+        {
+            UFunc.TickTimer(ref stunTimer);
+        }
+
         //jumping
         UFunc.TickTimer(ref jumpBufferTimer);
         if (inputs.jumpPressed) jumpBufferTimer = jumpBufferTime;
 
         if (grounded) airJumpsLeft = totalAirJumps;
 
-        bool canJump = true;
+        bool canJump = GetIsActionable();
         if (playerAttack.isAttacking || isBlockStun)
         {
             if (!canDodgeAnimator.activeSelf) canJump = false;
@@ -180,7 +193,7 @@ public class PlayerFunc : MonoBehaviour
         UFunc.TickTimer(ref dodgeBufferTimer);
         if (inputs.dodgePressed) dodgeBufferTimer = dodgeBufferTime;
 
-        bool canDodge = true;
+        bool canDodge = GetIsActionable();
         if (isDodging) canDodge = false;
         if (playerAttack.isAttacking || isBlocking)
         {
@@ -267,6 +280,7 @@ public class PlayerFunc : MonoBehaviour
         float yVel = rb.velocity.y;
 
         float targetSideSpeed = movementSpeed * sideInputDirection;
+        if (isStun) targetSideSpeed *= stunSpeedMult;
         if (playerAttack.isAttacking)
         {
             targetSideSpeed *= playerAttack.attackingSpeedMult; //ussually 0, stop us from moving during attack
@@ -310,6 +324,7 @@ public class PlayerFunc : MonoBehaviour
 
             float mAccel = multAccleration;
             if (movementDodging) mAccel = dodgeAcceleration;
+            if (isStun) mAccel *= stunAccelerationMult;
 
             thisMultAcceleration = accelerationCurve * (1 - Mathf.Pow(1 - (mAccel * (1 - Mathf.Pow(1 - (1 / accelerationCurve), 1 / Time.fixedDeltaTime))), Time.fixedDeltaTime));
             thisFlatAcceleration = UFunc.FloatToDirection(targetSideSpeed - rb.velocity.x) * Mathf.Min(flatAccleration * movementSpeed, Mathf.Abs(targetSideSpeed - rb.velocity.x)) * Time.fixedDeltaTime; //add flat acceleration, make sure we dont overshoot target speed
@@ -451,6 +466,11 @@ public class PlayerFunc : MonoBehaviour
         blockStunTimer = time;
     }
 
+    public void GetStunned(float time)
+    {
+        stunTimer = time;
+    }
+    
     public void DoAccelerationMult(float mult, float time)
     {
         currentAccelerationMult = mult;
@@ -505,9 +525,15 @@ public class PlayerFunc : MonoBehaviour
     }
 
     //other script functions, for overriding i guess
+    public virtual bool GetIsActionable()
+    {
+        return !isStun;
+    }
+
     public virtual bool GetCanAttack()
     {
         bool canAttack = !playerAttack.isAttacking;
+        if (!GetIsActionable()) canAttack = false;
         if (isDodging && timeDodging < attackOutOfDodgeTime) canAttack = false;
         if (isBlocking) canAttack = false;
         return canAttack;

@@ -22,6 +22,7 @@ public class AttackInfo
     public Knockback[] knockbacks;
 
     public float blockStun = 0.4f;
+    public float stunTime;
 
     public float hitStopTime = 0;
     public float cameraShake = 0;
