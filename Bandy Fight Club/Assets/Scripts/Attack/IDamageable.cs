@@ -21,6 +21,8 @@ public class AttackInfo
     public int damage;
     public Knockback[] knockbacks;
 
+    public float stunTime;
+
     public float hitStopTime = 0;
     public float cameraShake = 0;
 

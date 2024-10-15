@@ -105,6 +105,10 @@ public class PlayerFunc : MonoBehaviour
     [SerializeField] float downPlatformBufferTime = 0.1f;
     float downPlatformBufferTimer;
 
+    //hit stun
+    [SerializeField] float stunTimer;
+    public bool isStun;
+    
     public void Update()
     {
         //side inputs
@@ -127,13 +131,20 @@ public class PlayerFunc : MonoBehaviour
         if (grounded) groundedLeewayTimer = groundedLeewayTime;
         UFunc.TickTimer(ref groundedLeewayTimer);
 
+        //stun
+        isStun = stunTimer > 0;
+        if (isStun)
+        {
+            UFunc.TickTimer(ref stunTimer);
+        }
+
         //jumping
         UFunc.TickTimer(ref jumpBufferTimer);
         if (inputs.jumpPressed) jumpBufferTimer = jumpBufferTime;
 
         if (grounded) airJumpsLeft = totalAirJumps;
 
-        bool canJump = true;
+        bool canJump = GetIsActionable();
         if (playerAttack.isAttacking && !canDodgeAnimator.activeSelf) canJump = false;
 
         if (canJump && jumpBufferTimer > 0)
@@ -168,7 +179,7 @@ public class PlayerFunc : MonoBehaviour
         UFunc.TickTimer(ref dodgeBufferTimer);
         if (inputs.dodgePressed) dodgeBufferTimer = dodgeBufferTime;
 
-        bool canDodge = true;
+        bool canDodge = GetIsActionable();
         if (isDodging) canDodge = false;
         if (playerAttack.isAttacking && !canDodgeAnimator.activeSelf) canDodge = false;
         
@@ -378,6 +389,11 @@ public class PlayerFunc : MonoBehaviour
         DoGravMult(dashJumpGrav, dashJumpGravTime);
     }
 
+    public void GetStunned(float time)
+    {
+        stunTimer = time;
+    }
+    
     public void DoAccelerationMult(float mult, float time)
     {
         currentAccelerationMult = mult;
@@ -432,9 +448,15 @@ public class PlayerFunc : MonoBehaviour
     }
 
     //other script functions, for overriding i guess
+    public virtual bool GetIsActionable()
+    {
+        return !isStun;
+    }
+
     public virtual bool GetCanAttack()
     {
         bool canAttack = !playerAttack.isAttacking;
+        if (!GetIsActionable()) canAttack = false;
         if (isDodging && timeDodging < attackOutOfDodgeTime) canAttack = false;
         return canAttack;
     }

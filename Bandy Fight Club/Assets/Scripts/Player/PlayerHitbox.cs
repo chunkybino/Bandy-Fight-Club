@@ -115,6 +115,7 @@ public class PlayerHitbox : MonoBehaviour, IDamageable
         if (!isIntangible)
         {
             playerStatus.GetHit(info);
+            playerFunc.GetStunned(info.stunTime);
             foreach (Knockback knockback in info.knockbacks)
             {
                 knockbackHandler.GetKnockbacked(knockback, fullInfo.direction);
