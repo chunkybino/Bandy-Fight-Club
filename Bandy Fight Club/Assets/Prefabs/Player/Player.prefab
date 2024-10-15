@@ -7081,6 +7081,7 @@ MonoBehaviour:
       dontDoAgainstGroundedTarget: 0
       acceleration: 0.12
       accelerationTime: 0.45
+    stunTime: 0.25
     hitStopTime: 0.06
     cameraShake: 0.4
   direction: 0
@@ -9329,6 +9330,7 @@ MonoBehaviour:
       dontDoAgainstGroundedTarget: 0
       acceleration: 0.1
       accelerationTime: 0.5
+    stunTime: 0.35
     hitStopTime: 0.1
     cameraShake: 0.55
   direction: 0
@@ -19465,7 +19467,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4110637717697406780
 Transform:
   m_ObjectHideFlags: 0
@@ -19613,6 +19615,10 @@ MonoBehaviour:
   currentGrav: 0
   gravMultAnimator: {fileID: 3642695309543445554}
   downPlatformBufferTime: 0.15
+  stunTimer: 0
+  isStun: 0
+  stunSpeedMult: 0.4
+  stunAccelerationMult: 0.2
   attackOutOfAirDodgeSpeed: 24
   attackOutOfAirDodgeAccelerationTime: 0.6
   attackOutOfAirDodgeAccelerationMult: 0.15
@@ -20153,6 +20159,7 @@ MonoBehaviour:
       dontDoAgainstGroundedTarget: 0
       acceleration: 0.15
       accelerationTime: 0.4
+    stunTime: 0.25
     hitStopTime: 0.04
     cameraShake: 0.25
   direction: 0

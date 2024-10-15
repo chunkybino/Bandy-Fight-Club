@@ -48,6 +48,8 @@ public class PlayerAnimation : MonoBehaviour
             }
         }
 
+        if (playerFunc.isStun) return "Stun";
+
         string animName = "Idle";
 
         if (!playerFunc.grounded)
