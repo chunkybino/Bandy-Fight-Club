@@ -146,6 +146,8 @@ public class PlayerHitbox : MonoBehaviour, IDamageable
                     returnInfo.doReturnKnockback = true;
                     returnInfo.returnKnockback = perfBlockReturnKnockback;
                 }
+
+                playerFunc.OnBlock(playerFunc.isPerfBlocking);
             }
 
             returnInfo.hit = true;

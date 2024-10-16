@@ -7127,7 +7127,8 @@ MonoBehaviour:
       dontDoAgainstGroundedTarget: 0
       acceleration: 0.12
       accelerationTime: 0.45
-    blockStun: 0.35
+    blockStun: 0.3
+    stunTime: 0.35
     hitStopTime: 0.06
     cameraShake: 0.4
   direction: 0
@@ -9509,7 +9510,8 @@ MonoBehaviour:
       dontDoAgainstGroundedTarget: 0
       acceleration: 0.1
       accelerationTime: 0.5
-    blockStun: 0.4
+    blockStun: 0.3
+    stunTime: 0.4
     hitStopTime: 0.1
     cameraShake: 0.55
   direction: 0
@@ -19919,6 +19921,10 @@ MonoBehaviour:
   isPerfBlocking: 0
   blockStunTimer: 0
   isBlockStun: 0
+  stunTimer: 0
+  isStun: 0
+  stunSpeedMult: 0.4
+  stunAccelerationMult: 0.2
   attackOutOfAirDodgeSpeed: 24
   attackOutOfAirDodgeAccelerationTime: 0.6
   attackOutOfAirDodgeAccelerationMult: 0.15
@@ -20459,7 +20465,8 @@ MonoBehaviour:
       dontDoAgainstGroundedTarget: 0
       acceleration: 0.15
       accelerationTime: 0.4
-    blockStun: 0.3
+    blockStun: 0.25
+    stunTime: 0.3
     hitStopTime: 0.04
     cameraShake: 0.25
   direction: 0

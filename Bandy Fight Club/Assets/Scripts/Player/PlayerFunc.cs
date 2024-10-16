@@ -115,10 +115,15 @@ public class PlayerFunc : MonoBehaviour
     public bool isBlockStun;
 
     //hit stun
-    [SerializeField] float stunTimer;
+    [SerializeField] float stunTimeNeeded;
+    [SerializeField] float currentTimeStunned;
     public bool isStun;
     [SerializeField] float stunSpeedMult = 0.4f;
     [SerializeField] float stunAccelerationMult = 0.2f;
+
+    public float disadvantage = 0;
+    [SerializeField] float disadvantageHealRate = 0.05f;
+    [SerializeField] float perfBlockDisadvantageHeal = 0.05f;
     
     public void Update()
     {
@@ -143,10 +148,12 @@ public class PlayerFunc : MonoBehaviour
         UFunc.TickTimer(ref groundedLeewayTimer);
 
         //stun
-        isStun = stunTimer > 0;
+        if (disadvantage > 0) disadvantage = Mathf.Max(disadvantage - (disadvantageHealRate * Time.deltaTime), 0);
+
+        isStun = currentTimeStunned < stunTimeNeeded + disadvantage;
         if (isStun)
         {
-            UFunc.TickTimer(ref stunTimer);
+            currentTimeStunned += Time.deltaTime;
         }
 
         //jumping
@@ -444,7 +451,7 @@ public class PlayerFunc : MonoBehaviour
 
         JumpToHeight(dashJumpHeight, dashJumpGrav);
 
-        maintainSpeed = dashJumpSpeed * sideInputDirection;
+        maintainSpeed = dashJumpSpeed * sideInputDirection; 
         rb.velocity = new Vector2(maintainSpeed, rb.velocity.y);
 
         DoAccelerationMult(dashJumpAccel, dashJumpAccelTime);
@@ -465,10 +472,10 @@ public class PlayerFunc : MonoBehaviour
     {
         blockStunTimer = time;
     }
-
     public void GetStunned(float time)
     {
-        stunTimer = time;
+        stunTimeNeeded = time;
+        currentTimeStunned = 0;
     }
     
     public void DoAccelerationMult(float mult, float time)
@@ -512,6 +519,14 @@ public class PlayerFunc : MonoBehaviour
     {
         if (isDodging) doDodgeMovement = true;
         EndDodge();
+    }
+
+    public void OnBlock(bool perfect)
+    {
+        if (perfect)
+        {
+            disadvantage = Mathf.Max(disadvantage - perfBlockDisadvantageHeal, 0);
+        }
     }
 
     public void DisableJumpReleaseFall()
