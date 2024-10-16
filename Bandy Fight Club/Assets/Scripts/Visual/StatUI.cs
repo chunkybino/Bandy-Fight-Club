@@ -8,6 +8,9 @@ public class StatUI : MonoBehaviour
     public PlayerStatus[] players;
 
     public Slider[] healthBars;
+    public Slider[] disadvantageBars;
+
+    public float maxDisavantage = 0.5f;
 
     void Update()
     {
@@ -16,6 +19,10 @@ public class StatUI : MonoBehaviour
             if (i < healthBars.Length)
             {
                 healthBars[i].value = Mathf.Round(players[i].health) / Mathf.Round(players[i].maxHealth); //round so it becomes a float, i think
+            }
+            if (i < disadvantageBars.Length)
+            {
+                disadvantageBars[i].value = players[i].playerFunc.disadvantage / maxDisavantage; //round so it becomes a float, i think
             }
         }
     }
