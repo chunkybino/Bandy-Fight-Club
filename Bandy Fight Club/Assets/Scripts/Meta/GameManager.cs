@@ -6,6 +6,8 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager singleton;
 
+    public StatUI ui;
+
     public float timeScale = 1;
     float timeScaleFRFR;
 
@@ -30,6 +32,8 @@ public class GameManager : MonoBehaviour
     void Awake()
     {
         CheckSingleton();
+
+        if (ui == null) ui = FindObjectOfType<StatUI>();
 
         if (spawnPlayersOnStart) SpawnPlayers();
     }
@@ -92,6 +96,8 @@ public class GameManager : MonoBehaviour
 
             playerInfo.player = player;
             playerInfo.playerNumber = playerNum;
+
+            ui.SetPlayer(playerNum, player);
         }
     }
 
