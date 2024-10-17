@@ -120,34 +120,13 @@ public class PlayerHitbox : MonoBehaviour, IDamageable
         AttackInfo info = fullInfo.info;
         if (!isIntangible)
         {
-            if (!playerFunc.isBlocking) //get hity=
+            if (!playerFunc.isBlocking || playerFunc.isStun) //get hity=
             {
-                playerStatus.GetHit(info);
-                playerFunc.GetStunned(info.stunTime);
-                foreach (Knockback knockback in info.knockbacks)
-                {
-                    knockbackHandler.GetKnockbacked(knockback, fullInfo.direction);
-                }
-                renderShaker.DoShake(hitShakeStrength, fullInfo.direction);
+                Hit();
             }
             else //if we guard
             {
-                foreach (Knockback knockback in info.knockbacks)
-                {
-                    knockbackHandler.GetKnockbacked(knockback, fullInfo.direction);
-                }
-                returnInfo.blocked = true;
-                returnInfo.shakeMult = guardingCameraShakeMult;
-
-                playerFunc.GetBlockStuned(info.blockStun);
-
-                if (playerFunc.isPerfBlocking)
-                {
-                    returnInfo.doReturnKnockback = true;
-                    returnInfo.returnKnockback = perfBlockReturnKnockback;
-                }
-
-                playerFunc.OnBlock(playerFunc.isPerfBlocking);
+                Blocked();
             }
 
             returnInfo.hit = true;
@@ -158,6 +137,36 @@ public class PlayerHitbox : MonoBehaviour, IDamageable
         }
 
         return returnInfo;
+
+        void Hit()
+        {
+            playerStatus.GetHit(info);
+            playerFunc.GetStunned(info.stunTime);
+            foreach (Knockback knockback in info.knockbacks)
+            {
+                knockbackHandler.GetKnockbacked(knockback, fullInfo.direction);
+            }
+            renderShaker.DoShake(hitShakeStrength, fullInfo.direction);
+        }
+        void Blocked()
+        {
+            foreach (Knockback knockback in info.knockbacks)
+            {
+                knockbackHandler.GetKnockbacked(knockback, fullInfo.direction);
+            }
+            returnInfo.blocked = true;
+            returnInfo.shakeMult = guardingCameraShakeMult;
+
+            playerFunc.GetBlockStuned(info.blockStun);
+
+            if (playerFunc.isPerfBlocking)
+            {
+                returnInfo.doReturnKnockback = true;
+                returnInfo.returnKnockback = perfBlockReturnKnockback;
+            }
+
+            playerFunc.OnBlock(playerFunc.isPerfBlocking);
+        }
     }
 
     public void DropThroughPlatform()

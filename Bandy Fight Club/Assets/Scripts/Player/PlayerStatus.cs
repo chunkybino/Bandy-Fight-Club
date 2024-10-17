@@ -16,6 +16,8 @@ public class PlayerStatus : MonoBehaviour
     public int health;
     public int maxHealth = 100;
 
+    public float stunBlockDamageMult = 0.5f;
+
     public UnityEvent onAwake;
 
     void Awake()
@@ -37,7 +39,9 @@ public class PlayerStatus : MonoBehaviour
 
     public void GetHit(AttackInfo info)
     {
-        ChangeHealth(-info.damage);
+        int hurt = -info.damage;
+        if (playerFunc.stunBlocking) hurt = Mathf.FloorToInt(hurt * stunBlockDamageMult);
+        ChangeHealth(hurt);
     }
 
     public void Spawn(int playerNum)

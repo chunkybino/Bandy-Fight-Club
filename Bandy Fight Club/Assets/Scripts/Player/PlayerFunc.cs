@@ -122,6 +122,7 @@ public class PlayerFunc : MonoBehaviour
     [SerializeField] float stunAccelerationMult = 0.2f;
 
     public bool canBlockOutOfStun;
+    [SerializeField] float stunBlockTimeOffest = 0.15f; //we can stun block this musch ealier than we would ussually become un stunned
     public bool stunBlocking;
 
     public float disadvantage = 0;
@@ -158,7 +159,7 @@ public class PlayerFunc : MonoBehaviour
         {
             isStun = currentTimeStunned < stunTimeNeeded + disadvantage;
 
-            canBlockOutOfStun = currentTimeStunned > stunTimeNeeded; //doesnt factor in disadvantage;
+            canBlockOutOfStun = currentTimeStunned > stunTimeNeeded - stunBlockTimeOffest; //doesnt factor in disadvantage;
             currentTimeStunned += Time.deltaTime;
         }
         stunBlocking = isStun && isBlocking;
