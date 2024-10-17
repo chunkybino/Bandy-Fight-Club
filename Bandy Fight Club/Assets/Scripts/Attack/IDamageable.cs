@@ -35,6 +35,10 @@ public class AttackInfo
         {
             damage = damage,
             knockbacks = knockbacks,
+
+            blockStun = blockStun,
+            stunTime = stunTime,
+
             hitStopTime = hitStopTime,
             cameraShake = cameraShake
         };

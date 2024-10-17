@@ -16,6 +16,9 @@ public class PlayerAnimation : MonoBehaviour
 
     public AnimatorEvent[] animatorEvents;
 
+    public int blockAnimIndex = 0;
+    public string[] blockAnimNames = new string[] {"Block"};
+
     void Awake()
     {
         characterFunc = playerFunc.characterFunc;
@@ -48,11 +51,11 @@ public class PlayerAnimation : MonoBehaviour
             }
         }
 
+        if (playerFunc.isStun && playerFunc.isBlocking) return "BlockStun";
         if (playerFunc.isStun) return "Stun";
+        if (playerFunc.isBlocking) return blockAnimNames[blockAnimIndex];
 
         string animName = "Idle";
-
-        if (playerFunc.isBlocking) return "Block";
 
         if (!playerFunc.grounded)
         {
@@ -92,6 +95,12 @@ public class PlayerAnimation : MonoBehaviour
         {
             if (animatorEvents[i].Try(name)) break; //try name for all events, will return true if valid event is found, break after finding event
         }
+    }
+
+    public void DoNewBlockAnim()
+    {
+        blockAnimIndex++;
+        if (blockAnimIndex >= blockAnimNames.Length) blockAnimIndex = 0;
     }
 }
 

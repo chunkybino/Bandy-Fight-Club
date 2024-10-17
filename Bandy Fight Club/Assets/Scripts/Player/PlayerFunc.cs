@@ -121,9 +121,13 @@ public class PlayerFunc : MonoBehaviour
     [SerializeField] float stunSpeedMult = 0.4f;
     [SerializeField] float stunAccelerationMult = 0.2f;
 
+    public bool canBlockOutOfStun;
+    public bool stunBlocking;
+
     public float disadvantage = 0;
     [SerializeField] float disadvantageHealRate = 0.05f;
     [SerializeField] float perfBlockDisadvantageHeal = 0.05f;
+    [SerializeField] float maxDisavantage = 0.5f;
     
     public void Update()
     {
@@ -150,11 +154,14 @@ public class PlayerFunc : MonoBehaviour
         //stun
         if (disadvantage > 0) disadvantage = Mathf.Max(disadvantage - (disadvantageHealRate * Time.deltaTime), 0);
 
-        isStun = currentTimeStunned < stunTimeNeeded + disadvantage;
         if (isStun)
         {
+            isStun = currentTimeStunned < stunTimeNeeded + disadvantage;
+
+            canBlockOutOfStun = currentTimeStunned > stunTimeNeeded; //doesnt factor in disadvantage;
             currentTimeStunned += Time.deltaTime;
         }
+        stunBlocking = isStun && isBlocking;
 
         //jumping
         UFunc.TickTimer(ref jumpBufferTimer);
@@ -208,6 +215,7 @@ public class PlayerFunc : MonoBehaviour
         }
 
         bool canBlock = true;
+        if (isStun && !canBlockOutOfStun) canBlock = false;
         if (isDodging || playerAttack.isAttacking) canBlock = false;
         
         if (dodgeBufferTimer > 0)
@@ -462,6 +470,7 @@ public class PlayerFunc : MonoBehaviour
     {
         isBlocking = true;
         timeBlocking = 0;
+        playerAnimation.DoNewBlockAnim();
     }
     public void EndBlock()
     {
@@ -475,6 +484,7 @@ public class PlayerFunc : MonoBehaviour
     public void GetStunned(float time)
     {
         stunTimeNeeded = time;
+        isStun = true;
         currentTimeStunned = 0;
     }
     
