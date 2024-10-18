@@ -19925,10 +19925,10 @@ MonoBehaviour:
   downPlatformBufferTime: 0.15
   isBlocking: 0
   timeBlocking: 0
-  perfBlockTime: 0.25
+  perfBlockTime: 0.2
   isPerfBlocking: 0
   isLateBlocking: 0
-  lateBlockTime: 0.75
+  lateBlockTime: 0.7
   lateBlockDisadvantageMult: 1.5
   blockStunTimer: 0
   isBlockStun: 0
@@ -19939,11 +19939,15 @@ MonoBehaviour:
   stunAccelerationMult: 0.5
   canBlockOutOfStun: 0
   stunBlockTimeOffest: 0.15
+  stunBlockDisadvantageMult: 0.2
   stunBlocking: 0
+  blockBreakStunTime: 1
   disadvantage: 0
-  disadvantageHealRate: 0.05
+  disadvantageHealRate: 0.08
   perfBlockDisadvantageHeal: 0.05
   maxDisavantage: 0.5
+  disadvantageStunMult: 1
+  disadvantageHealDelay: 1
   attackOutOfAirDodgeSpeed: 24
   attackOutOfAirDodgeAccelerationTime: 0.6
   attackOutOfAirDodgeAccelerationMult: 0.15

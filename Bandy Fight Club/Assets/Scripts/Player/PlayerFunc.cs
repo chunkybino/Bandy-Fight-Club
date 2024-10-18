@@ -108,11 +108,11 @@ public class PlayerFunc : MonoBehaviour
     //blocking
     public bool isBlocking;
     public float timeBlocking;
-    [SerializeField] float perfBlockTime = 0.25f;
+    [SerializeField] float perfBlockTime = 0.20f;
     public bool isPerfBlocking;
 
     public bool isLateBlocking;
-    [SerializeField] float lateBlockTime = 0.75f;
+    [SerializeField] float lateBlockTime = 0.7f;
     [SerializeField] float lateBlockDisadvantageMult = 1.5f;
 
     [SerializeField] float blockStunTimer;
@@ -127,7 +127,10 @@ public class PlayerFunc : MonoBehaviour
 
     public bool canBlockOutOfStun;
     [SerializeField] float stunBlockTimeOffest = 0.15f; //we can stun block this musch ealier than we would ussually become un stunned
+    [SerializeField] float stunBlockDisadvantageMult = 0f; //affects of disadvantaeg are multipluied by this when calculating for blocking out of stun
     public bool stunBlocking;
+
+    [SerializeField] float blockBreakStunTime = 1f;
 
     public float disadvantage = 0;
     [SerializeField] float disadvantageHealRate = 0.05f;
@@ -168,7 +171,7 @@ public class PlayerFunc : MonoBehaviour
         {
             isStun = currentTimeStunned < stunTimeNeeded + (disadvantage * disadvantageStunMult);
 
-            canBlockOutOfStun = currentTimeStunned > stunTimeNeeded - stunBlockTimeOffest; //doesnt factor in disadvantage;
+            canBlockOutOfStun = currentTimeStunned > stunTimeNeeded + (disadvantage*disadvantageStunMult*stunBlockDisadvantageMult) - stunBlockTimeOffest; //doesnt factor in disadvantage;
             currentTimeStunned += Time.deltaTime;
         }
         stunBlocking = isStun && isBlocking;
@@ -498,6 +501,12 @@ public class PlayerFunc : MonoBehaviour
         isStun = true;
         currentTimeStunned = 0;
     }
+
+    public void GetBlockBroken()
+    {
+        EndBlock();
+        GetStunned(blockBreakStunTime);
+    }
     
     public void DoAccelerationMult(float mult, float time)
     {
@@ -553,12 +562,17 @@ public class PlayerFunc : MonoBehaviour
             if (isLateBlocking) advantageDamage *= lateBlockDisadvantageMult;
             AddDisadvantage(advantageDamage);
             disadvantageHealDelayTimer = disadvantageHealDelay;
+
+            if (disadvantage >= maxDisavantage)
+            {
+                GetBlockBroken();
+            }
         }
     }
 
     public void AddDisadvantage(float amount)
     {
-        disadvantage += amount;
+        disadvantage = Mathf.Min(disadvantage + amount, maxDisavantage);
     }
 
     public void DisableJumpReleaseFall()
