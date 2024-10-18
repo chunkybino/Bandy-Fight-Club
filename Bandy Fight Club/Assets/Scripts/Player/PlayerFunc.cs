@@ -118,6 +118,8 @@ public class PlayerFunc : MonoBehaviour
     [SerializeField] float blockStunTimer;
     public bool isBlockStun;
 
+    [SerializeField] ParticleSystem blockParticles;
+
     //hit stun
     [SerializeField] float stunTimeNeeded;
     [SerializeField] float currentTimeStunned;
@@ -568,6 +570,8 @@ public class PlayerFunc : MonoBehaviour
                 GetBlockBroken();
             }
         }
+
+        Instantiate(blockParticles, transform.position, Quaternion.identity);
     }
 
     public void AddDisadvantage(float amount)
