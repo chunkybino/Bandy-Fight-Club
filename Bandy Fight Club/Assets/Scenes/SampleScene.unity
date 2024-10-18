@@ -2209,6 +2209,10 @@ PrefabInstance:
       propertyPath: mesh
       value: 
       objectReference: {fileID: 844840494}
+    - target: {fileID: 3648712942421954032, guid: 84f3f989133dc724681733bf06f534d8, type: 3}
+      propertyPath: attackInfo.advantageDamage
+      value: 0.03
+      objectReference: {fileID: 0}
     - target: {fileID: 3706365152497396971, guid: 84f3f989133dc724681733bf06f534d8, type: 3}
       propertyPath: mesh
       value: 
@@ -2257,10 +2261,18 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 844840494}
+    - target: {fileID: 5458021466367821916, guid: 84f3f989133dc724681733bf06f534d8, type: 3}
+      propertyPath: attackInfo.advantageDamage
+      value: 0.08
+      objectReference: {fileID: 0}
     - target: {fileID: 5704233933600597612, guid: 84f3f989133dc724681733bf06f534d8, type: 3}
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 1389048568}
+    - target: {fileID: 6114925485696672352, guid: 84f3f989133dc724681733bf06f534d8, type: 3}
+      propertyPath: attackInfo.advantageDamage
+      value: 0.05
+      objectReference: {fileID: 0}
     - target: {fileID: 6298292915538496665, guid: 84f3f989133dc724681733bf06f534d8, type: 3}
       propertyPath: m_Mesh
       value: 

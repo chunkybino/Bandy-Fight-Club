@@ -111,6 +111,10 @@ public class PlayerFunc : MonoBehaviour
     [SerializeField] float perfBlockTime = 0.25f;
     public bool isPerfBlocking;
 
+    public bool isLateBlocking;
+    [SerializeField] float lateBlockTime = 0.75f;
+    [SerializeField] float lateBlockDisadvantageMult = 1.5f;
+
     [SerializeField] float blockStunTimer;
     public bool isBlockStun;
 
@@ -128,7 +132,11 @@ public class PlayerFunc : MonoBehaviour
     public float disadvantage = 0;
     [SerializeField] float disadvantageHealRate = 0.05f;
     [SerializeField] float perfBlockDisadvantageHeal = 0.05f;
-    [SerializeField] float maxDisavantage = 0.5f;
+    public float maxDisavantage = 0.5f;
+    public float disadvantageStunMult = 1; //when we add disadvantage to stun time, multply by this
+
+    float disadvantageHealDelayTimer;
+    [SerializeField] float disadvantageHealDelay = 0.75f;
     
     public void Update()
     {
@@ -153,11 +161,12 @@ public class PlayerFunc : MonoBehaviour
         UFunc.TickTimer(ref groundedLeewayTimer);
 
         //stun
-        if (disadvantage > 0) disadvantage = Mathf.Max(disadvantage - (disadvantageHealRate * Time.deltaTime), 0);
+        UFunc.TickTimer(ref disadvantageHealDelayTimer);
+        if (disadvantage > 0 && disadvantageHealDelayTimer == 0) disadvantage = Mathf.Max(disadvantage - (disadvantageHealRate * Time.deltaTime), 0);
 
         if (isStun)
         {
-            isStun = currentTimeStunned < stunTimeNeeded + disadvantage;
+            isStun = currentTimeStunned < stunTimeNeeded + (disadvantage * disadvantageStunMult);
 
             canBlockOutOfStun = currentTimeStunned > stunTimeNeeded - stunBlockTimeOffest; //doesnt factor in disadvantage;
             currentTimeStunned += Time.deltaTime;
@@ -269,6 +278,7 @@ public class PlayerFunc : MonoBehaviour
             }
 
             isPerfBlocking = timeBlocking < perfBlockTime;
+            isLateBlocking = timeBlocking > lateBlockTime;
             timeBlocking += Time.deltaTime;
         }
         else
@@ -532,12 +542,23 @@ public class PlayerFunc : MonoBehaviour
         EndDodge();
     }
 
-    public void OnBlock(bool perfect)
+    public void OnBlock(float advantageDamage)
     {
-        if (perfect)
+        if (isPerfBlocking) //perfect
         {
-            disadvantage = Mathf.Max(disadvantage - perfBlockDisadvantageHeal, 0);
+            //disadvantage = Mathf.Max(disadvantage - perfBlockDisadvantageHeal, 0);
         }
+        else
+        {
+            if (isLateBlocking) advantageDamage *= lateBlockDisadvantageMult;
+            AddDisadvantage(advantageDamage);
+            disadvantageHealDelayTimer = disadvantageHealDelay;
+        }
+    }
+
+    public void AddDisadvantage(float amount)
+    {
+        disadvantage += amount;
     }
 
     public void DisableJumpReleaseFall()

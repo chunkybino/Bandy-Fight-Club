@@ -24,6 +24,8 @@ public class AttackInfo
     public float blockStun = 0.4f;
     public float stunTime;
 
+    public float advantageDamage = 0;
+
     public float hitStopTime = 0;
     public float cameraShake = 0;
 
@@ -38,6 +40,8 @@ public class AttackInfo
 
             blockStun = blockStun,
             stunTime = stunTime,
+
+            advantageDamage = advantageDamage,
 
             hitStopTime = hitStopTime,
             cameraShake = cameraShake

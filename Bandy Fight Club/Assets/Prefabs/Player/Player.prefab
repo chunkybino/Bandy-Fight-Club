@@ -7129,6 +7129,7 @@ MonoBehaviour:
       accelerationTime: 0.55
     blockStun: 0.3
     stunTime: 0.35
+    advantageDamage: 0.05
     hitStopTime: 0.06
     cameraShake: 0.4
   direction: 0
@@ -9512,6 +9513,7 @@ MonoBehaviour:
       accelerationTime: 0.8
     blockStun: 0.3
     stunTime: 0.4
+    advantageDamage: 0.08
     hitStopTime: 0.1
     cameraShake: 0.55
   direction: 0
@@ -19772,7 +19774,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4110637717697406780
 Transform:
   m_ObjectHideFlags: 0
@@ -19837,6 +19839,7 @@ MonoBehaviour:
   team: {fileID: 1172696303370988009}
   health: 0
   maxHealth: 500
+  stunBlockDamageMult: 0.5
   onAwake:
     m_PersistentCalls:
       m_Calls:
@@ -19924,6 +19927,9 @@ MonoBehaviour:
   timeBlocking: 0
   perfBlockTime: 0.25
   isPerfBlocking: 0
+  isLateBlocking: 0
+  lateBlockTime: 0.75
+  lateBlockDisadvantageMult: 1.5
   blockStunTimer: 0
   isBlockStun: 0
   stunTimeNeeded: 0
@@ -19932,6 +19938,7 @@ MonoBehaviour:
   stunSpeedMult: 0.4
   stunAccelerationMult: 0.5
   canBlockOutOfStun: 0
+  stunBlockTimeOffest: 0.15
   stunBlocking: 0
   disadvantage: 0
   disadvantageHealRate: 0.05
@@ -20479,6 +20486,7 @@ MonoBehaviour:
       accelerationTime: 0.6
     blockStun: 0.25
     stunTime: 0.35
+    advantageDamage: 0.03
     hitStopTime: 0.04
     cameraShake: 0.25
   direction: 0
