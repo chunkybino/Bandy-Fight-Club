@@ -218,6 +218,15 @@ public class UFunc
         }
         return array;
     }
+    public static List<T> ArrayToList<T>(T[] array)
+    {
+        List<T> list = new List<T>();
+        for (int i = 0; i < array.Length; i++)
+        {
+            list.Add(array[i]);
+        }
+        return list;
+    }
     public static List<T> FlipList<T>(List<T> list)
     {
         List<T> newList = new List<T>();
