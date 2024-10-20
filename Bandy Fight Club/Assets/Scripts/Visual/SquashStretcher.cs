@@ -4,15 +4,60 @@ using UnityEngine;
 
 public class SquashStretcher : MonoBehaviour
 {
-    // Start is called before the first frame update
+    [SerializeField] bool doIt;
+
+    [SerializeField] float time;
+
+    [SerializeField] float speed = 1;
+    [SerializeField] float amp = 0.4f;
+    [SerializeField] float freq = 1;
+    [SerializeField] float pow = 2;
+
+    [SerializeField] float perpAmp = 1f;
+
+    [SerializeField] Vector2 scale = new Vector2(1,1);
+    [SerializeField] Vector2 scaleMult = new Vector2(1,1);
+
+    [SerializeField] Vector2 pivot = new Vector2(0,0);
+
     void Start()
     {
-        
+        time = 0;
+
+        scaleMult = transform.localScale;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (doIt)
+        {
+            doIt = false;
+            DoSquash();
+        }
+
+        time = Mathf.Min(time + Time.deltaTime*speed, 1);
+
+        float wavePoint = -amp * Mathf.Pow(-time + 1, pow) * Mathf.Sin(2*Mathf.PI*freq*time);
+        scale.y = wavePoint + 1;
+        scale.x = -wavePoint*perpAmp + 1;
+        //scaleMult.y = amp*Mathf.Pow(2*time - 1, pow) + 1 - amp;
+
+        transform.localScale = scale * scaleMult;
+        transform.localPosition = new Vector2(0, pivot.y*(1-scale.y));
+    }
+
+    public void DoSquash()
+    {
+        time = 0;
+    }
+    public void DoSquash(float s, float a, float f, float p)
+    {
+        speed = s;
+        amp = a;
+        freq = f;
+        pow = p; 
+
+        time = 0;
     }
 }

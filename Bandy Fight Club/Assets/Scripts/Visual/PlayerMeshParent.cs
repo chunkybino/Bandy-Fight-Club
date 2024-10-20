@@ -90,23 +90,11 @@ public class PlayerMeshParent : MonoBehaviour
 
     public void DoTextureMaterial()
     {
-        //if (textureMaterial != null) Destroy(textureMaterial);
-        //if (renderTex != null) Destroy(renderTex);
-
-        //Material newTextureMaterial = meshRenderer.materials[0];//Instantiate(referenceMaterial);
-
-
-
-        //newRenderTex = new RenderTexture(renderTexSize, renderTexSize, 16, RenderTextureFormat.ARGB32);
-        //newRenderTex.Create();
         textureMaterial = materialTextures.renderMatQueue[num];
         renderTex = materialTextures.renderTexQueue[num];
 
         meshRenderer.material = textureMaterial;
         textureMaterial.mainTexture = renderTex;
-
-        //if (textureMaterial != null) Destroy(textureMaterial);
-        //textureMaterial = newTextureMaterial;
 
         textureCam.targetTexture = renderTex;
     }
