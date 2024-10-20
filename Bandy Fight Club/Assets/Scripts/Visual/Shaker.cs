@@ -27,8 +27,6 @@ public class Shaker : MonoBehaviour
 
     void Update()
     {
-        //if (GameManager.gamePaused) return;
-
         if (doShakeOrSmthn)
         {
             doShakeOrSmthn = false;

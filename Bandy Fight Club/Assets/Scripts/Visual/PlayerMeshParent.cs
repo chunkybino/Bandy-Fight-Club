@@ -9,20 +9,31 @@ public class PlayerMeshParent : MonoBehaviour
     public int facing;
 
     public Transform skeleton;
+    public Transform flatTex;
 
     public SpriteShapeMapper[] lines;
     public MeshTest[] meshes;
     public MeshSpriteStuff[] sprites;
 
+    public Transform[] unmoveTransforms; //dont move to far away
+
     public bool instanceMeshes;
+
+    public Camera textureCam;
+    public Vector2 pos = new Vector2(100,-1000);
 
     void Update()
     {
-        facing = playerFunc.facing;
+        transform.position = pos;
+        if (textureCam) textureCam.transform.position = new Vector3(pos.x,pos.y,-100);
 
-        skeleton.localScale = new Vector3(facing, skeleton.localScale.y, skeleton.localScale.z);
+        UpdateFacing();
 
-        foreach (SpriteShapeMapper line in lines)
+        //transform.localScale = new Vector3(facing, transform.localScale.y, transform.localScale.z);
+
+        //flatTex.localScale = new Vector3(facing, skeleton.localScale.y, skeleton.localScale.z);
+
+        /*foreach (SpriteShapeMapper line in lines)
         {
             if (facing > 0) line.flip = false;
             if (facing < 0) line.flip = true;
@@ -31,12 +42,24 @@ public class PlayerMeshParent : MonoBehaviour
         {
             if (facing > 0) sprite.flip = false;
             if (facing < 0) sprite.flip = true;
+        }*/
+
+        foreach (Transform t in unmoveTransforms)
+        {
+            t.localPosition = playerFunc.transform.position + new Vector3(-pos.x,-pos.y,0);
         }
 
         if (instanceMeshes)
         {
             InstanceMeshes();
         }
+    }
+
+    public void UpdateFacing()
+    {
+        facing = playerFunc.facing;
+        transform.localScale = new Vector3(facing, transform.localScale.y, transform.localScale.z);
+        skeleton.localScale = new Vector3(facing, skeleton.localScale.y, skeleton.localScale.z);
     }
 
     public void InstanceMeshes()

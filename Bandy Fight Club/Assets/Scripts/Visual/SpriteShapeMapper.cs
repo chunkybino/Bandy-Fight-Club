@@ -20,10 +20,10 @@ public class SpriteShapeMapper : MonoBehaviour
 
     public bool flip;
 
-    void Update()
+    void LateUpdate()
     {
         List<Vector3> linePoints = new List<Vector3>();
-        List<SpriteShapePoint> secondLinePoints = new List<SpriteShapePoint>();
+        //List<SpriteShapePoint> secondLinePoints = new List<SpriteShapePoint>();
         foreach (SpriteShapePoint point in points)
         {
             if (!point) continue;

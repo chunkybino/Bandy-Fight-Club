@@ -142,6 +142,9 @@ public class PlayerFunc : MonoBehaviour
 
     float disadvantageHealDelayTimer;
     [SerializeField] float disadvantageHealDelay = 0.75f;
+
+    //visual
+    [SerializeField] PlayerMeshParent playerMesh;
     
     public void Update()
     {
@@ -160,6 +163,7 @@ public class PlayerFunc : MonoBehaviour
         if (canChangeFacing && sideInputDirection != 0) facing = Mathf.RoundToInt(Mathf.Sign(sideInputDirection)); 
 
         transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x)*facing,transform.localScale.y,transform.localScale.z);
+        if (playerMesh) playerMesh.UpdateFacing();
 
         //ground leeway
         if (grounded) groundedLeewayTimer = groundedLeewayTime;
