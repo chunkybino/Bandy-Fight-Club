@@ -22,8 +22,41 @@ public class PlayerMeshParent : MonoBehaviour
     public Camera textureCam;
     public Vector2 pos = new Vector2(100,-1000);
 
+    public RenderTexture renderTex;
+    public int renderTexSize = 1024;
+    public MeshRenderer meshRenderer;
+    public Material textureMaterial;
+    public Material referenceMaterial;
+
+    public bool doIt;
+
+    [SerializeField] RenderTextureMaterials materialTextures;
+    [SerializeField] int num;
+
+    static int players = 0;
+
+    void Awake()
+    {
+        players = 0;
+    }
+
+    void Start()
+    {
+        num = players;
+        players++;
+        pos += new Vector2(num*10, 0);
+
+        DoTextureMaterial();
+    }
+
     void Update()
     {
+        if (doIt)
+        {
+            doIt = false;
+            DoTextureMaterial();
+        }
+
         transform.position = pos;
         if (textureCam) textureCam.transform.position = new Vector3(pos.x,pos.y,-100);
 
@@ -55,6 +88,29 @@ public class PlayerMeshParent : MonoBehaviour
         }
     }
 
+    public void DoTextureMaterial()
+    {
+        //if (textureMaterial != null) Destroy(textureMaterial);
+        //if (renderTex != null) Destroy(renderTex);
+
+        //Material newTextureMaterial = meshRenderer.materials[0];//Instantiate(referenceMaterial);
+
+
+
+        //newRenderTex = new RenderTexture(renderTexSize, renderTexSize, 16, RenderTextureFormat.ARGB32);
+        //newRenderTex.Create();
+        textureMaterial = materialTextures.renderMatQueue[num];
+        renderTex = materialTextures.renderTexQueue[num];
+
+        meshRenderer.material = textureMaterial;
+        textureMaterial.mainTexture = renderTex;
+
+        //if (textureMaterial != null) Destroy(textureMaterial);
+        //textureMaterial = newTextureMaterial;
+
+        textureCam.targetTexture = renderTex;
+    }
+
     public void UpdateFacing()
     {
         facing = playerFunc.facing;
@@ -70,4 +126,11 @@ public class PlayerMeshParent : MonoBehaviour
             mesh.instanceMesh = true;
         }
     }
+}
+
+[CreateAssetMenu(fileName = "RenderTextures", menuName = "ScriptableObjects/RenderTextures")]
+public class RenderTextureMaterials : ScriptableObject
+{
+    public Material[] renderMatQueue;
+    public RenderTexture[] renderTexQueue;
 }

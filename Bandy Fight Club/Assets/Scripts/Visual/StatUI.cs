@@ -14,6 +14,8 @@ public class StatUI : MonoBehaviour
     {
         for (int i = 0; i < players.Length; i++)
         {
+            if (players[i] == null) continue;
+
             if (i < healthBars.Length)
             {
                 healthBars[i].value = Mathf.Round(players[i].health) / Mathf.Round(players[i].maxHealth); //round so it becomes a float, i think
