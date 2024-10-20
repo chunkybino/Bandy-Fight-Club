@@ -19,6 +19,9 @@ public class SquashStretcher : MonoBehaviour
     [SerializeField] Vector2 scaleMult = new Vector2(1,1);
 
     [SerializeField] Vector2 pivot = new Vector2(0,0);
+    [SerializeField] bool doPivot;
+
+    [SerializeField] bool flipXY;
 
     void Start()
     {
@@ -39,12 +42,28 @@ public class SquashStretcher : MonoBehaviour
         time = Mathf.Min(time + Time.deltaTime*speed, 1);
 
         float wavePoint = -amp * Mathf.Pow(-time + 1, pow) * Mathf.Sin(2*Mathf.PI*freq*time);
-        scale.y = wavePoint + 1;
-        scale.x = -wavePoint*perpAmp + 1;
-        //scaleMult.y = amp*Mathf.Pow(2*time - 1, pow) + 1 - amp;
+
+        if (!flipXY)
+        {
+            scale.y = wavePoint + 1;
+            scale.x = -wavePoint*perpAmp + 1;
+        }
+        else
+        {
+            scale.y = -wavePoint*perpAmp + 1;
+            scale.x = wavePoint + 1;
+        }
 
         transform.localScale = scale * scaleMult;
-        transform.localPosition = new Vector2(0, pivot.y*(1-scale.y));
+
+        if (doPivot) 
+        {
+            transform.localPosition = new Vector2(0, pivot.y*(1-scale.y));
+        }
+        else
+        {
+            transform.localPosition = new Vector2(0, 0);
+        }
     }
 
     public void DoSquash()
@@ -67,6 +86,11 @@ public class SquashStretcher : MonoBehaviour
         freq = data.freqency;
         pow = data.decayPower;
 
+        flipXY = data.flipXY;
+        doPivot = data.doPivot;
+
+        perpAmp = data.perpAmp;
+
         time = 0;
     }
 }
@@ -75,8 +99,29 @@ public class SquashData
 {
     public string name;
 
-    public float speed;
-    public float amplitude;
-    public float freqency;
-    public float decayPower;
+    public float speed = 3;
+    public float amplitude = 0.2f;
+    public float freqency = 2;
+    public float decayPower = 2;
+
+    public bool flipXY;
+    public bool doPivot;
+
+    public float perpAmp = 1;
+
+    public SquashData CloneYourself()
+    {
+        SquashData data = new SquashData();
+
+        data.name = name;
+        data.speed = speed;
+        data.amplitude = amplitude;
+        data.freqency = freqency;
+        data.decayPower = decayPower;
+        data.flipXY = flipXY;
+        data.doPivot = doPivot;
+        data.perpAmp = perpAmp;
+
+        return data;
+    }
 }

@@ -1837,6 +1837,8 @@ MonoBehaviour:
   scale: {x: 1, y: 1}
   scaleMult: {x: 1, y: 1}
   pivot: {x: 0, y: -3}
+  doPivot: 0
+  flipXY: 0
 --- !u!1 &693089543376193854
 GameObject:
   m_ObjectHideFlags: 0
@@ -20614,9 +20616,12 @@ MonoBehaviour:
   groundLandSquashData:
     name: groundland
     speed: 4
-    amplitude: 0.2
+    amplitude: 0.15
     freqency: 2
     decayPower: 2
+    flipXY: 0
+    doPivot: 1
+    perpAmp: 1
   groundLandSquashMinMaxVelAmp:
     inputMin: 2
     inputMax: 25
@@ -20631,6 +20636,15 @@ MonoBehaviour:
   enableJumpReleaseFall: 0
   jumpBufferTime: 0.1
   canJumpAnimator: {fileID: 8549965640782363037}
+  jumpSquash:
+    name: jump
+    speed: 3
+    amplitude: -0.4
+    freqency: 2
+    decayPower: 2
+    flipXY: 0
+    doPivot: 0
+    perpAmp: 1
   isDodging: 0
   isDodgingBurst: 0
   doDodgeMovement: 0
@@ -20646,6 +20660,15 @@ MonoBehaviour:
   dodgeIntangibilityTime: 0.15
   canDodgeAnimator: {fileID: 489794846083307058}
   attackOutOfDodgeTime: 0
+  dodgeSquashData:
+    name: dodge
+    speed: 3
+    amplitude: -0.8
+    freqency: 1
+    decayPower: 2
+    flipXY: 1
+    doPivot: 0
+    perpAmp: 0.5
   dashJumpHeight: 4
   dashJumpSpeed: 24
   dashJumpAccel: 0.35

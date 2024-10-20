@@ -66,6 +66,8 @@ public class PlayerFunc : MonoBehaviour
 
     [SerializeField] GameObject canJumpAnimator;
 
+    [SerializeField] SquashData jumpSquashData;
+
     //dodge
     public bool isDodging;
     public bool isDodgingBurst;
@@ -89,6 +91,8 @@ public class PlayerFunc : MonoBehaviour
     [SerializeField] GameObject canDodgeAnimator;
 
     [SerializeField] float attackOutOfDodgeTime = 0.3f; //how fast we can attack out of a dodge
+
+    [SerializeField] SquashData dodgeSquashData;
 
     //jump dash
     [SerializeField] float dashJumpHeight = 3.5f;
@@ -437,16 +441,15 @@ public class PlayerFunc : MonoBehaviour
         jumpBufferTimer = 0;
         enableJumpReleaseFall = true;
         rb.velocity = new Vector2(rb.velocity.x, force);
+
+        squasher.DoSquash(jumpSquashData);
     }
 
     void GroundLand()
     {
         onGroundLand?.Invoke();
 
-        SquashData data = new SquashData();
-        data.speed = groundLandSquashData.speed;
-        data.freqency = groundLandSquashData.freqency;
-        data.decayPower = groundLandSquashData.decayPower;
+        SquashData data = groundLandSquashData.CloneYourself();
 
         float vel = rb.velocity.y;
         if (lastFrameVels.Count >= 2) vel = lastFrameVels[1].y;
@@ -471,6 +474,10 @@ public class PlayerFunc : MonoBehaviour
         doDodgeMovement = false;
         CancelInvoke("EndDodgeMovement");
         Invoke("EndDodgeMovement", dodgeTime);
+
+        SquashData data = dodgeSquashData.CloneYourself();
+        if (grounded) data.doPivot = true;
+        squasher.DoSquash(data);
     }
     void EndDodgeBurst()
     {
