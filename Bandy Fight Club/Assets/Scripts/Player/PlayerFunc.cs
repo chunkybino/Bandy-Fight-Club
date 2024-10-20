@@ -12,12 +12,16 @@ public class PlayerFunc : MonoBehaviour
     public PlayerAnimation playerAnimation;
     public PlayerInputs inputs;
     public GroundChecker groundCheck;
+    public SquashStretcher squasher;
 
     public int team {get{return playerStatus.team.team;}}
 
     public ICharacterFunc characterFunc;
 
     public bool allowControl;
+
+    [SerializeField] List<Vector2> lastFrameVels = new List<Vector2>();
+    [SerializeField] int lastFrameVelCount = 5; //number of frame we keep track of
 
     //side movement
     [SerializeField] float movementSpeed = 14;
@@ -39,6 +43,9 @@ public class PlayerFunc : MonoBehaviour
     //ground
     public bool grounded;
     public UnityEvent onGroundLand;
+
+    [SerializeField] SquashData groundLandSquashData;
+    [SerializeField] DoubleInverseLerpData groundLandSquashMinMaxVelAmp; //amplitude we get from htting the ground with high velocity, input is y vel, output is amp
 
     [SerializeField] float groundedLeewayTime = 0.15f;
     float groundedLeewayTimer;
@@ -349,6 +356,11 @@ public class PlayerFunc : MonoBehaviour
 
         xVel = UFunc.RoundToDecimal(xVel, 2); //rounding the xVel to the nearest hundredth 
         if (Mathf.Abs(xVel) < 0.05f) xVel = 0;
+
+        //lastFrameVel = rb.velocity;
+        lastFrameVels.Insert(0, rb.velocity);
+        if (lastFrameVels.Count > lastFrameVelCount) lastFrameVels.RemoveAt(lastFrameVels.Count-1);
+
         rb.velocity = new Vector2(xVel, yVel);  
 
         //funcs
@@ -430,6 +442,17 @@ public class PlayerFunc : MonoBehaviour
     void GroundLand()
     {
         onGroundLand?.Invoke();
+
+        SquashData data = new SquashData();
+        data.speed = groundLandSquashData.speed;
+        data.freqency = groundLandSquashData.freqency;
+        data.decayPower = groundLandSquashData.decayPower;
+
+        float vel = rb.velocity.y;
+        if (lastFrameVels.Count >= 2) vel = lastFrameVels[1].y;
+        data.amplitude = groundLandSquashData.amplitude * groundLandSquashMinMaxVelAmp.Lerp(Mathf.Abs(vel));
+
+        squasher.DoSquash(data);
     }
 
     void StartDodge(Vector2 direction)

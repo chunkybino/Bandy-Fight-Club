@@ -265,3 +265,17 @@ public class UFunc
         return yes;
     }
 }
+[System.Serializable]
+public class DoubleInverseLerpData
+{
+    public float inputMin = 0; //inverse lerp between these
+    public float inputMax = 1;
+    public float outputMin = 0; //normal lerp betweent hese by factor of our inverse lerp
+    public float outputMax = 1;
+
+    public float Lerp(float t)
+    {
+        float t2 = Mathf.InverseLerp(inputMin, inputMax, t);
+        return Mathf.Lerp(outputMin, outputMax, t2);
+    }
+}

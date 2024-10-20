@@ -20493,7 +20493,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &4110637717697406780
 Transform:
   m_ObjectHideFlags: 0
@@ -20593,7 +20593,10 @@ MonoBehaviour:
   playerAnimation: {fileID: 5214221243728169307}
   inputs: {fileID: 6506595838519733651}
   groundCheck: {fileID: 5061188384587571447}
+  squasher: {fileID: 5031885021864614451}
   allowControl: 0
+  lastFrameVels: []
+  lastFrameVelCount: 5
   movementSpeed: 14
   sideInputDirection: 0
   verticalInputDirection: 0
@@ -20608,6 +20611,17 @@ MonoBehaviour:
   onGroundLand:
     m_PersistentCalls:
       m_Calls: []
+  groundLandSquashData:
+    name: groundland
+    speed: 4
+    amplitude: 0.2
+    freqency: 2
+    decayPower: 2
+  groundLandSquashMinMaxVelAmp:
+    inputMin: 2
+    inputMax: 25
+    outputMin: 1
+    outputMax: 2
   groundedLeewayTime: 0.15
   facing: 1
   jumpHeight: 7

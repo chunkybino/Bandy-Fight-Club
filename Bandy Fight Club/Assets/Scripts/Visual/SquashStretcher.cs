@@ -6,7 +6,7 @@ public class SquashStretcher : MonoBehaviour
 {
     [SerializeField] bool doIt;
 
-    [SerializeField] float time;
+    [SerializeField] float time = 5;
 
     [SerializeField] float speed = 1;
     [SerializeField] float amp = 0.4f;
@@ -22,7 +22,7 @@ public class SquashStretcher : MonoBehaviour
 
     void Start()
     {
-        time = 0;
+        time = 5;
 
         scaleMult = transform.localScale;
     }
@@ -60,4 +60,23 @@ public class SquashStretcher : MonoBehaviour
 
         time = 0;
     }
+    public void DoSquash(SquashData data)
+    {
+        speed = data.speed;
+        amp = data.amplitude;
+        freq = data.freqency;
+        pow = data.decayPower;
+
+        time = 0;
+    }
+}
+[System.Serializable]
+public class SquashData
+{
+    public string name;
+
+    public float speed;
+    public float amplitude;
+    public float freqency;
+    public float decayPower;
 }
