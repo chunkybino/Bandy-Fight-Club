@@ -16,8 +16,11 @@ public class PlayerAnimation : MonoBehaviour
 
     public AnimatorEvent[] animatorEvents;
 
-    public int blockAnimIndex = 0;
-    public string[] blockAnimNames = new string[] {"Block"};
+    [SerializeField] SquashStretcher squasher;
+    [SerializeField] SquashData[] squashDatas;
+
+    [SerializeField] int blockAnimIndex = 0;
+    [SerializeField] string[] blockAnimNames = new string[] {"Block"};
 
     void Awake()
     {
@@ -101,6 +104,13 @@ public class PlayerAnimation : MonoBehaviour
     {
         blockAnimIndex++;
         if (blockAnimIndex >= blockAnimNames.Length) blockAnimIndex = 0;
+    }
+
+    public void DoSquash(int index)
+    {
+        if (index >= squashDatas.Length) return;
+
+        squasher.DoSquash(squashDatas[index]);
     }
 }
 

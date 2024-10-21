@@ -475,9 +475,7 @@ public class PlayerFunc : MonoBehaviour
         CancelInvoke("EndDodgeMovement");
         Invoke("EndDodgeMovement", dodgeTime);
 
-        SquashData data = dodgeSquashData.CloneYourself();
-        if (grounded) data.doPivot = true;
-        squasher.DoSquash(data);
+        squasher.DoSquash(dodgeSquashData);
     }
     void EndDodgeBurst()
     {

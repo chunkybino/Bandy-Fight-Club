@@ -1839,6 +1839,7 @@ MonoBehaviour:
   pivot: {x: 0, y: -3}
   doPivot: 0
   flipXY: 0
+  groundCheck: {fileID: 5061188384587571447}
 --- !u!1 &693089543376193854
 GameObject:
   m_ObjectHideFlags: 0
@@ -13112,6 +13113,17 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+  squasher: {fileID: 5031885021864614451}
+  squashDatas:
+  - name: block
+    speed: 5
+    amplitude: 0.25
+    freqency: 2
+    decayPower: 2
+    flipXY: 0
+    doPivot: 1
+    perpAmp: 1
+    doPivotOnGrounded: 0
   blockAnimIndex: 0
   blockAnimNames:
   - Block1
@@ -20622,6 +20634,7 @@ MonoBehaviour:
     flipXY: 0
     doPivot: 1
     perpAmp: 1
+    doPivotOnGrounded: 0
   groundLandSquashMinMaxVelAmp:
     inputMin: 2
     inputMax: 25
@@ -20636,15 +20649,16 @@ MonoBehaviour:
   enableJumpReleaseFall: 0
   jumpBufferTime: 0.1
   canJumpAnimator: {fileID: 8549965640782363037}
-  jumpSquash:
-    name: jump
+  jumpSquashData:
+    name: 
     speed: 3
-    amplitude: -0.4
+    amplitude: 0.2
     freqency: 2
     decayPower: 2
     flipXY: 0
     doPivot: 0
     perpAmp: 1
+    doPivotOnGrounded: 0
   isDodging: 0
   isDodgingBurst: 0
   doDodgeMovement: 0
@@ -20669,6 +20683,7 @@ MonoBehaviour:
     flipXY: 1
     doPivot: 0
     perpAmp: 0.5
+    doPivotOnGrounded: 1
   dashJumpHeight: 4
   dashJumpSpeed: 24
   dashJumpAccel: 0.35

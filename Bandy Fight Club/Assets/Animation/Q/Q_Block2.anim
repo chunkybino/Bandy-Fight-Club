@@ -99,7 +99,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: {x: 4.178, y: 1.32, z: 18.159}
+        value: {x: 4.178, y: 3.993, z: 22.581}
         inSlope: {x: 0, y: 0, z: 0}
         outSlope: {x: 0, y: 0, z: 0}
         tangentMode: 0
@@ -516,7 +516,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: {x: -0.093, y: 0.201, z: 0.014}
+        value: {x: -0.095, y: 0.065, z: 0.087}
         inSlope: {x: 0, y: 0, z: 0}
         outSlope: {x: 0, y: 0, z: 0}
         tangentMode: 0
@@ -548,7 +548,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: {x: -0.045, y: 0.092, z: 0.002}
+        value: {x: -0.02, y: -0.042, z: 0.073}
         inSlope: {x: 0, y: 0, z: 0}
         outSlope: {x: 0, y: 0, z: 0}
         tangentMode: 0
@@ -2946,7 +2946,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: -0.093
+        value: -0.095
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -2967,7 +2967,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 0.201
+        value: 0.065
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -2988,7 +2988,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 0.014
+        value: 0.087
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -3030,7 +3030,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 1.32
+        value: 3.993
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -3051,7 +3051,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 18.159
+        value: 22.581
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -3198,7 +3198,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: -0.045
+        value: -0.02
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -3219,7 +3219,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 0.092
+        value: -0.042
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -3240,7 +3240,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 0.002
+        value: 0.073
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -5343,7 +5343,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: dude/leg 2/leftfoot/rightfootren
+    path: dude/Neck/neck
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -5355,7 +5355,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: dude/leg 2/leftfoot/rightfootren
+    path: dude/Neck/neck
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -5367,7 +5367,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: dude/leg 2/leftfoot/rightfootren
+    path: dude/Neck/neck
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -5595,7 +5595,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: dude/Neck/neck
+    path: dude/leg 2/leftfoot/rightfootren
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -5607,7 +5607,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: dude/Neck/neck
+    path: dude/leg 2/leftfoot/rightfootren
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -5619,10 +5619,17 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: dude/Neck/neck
+    path: dude/leg 2/leftfoot/rightfootren
     classID: 4
     script: {fileID: 0}
     flags: 0
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
-  m_Events: []
+  m_Events:
+  - time: 0
+    functionName: DoSquash
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0

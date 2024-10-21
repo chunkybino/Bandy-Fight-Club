@@ -12,15 +12,6 @@ public class Disguiser : MonoBehaviour
         CheckDisguise();
     }
 
-    /*void Awake()
-    {
-        if (DisguiserParent.disguiserList.Contains(this)) DisguiserParent.disguiserList.Add(this);
-    }
-    void OnDestroy()
-    {
-        DisguiserParent.disguiserList.Remove(this);
-    }*/
-
     public void CheckDisguise()
     {
         bool activate = DisguiserParent.disguiseLevelStatic <= enableLevel;

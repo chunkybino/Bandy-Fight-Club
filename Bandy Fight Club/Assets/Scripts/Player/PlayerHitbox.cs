@@ -162,7 +162,7 @@ public class PlayerHitbox : MonoBehaviour, IDamageable
             if (playerFunc.isPerfBlocking)
             {
                 returnInfo.doReturnKnockback = true;
-                returnInfo.returnKnockback = perfBlockReturnKnockback;
+                //returnInfo.returnKnockback = perfBlockReturnKnockback;
             }
 
             playerFunc.OnBlock(info.advantageDamage);

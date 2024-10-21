@@ -23,6 +23,8 @@ public class SquashStretcher : MonoBehaviour
 
     [SerializeField] bool flipXY;
 
+    [SerializeField] GroundChecker groundCheck;
+
     void Start()
     {
         time = 5;
@@ -91,6 +93,8 @@ public class SquashStretcher : MonoBehaviour
 
         perpAmp = data.perpAmp;
 
+        if (data.doPivotOnGrounded && groundCheck) if (groundCheck.grounded) doPivot = true;
+
         time = 0;
     }
 }
@@ -109,6 +113,8 @@ public class SquashData
 
     public float perpAmp = 1;
 
+    public bool doPivotOnGrounded;
+
     public SquashData CloneYourself()
     {
         SquashData data = new SquashData();
@@ -121,6 +127,7 @@ public class SquashData
         data.flipXY = flipXY;
         data.doPivot = doPivot;
         data.perpAmp = perpAmp;
+        data.doPivotOnGrounded = doPivotOnGrounded;
 
         return data;
     }
