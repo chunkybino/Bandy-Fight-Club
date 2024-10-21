@@ -534,6 +534,7 @@ public class PlayerFunc : MonoBehaviour
         stunTimeNeeded = time;
         isStun = true;
         currentTimeStunned = 0;
+        playerAttack.CancelAttack();
     }
 
     public void GetBlockBroken()

@@ -98,6 +98,8 @@ public class GameManager : MonoBehaviour
             playerInfo.playerNumber = playerNum;
 
             ui.SetPlayer(playerNum, player);
+
+            player.playerFunc.facing = Mathf.RoundToInt(Mathf.Sign(spawnPoints[i].localScale.x));
         }
     }
 
