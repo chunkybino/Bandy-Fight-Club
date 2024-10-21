@@ -5241,6 +5241,8 @@ MonoBehaviour:
     dontDoAgainstGroundedTarget: 0
     acceleration: 0.2
     accelerationTime: 0.5
+  stunBlockParticles: {fileID: 1713865554369944223, guid: b005adbada3821247b0673ad5b8f75de, type: 3}
+  stunBlockParticleSize: 0.5
 --- !u!1 &1986770384813292198
 GameObject:
   m_ObjectHideFlags: 0
@@ -13157,7 +13159,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &492184165980955251
 Transform:
   m_ObjectHideFlags: 0
@@ -13634,7 +13636,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2902138218111473604
 Transform:
   m_ObjectHideFlags: 0
@@ -13732,7 +13734,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1112335275081904152
 Transform:
   m_ObjectHideFlags: 0
@@ -20507,7 +20509,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4110637717697406780
 Transform:
   m_ObjectHideFlags: 0
@@ -20696,14 +20698,15 @@ MonoBehaviour:
   downPlatformBufferTime: 0.15
   isBlocking: 0
   timeBlocking: 0
-  perfBlockTime: 0.2
+  perfBlockTime: 0.25
   isPerfBlocking: 0
   isLateBlocking: 0
-  lateBlockTime: 0.7
+  lateBlockTime: 0.75
   lateBlockDisadvantageMult: 1.5
   blockStunTimer: 0
   isBlockStun: 0
   blockParticles: {fileID: 1713865554369944223, guid: b005adbada3821247b0673ad5b8f75de, type: 3}
+  perfBlockParticles: {fileID: 1713865554369944223, guid: 01ce6fc26f37a134bb142ec271761b09, type: 3}
   stunTimeNeeded: 0
   currentTimeStunned: 0
   isStun: 0

@@ -36,6 +36,9 @@ public class PlayerHitbox : MonoBehaviour, IDamageable
 
     [SerializeField] Knockback perfBlockReturnKnockback; //when we perf block, knock the enemy back a bit
 
+    [SerializeField] ParticleSystem stunBlockParticles;
+    [SerializeField] float stunBlockParticleSize = 0.5f;
+
     void Awake()
     {
         normalHitboxSize = hitbox.size;
@@ -147,6 +150,12 @@ public class PlayerHitbox : MonoBehaviour, IDamageable
                 knockbackHandler.GetKnockbacked(knockback, fullInfo.direction);
             }
             renderShaker.DoShake(hitShakeStrength, fullInfo.direction);
+
+            if (playerFunc.stunBlocking)
+            {
+                ParticleSystem particle = Instantiate(stunBlockParticles, transform.position, Quaternion.identity);
+                particle.transform.localScale = new Vector2(stunBlockParticleSize, stunBlockParticleSize);
+            }
         }
         void Blocked()
         {

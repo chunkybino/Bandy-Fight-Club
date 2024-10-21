@@ -130,6 +130,7 @@ public class PlayerFunc : MonoBehaviour
     public bool isBlockStun;
 
     [SerializeField] ParticleSystem blockParticles;
+    [SerializeField] ParticleSystem perfBlockParticles;
 
     //hit stun
     [SerializeField] float stunTimeNeeded;
@@ -588,9 +589,11 @@ public class PlayerFunc : MonoBehaviour
 
     public void OnBlock(float advantageDamage)
     {
+        ParticleSystem particle = blockParticles;
+
         if (isPerfBlocking) //perfect
         {
-            //disadvantage = Mathf.Max(disadvantage - perfBlockDisadvantageHeal, 0);
+            particle = perfBlockParticles;
         }
         else
         {
@@ -604,7 +607,7 @@ public class PlayerFunc : MonoBehaviour
             }
         }
 
-        Instantiate(blockParticles, transform.position, Quaternion.identity);
+        Instantiate(particle, transform.position, Quaternion.identity);
     }
 
     public void AddDisadvantage(float amount)

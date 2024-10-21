@@ -153,7 +153,14 @@ public class BigQFunc : PlayerFunc, ICharacterFunc
         }
         else
         {
-            if (currentSaxBullet.grappleable) GrappleToSaxStart();
+            if (currentSaxBullet.grappleable) 
+            {
+                GrappleToSaxStart();
+            }
+            else
+            {
+                playerAttack.CancelAttack();
+            }
         }
     }
     public void ShootSax()
