@@ -695,6 +695,9 @@ MonoBehaviour:
   hitStopSpeed: 0.1
   cameraShaker: {fileID: 519420033}
   doRespawnNow: 0
+  screenTransitions: {fileID: 885371969}
+  respawnTransitionDelay: 1
+  readyForNextRound: 0
 --- !u!4 &266986421
 Transform:
   m_ObjectHideFlags: 0

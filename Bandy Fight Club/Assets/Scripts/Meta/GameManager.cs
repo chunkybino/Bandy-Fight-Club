@@ -113,7 +113,6 @@ public class GameManager : MonoBehaviour
 
     public void DoRespawn()
     {
-        print("repsanw");
         StartCoroutine("RespawnCoroutine");
     }
     IEnumerator RespawnCoroutine()
@@ -178,7 +177,6 @@ public class GameManager : MonoBehaviour
 
     public void PlayerDie()
     {
-        print("die");
         readyForNextRound = true;
     }
 }
