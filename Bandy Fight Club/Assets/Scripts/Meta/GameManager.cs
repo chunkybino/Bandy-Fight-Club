@@ -23,11 +23,10 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] bool isHitStop;
     [SerializeField] float hitStopSpeed = 0.05f;
-    [SerializeField] float hitStopTime;
-
-    [SerializeField] bool doHitstop;
 
     [SerializeField] Shaker cameraShaker;
+
+    [SerializeField] bool doRespawnNow = false;
 
     void Awake()
     {
@@ -53,10 +52,10 @@ public class GameManager : MonoBehaviour
     {
         CheckSingleton();
 
-        if (doHitstop)
+        if (doRespawnNow)
         {
-            doHitstop = false;
-            DoHitStop(hitStopTime);
+            doRespawnNow = false;
+            DoRespawn();
         }
 
         if (isHitStop)
@@ -103,6 +102,18 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void DoRespawn()
+    {
+        //destroy current players
+        foreach (PlayerStatus player in players)
+        {
+            Destroy(player.gameObject);
+        }
+        players.Clear();
+
+        SpawnPlayers();
+    }
+
     public static void DoHitStopStatic(float time)
     {
         singleton.DoHitStop(time);
@@ -110,7 +121,6 @@ public class GameManager : MonoBehaviour
     public void DoHitStop(float time)
     {
         isHitStop = true;
-        //hitStopTime = time;
         StartCoroutine("EndHitStop", time);
     }
 

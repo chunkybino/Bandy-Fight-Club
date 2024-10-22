@@ -10,6 +10,7 @@ public class Disguiser : MonoBehaviour
     public bool inverse;
 
     public GameObject targetObject; //if null do self
+    public GameObject inverseObject; //if null do self
 
     public void OnEnable()
     {
@@ -26,5 +27,6 @@ public class Disguiser : MonoBehaviour
         bool activate = DisguiserParent.disguiseLevelStatic <= enableLevel;
         if (inverse) activate = !activate;
         targetObject.SetActive(activate);
+        if (inverseObject) inverseObject.SetActive(!activate);
     }
 }

@@ -2295,6 +2295,7 @@ MonoBehaviour:
   enableLevel: 1
   inverse: 0
   targetObject: {fileID: 865003778337878882}
+  inverseObject: {fileID: 0}
 --- !u!1 &916505188955565637
 GameObject:
   m_ObjectHideFlags: 0
@@ -2801,6 +2802,8 @@ MonoBehaviour:
     blockStun: 0.2
     stunTime: 0.25
     advantageDamage: 0.05
+    onlyPerfBlock: 0
+    unblockable: 0
     hitStopTime: 0.06
     cameraShake: 0.4
   direction: 0
@@ -4045,7 +4048,6 @@ GameObject:
   m_Component:
   - component: {fileID: 3212526247361860931}
   - component: {fileID: 8067807768450022534}
-  - component: {fileID: 2302924540429720155}
   m_Layer: 7
   m_Name: sax (1)
   m_TagString: Untagged
@@ -4120,21 +4122,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &2302924540429720155
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1626537394165745460}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a931dcca37932de41b0c4db7374c1393, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enableLevel: 1
-  inverse: 0
-  targetObject: {fileID: 1626537394165745460}
 --- !u!1 &1673319469178688938
 GameObject:
   m_ObjectHideFlags: 0
@@ -7538,6 +7525,8 @@ MonoBehaviour:
     blockStun: 0.3
     stunTime: 0.35
     advantageDamage: 0.05
+    onlyPerfBlock: 0
+    unblockable: 0
     hitStopTime: 0.06
     cameraShake: 0.4
   direction: 0
@@ -10007,6 +9996,8 @@ MonoBehaviour:
     blockStun: 0.3
     stunTime: 0.4
     advantageDamage: 0.08
+    onlyPerfBlock: 0
+    unblockable: 0
     hitStopTime: 0.1
     cameraShake: 0.55
   direction: 0
@@ -13511,14 +13502,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 492184165980955251}
-  - component: {fileID: 7723074810889987824}
   m_Layer: 7
   m_Name: real
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &492184165980955251
 Transform:
   m_ObjectHideFlags: 0
@@ -13535,21 +13525,6 @@ Transform:
   - {fileID: 3934602106326135070}
   m_Father: {fileID: 2186837729527505132}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7723074810889987824
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5283389835952355606}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a931dcca37932de41b0c4db7374c1393, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enableLevel: 0
-  inverse: 0
-  targetObject: {fileID: 5283389835952355606}
 --- !u!1 &5291752491176856775
 GameObject:
   m_ObjectHideFlags: 0
@@ -13989,14 +13964,13 @@ GameObject:
   m_Component:
   - component: {fileID: 2902138218111473604}
   - component: {fileID: 8890137390554430491}
-  - component: {fileID: 6945715506302101323}
   m_Layer: 7
   m_Name: disguise
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2902138218111473604
 Transform:
   m_ObjectHideFlags: 0
@@ -14064,21 +14038,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &6945715506302101323
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5399609387554739747}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a931dcca37932de41b0c4db7374c1393, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enableLevel: 0
-  inverse: 1
-  targetObject: {fileID: 5399609387554739747}
 --- !u!1 &5407984899218119566
 GameObject:
   m_ObjectHideFlags: 0
@@ -14095,7 +14054,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1112335275081904152
 Transform:
   m_ObjectHideFlags: 0
@@ -14127,6 +14086,7 @@ MonoBehaviour:
   enableLevel: 0
   inverse: 0
   targetObject: {fileID: 5407984899218119566}
+  inverseObject: {fileID: 0}
 --- !u!1 &5428323241805759787
 GameObject:
   m_ObjectHideFlags: 0
@@ -15798,6 +15758,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6883079562814465992}
+  - component: {fileID: 5413282140554053738}
   m_Layer: 7
   m_Name: sax
   m_TagString: Untagged
@@ -15821,6 +15782,22 @@ Transform:
   - {fileID: 3212526247361860931}
   m_Father: {fileID: 3789960489327971250}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -9.44}
+--- !u!114 &5413282140554053738
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6354478515858735766}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a931dcca37932de41b0c4db7374c1393, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enableLevel: 1
+  inverse: 0
+  targetObject: {fileID: 1626537394165745460}
+  inverseObject: {fileID: 0}
 --- !u!1 &6379586497155305003
 GameObject:
   m_ObjectHideFlags: 0
@@ -20092,6 +20069,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2186837729527505132}
   - component: {fileID: 1767209876946565647}
+  - component: {fileID: 598497107641984357}
   m_Layer: 7
   m_Name: bigbighead
   m_TagString: Untagged
@@ -20128,6 +20106,22 @@ SortingGroup:
   m_SortingLayer: 0
   m_SortingOrder: 33
   m_SortAtRoot: 0
+--- !u!114 &598497107641984357
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8190094731224265633}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a931dcca37932de41b0c4db7374c1393, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enableLevel: 0
+  inverse: 0
+  targetObject: {fileID: 5283389835952355606}
+  inverseObject: {fileID: 5399609387554739747}
 --- !u!1 &8221795841270247086
 GameObject:
   m_ObjectHideFlags: 0
@@ -20850,7 +20844,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4110637717697406780
 Transform:
   m_ObjectHideFlags: 0
@@ -21669,6 +21663,8 @@ MonoBehaviour:
     blockStun: 0.25
     stunTime: 0.35
     advantageDamage: 0.03
+    onlyPerfBlock: 0
+    unblockable: 0
     hitStopTime: 0.04
     cameraShake: 0.25
   direction: 0
