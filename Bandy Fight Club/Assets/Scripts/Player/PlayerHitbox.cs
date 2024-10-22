@@ -123,7 +123,11 @@ public class PlayerHitbox : MonoBehaviour, IDamageable
         AttackInfo info = fullInfo.info;
         if (!isIntangible)
         {
-            if (!playerFunc.isBlocking || playerFunc.isStun) //get hity=
+            bool block = playerFunc.isBlocking;
+            if (info.onlyPerfBlock && !playerFunc.isPerfBlocking) block = false;
+            if (info.unblockable) block = false;
+
+            if (!block || playerFunc.isStun) //get hity=
             {
                 Hit();
             }

@@ -26,6 +26,9 @@ public class AttackInfo
 
     public float advantageDamage = 0;
 
+    public bool onlyPerfBlock = false;
+    public bool unblockable = false;
+
     public float hitStopTime = 0;
     public float cameraShake = 0;
 
@@ -42,6 +45,9 @@ public class AttackInfo
             stunTime = stunTime,
 
             advantageDamage = advantageDamage,
+
+            onlyPerfBlock = onlyPerfBlock,
+            unblockable = unblockable,
 
             hitStopTime = hitStopTime,
             cameraShake = cameraShake
