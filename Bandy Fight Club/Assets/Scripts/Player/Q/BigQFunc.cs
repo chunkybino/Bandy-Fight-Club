@@ -21,6 +21,7 @@ public class BigQFunc : PlayerFunc, ICharacterFunc
     [SerializeField] float saxPreGrappleVelDamp = 0.5f; //multiply vel by this every second, 
     float timeSaxGrappling;
     Vector2 saxGrapplePos;
+    Vector2 saxDistance;
     [SerializeField] LineRenderer saxGrappleLine;
     [SerializeField] Transform saxGrappleLineFirePoint;
 
@@ -35,6 +36,8 @@ public class BigQFunc : PlayerFunc, ICharacterFunc
     [SerializeField] float saxParryVerticalVelMult = 0.5f;
     [SerializeField] float saxParryHitstop = 0.15f;
     [SerializeField] float saxParryCameraShake = 0.5f;
+
+    [SerializeField] Transform renderToRotate; //rotate this when grappling, rotate towards sax
 
     void Awake()
     {
@@ -57,6 +60,17 @@ public class BigQFunc : PlayerFunc, ICharacterFunc
         {
             timeSaxGrappling = 0;
         }
+
+        if (isSaxGrapplingMovement) //rorate to target
+        {
+            float angle = facing * UFunc.VecToAngle(saxDistance);
+            if (facing == 1) angle += 180;
+            renderToRotate.transform.eulerAngles = new Vector3(0,0,angle);
+        }
+        else
+        {
+            renderToRotate.transform.eulerAngles = new Vector3(0,0,0);
+        }
     }
     void FixedUpdate()
     {
@@ -66,6 +80,8 @@ public class BigQFunc : PlayerFunc, ICharacterFunc
         }
         else
         {
+            saxDistance = new Vector2(transform.position.x, transform.position.y) - saxGrapplePos;
+
             if (isSaxGrapplingMovement)
             {
                 rb.velocity = saxGrappleVel;
@@ -138,7 +154,17 @@ public class BigQFunc : PlayerFunc, ICharacterFunc
     }
     public string FindAnimationName()
     {
-        if (isSaxGrappling && !isSaxGrapplingMovement) return "SendGrapple";
+        if (isSaxGrappling) 
+        {
+            if (!isSaxGrapplingMovement) //before we;'ve started mvoing
+            {
+                return "SendGrapple";
+            }
+            else //once we've started moving
+            {
+                return "GrapplePull";
+            }   
+        }
 
         return "";
     }
@@ -194,7 +220,7 @@ public class BigQFunc : PlayerFunc, ICharacterFunc
             return;
         }
 
-        playerAnimation.PlayAnim("AirKick");
+        //playerAnimation.PlayAnim("AirKick");
 
         isSaxGrapplingMovement = true;
 
@@ -259,10 +285,15 @@ public class BigQFunc : PlayerFunc, ICharacterFunc
         if (currentSaxBullet) saxGrapplePos = currentSaxBullet.transform.position;
 
         float progress = Mathf.Clamp01(timeSaxGrappling/saxGrappleDelay);
-        Vector3 pos2 = UFunc.LerpVector3(saxGrappleLineFirePoint.position, saxGrapplePos, progress);
+
+        Vector3 firePos = saxGrappleLineFirePoint.position - transform.position; //offset from player
+        firePos.x *= facing;
+        firePos += transform.position; //add position back
+
+        Vector3 pos2 = UFunc.LerpVector3(firePos, saxGrapplePos, progress);
 
         saxGrappleLine.positionCount = 2;
-        saxGrappleLine.SetPosition(0, saxGrappleLineFirePoint.position);
+        saxGrappleLine.SetPosition(0, firePos);
         saxGrappleLine.SetPosition(1, pos2);
     }
 
