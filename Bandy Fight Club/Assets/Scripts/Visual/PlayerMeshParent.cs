@@ -8,7 +8,7 @@ public class PlayerMeshParent : MonoBehaviour
     public PlayerFunc playerFunc;
     public int facing;
 
-    public Transform skeleton;
+    public BeanBody skeleton;
     public Transform flatTex;
 
     public SpriteShapeMapper[] lines;
@@ -103,7 +103,9 @@ public class PlayerMeshParent : MonoBehaviour
     {
         facing = playerFunc.facing;
         transform.localScale = new Vector3(facing, transform.localScale.y, transform.localScale.z);
-        skeleton.localScale = new Vector3(facing, skeleton.localScale.y, skeleton.localScale.z);
+        float skeletonScale = facing;
+        if (!skeleton.shouldFlip) skeletonScale = 1;
+        skeleton.transform.localScale = new Vector3(skeletonScale, skeleton.transform.localScale.y, skeleton.transform.localScale.z);
     }
 
     public void InstanceMeshes()
