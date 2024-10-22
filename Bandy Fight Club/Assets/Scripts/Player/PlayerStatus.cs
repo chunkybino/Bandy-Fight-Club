@@ -35,6 +35,8 @@ public class PlayerStatus : MonoBehaviour
     void ChangeHealth(int amount)
     {
         health = Mathf.Clamp(health+amount,0,maxHealth);
+
+        if (health == 0) Die();
     }
 
     public void GetHit(AttackInfo info)
@@ -53,5 +55,10 @@ public class PlayerStatus : MonoBehaviour
         playerNumber = playerNum;
         inputs.inputMap = gameManager.GetInputMap(playerNumber);
         team.team = playerNumber;
+    }
+
+    public void Die()
+    {
+        gameManager.PlayerDie();
     }
 }

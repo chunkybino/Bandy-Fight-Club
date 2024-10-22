@@ -28,6 +28,11 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] bool doRespawnNow = false;
 
+    [SerializeField] Animator screenTransitions;
+    [SerializeField] float respawnTransitionDelay = 1; //daley between the close and open
+
+    [SerializeField] bool readyForNextRound;
+
     void Awake()
     {
         CheckSingleton();
@@ -55,6 +60,10 @@ public class GameManager : MonoBehaviour
         if (doRespawnNow)
         {
             doRespawnNow = false;
+            DoRespawn();
+        }
+        if (readyForNextRound && Input.GetKeyDown("space"))
+        {
             DoRespawn();
         }
 
@@ -104,6 +113,22 @@ public class GameManager : MonoBehaviour
 
     public void DoRespawn()
     {
+        print("repsanw");
+        StartCoroutine("RespawnCoroutine");
+    }
+    IEnumerator RespawnCoroutine()
+    {
+        DoScreenTransition(false);
+
+        yield return new WaitForSeconds(respawnTransitionDelay);
+
+        RespawnPlayers();
+        DoScreenTransition(true);
+
+        yield break;
+    }
+    public void RespawnPlayers()
+    {
         //destroy current players
         foreach (PlayerStatus player in players)
         {
@@ -137,6 +162,24 @@ public class GameManager : MonoBehaviour
     public void DoCameraShake(float strength)
     {
         cameraShaker.DoShake(strength);
+    }
+
+    void DoScreenTransition(bool open)
+    {
+        if (open)
+        {
+            screenTransitions.Play("Open");
+        }
+        else
+        {
+            screenTransitions.Play("Close");
+        }
+    }
+
+    public void PlayerDie()
+    {
+        print("die");
+        readyForNextRound = true;
     }
 }
 
