@@ -14,9 +14,7 @@ public class DisguiserParent : MonoBehaviour
 
     void Awake()
     {
-        disguiserList.Clear();
-
-        disguiserList = UFunc.ArrayToList(FindObjectsOfType<Disguiser>(true));
+        FindDisguise();
     }
     void Start()
     {
@@ -32,6 +30,16 @@ public class DisguiserParent : MonoBehaviour
         oldLevel = disguiseLevel;
 
         CheckDisguise();
+    }
+
+    public void FindDisguise()
+    {
+        disguiserList.Clear();
+        disguiserList = UFunc.ArrayToList(FindObjectsOfType<Disguiser>(true));
+    }
+    public void AddDisguise(Disguiser d)
+    {
+        if (!disguiserList.Contains(d)) disguiserList.Add(d);
     }
 
     void CheckDisguise()

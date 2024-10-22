@@ -669,7 +669,7 @@ MonoBehaviour:
   inputMaps:
   - {fileID: 11400000, guid: 3736b76e1ad25af4cab884e4ad236e07, type: 2}
   - {fileID: 11400000, guid: 692473d997b0f85428a5db169e3a73a8, type: 2}
-  spawnPlayersOnStart: 0
+  spawnPlayersOnStart: 1
   playerInfos:
   - playerNumber: 0
     characterPrefab: {fileID: 3492214244448277147, guid: 84f3f989133dc724681733bf06f534d8, type: 3}
@@ -727,8 +727,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ece65d59b752bec46a29b6da2c5a87c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  disguiseLevel: 0
+  disguiseLevel: 1
   disguiserList:
+  - {fileID: 1428486938}
+  - {fileID: 925240343}
   - {fileID: 1860913656}
   - {fileID: 1846003924}
   - {fileID: 1084301906}
@@ -1842,6 +1844,17 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!114 &925240343 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3884549505108132826, guid: 84f3f989133dc724681733bf06f534d8, type: 3}
+  m_PrefabInstance: {fileID: 1074102839}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a931dcca37932de41b0c4db7374c1393, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &931608865
 GameObject:
   m_ObjectHideFlags: 0
@@ -2731,6 +2744,10 @@ PrefabInstance:
       propertyPath: mesh
       value: 
       objectReference: {fileID: 959436946}
+    - target: {fileID: 865003778337878882, guid: 84f3f989133dc724681733bf06f534d8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1147119273630492370, guid: 84f3f989133dc724681733bf06f534d8, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -2739,6 +2756,10 @@ PrefabInstance:
       propertyPath: mesh
       value: 
       objectReference: {fileID: 402466986}
+    - target: {fileID: 1626537394165745460, guid: 84f3f989133dc724681733bf06f534d8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1688312685288853089, guid: 84f3f989133dc724681733bf06f534d8, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -2819,6 +2840,18 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 1019289399}
+    - target: {fileID: 5283389835952355606, guid: 84f3f989133dc724681733bf06f534d8, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5399609387554739747, guid: 84f3f989133dc724681733bf06f534d8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5407984899218119566, guid: 84f3f989133dc724681733bf06f534d8, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5704233933600597612, guid: 84f3f989133dc724681733bf06f534d8, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -2846,6 +2879,10 @@ PrefabInstance:
     - target: {fileID: 8472132381444169521, guid: 84f3f989133dc724681733bf06f534d8, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 8472132381444169521, guid: 84f3f989133dc724681733bf06f534d8, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8620700022088183152, guid: 84f3f989133dc724681733bf06f534d8, type: 3}
       propertyPath: m_Mesh
@@ -3154,6 +3191,17 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1428486938 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2302924540429720155, guid: 84f3f989133dc724681733bf06f534d8, type: 3}
+  m_PrefabInstance: {fileID: 1074102839}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a931dcca37932de41b0c4db7374c1393, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!43 &1539572759
 Mesh:
   m_ObjectHideFlags: 0
