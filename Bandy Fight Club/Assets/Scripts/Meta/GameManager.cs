@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
     public static GameManager singleton;
 
     public StatUI ui;
+    public CameraControl cameraControl;
 
     public float timeScale = 1;
     float timeScaleFRFR;
@@ -106,6 +107,7 @@ public class GameManager : MonoBehaviour
             playerInfo.playerNumber = playerNum;
 
             ui.SetPlayer(playerNum, player);
+            cameraControl.AddPlayerEffector(player.transform);
 
             player.playerFunc.facing = Mathf.RoundToInt(Mathf.Sign(spawnPoints[i].localScale.x));
         }
@@ -134,6 +136,8 @@ public class GameManager : MonoBehaviour
             Destroy(player.gameObject);
         }
         players.Clear();
+
+        cameraControl.ResetEffectors();
 
         SpawnPlayers();
     }
