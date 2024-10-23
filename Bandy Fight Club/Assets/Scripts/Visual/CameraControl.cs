@@ -27,9 +27,12 @@ public class CameraControl : MonoBehaviour
     [SerializeField] float centerToPlayerLerp = 0.5f; //lerp the center of the camera to the middle player pos
     [SerializeField] AnimationCurve centerDistanceToCenterPlayerLerpCurve;
 
+    [SerializeField] float verticalPlayerLerp = 0.5f;
+    [SerializeField] float normalYPos = 0;
+    [SerializeField] float yPosDegree = 0.5f; //raise our y pos to this degree, should be less than 1
+
     [SerializeField] List<CameraEffector> playerEffectors = new List<CameraEffector>();
 
-    //[SerializeField] DoubleInverseLerpData sizeMarginFromPlayerDistances; //change camera size margin around pllayers when they get closer
     float edgeDistance;
     float playerDistance;
     float playerEdgeDistanceRatio {get {return playerDistance/edgeDistance;}}
@@ -37,11 +40,13 @@ public class CameraControl : MonoBehaviour
     float leftPlayerBound;
     float rightPlayerBound;
     float middlePlayerPos {get {return (leftPlayerBound+rightPlayerBound)/2;}}
+    float topPlayerPos;
 
     [SerializeField] Vector2 targetCameraEdges;
     [SerializeField] Vector2 cameraEdges;
+    Vector2 verticalCameraEdges;
  
-    float cameraPosSmoothVel;
+    Vector2 cameraPosSmoothVel;
     Vector2 cameraEdgeSmoothVel;
     [SerializeField] float cameraPosSmoothTime = 1;
     [SerializeField] float cameraEdgeSmoothTime = 1;
@@ -64,6 +69,9 @@ public class CameraControl : MonoBehaviour
 
         targetCameraEdges.x = Mathf.Lerp(sideEdgeBounds.x, leftPlayerBound, playerToBoundLerp);
         targetCameraEdges.y = Mathf.Lerp(sideEdgeBounds.y, rightPlayerBound, playerToBoundLerp);
+        
+        verticalCameraEdges.x = transform.position.y - currentSize;
+        verticalCameraEdges.y = transform.position.y + currentSize;
 
         cameraEdges.x = Mathf.SmoothDamp(cameraEdges.x, targetCameraEdges.x, ref cameraEdgeSmoothVel.x, cameraEdgeSmoothTime);
         cameraEdges.y = Mathf.SmoothDamp(cameraEdges.y, targetCameraEdges.y, ref cameraEdgeSmoothVel.y, cameraEdgeSmoothTime);
@@ -73,14 +81,15 @@ public class CameraControl : MonoBehaviour
 
         targetPos.x = (cameraEdges.x+cameraEdges.y)/2;
         targetPos.x = Mathf.Lerp(targetPos.x, middlePlayerPos, centerToPlayerLerp);
-        //float size = playerDistance/2;
-        //size = sizeMarginFromPlayerDistances.Lerp(playerDistance)/2;
-        //SetHorizontalSize(size);
+
+        targetPos.y = Mathf.Lerp(normalYPos, topPlayerPos, verticalPlayerLerp);
+        targetPos.y = Mathf.Pow(targetPos.y, yPosDegree);
 
         horizontalSize = currentSize*aspectRatio;
         camera.orthographicSize = currentSize;
 
-        pos.x = Mathf.SmoothDamp(pos.x, targetPos.x, ref cameraPosSmoothVel, cameraPosSmoothTime);
+        pos.x = Mathf.SmoothDamp(pos.x, targetPos.x, ref cameraPosSmoothVel.x, cameraPosSmoothTime);
+        pos.y = Mathf.SmoothDamp(pos.y, targetPos.y, ref cameraPosSmoothVel.y, cameraPosSmoothTime);
 
         if (doSideBounds) pos.x = Mathf.Clamp(pos.x, sideEdgeBounds.x + horizontalSize, sideEdgeBounds.y - horizontalSize);
 
@@ -95,6 +104,8 @@ public class CameraControl : MonoBehaviour
         //playerBounds = new Vector2(transform.position.x,transform.position.x); //highest and lowestest player pos, x is low, y is high
         leftPlayerBound = sideEdgeBounds.x;
         rightPlayerBound = sideEdgeBounds.y;
+        topPlayerPos = normalYPos;
+
         int index = 0;
         foreach (CameraEffector e in playerEffectors)
         {
@@ -102,6 +113,8 @@ public class CameraControl : MonoBehaviour
 
             if (e.target.transform.position.x < leftPlayerBound || index==0) leftPlayerBound = e.target.transform.position.x;
             if (e.target.transform.position.x > rightPlayerBound || index==0) rightPlayerBound = e.target.transform.position.x;
+
+            if (e.target.transform.position.y > topPlayerPos) topPlayerPos = e.target.transform.position.y;
 
             index++;
         }
