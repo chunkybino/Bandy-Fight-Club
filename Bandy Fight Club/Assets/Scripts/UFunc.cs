@@ -273,9 +273,13 @@ public class DoubleInverseLerpData
     public float outputMin = 0; //normal lerp betweent hese by factor of our inverse lerp
     public float outputMax = 1;
 
+    public bool doLerpCurve;
+    public AnimationCurve lerpCurve;
+
     public float Lerp(float t)
     {
-        float t2 = Mathf.InverseLerp(inputMin, inputMax, t);
+        float t2 = Mathf.Clamp01(Mathf.InverseLerp(inputMin, inputMax, t));
+        if (doLerpCurve) t2 = lerpCurve.Evaluate(t2);
         return Mathf.Lerp(outputMin, outputMax, t2);
     }
 }

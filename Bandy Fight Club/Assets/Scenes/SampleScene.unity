@@ -742,11 +742,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   disguiseLevel: 1
   disguiserList:
-  - {fileID: 963536698}
-  - {fileID: 1885114849}
   - {fileID: 78113108}
   - {fileID: 925240343}
+  - {fileID: 963536698}
   - {fileID: 1846003924}
+  - {fileID: 1885114849}
 --- !u!1 &308062698
 GameObject:
   m_ObjectHideFlags: 0
@@ -996,7 +996,53 @@ MonoBehaviour:
   currentSize: 20
   maxSize: 20
   pos: {x: 0, y: 0}
-  sideEdgeBounds: {x: -15, y: 10}
+  targetPos: {x: 0, y: 0}
+  doSideBounds: 1
+  sideEdgeBounds: {x: -40, y: 40}
+  playerEffectors:
+  - target: {fileID: 0}
+    weight: 1
+  - target: {fileID: 0}
+    weight: 1
+  sizeMarginFromPlayerDistances:
+    inputMin: 10
+    inputMax: 70
+    outputMin: 40
+    outputMax: 75
+    doLerpCurve: 1
+    lerpCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 0.0133042745
+        outSlope: 0.0133042745
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0.34208602
+      - serializedVersion: 3
+        time: 0.5016483
+        value: 0.5016483
+        inSlope: 2.209527
+        outSlope: 2.209527
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.123015895
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 0.017017035
+        outSlope: 0.017017035
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.2692182
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
 --- !u!43 &474145620
 Mesh:
   m_ObjectHideFlags: 0
