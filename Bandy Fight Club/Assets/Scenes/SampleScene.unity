@@ -954,6 +954,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 463360057}
+  - component: {fileID: 463360058}
   m_Layer: 0
   m_Name: Camera
   m_TagString: Untagged
@@ -977,6 +978,25 @@ Transform:
   - {fileID: 519420032}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &463360058
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 463360056}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 095c69e1a23ac5c4b92d87c560daa98d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  camera: {fileID: 519420031}
+  zOffset: -100
+  aspectRatio: 1.7777778
+  currentSize: 20
+  maxSize: 20
+  pos: {x: 0, y: 0}
+  sideEdgeBounds: {x: -15, y: 10}
 --- !u!43 &474145620
 Mesh:
   m_ObjectHideFlags: 0
