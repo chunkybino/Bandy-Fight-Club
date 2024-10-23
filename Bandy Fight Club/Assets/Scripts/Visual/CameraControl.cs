@@ -46,6 +46,13 @@ public class CameraControl : MonoBehaviour
     [SerializeField] float cameraPosSmoothTime = 1;
     [SerializeField] float cameraEdgeSmoothTime = 1;
 
+    void Start()
+    {
+        cameraEdges = sideEdgeBounds;
+
+        GameManager.singleton.onRespawn.AddListener(OnRespawn);
+    }
+
     void Update()
     {
         edgeDistance = sideEdgeBounds.y - sideEdgeBounds.x;
@@ -117,6 +124,11 @@ public class CameraControl : MonoBehaviour
     public void AddPlayerEffector(Transform player)
     {
         playerEffectors.Add(new CameraEffector() {target = player, weight = 1});
+    }
+
+    public void OnRespawn()
+    {
+        cameraEdges = sideEdgeBounds;
     }
 }
 [System.Serializable]

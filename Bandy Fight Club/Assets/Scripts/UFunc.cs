@@ -245,6 +245,16 @@ public class UFunc
         return list;
     }
 
+    public static List<T> RemoveNullsList<T>(List<T> list)
+    {
+        List<T> l = new List<T>();
+        foreach (T t in list)
+        {
+            if (t != null) l.Add(t);
+        }
+        return l;
+    }
+
     public static bool Between01(float n)
     {
         return n >= 0 && n <= 1;

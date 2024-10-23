@@ -18,6 +18,8 @@ public class DisguiserParent : MonoBehaviour
     }
     void Start()
     {
+        GameManager.singleton.onRespawn.AddListener(OnRespawn);
+
         oldLevel = disguiseLevel;
         CheckDisguise();
     }
@@ -48,5 +50,10 @@ public class DisguiserParent : MonoBehaviour
         {
             d.CheckDisguise();
         }
+    }
+
+    void OnRespawn()
+    {
+        UFunc.RemoveNullsList(disguiserList);
     }
 }

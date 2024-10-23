@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class GameManager : MonoBehaviour
 {
@@ -33,6 +34,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] float respawnTransitionDelay = 1; //daley between the close and open
 
     [SerializeField] bool readyForNextRound;
+
+    public UnityEvent onRespawn;
 
     void Awake()
     {
@@ -124,6 +127,7 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(respawnTransitionDelay);
 
         RespawnPlayers();
+        onRespawn?.Invoke();
         DoScreenTransition(true);
 
         yield break;
@@ -135,9 +139,8 @@ public class GameManager : MonoBehaviour
         {
             Destroy(player.gameObject);
         }
-        players.Clear();
-
         cameraControl.ResetEffectors();
+        players.Clear();
 
         SpawnPlayers();
     }
