@@ -12735,7 +12735,7 @@ Transform:
   m_Children:
   - {fileID: 301651134179493510}
   m_Father: {fileID: 16384360078915958}
-  m_LocalEulerAnglesHint: {x: -0.443, y: -6.505, z: -0.857}
+  m_LocalEulerAnglesHint: {x: -0.651, y: -35.988, z: 89.103}
 --- !u!1773428102 &5091162400240785461
 ParentConstraint:
   m_ObjectHideFlags: 0
@@ -13595,7 +13595,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &492184165980955251
 Transform:
   m_ObjectHideFlags: 0
@@ -14058,7 +14058,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2902138218111473604
 Transform:
   m_ObjectHideFlags: 0
@@ -14142,7 +14142,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1112335275081904152
 Transform:
   m_ObjectHideFlags: 0
@@ -21014,6 +21014,7 @@ MonoBehaviour:
   team: {fileID: 1172696303370988009}
   health: 0
   maxHealth: 500
+  isDead: 0
   stunBlockDamageMult: 0.5
   onAwake:
     m_PersistentCalls:
@@ -21210,6 +21211,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inputMap: {fileID: 11400000, guid: 3736b76e1ad25af4cab884e4ad236e07, type: 2}
   inputsActive: 1
+  upPressed: 0
+  upHeld: 0
+  downPressed: 0
+  downHeld: 0
+  leftPressed: 0
+  leftHeld: 0
+  rightPressed: 0
+  rightHeld: 0
+  jumpPressed: 0
+  jumpHeld: 0
+  dodgePressed: 0
+  dodgeHeld: 0
+  attackPressed: 0
+  attackHeld: 0
+  heavyPressed: 0
+  heavyHeld: 0
 --- !u!114 &1172696303370988009
 MonoBehaviour:
   m_ObjectHideFlags: 0

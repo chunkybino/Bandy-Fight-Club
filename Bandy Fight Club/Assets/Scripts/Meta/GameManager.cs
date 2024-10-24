@@ -37,6 +37,9 @@ public class GameManager : MonoBehaviour
 
     public UnityEvent onRespawn;
 
+    [SerializeField] float startDelay = 2;
+    public bool gameStarted;
+
     void Awake()
     {
         CheckSingleton();
@@ -55,6 +58,12 @@ public class GameManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+    }
+
+    void Start()
+    {
+        DoScreenTransition(true);
+        StartCoroutine("StartGameCoroutine");
     }
 
     void Update()
@@ -116,6 +125,21 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    IEnumerator StartGameCoroutine()
+    {
+        screenTransitions.Play("BottomClosed");
+
+        yield return new WaitForSeconds(startDelay);
+
+        screenTransitions.Play("BottomOpen");
+
+        StartGame();
+    }
+    public void StartGame()
+    {
+        gameStarted = true;
+    }
+
     public void DoRespawn()
     {
         StartCoroutine("RespawnCoroutine");
@@ -126,9 +150,12 @@ public class GameManager : MonoBehaviour
 
         yield return new WaitForSeconds(respawnTransitionDelay);
 
-        RespawnPlayers();
+        gameStarted = false;
         onRespawn?.Invoke();
+        RespawnPlayers();
         DoScreenTransition(true);
+
+        StartCoroutine("StartGameCoroutine");
 
         yield break;
     }

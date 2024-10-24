@@ -16,6 +16,8 @@ public class PlayerStatus : MonoBehaviour
     public int health;
     public int maxHealth = 100;
 
+    public bool isDead = false;
+
     public float stunBlockDamageMult = 0.5f;
 
     public UnityEvent onAwake;
@@ -59,6 +61,9 @@ public class PlayerStatus : MonoBehaviour
 
     public void Die()
     {
+        isDead = true;
+        inputs.inputsActive = false;
+
         gameManager.PlayerDie();
     }
 }

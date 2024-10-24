@@ -8,51 +8,57 @@ public class PlayerInputs : MonoBehaviour
 
     public bool inputsActive = true; //when disabled, all inputs return false
 
-    public bool upPressed {get {return Input.GetKey(inputMap.up) && inputsActive;}}
-    public bool upHeld {get {return Input.GetKey(inputMap.up) && inputsActive;}}
+    public bool upPressed;// {get {return Input.GetKey(inputMap.up) && inputsActive;}}
+    public bool upHeld;// {get {return Input.GetKey(inputMap.up) && inputsActive;}}
 
-    public bool downPressed {get {return Input.GetKeyDown(inputMap.down) && inputsActive;}}
-    public bool downHeld {get {return Input.GetKey(inputMap.down) && inputsActive;}}
+    public bool downPressed;// {get {return Input.GetKeyDown(inputMap.down) && inputsActive;}}
+    public bool downHeld;// {get {return Input.GetKey(inputMap.down) && inputsActive;}}
 
-    public bool leftPressed {get {return Input.GetKeyDown(inputMap.left) && inputsActive;}}
-    public bool leftHeld {get {return Input.GetKey(inputMap.left) && inputsActive;}}
+    public bool leftPressed;// {get {return Input.GetKeyDown(inputMap.left) && inputsActive;}}
+    public bool leftHeld;// {get {return Input.GetKey(inputMap.left) && inputsActive;}}
 
-    public bool rightPressed {get {return Input.GetKeyDown(inputMap.right) && inputsActive;}}
-    public bool rightHeld {get {return Input.GetKey(inputMap.right) && inputsActive;}}
+    public bool rightPressed;// {get {return Input.GetKeyDown(inputMap.right) && inputsActive;}}
+    public bool rightHeld;// {get {return Input.GetKey(inputMap.right) && inputsActive;}}
 
-    public bool jumpPressed {get {return Input.GetKeyDown(inputMap.jump) && inputsActive;}}
-    public bool jumpHeld {get {return Input.GetKey(inputMap.jump) && inputsActive;}}
+    public bool jumpPressed;// {get {return Input.GetKeyDown(inputMap.jump) && inputsActive;}}
+    public bool jumpHeld;// {get {return Input.GetKey(inputMap.jump) && inputsActive;}}
 
-    public bool dodgePressed {get {return Input.GetKeyDown(inputMap.dodge) && inputsActive;}}
-    public bool dodgeHeld {get {return Input.GetKey(inputMap.dodge) && inputsActive;}}
+    public bool dodgePressed;// {get {return Input.GetKeyDown(inputMap.dodge) && inputsActive;}}
+    public bool dodgeHeld;// {get {return Input.GetKey(inputMap.dodge) && inputsActive;}}
 
-    public bool attackPressed {get {return Input.GetKeyDown(inputMap.attack) && inputsActive;}}
-    public bool attackHeld {get {return Input.GetKey(inputMap.attack) && inputsActive;}}
+    public bool attackPressed;// {get {return Input.GetKeyDown(inputMap.attack) && inputsActive;}}
+    public bool attackHeld;// {get {return Input.GetKey(inputMap.attack) && inputsActive;}}
 
-    public bool heavyPressed {get {return Input.GetKeyDown(inputMap.heavy) && inputsActive;}}
-    public bool heavyHeld {get {return Input.GetKey(inputMap.heavy) && inputsActive;}}
+    public bool heavyPressed;// {get {return Input.GetKeyDown(inputMap.heavy) && inputsActive;}}
+    public bool heavyHeld;// {get {return Input.GetKey(inputMap.heavy) && inputsActive;}}
 
-    /*void Update()
+    void Update()
     {
-        upPressed = Input.GetKeyDown(inputMap.up);
-        upHeld = Input.GetKey(inputMap.up);
+        bool active = inputsActive;
+        if (!GameManager.singleton.gameStarted) active = false;
 
-        downPressed = Input.GetKeyDown(inputMap.down);
-        downHeld = Input.GetKey(inputMap.down);
+        upPressed = Input.GetKeyDown(inputMap.up) && active;
+        upHeld = Input.GetKey(inputMap.up) && active;
 
-        leftPressed = Input.GetKeyDown(inputMap.left);
-        leftHeld = Input.GetKey(inputMap.left);
+        downPressed = Input.GetKeyDown(inputMap.down) && active;
+        downHeld = Input.GetKey(inputMap.down) && active;
 
-        rightPressed = Input.GetKeyDown(inputMap.right);
-        rightHeld = Input.GetKey(inputMap.right);
+        leftPressed = Input.GetKeyDown(inputMap.left) && active;
+        leftHeld = Input.GetKey(inputMap.left) && active;
 
-        jumpPressed = Input.GetKeyDown(inputMap.jump);
-        jumpHeld = Input.GetKey(inputMap.jump);
+        rightPressed = Input.GetKeyDown(inputMap.right) && active;
+        rightHeld = Input.GetKey(inputMap.right) && active;
 
-        dodgePressed = Input.GetKeyDown(inputMap.dodge);
-        dodgeHeld = Input.GetKey(inputMap.dodge);
+        jumpPressed = Input.GetKeyDown(inputMap.jump) && active;
+        jumpHeld = Input.GetKey(inputMap.jump) && active;
 
-        attackPressed = Input.GetKeyDown(inputMap.attack);
-        attackHeld = Input.GetKey(inputMap.attack);
-    }*/
+        dodgePressed = Input.GetKeyDown(inputMap.dodge) && active;
+        dodgeHeld = Input.GetKey(inputMap.dodge) && active;
+
+        attackPressed = Input.GetKeyDown(inputMap.attack) && active;
+        attackHeld = Input.GetKey(inputMap.attack) && active;
+
+        heavyPressed = Input.GetKeyDown(inputMap.heavy) && active;
+        heavyHeld = Input.GetKey(inputMap.heavy) && active;
+    }
 }

@@ -98,10 +98,6 @@ public class CameraControl : MonoBehaviour
 
     void CalculateCameraEffectors()
     {
-        //float totalX = 0;
-        //float totalWeight = 0;
-
-        //playerBounds = new Vector2(transform.position.x,transform.position.x); //highest and lowestest player pos, x is low, y is high
         leftPlayerBound = sideEdgeBounds.x;
         rightPlayerBound = sideEdgeBounds.y;
         topPlayerPos = normalYPos;
@@ -119,10 +115,6 @@ public class CameraControl : MonoBehaviour
             index++;
         }
         playerDistance = rightPlayerBound - leftPlayerBound;
-
-        //if (totalWeight == 0) return;
-
-        //targetPos.x = totalX / totalWeight;
     }
 
     void SetHorizontalSize(float size)
