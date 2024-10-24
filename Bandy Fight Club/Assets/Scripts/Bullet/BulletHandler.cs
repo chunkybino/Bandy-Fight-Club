@@ -23,10 +23,10 @@ public class BulletHandler : MonoBehaviour
             Destroy(this);
         }
     }
-    /*void Start()
+    void Start()
     {
-        CheckpointManager.singleton.onRespawn.AddListener(OnRespawn);
-    }*/
+        GameManager.singleton.onRespawn.AddListener(OnRespawn);
+    }
     void Update()
     {
         if (!singleton) singleton = this;
@@ -51,6 +51,8 @@ public class BulletHandler : MonoBehaviour
         thisBullet.attackInfo = config.enemyAttackInfo.dataCopy;
         thisBullet.SetTeam(team);
 
+        currentBullets.Add(thisBullet);
+
         return thisBullet;
     }
 
@@ -63,10 +65,15 @@ public class BulletHandler : MonoBehaviour
         currentBullets.Clear();
     }
 
-    /*void OnRespawn()
+    public void RemoveBulletFromList(BulletFunc bullet)
+    {
+        currentBullets.Remove(bullet);
+    }
+
+    void OnRespawn()
     {
         DestroyAllBullets();
-    }*/
+    }
 }
 [CreateAssetMenu(fileName = "BulletSO", menuName = "ScriptableObjects/Bullet")]
 public class BulletConfig : ScriptableObject

@@ -216,6 +216,11 @@ public class BulletFunc : MonoBehaviour
         Destroy(gameObject); //give some time for the trail to go away
     }
 
+    void OnDestroy()
+    {
+        BulletHandler.singleton.RemoveBulletFromList(this);
+    }
+
     /*public void DisableBulletKnockback()
     {
         attackInfo.knockbacks.Clear();
