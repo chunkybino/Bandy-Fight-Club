@@ -143,6 +143,7 @@ public class GameManager : MonoBehaviour
     public void DoRespawn()
     {
         StartCoroutine("RespawnCoroutine");
+        readyForNextRound = false;
     }
     IEnumerator RespawnCoroutine()
     {
