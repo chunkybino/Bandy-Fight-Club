@@ -134,6 +134,10 @@ public class BigQFunc : PlayerFunc, ICharacterFunc
             {
                 attackName = "Kick";
             }
+            else if (inputs.downHeld)
+            {
+                attackName = "Slide";
+            }
             else
             {
                 attackName = "Knee";
