@@ -185,6 +185,7 @@ public class BigQFunc : PlayerFunc, ICharacterFunc
         {
             if (currentSaxBullet.grappleable) 
             {
+                playerAnimation.ExitActionAnim();
                 GrappleToSaxStart();
             }
             else

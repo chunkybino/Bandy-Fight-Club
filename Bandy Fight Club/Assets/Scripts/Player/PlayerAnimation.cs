@@ -86,6 +86,11 @@ public class PlayerAnimation : MonoBehaviour
     {  
         playerAttack.ExitAttackAnim();
     }
+    public void ExitActionAnim()
+    {
+        anim.Play("ActionBlank", -1);
+        ExitAnim();
+    }
 
     public void DoKnockbackBoost(float force)
     {
