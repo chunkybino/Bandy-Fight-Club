@@ -40,6 +40,8 @@ public class PlayerFunc : MonoBehaviour
     public float maintainSpeed;
     [SerializeField] float reachMaxSpeedForTimeTimer;
 
+    public float targetSideSpeed;
+
     //ground
     public bool grounded;
     public UnityEvent onGroundLand;
@@ -326,7 +328,7 @@ public class PlayerFunc : MonoBehaviour
         float xVel = rb.velocity.x;
         float yVel = rb.velocity.y;
 
-        float targetSideSpeed = movementSpeed * sideInputDirection;
+        targetSideSpeed = movementSpeed * sideInputDirection;
         if (isStun) targetSideSpeed *= stunSpeedMult;
         if (playerAttack.isAttacking)
         {
