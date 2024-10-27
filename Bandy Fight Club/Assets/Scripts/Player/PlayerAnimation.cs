@@ -71,6 +71,13 @@ public class PlayerAnimation : MonoBehaviour
                 animName = "AirDown";
             }
         }
+        else
+        {
+            if (playerFunc.targetSideSpeed != 0)
+            {
+                animName = "Walk";
+            }
+        }
 
         return animName;
     }
