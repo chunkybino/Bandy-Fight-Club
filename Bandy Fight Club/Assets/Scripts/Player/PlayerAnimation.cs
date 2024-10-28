@@ -24,6 +24,10 @@ public class PlayerAnimation : MonoBehaviour
 
     float timeSinceWalk;
     [SerializeField] float skidTime = 0.1f;
+    float walkDashTimer;
+    [SerializeField] float walkDashTime = 0.1f;
+
+    bool walking;
 
     void Awake()
     {
@@ -63,6 +67,8 @@ public class PlayerAnimation : MonoBehaviour
 
         string animName = "Idle";
 
+        bool doWalk = false;
+
         if (!playerFunc.grounded)
         {
             if (rb.velocity.y > 0.1f)
@@ -79,7 +85,18 @@ public class PlayerAnimation : MonoBehaviour
             timeSinceWalk += Time.deltaTime;
             if (playerFunc.targetSideSpeed != 0) 
             {
-                animName = "Walk";
+                if (!walking) walkDashTimer = 0;
+                doWalk = true;
+
+                if (walkDashTimer < walkDashTime)
+                {
+                    animName = "WalkDash";
+                    walkDashTimer += Time.deltaTime;
+                }
+                else
+                {
+                    animName = "Walk";
+                }
                 timeSinceWalk = 0;
             }
             else if (timeSinceWalk < skidTime)
@@ -87,6 +104,8 @@ public class PlayerAnimation : MonoBehaviour
                 animName = "WalkSkid";
             }
         }
+
+        walking = doWalk;
 
         return animName;
     }
