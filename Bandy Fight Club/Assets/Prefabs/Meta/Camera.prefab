@@ -54,7 +54,7 @@ MonoBehaviour:
   targetPos: {x: 0, y: 0}
   posPowerDegree: 0.5
   doSideBounds: 1
-  sideEdgeBounds: {x: -38, y: 38}
+  sideEdgeBounds: {x: -40, y: 40}
   playerToBoundLerp: 0.5
   playerDistanceToBoundLerpCurve:
     serializedVersion: 2
@@ -122,6 +122,10 @@ MonoBehaviour:
   cameraEdges: {x: 0, y: 0}
   cameraPosSmoothTime: 0.15
   cameraEdgeSmoothTime: 0.15
+  doZoomMult: 0
+  zoomMult: 1
+  doFocusTarget: 0
+  targetFocusIndex: 0
 --- !u!1 &5021844562765222903
 GameObject:
   m_ObjectHideFlags: 0
