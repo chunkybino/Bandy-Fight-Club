@@ -26870,13 +26870,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ece65d59b752bec46a29b6da2c5a87c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  disguiseLevel: 1
+  disguiseLevel: 11
   disguiserList:
   - {fileID: 78113108}
   - {fileID: 925240343}
   - {fileID: 963536698}
   - {fileID: 1846003924}
   - {fileID: 1885114849}
+  removeNull: 0
 --- !u!1 &308062698
 GameObject:
   m_ObjectHideFlags: 0
@@ -28728,6 +28729,14 @@ PrefabInstance:
       propertyPath: mesh
       value: 
       objectReference: {fileID: 959436946}
+    - target: {fileID: 602737209216104417, guid: 84f3f989133dc724681733bf06f534d8, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 865003778337878882, guid: 84f3f989133dc724681733bf06f534d8, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1147119273630492370, guid: 84f3f989133dc724681733bf06f534d8, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -28736,6 +28745,10 @@ PrefabInstance:
       propertyPath: mesh
       value: 
       objectReference: {fileID: 402466986}
+    - target: {fileID: 1626537394165745460, guid: 84f3f989133dc724681733bf06f534d8, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1688312685288853089, guid: 84f3f989133dc724681733bf06f534d8, type: 3}
       propertyPath: m_Mesh
       value: 

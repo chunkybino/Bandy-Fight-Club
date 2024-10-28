@@ -12,6 +12,8 @@ public class DisguiserParent : MonoBehaviour
 
     int oldLevel;
 
+    public bool removeNull;
+
     void Awake()
     {
         FindDisguise();
@@ -32,6 +34,12 @@ public class DisguiserParent : MonoBehaviour
         oldLevel = disguiseLevel;
 
         CheckDisguise();
+
+        if (removeNull)
+        {
+            removeNull = false;
+            disguiserList = UFunc.RemoveNullsList(disguiserList);
+        }
     }
 
     public void FindDisguise()
@@ -54,6 +62,6 @@ public class DisguiserParent : MonoBehaviour
 
     void OnRespawn()
     {
-        UFunc.RemoveNullsList(disguiserList);
+        disguiserList = UFunc.RemoveNullsList(disguiserList);
     }
 }
