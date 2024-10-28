@@ -22,6 +22,9 @@ public class PlayerAnimation : MonoBehaviour
     [SerializeField] int blockAnimIndex = 0;
     [SerializeField] string[] blockAnimNames = new string[] {"Block"};
 
+    float timeSinceWalk;
+    [SerializeField] float skidTime = 0.1f;
+
     void Awake()
     {
         characterFunc = playerFunc.characterFunc;
@@ -73,7 +76,16 @@ public class PlayerAnimation : MonoBehaviour
         }
         else
         {
-            if (playerFunc.targetSideSpeed != 0) animName = "Walk";
+            timeSinceWalk += Time.deltaTime;
+            if (playerFunc.targetSideSpeed != 0) 
+            {
+                animName = "Walk";
+                timeSinceWalk = 0;
+            }
+            else if (timeSinceWalk < skidTime)
+            {
+                animName = "WalkSkid";
+            }
         }
 
         return animName;

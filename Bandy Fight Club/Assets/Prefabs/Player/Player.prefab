@@ -13824,11 +13824,21 @@ MonoBehaviour:
     doPivot: 0
     perpAmp: 1
     doPivotOnGrounded: 1
+  - name: run
+    speed: 2
+    amplitude: 0.2
+    freqency: 1.25
+    decayPower: 2
+    flipXY: 0
+    doPivot: 0
+    perpAmp: 1.5
+    doPivotOnGrounded: 1
   blockAnimIndex: 0
   blockAnimNames:
   - Block1
   - Block2
   - Block3
+  skidTime: 0.1
 --- !u!210 &5341422069567755535
 SortingGroup:
   m_ObjectHideFlags: 0
@@ -21212,7 +21222,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4110637717697406780
 Transform:
   m_ObjectHideFlags: 0
