@@ -51,6 +51,11 @@ public class CameraControl : MonoBehaviour
     [SerializeField] float cameraPosSmoothTime = 1;
     [SerializeField] float cameraEdgeSmoothTime = 1;
 
+    public bool doZoomMult = false;
+    public float zoomMult = 1;
+    public bool doFocusTarget = false;
+    public int targetFocusIndex;
+
     void Start()
     {
         cameraEdges = sideEdgeBounds;
@@ -65,6 +70,7 @@ public class CameraControl : MonoBehaviour
         CalculateCameraEffectors();
 
         playerToBoundLerp = playerDistanceToBoundLerpCurve.Evaluate(playerEdgeDistanceRatio);
+        if (doZoomMult) playerToBoundLerp = 1-((1-playerToBoundLerp)/zoomMult);
         centerToPlayerLerp = centerDistanceToCenterPlayerLerpCurve.Evaluate(2*Mathf.Abs(middlePlayerPos)/edgeDistance);
 
         targetCameraEdges.x = Mathf.Lerp(sideEdgeBounds.x, leftPlayerBound, playerToBoundLerp);
@@ -84,6 +90,7 @@ public class CameraControl : MonoBehaviour
 
         targetPos.y = Mathf.Lerp(normalYPos, topPlayerPos, verticalPlayerLerp);
         targetPos.y = Mathf.Pow(targetPos.y, yPosDegree);
+        if (doFocusTarget) targetPos = playerEffectors[targetFocusIndex].target.position;
 
         horizontalSize = currentSize*aspectRatio;
         camera.orthographicSize = currentSize;
@@ -113,6 +120,11 @@ public class CameraControl : MonoBehaviour
             if (e.target.transform.position.y > topPlayerPos) topPlayerPos = e.target.transform.position.y;
 
             index++;
+        }
+        if (doFocusTarget)
+        {
+           leftPlayerBound = playerEffectors[targetFocusIndex].target.transform.position.x; 
+           rightPlayerBound = playerEffectors[targetFocusIndex].target.transform.position.x;
         }
         playerDistance = rightPlayerBound - leftPlayerBound;
     }

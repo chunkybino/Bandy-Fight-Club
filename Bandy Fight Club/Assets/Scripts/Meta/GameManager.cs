@@ -40,6 +40,12 @@ public class GameManager : MonoBehaviour
     [SerializeField] float startDelay = 2;
     public bool gameStarted;
 
+    [SerializeField] float playerDieSlowMult = 0.2f; //when player die, so down time by this factor
+    [SerializeField] float playerDieSlowTime = 2f;
+    bool isPlayerDieSlowmo = false;
+    [SerializeField] float playerDieFocusTime = 1.5f;
+    [SerializeField] float playerDieZoomMult = 2;
+
     void Awake()
     {
         CheckSingleton();
@@ -88,6 +94,7 @@ public class GameManager : MonoBehaviour
         {
             timeScaleFRFR = 1;
         }
+        if (isPlayerDieSlowmo) timeScaleFRFR *= playerDieSlowMult;
         timeScaleFRFR *= timeScale;
         Time.timeScale = timeScaleFRFR;
     }
@@ -210,9 +217,36 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void PlayerDie()
+    public void PlayerDie(int playerThatDied)
+    {
+        StartCoroutine("PlayerDieCoroutine", playerThatDied);
+    }
+
+    IEnumerator PlayerDieCoroutine(int playerDiedIndex)
+    {
+        isPlayerDieSlowmo = true;
+
+        cameraControl.doZoomMult = true;
+        cameraControl.zoomMult = playerDieZoomMult;
+        cameraControl.doFocusTarget = true;
+        cameraControl.targetFocusIndex = playerDiedIndex;
+
+        yield return new WaitForSecondsRealtime(playerDieSlowTime);
+
+        isPlayerDieSlowmo = false;
+
+        yield return new WaitForSecondsRealtime(playerDieFocusTime);
+
+        cameraControl.doZoomMult = false;
+        cameraControl.doFocusTarget = false;
+
+        DoRoundOver();
+    }
+
+    void DoRoundOver()
     {
         readyForNextRound = true;
+        screenTransitions.Play("BottomClose");
     }
 }
 

@@ -64,6 +64,6 @@ public class PlayerStatus : MonoBehaviour
         isDead = true;
         inputs.inputsActive = false;
 
-        gameManager.PlayerDie();
+        gameManager.PlayerDie(playerNumber);
     }
 }
