@@ -103,6 +103,13 @@ public class PlayerHitbox : MonoBehaviour, IDamageable
         //intagibility
         isIntangible = playerFunc.GetIsIntangible();//isDodgeIntangible;
         entityBounding.enabled = !playerFunc.GetDisableEntityCollision();
+
+        //disable sutff if dead
+        if (playerStatus.isDead)
+        {
+            hitbox.enabled = false;
+            entityBounding.enabled = false;
+        }
     }
 
     void CheckForGroundShiftUp() //if we in the ground, shift us up

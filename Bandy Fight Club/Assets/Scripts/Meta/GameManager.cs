@@ -220,6 +220,12 @@ public class GameManager : MonoBehaviour
     public void PlayerDie(int playerThatDied)
     {
         StartCoroutine("PlayerDieCoroutine", playerThatDied);
+
+        //increase score
+        for (int i = 0; i < playerInfos.Count; i++)
+        {
+            if (i != playerThatDied) playerInfos[i].score++;
+        }
     }
 
     IEnumerator PlayerDieCoroutine(int playerDiedIndex)
@@ -256,4 +262,6 @@ public class PlayerInfo
     public int playerNumber;
     public PlayerStatus characterPrefab;
     public PlayerStatus player;
+
+    public int score;
 }

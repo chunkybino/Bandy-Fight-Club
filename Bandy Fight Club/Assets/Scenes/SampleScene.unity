@@ -26806,9 +26806,11 @@ MonoBehaviour:
   - playerNumber: 0
     characterPrefab: {fileID: 3492214244448277147, guid: 84f3f989133dc724681733bf06f534d8, type: 3}
     player: {fileID: 0}
+    score: 0
   - playerNumber: 1
     characterPrefab: {fileID: 3492214244448277147, guid: 84f3f989133dc724681733bf06f534d8, type: 3}
     player: {fileID: 0}
+    score: 0
   spawnPoints:
   - {fileID: 96561685}
   - {fileID: 1835542523}
@@ -26870,7 +26872,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ece65d59b752bec46a29b6da2c5a87c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  disguiseLevel: 11
+  disguiseLevel: 1
   disguiserList:
   - {fileID: 78113108}
   - {fileID: 925240343}
@@ -28731,11 +28733,11 @@ PrefabInstance:
       objectReference: {fileID: 959436946}
     - target: {fileID: 602737209216104417, guid: 84f3f989133dc724681733bf06f534d8, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 865003778337878882, guid: 84f3f989133dc724681733bf06f534d8, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1147119273630492370, guid: 84f3f989133dc724681733bf06f534d8, type: 3}
       propertyPath: m_Mesh
@@ -28747,7 +28749,7 @@ PrefabInstance:
       objectReference: {fileID: 402466986}
     - target: {fileID: 1626537394165745460, guid: 84f3f989133dc724681733bf06f534d8, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1688312685288853089, guid: 84f3f989133dc724681733bf06f534d8, type: 3}
       propertyPath: m_Mesh
@@ -29144,7 +29146,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_VertexColorAlwaysGammaSpace: 0
-  m_AdditionalShaderChannelsFlag: 0
+  m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
