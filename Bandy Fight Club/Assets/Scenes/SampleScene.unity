@@ -11483,6 +11483,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!224 &1690777638 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 7656832102705641563, guid: 57b4940d714566645a5cd540ce3149c3, type: 3}
+  m_PrefabInstance: {fileID: 3734832840022591346}
+  m_PrefabAsset: {fileID: 0}
 --- !u!43 &1742579831
 Mesh:
   m_ObjectHideFlags: 0
@@ -12035,6 +12040,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6232378384035369980, guid: 803fb5acdd3cb8e4da35c245bd6a34d8, type: 3}
+      propertyPath: m_Sources.Array.data[0].sourceTransform
+      value: 
+      objectReference: {fileID: 1690777638}
     - target: {fileID: 7278983975348891900, guid: 803fb5acdd3cb8e4da35c245bd6a34d8, type: 3}
       propertyPath: m_Name
       value: StatUI
