@@ -963,7 +963,8 @@ MonoBehaviour:
   materialTextures: {fileID: 11400000, guid: 3bc50daa089981643aff5754b4e0be3d, type: 2}
   num: 0
   outlineColor: {r: 0.5566038, g: 0.5566038, b: 0.5566038, a: 1}
-  outlineThickness: 0.005
+  outlineThickness: 0.006
+  outlineAlpha: 0.5
 --- !u!1 &259869049822703169
 GameObject:
   m_ObjectHideFlags: 0
@@ -21226,7 +21227,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4110637717697406780
 Transform:
   m_ObjectHideFlags: 0
@@ -21413,7 +21414,7 @@ MonoBehaviour:
     perpAmp: 0.5
     doPivotOnGrounded: 1
   dashJumpHeight: 4
-  dashJumpSpeed: 28
+  dashJumpSpeed: 26
   dashJumpAccel: 0.35
   dashJumpAccelTime: 0.4
   dashJumpGrav: 0.8
@@ -21466,7 +21467,7 @@ MonoBehaviour:
   saxGrappleLine: {fileID: 2953168748854458469}
   saxGrappleLineFirePoint: {fileID: 4814306060789745938}
   saxThrowStartVerticalBoost: 16
-  saxGrappleVecBoost: {x: 32, y: 24}
+  saxGrappleVecBoost: {x: 36, y: 24}
   saxGrappleVerticalBoost: 16
   grappleSaxBoostAccelerationMult: 0.1
   grappleSaxBoostAccelerationTime: 0.5

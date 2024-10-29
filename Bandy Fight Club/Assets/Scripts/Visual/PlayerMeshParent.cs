@@ -37,6 +37,7 @@ public class PlayerMeshParent : MonoBehaviour
 
     public Color outlineColor;
     public float outlineThickness = 0.01f;
+    public float outlineAlpha = 1;
 
     void Awake()
     {
@@ -73,6 +74,7 @@ public class PlayerMeshParent : MonoBehaviour
         matBlock.SetTexture("_MainTex", renderTex);
         matBlock.SetColor("_Color", outlineColor);
         matBlock.SetFloat("_Thickness", outlineThickness);
+        matBlock.SetFloat("_Opacity", outlineAlpha);
         meshRenderer.SetPropertyBlock(matBlock, 0);
 
         UpdateFacing();
@@ -98,6 +100,7 @@ public class PlayerMeshParent : MonoBehaviour
         matBlock1.SetTexture("_MainTex", renderTex);
         matBlock1.SetColor("_Color", outlineColor);
         matBlock1.SetFloat("_Thickness", outlineThickness);
+        matBlock1.SetFloat("_Opacity", outlineAlpha);
         matBlock2.SetTexture("_MainTex", renderTex);
 
         meshRenderer.SetPropertyBlock(matBlock1, 0);
