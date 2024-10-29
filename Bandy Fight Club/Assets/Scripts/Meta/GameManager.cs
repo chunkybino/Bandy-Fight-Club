@@ -21,6 +21,8 @@ public class GameManager : MonoBehaviour
 
     public List<PlayerInfo> playerInfos = new List<PlayerInfo>();
 
+    public TeamColorsSO teamOutlineColors;
+
     public Transform[] spawnPoints;
 
     [SerializeField] bool isHitStop;
@@ -264,4 +266,10 @@ public class PlayerInfo
     public PlayerStatus player;
 
     public int score;
+}
+
+[CreateAssetMenu(fileName = "TeamColorSO", menuName = "ScriptableObjects/TeamColor")]
+public class TeamColorsSO : ScriptableObject
+{
+    public Color[] colors;
 }

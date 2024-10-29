@@ -85,8 +85,4 @@ public class BulletConfig : ScriptableObject
     public int pierce;
     public float size = 1;
     public float lifetime = 4;
-    /*public float deflectSpeedMult = 3f;
-    public float deflectDamageMult = 2;
-    public GuardingAttackTypes prediction;
-    public GuardingAttackTypes predictionWeight;*/
 }

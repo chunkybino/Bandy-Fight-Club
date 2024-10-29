@@ -962,6 +962,8 @@ MonoBehaviour:
   doIt: 0
   materialTextures: {fileID: 11400000, guid: 3bc50daa089981643aff5754b4e0be3d, type: 2}
   num: 0
+  outlineColor: {r: 0, g: 0, b: 0, a: 1}
+  outlineThickness: 0.005
 --- !u!1 &259869049822703169
 GameObject:
   m_ObjectHideFlags: 0
@@ -1847,6 +1849,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
+  - {fileID: 2100000, guid: 7010daeb2f6b3154eb20694ae282768d, type: 2}
   - {fileID: 2100000, guid: 5dc7b63aedd576c43a58da879aac0af1, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
@@ -13867,7 +13870,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &492184165980955251
 Transform:
   m_ObjectHideFlags: 0
@@ -14330,7 +14333,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2902138218111473604
 Transform:
   m_ObjectHideFlags: 0
@@ -14414,7 +14417,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1112335275081904152
 Transform:
   m_ObjectHideFlags: 0
@@ -21223,7 +21226,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &4110637717697406780
 Transform:
   m_ObjectHideFlags: 0
