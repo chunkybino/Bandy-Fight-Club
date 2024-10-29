@@ -8954,6 +8954,7 @@ MonoBehaviour:
     characterPrefab: {fileID: 3492214244448277147, guid: 84f3f989133dc724681733bf06f534d8, type: 3}
     player: {fileID: 0}
     score: 0
+  teamOutlineColors: {fileID: 11400000, guid: cfa810b6cb805a34394dbb2615a51edc, type: 2}
   spawnPoints:
   - {fileID: 96561685}
   - {fileID: 1835542523}
@@ -9015,7 +9016,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ece65d59b752bec46a29b6da2c5a87c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  disguiseLevel: 1
+  disguiseLevel: 0
   disguiserList:
   - {fileID: 78113108}
   - {fileID: 925240343}
