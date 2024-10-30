@@ -112,5 +112,7 @@ public class QSaxBulletFunc : BulletFunc
         circleCollider.enabled = true;
 
         attackInfo.damage = Mathf.FloorToInt(attackInfo.damage * grappleParryDamageMult);
+
+        ClearHitList(); 
     }
 }

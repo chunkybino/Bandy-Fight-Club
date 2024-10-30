@@ -143,8 +143,6 @@ public class BulletFunc : MonoBehaviour
         {
             Vector2 castDirection = new Vector2(transform.position.x, transform.position.y) - lastFramPos;
 
-            print(castDirection.ToString() + "  " + castDirection.magnitude.ToString());
-
             RaycastHit2D[] hits = Physics2D.CircleCastAll(transform.position, circleCollider.radius, castDirection, castDirection.magnitude, layerMask);
 
             foreach (RaycastHit2D hit in hits)
@@ -197,6 +195,10 @@ public class BulletFunc : MonoBehaviour
         hitTargetsList.Add(targetToAdd);
         yield return new WaitForSeconds(reHitTime);
         hitTargetsList.Remove(targetToAdd);
+    }
+    public void ClearHitList()
+    {
+        hitTargetsList.Clear();
     }
 
     public virtual void HitDude(IDamageable damageable)
