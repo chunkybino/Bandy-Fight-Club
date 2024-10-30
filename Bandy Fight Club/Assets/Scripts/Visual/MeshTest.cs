@@ -58,7 +58,7 @@ public class MeshTest : MonoBehaviour
         Vector3 vectice1 = vertices[0];
         for (int i = 0; i < vertices.Length; i++)
         {
-            Vector2 vertice = vertices[i] - vectice1 - pointAnchor.position;
+            Vector2 vertice = vertices[i] - vectice1;
             UV[i] = new Vector2(vertice.y, vertice.x); 
         }
         //rotate uv
