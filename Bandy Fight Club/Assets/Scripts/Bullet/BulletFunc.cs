@@ -60,6 +60,8 @@ public class BulletFunc : MonoBehaviour
 
     [SerializeField] AttackTelegraph telegraph;*/
 
+    Vector2 lastFramPos;
+
     public void Start()
     {
         speed = config.speed;
@@ -67,6 +69,8 @@ public class BulletFunc : MonoBehaviour
         transform.localScale = new Vector3(config.size,config.size,1);
         if (renderer) renderScale = renderer.transform.localScale;
         DoLifetime(config.lifetime);
+
+        lastFramPos = transform.position;
 
         /*if (trailRenderer) trailRenderer.widthMultiplier = trailWidth;
 
@@ -105,6 +109,16 @@ public class BulletFunc : MonoBehaviour
         {
             rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y - gravity*Time.fixedDeltaTime);
         }
+
+        StartCoroutine("LateFixedUpdate");
+    }
+
+    IEnumerator LateFixedUpdate()
+    {
+        yield return new WaitForFixedUpdate();
+
+        CheckRaycastCollision();
+        lastFramPos = transform.position;
     }
 
     void OnTriggerStay2D(Collider2D item)
@@ -123,6 +137,22 @@ public class BulletFunc : MonoBehaviour
             }
         }
     } 
+    void CheckRaycastCollision()
+    {
+        if (circleCollider)
+        {
+            Vector2 castDirection = new Vector2(transform.position.x, transform.position.y) - lastFramPos;
+
+            print(castDirection.ToString() + "  " + castDirection.magnitude.ToString());
+
+            RaycastHit2D[] hits = Physics2D.CircleCastAll(transform.position, circleCollider.radius, castDirection, castDirection.magnitude, layerMask);
+
+            foreach (RaycastHit2D hit in hits)
+            {
+                CheckCollision(hit.collider);
+            }
+        }
+    }
     void CheckCollision(Collider2D item)
     {
         bool foundHit = false;
