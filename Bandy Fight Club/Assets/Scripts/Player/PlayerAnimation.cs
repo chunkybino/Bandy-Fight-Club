@@ -7,6 +7,7 @@ public class PlayerAnimation : MonoBehaviour
 {
     public Animator anim;
 
+    public PlayerStatus playerStatus;
     public PlayerAttack playerAttack;
     public PlayerFunc playerFunc;
     public ICharacterFunc characterFunc;
@@ -26,6 +27,9 @@ public class PlayerAnimation : MonoBehaviour
     [SerializeField] float skidTime = 0.1f;
     float walkDashTimer;
     [SerializeField] float walkDashTime = 0.1f;
+
+    float timeDead;
+    [SerializeField] float groundDeathAnimDelay = 0.1f; //dont do the deaath anim for this much time
 
     bool walking;
 
@@ -61,11 +65,34 @@ public class PlayerAnimation : MonoBehaviour
             }
         }
 
+        string animName = "Idle";
+
+        if (playerStatus.isDead)
+        {
+            timeDead += Time.deltaTime;
+
+            if (playerFunc.grounded && timeDead >= groundDeathAnimDelay)
+            {
+                animName = "Dead";
+            }
+            else
+            {
+                if (rb.velocity.y > 0.1f)
+                {
+                    animName = "Stun";
+                }
+                else
+                {
+                    animName = "DeadFall";
+                }
+            }
+
+            return animName;
+        }
+
         if (playerFunc.isStun && playerFunc.isBlocking) return "BlockStun";
         if (playerFunc.isStun) return "Stun";
         if (playerFunc.isBlocking) return blockAnimNames[blockAnimIndex];
-
-        string animName = "Idle";
 
         bool doWalk = false;
 

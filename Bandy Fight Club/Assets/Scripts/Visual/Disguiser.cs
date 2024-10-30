@@ -41,18 +41,12 @@ public class Disguiser : MonoBehaviour
             if (DisguiserParent.doSilhouetteStatic)
             {
                 mat = silhouetteMat;
-                //meshRender.materials[matIndex] = silhouetteMat;
             }
             else
             {
                 mat = normalMat;
-                //meshRender.materials[matIndex] = normalMat;
             }
-
-            List<Material> matList = new List<Material>();
-            meshRender.GetMaterials(matList);
-            matList[matIndex] = mat;
-            meshRender.SetMaterials(matList);
+            meshRender.sharedMaterials[matIndex] = mat;
         }
     }
 }

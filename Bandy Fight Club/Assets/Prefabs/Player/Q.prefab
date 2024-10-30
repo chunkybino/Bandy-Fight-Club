@@ -1851,7 +1851,7 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 7010daeb2f6b3154eb20694ae282768d, type: 2}
-  - {fileID: 2100000, guid: ca73f2f9a2aa87e4eb2e8aca4166e3d2, type: 2}
+  - {fileID: 2100000, guid: 5dc7b63aedd576c43a58da879aac0af1, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2268,7 +2268,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &3738114251711204351
 Transform:
   m_ObjectHideFlags: 0
@@ -4198,7 +4198,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &3212526247361860931
 Transform:
   m_ObjectHideFlags: 0
@@ -13782,6 +13782,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anim: {fileID: 3571065583530574567}
+  playerStatus: {fileID: 3492214244448277147}
   playerAttack: {fileID: 826615640914190225}
   playerFunc: {fileID: 3173985440313344023}
   rb: {fileID: 4633266257788118767}
@@ -13848,6 +13849,7 @@ MonoBehaviour:
   - Block3
   skidTime: 0.1
   walkDashTime: 0.2
+  groundDeathAnimDelay: 0.1
 --- !u!210 &5341422069567755535
 SortingGroup:
   m_ObjectHideFlags: 0
@@ -13875,7 +13877,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &492184165980955251
 Transform:
   m_ObjectHideFlags: 0
@@ -14338,7 +14340,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2902138218111473604
 Transform:
   m_ObjectHideFlags: 0
@@ -14422,7 +14424,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1112335275081904152
 Transform:
   m_ObjectHideFlags: 0
@@ -21242,7 +21244,7 @@ GameObject:
   - component: {fileID: 1172696303370988009}
   - component: {fileID: 2094130834287096051}
   m_Layer: 7
-  m_Name: Player
+  m_Name: Q
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -21389,6 +21391,16 @@ MonoBehaviour:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
+  deadGroundLandSquashData:
+    name: groundland
+    speed: 3
+    amplitude: 0.4
+    freqency: 2
+    decayPower: 2
+    flipXY: 0
+    doPivot: 1
+    perpAmp: 0.75
+    doPivotOnGrounded: 0
   groundedLeewayTime: 0.15
   facing: 1
   jumpHeight: 7

@@ -49,6 +49,8 @@ public class PlayerFunc : MonoBehaviour
     [SerializeField] SquashData groundLandSquashData;
     [SerializeField] DoubleInverseLerpData groundLandSquashMinMaxVelAmp; //amplitude we get from htting the ground with high velocity, input is y vel, output is amp
 
+    [SerializeField] SquashData deadGroundLandSquashData;
+
     [SerializeField] float groundedLeewayTime = 0.15f;
     float groundedLeewayTimer;
 
@@ -452,13 +454,20 @@ public class PlayerFunc : MonoBehaviour
     {
         onGroundLand?.Invoke();
 
-        SquashData data = groundLandSquashData.CloneYourself();
+        if (!playerStatus.isDead)
+        {
+            SquashData data = groundLandSquashData.CloneYourself();
 
-        float vel = rb.velocity.y;
-        if (lastFrameVels.Count >= 2) vel = lastFrameVels[1].y;
-        data.amplitude = groundLandSquashData.amplitude * groundLandSquashMinMaxVelAmp.Lerp(Mathf.Abs(vel));
+            float vel = rb.velocity.y;
+            if (lastFrameVels.Count >= 2) vel = lastFrameVels[1].y;
+            data.amplitude = groundLandSquashData.amplitude * groundLandSquashMinMaxVelAmp.Lerp(Mathf.Abs(vel));
 
-        squasher.DoSquash(data);
+            squasher.DoSquash(data);
+        }
+        else //if we dead
+        {
+            squasher.DoSquash(deadGroundLandSquashData);
+        }
     }
 
     void StartDodge(Vector2 direction)
