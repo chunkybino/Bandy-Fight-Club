@@ -21,6 +21,22 @@ public class PlayerFunc : MonoBehaviour
     public bool allowControl;
 
     [SerializeField] List<Vector2> lastFrameVels = new List<Vector2>();
+    float highestRecentYVel {get{
+        float high = rb.velocity.y;
+        for (int i = 0; i < lastFrameVels.Count; i++)
+        {
+            if (lastFrameVels[i].y > high) high = lastFrameVels[i].y;
+        }
+        return high;
+    }}
+    float lowestRecentYVel {get{
+        float low = rb.velocity.y;
+        for (int i = 0; i < lastFrameVels.Count; i++)
+        {
+            if (lastFrameVels[i].y < low) low = lastFrameVels[i].y;
+        }
+        return low;
+    }}
     [SerializeField] int lastFrameVelCount = 5; //number of frame we keep track of
 
     //side movement
@@ -50,6 +66,8 @@ public class PlayerFunc : MonoBehaviour
     [SerializeField] DoubleInverseLerpData groundLandSquashMinMaxVelAmp; //amplitude we get from htting the ground with high velocity, input is y vel, output is amp
 
     [SerializeField] SquashData deadGroundLandSquashData;
+    //[SerializeField] float deadGroundLandBounceForceMult = 0.2f;
+    //[SerializeField] float deadGroundLandBounceForceSubtract = 5;
 
     [SerializeField] float groundedLeewayTime = 0.15f;
     float groundedLeewayTimer;
@@ -458,14 +476,18 @@ public class PlayerFunc : MonoBehaviour
         {
             SquashData data = groundLandSquashData.CloneYourself();
 
-            float vel = rb.velocity.y;
-            if (lastFrameVels.Count >= 2) vel = lastFrameVels[1].y;
+            float vel = lowestRecentYVel;//rb.velocity.y;
+            //if (lastFrameVels.Count >= 2) vel = lastFrameVels[1].y;
             data.amplitude = groundLandSquashData.amplitude * groundLandSquashMinMaxVelAmp.Lerp(Mathf.Abs(vel));
 
             squasher.DoSquash(data);
         }
         else //if we dead
         {
+            /*float vel = lowestRecentYVel;
+            vel = Mathf.Max(Mathf.Abs(vel)-deadGroundLandBounceForceSubtract, 0) * deadGroundLandBounceForceMult;
+            rb.velocity = new Vector2(rb.velocity.x, vel);*/
+
             squasher.DoSquash(deadGroundLandSquashData);
         }
     }
