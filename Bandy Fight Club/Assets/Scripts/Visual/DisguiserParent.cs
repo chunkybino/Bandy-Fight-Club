@@ -14,6 +14,7 @@ public class DisguiserParent : MonoBehaviour
     public static bool doSilhouetteStatic;
 
     int oldLevel;
+    bool oldSilhouette;
 
     public bool removeNull;
 
@@ -33,9 +34,10 @@ public class DisguiserParent : MonoBehaviour
         disguiseLevelStatic = disguiseLevel;
         doSilhouetteStatic = doSilhouette;
 
-        if (oldLevel == disguiseLevel) return;
+        if (oldLevel == disguiseLevel && oldSilhouette == doSilhouette) return;
 
         oldLevel = disguiseLevel;
+        oldSilhouette = doSilhouette;
 
         CheckDisguise();
 

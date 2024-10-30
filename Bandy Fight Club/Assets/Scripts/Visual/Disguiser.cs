@@ -18,6 +18,8 @@ public class Disguiser : MonoBehaviour
     [SerializeField] Material silhouetteMat;
     [SerializeField] int matIndex;
 
+    [SerializeField] List<Material> matList = new List<Material>();
+
     public void OnEnable()
     {
         CheckDisguise();
@@ -46,7 +48,8 @@ public class Disguiser : MonoBehaviour
             {
                 mat = normalMat;
             }
-            meshRender.sharedMaterials[matIndex] = mat;
+            matList[matIndex] = mat;
+            meshRender.SetMaterials(matList);
         }
     }
 }

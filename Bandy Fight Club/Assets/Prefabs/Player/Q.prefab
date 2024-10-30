@@ -957,8 +957,6 @@ MonoBehaviour:
   renderTex: {fileID: 8400000, guid: 02797a51b06c7a845b384228e1e012dd, type: 2}
   renderTexSize: 1024
   meshRenderer: {fileID: 1663709583450352777}
-  textureMaterial: {fileID: 2100000, guid: 5dc7b63aedd576c43a58da879aac0af1, type: 2}
-  referenceMaterial: {fileID: 2100000, guid: 5dc7b63aedd576c43a58da879aac0af1, type: 2}
   doIt: 0
   materialTextures: {fileID: 11400000, guid: 3bc50daa089981643aff5754b4e0be3d, type: 2}
   num: 0
@@ -2356,6 +2354,7 @@ MonoBehaviour:
   normalMat: {fileID: 0}
   silhouetteMat: {fileID: 0}
   matIndex: 0
+  matList: []
 --- !u!1 &916505188955565637
 GameObject:
   m_ObjectHideFlags: 0
@@ -14461,6 +14460,7 @@ MonoBehaviour:
   normalMat: {fileID: 0}
   silhouetteMat: {fileID: 0}
   matIndex: 0
+  matList: []
 --- !u!1 &5428323241805759787
 GameObject:
   m_ObjectHideFlags: 0
@@ -15781,6 +15781,9 @@ MonoBehaviour:
   normalMat: {fileID: 2100000, guid: 5dc7b63aedd576c43a58da879aac0af1, type: 2}
   silhouetteMat: {fileID: 2100000, guid: ca73f2f9a2aa87e4eb2e8aca4166e3d2, type: 2}
   matIndex: 1
+  matList:
+  - {fileID: 2100000, guid: 7010daeb2f6b3154eb20694ae282768d, type: 2}
+  - {fileID: 2100000, guid: 5dc7b63aedd576c43a58da879aac0af1, type: 2}
 --- !u!1 &6152466466019644595
 GameObject:
   m_ObjectHideFlags: 0
@@ -16197,6 +16200,7 @@ MonoBehaviour:
   normalMat: {fileID: 0}
   silhouetteMat: {fileID: 0}
   matIndex: 0
+  matList: []
 --- !u!1 &6379586497155305003
 GameObject:
   m_ObjectHideFlags: 0
@@ -20527,6 +20531,7 @@ MonoBehaviour:
   normalMat: {fileID: 0}
   silhouetteMat: {fileID: 0}
   matIndex: 0
+  matList: []
 --- !u!1 &8221795841270247086
 GameObject:
   m_ObjectHideFlags: 0
@@ -21249,7 +21254,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &4110637717697406780
 Transform:
   m_ObjectHideFlags: 0

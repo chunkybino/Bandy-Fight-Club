@@ -25,8 +25,8 @@ public class PlayerMeshParent : MonoBehaviour
     public RenderTexture renderTex;
     public int renderTexSize = 1024;
     public MeshRenderer meshRenderer;
-    public Material textureMaterial;
-    public Material referenceMaterial;
+    //public Material textureMaterial;
+    //public Material referenceMaterial;
 
     public bool doIt;
 
@@ -106,7 +106,7 @@ public class PlayerMeshParent : MonoBehaviour
         meshRenderer.SetPropertyBlock(matBlock1, 0);
         meshRenderer.SetPropertyBlock(matBlock2, 1);
 
-        textureMaterial.mainTexture = renderTex;
+        //textureMaterial.mainTexture = renderTex;
 
         textureCam.targetTexture = renderTex;
     }
