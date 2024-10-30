@@ -12,6 +12,12 @@ public class Disguiser : MonoBehaviour
     public GameObject targetObject; //if null do self
     public GameObject inverseObject; //if null do self
 
+    public MeshRenderer meshRender;
+
+    [SerializeField] Material normalMat;
+    [SerializeField] Material silhouetteMat;
+    [SerializeField] int matIndex;
+
     public void OnEnable()
     {
         CheckDisguise();
@@ -28,5 +34,25 @@ public class Disguiser : MonoBehaviour
         if (inverse) activate = !activate;
         targetObject.SetActive(activate);
         if (inverseObject) inverseObject.SetActive(!activate);
+
+        if (meshRender != null)
+        {
+            Material mat = null;
+            if (DisguiserParent.doSilhouetteStatic)
+            {
+                mat = silhouetteMat;
+                //meshRender.materials[matIndex] = silhouetteMat;
+            }
+            else
+            {
+                mat = normalMat;
+                //meshRender.materials[matIndex] = normalMat;
+            }
+
+            List<Material> matList = new List<Material>();
+            meshRender.GetMaterials(matList);
+            matList[matIndex] = mat;
+            meshRender.SetMaterials(matList);
+        }
     }
 }

@@ -133,6 +133,5 @@ public class PlayerMeshParent : MonoBehaviour
 [CreateAssetMenu(fileName = "RenderTextures", menuName = "ScriptableObjects/RenderTextures")]
 public class RenderTextureMaterials : ScriptableObject
 {
-    public Material[] renderMatQueue;
     public RenderTexture[] renderTexQueue;
 }

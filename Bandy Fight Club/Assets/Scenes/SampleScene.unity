@@ -9016,13 +9016,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ece65d59b752bec46a29b6da2c5a87c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  disguiseLevel: 6
+  disguiseLevel: 0
   disguiserList:
   - {fileID: 78113108}
   - {fileID: 925240343}
   - {fileID: 963536698}
   - {fileID: 1846003924}
   - {fileID: 1885114849}
+  doSilhouette: 0
   removeNull: 0
 --- !u!1 &308062698
 GameObject:
@@ -15340,6 +15341,10 @@ PrefabInstance:
       propertyPath: mesh
       value: 
       objectReference: {fileID: 959436946}
+    - target: {fileID: 865003778337878882, guid: 84f3f989133dc724681733bf06f534d8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1147119273630492370, guid: 84f3f989133dc724681733bf06f534d8, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -15348,6 +15353,18 @@ PrefabInstance:
       propertyPath: mesh
       value: 
       objectReference: {fileID: 402466986}
+    - target: {fileID: 1626537394165745460, guid: 84f3f989133dc724681733bf06f534d8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1663709583450352777, guid: 84f3f989133dc724681733bf06f534d8, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 1929754034}
+    - target: {fileID: 1663709583450352777, guid: 84f3f989133dc724681733bf06f534d8, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 5dc7b63aedd576c43a58da879aac0af1, type: 2}
     - target: {fileID: 1688312685288853089, guid: 84f3f989133dc724681733bf06f534d8, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -15428,6 +15445,18 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 1019289399}
+    - target: {fileID: 5283389835952355606, guid: 84f3f989133dc724681733bf06f534d8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5399609387554739747, guid: 84f3f989133dc724681733bf06f534d8, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5407984899218119566, guid: 84f3f989133dc724681733bf06f534d8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5704233933600597612, guid: 84f3f989133dc724681733bf06f534d8, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -15455,10 +15484,6 @@ PrefabInstance:
     - target: {fileID: 8472132381444169521, guid: 84f3f989133dc724681733bf06f534d8, type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 8472132381444169521, guid: 84f3f989133dc724681733bf06f534d8, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8620700022088183152, guid: 84f3f989133dc724681733bf06f534d8, type: 3}
       propertyPath: m_Mesh
@@ -16176,6 +16201,54 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a931dcca37932de41b0c4db7374c1393, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!21 &1929754034
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: CharacterOutline (Instance) (Instance) (Instance)
+  m_Shader: {fileID: -6465566751694194690, guid: 5c8fa0432738dca41ad100a8fb10e827, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 8400000, guid: 02797a51b06c7a845b384228e1e012dd, type: 2}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_Lightmaps:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_LightmapsInd:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_ShadowMasks:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _Opacity: 0
+    - _QueueControl: 0
+    - _QueueOffset: 0
+    - _Thickness: 0.005
+    m_Colors:
+    - _Color: {r: 1, g: 1, b: 1, a: 0}
+  m_BuildTextureStacks: []
 --- !u!43 &2057971634
 Mesh:
   m_ObjectHideFlags: 0

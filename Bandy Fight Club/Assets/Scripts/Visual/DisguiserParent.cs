@@ -10,6 +10,9 @@ public class DisguiserParent : MonoBehaviour
     public static int disguiseLevelStatic;
     public List<Disguiser> disguiserList = new List<Disguiser>();
 
+    public bool doSilhouette;
+    public static bool doSilhouetteStatic;
+
     int oldLevel;
 
     public bool removeNull;
@@ -28,6 +31,7 @@ public class DisguiserParent : MonoBehaviour
     void OnValidate()
     {
         disguiseLevelStatic = disguiseLevel;
+        doSilhouetteStatic = doSilhouette;
 
         if (oldLevel == disguiseLevel) return;
 
