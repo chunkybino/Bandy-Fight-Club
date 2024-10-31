@@ -21298,7 +21298,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4110637717697406780
 Transform:
   m_ObjectHideFlags: 0
@@ -21479,6 +21479,11 @@ MonoBehaviour:
   dodgeDirection: {x: 0, y: 0}
   dodgeAcceleration: 0.3
   dodgeBufferTime: 0.1
+  dodgeCooldownTimer: 0
+  currentDodgeCooldownTime: 0
+  dodgeCooldownMinMaxTime: {x: 0, y: 1}
+  dodgeCooldownAddPerDodge: 0.2
+  dodgeCooldownDecaySpeed: 0.8
   timeDodging: 0
   timeSinceDodge: 0
   dodgeIntangibilityTime: 0.15

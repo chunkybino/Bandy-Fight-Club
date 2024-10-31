@@ -104,6 +104,12 @@ public class PlayerFunc : MonoBehaviour
     [SerializeField] float dodgeBufferTime = 0.1f;
     float dodgeBufferTimer;
 
+    [SerializeField] float dodgeCooldownTimer;
+    [SerializeField] float currentDodgeCooldownTime;
+    [SerializeField] Vector2 dodgeCooldownMinMaxTime = new Vector2(0.25f, 1.5f);
+    [SerializeField] float dodgeCooldownAddPerDodge = 0.5f;
+    [SerializeField] float dodgeCooldownDecaySpeed = 0.5f;
+
     [SerializeField] float timeDodging;
     [SerializeField] float timeSinceDodge;
 
@@ -266,6 +272,10 @@ public class PlayerFunc : MonoBehaviour
         {
             if (!canDodgeAnimator.activeSelf) canDodge = false;
         }
+        if (dodgeCooldownTimer > 0) canDodge = false;
+
+        if (!isDodging) UFunc.TickTimer(ref dodgeCooldownTimer);
+        if (canDodge) currentDodgeCooldownTime = Mathf.Max(currentDodgeCooldownTime-(dodgeCooldownDecaySpeed*Time.deltaTime),0);
 
         bool canBlock = true;
         if (isStun && !canBlockOutOfStun) canBlock = false;
@@ -503,6 +513,9 @@ public class PlayerFunc : MonoBehaviour
         dodgeDirection = direction;
 
         timeSinceDodge = 0;
+
+        dodgeCooldownTimer = currentDodgeCooldownTime;
+        currentDodgeCooldownTime = Mathf.Clamp(currentDodgeCooldownTime+dodgeCooldownAddPerDodge, dodgeCooldownMinMaxTime.x,dodgeCooldownMinMaxTime.y);
 
         CancelInvoke("EndDodge");
         CancelInvoke("EndDodgeBurst");
