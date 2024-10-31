@@ -286,7 +286,7 @@ ParticleSystem:
         m_NumAlphaKeys: 2
     startSize:
       serializedVersion: 2
-      minMaxState: 3
+      minMaxState: 2
       scalar: 6
       minScalar: 2
       maxCurve:
@@ -294,21 +294,21 @@ ParticleSystem:
         m_Curve:
         - serializedVersion: 3
           time: 0
-          value: 0.19851112
-          inSlope: 0.70375854
-          outSlope: 0.70375854
+          value: 0.31870344
+          inSlope: 0.5921557
+          outSlope: 0.5921557
           tangentMode: 0
           weightedMode: 0
           inWeight: 0.33333334
-          outWeight: 0.61350846
+          outWeight: 0.10318948
         - serializedVersion: 3
           time: 1
-          value: 1
-          inSlope: 0
-          outSlope: 0
+          value: 0.53495944
+          inSlope: 0.118793
+          outSlope: 0.118793
           tangentMode: 0
           weightedMode: 0
-          inWeight: 0.33333334
+          inWeight: 0.091932535
           outWeight: 0.33333334
         m_PreInfinity: 2
         m_PostInfinity: 2
@@ -318,28 +318,28 @@ ParticleSystem:
         m_Curve:
         - serializedVersion: 3
           time: 0
-          value: 1
-          inSlope: 0
-          outSlope: 0
+          value: 0.6540271
+          inSlope: 0.55360085
+          outSlope: 0.55360085
           tangentMode: 0
           weightedMode: 0
           inWeight: 0.33333334
-          outWeight: 0.33333334
+          outWeight: 0.112570345
         - serializedVersion: 3
           time: 1
           value: 1
-          inSlope: 0
-          outSlope: 0
+          inSlope: 0.79722124
+          outSlope: 0.79722124
           tangentMode: 0
           weightedMode: 0
-          inWeight: 0.33333334
+          inWeight: 0.08442789
           outWeight: 0.33333334
         m_PreInfinity: 2
         m_PostInfinity: 2
         m_RotationOrder: 4
     startSizeY:
       serializedVersion: 2
-      minMaxState: 3
+      minMaxState: 2
       scalar: 1
       minScalar: 1
       maxCurve:
@@ -392,7 +392,7 @@ ParticleSystem:
         m_RotationOrder: 4
     startSizeZ:
       serializedVersion: 2
-      minMaxState: 3
+      minMaxState: 2
       scalar: 1
       minScalar: 1
       maxCurve:
@@ -751,7 +751,7 @@ ParticleSystem:
     sphericalDirectionAmount: 0
     randomPositionAmount: 0
     radius:
-      value: 1.26
+      value: 2
       mode: 0
       spread: 0
       speed:

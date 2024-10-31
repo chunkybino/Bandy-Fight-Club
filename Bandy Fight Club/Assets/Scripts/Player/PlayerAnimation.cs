@@ -36,6 +36,9 @@ public class PlayerAnimation : MonoBehaviour
     [SerializeField] ParticleSystem walkParticles;
     [SerializeField] ParticleSystem walkParticlesPrefab;
 
+    [SerializeField] ParticleSystem landParticles;
+    [SerializeField] ParticleSystem landParticlesPrefab;
+
     void Awake()
     {
         characterFunc = playerFunc.characterFunc;
@@ -159,6 +162,11 @@ public class PlayerAnimation : MonoBehaviour
         ExitAnim();
     }
 
+    public void OnLand()
+    {
+        DoParticles("land");
+    }
+
     public void DoKnockbackBoost(float force)
     {
         rb.velocity = new Vector2(force * playerFunc.facing, rb.velocity.y);
@@ -197,6 +205,13 @@ public class PlayerAnimation : MonoBehaviour
                     Spawn(walkParticlesPrefab, walkParticles.transform.position);
                 } else {
                     walkParticles.Play();
+                }
+                break;
+            case "land":
+                if (spawn) {
+                    Spawn(landParticlesPrefab, walkParticles.transform.position);
+                } else {
+                    landParticles.Play();
                 }
                 break;
         }
