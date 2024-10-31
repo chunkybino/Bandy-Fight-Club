@@ -42,6 +42,8 @@ public class PlayerAnimation : MonoBehaviour
     [SerializeField] ParticleSystem landStrongParticlesPrefab;
     [SerializeField] float landStrongVelocityThreshold = -10;
 
+    [SerializeField] ParticleSystem jumpParticles;
+
     void Awake()
     {
         characterFunc = playerFunc.characterFunc;
@@ -230,6 +232,9 @@ public class PlayerAnimation : MonoBehaviour
                 } else {
                     landStrongParticles.Play();
                 }
+                break;
+            case "jump":
+                jumpParticles.Play();
                 break;
         }
 

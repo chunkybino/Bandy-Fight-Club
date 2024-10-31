@@ -466,6 +466,7 @@ public class PlayerFunc : MonoBehaviour
         rb.velocity = new Vector2(rb.velocity.x, force);
 
         squasher.DoSquash(jumpSquashData);
+        playerAnimation.DoParticles("jump");
     }
 
     void GroundLand()
