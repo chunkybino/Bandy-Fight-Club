@@ -21,7 +21,7 @@ public class PlayerFunc : MonoBehaviour
     public bool allowControl;
 
     [SerializeField] List<Vector2> lastFrameVels = new List<Vector2>();
-    float highestRecentYVel {get{
+    public float highestRecentYVel {get{
         float high = rb.velocity.y;
         for (int i = 0; i < lastFrameVels.Count; i++)
         {
@@ -29,7 +29,7 @@ public class PlayerFunc : MonoBehaviour
         }
         return high;
     }}
-    float lowestRecentYVel {get{
+    public float lowestRecentYVel {get {
         float low = rb.velocity.y;
         for (int i = 0; i < lastFrameVels.Count; i++)
         {
@@ -490,6 +490,8 @@ public class PlayerFunc : MonoBehaviour
 
             squasher.DoSquash(deadGroundLandSquashData);
         }
+
+        playerAnimation.OnLand();
     }
 
     void StartDodge(Vector2 direction)

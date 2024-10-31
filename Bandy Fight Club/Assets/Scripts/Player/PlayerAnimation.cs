@@ -38,6 +38,9 @@ public class PlayerAnimation : MonoBehaviour
 
     [SerializeField] ParticleSystem landParticles;
     [SerializeField] ParticleSystem landParticlesPrefab;
+    [SerializeField] ParticleSystem landStrongParticles;
+    [SerializeField] ParticleSystem landStrongParticlesPrefab;
+    [SerializeField] float landStrongVelocityThreshold = -10;
 
     void Awake()
     {
@@ -164,7 +167,14 @@ public class PlayerAnimation : MonoBehaviour
 
     public void OnLand()
     {
-        DoParticles("land");
+        if (playerFunc.lowestRecentYVel <= landStrongVelocityThreshold)
+        {
+            DoParticles("strongLand");
+        }
+        else
+        {
+            DoParticles("land");
+        }
     }
 
     public void DoKnockbackBoost(float force)
@@ -209,9 +219,16 @@ public class PlayerAnimation : MonoBehaviour
                 break;
             case "land":
                 if (spawn) {
-                    Spawn(landParticlesPrefab, walkParticles.transform.position);
+                    Spawn(landParticlesPrefab, landParticles.transform.position);
                 } else {
                     landParticles.Play();
+                }
+                break;
+            case "strongLand":
+                if (spawn) {
+                    Spawn(landStrongParticlesPrefab, landStrongParticles.transform.position);
+                } else {
+                    landStrongParticles.Play();
                 }
                 break;
         }
