@@ -33,6 +33,9 @@ public class PlayerAnimation : MonoBehaviour
 
     bool walking;
 
+    [SerializeField] ParticleSystem walkParticles;
+    [SerializeField] ParticleSystem walkParticlesPrefab;
+
     void Awake()
     {
         characterFunc = playerFunc.characterFunc;
@@ -52,6 +55,8 @@ public class PlayerAnimation : MonoBehaviour
         {
             PlayAnim("BaseBlank");
         }
+
+        walkParticles.transform.eulerAngles = new Vector3(0,(playerFunc.facing*90)+90,0);
     }
 
     string FindAnimation()
@@ -178,6 +183,29 @@ public class PlayerAnimation : MonoBehaviour
         if (index >= squashDatas.Length) return;
 
         squasher.DoSquash(squashDatas[index]);
+    }
+
+    public void DoParticles(string name) {DoParticles(name, false);}
+    public void DoParticlesSpawn(string name) {DoParticles(name, true);}
+
+    public void DoParticles(string name, bool spawn)
+    {
+        switch (name)
+        {
+            case "walk":
+                if (spawn) {
+                    Spawn(walkParticlesPrefab, walkParticles.transform.position);
+                } else {
+                    walkParticles.Play();
+                }
+                break;
+        }
+
+        void Spawn(ParticleSystem prefab, Vector3 pos)
+        {
+            ParticleSystem particle = Instantiate(prefab, pos, Quaternion.identity);
+            particle.transform.eulerAngles = new Vector3(0,(playerFunc.facing*90)+90,0);
+        }
     }
 }
 
