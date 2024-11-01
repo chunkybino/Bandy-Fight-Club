@@ -15,6 +15,14 @@ public class StatUI : MonoBehaviour
 
     public TextMeshProUGUI[] scoreText;
 
+    /*public TextMeshProUGUI winText;
+    [SerializeField] bool isWin;
+    [SerializeField] int winPlayer = 0;
+    float winFlashTimer;
+    [SerializeField] float winFlashFreq = 0.5f;
+
+    [SerializeField] string[] playerWinColors;// = {"RED", "BLU"};*/
+
     void Awake()
     {
         gameManager = GameManager.singleton;
@@ -40,6 +48,20 @@ public class StatUI : MonoBehaviour
                 scoreText[i].text = gameManager.playerInfos[i].score.ToString();
             }
         }
+
+        /*if (isWin)
+        {
+            if (winFlashTimer > winFlashFreq) winFlashTimer -= 2*winFlashFreq;
+
+            if (winPlayer < playerWinColors.Length) winText.text = playerWinColors[winPlayer].ToString() + " WINS";
+            winText.gameObject.SetActive(winFlashTimer >= 0);
+
+            winFlashTimer += Time.deltaTime;
+        }
+        else
+        {
+            winText.gameObject.SetActive(false);
+        }*/
     }
 
     public void SetPlayer(int index, PlayerStatus player)
@@ -49,4 +71,17 @@ public class StatUI : MonoBehaviour
             players[index] = player;
         }
     }
+
+    //public void DoWin(bool do)//, int playerNum = 0)
+    //{
+        /*if (!do) 
+        {
+            isWin = false;
+            return;
+        }
+
+        isWin = true;
+        winPlayer = playerNum;
+        winFlashTimer = 0;*/
+    //}
 }

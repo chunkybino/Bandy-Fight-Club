@@ -152,6 +152,7 @@ public class GameManager : MonoBehaviour
     public void DoRespawn()
     {
         StartCoroutine("RespawnCoroutine");
+        ui.DoWin(false);
         readyForNextRound = false;
     }
     IEnumerator RespawnCoroutine()
@@ -255,6 +256,8 @@ public class GameManager : MonoBehaviour
     {
         readyForNextRound = true;
         screenTransitions.Play("BottomClose");
+
+        ui.DoWin(true);
     }
 }
 
