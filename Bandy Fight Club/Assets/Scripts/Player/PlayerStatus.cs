@@ -22,6 +22,8 @@ public class PlayerStatus : MonoBehaviour
 
     public UnityEvent onAwake;
 
+    [SerializeField] ParticleSystem hitParticles;
+
     void Awake()
     {
         gameManager = GameManager.singleton;
@@ -46,6 +48,9 @@ public class PlayerStatus : MonoBehaviour
         int hurt = -info.damage;
         if (playerFunc.stunBlocking) hurt = Mathf.FloorToInt(hurt * stunBlockDamageMult);
         ChangeHealth(hurt);
+
+        ParticleSystem particle = Instantiate(hitParticles, transform.position, Quaternion.identity);
+        particle.transform.eulerAngles = new Vector3(0,0,Random.Range(0,360));
     }
 
     public void Spawn(int playerNum)
