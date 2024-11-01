@@ -42,7 +42,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] float startDelay = 2;
     public bool gameStarted;
 
-    public int playerWinNum = 0;
+    public int playerWinNum = -1;
 
     [SerializeField] float playerDieSlowMult = 0.2f; //when player die, so down time by this factor
     [SerializeField] float playerDieSlowTime = 2f;
@@ -154,7 +154,6 @@ public class GameManager : MonoBehaviour
     public void DoRespawn()
     {
         StartCoroutine("RespawnCoroutine");
-        ui.DoWin(false);
         readyForNextRound = false;
     }
     IEnumerator RespawnCoroutine()
@@ -164,6 +163,10 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(respawnTransitionDelay);
 
         gameStarted = false;
+
+        playerWinNum = -1;
+        ui.DoWin(false);
+        
         onRespawn?.Invoke();
         RespawnPlayers();
         DoScreenTransition(true);
@@ -281,4 +284,5 @@ public class PlayerInfo
 public class TeamColorsSO : ScriptableObject
 {
     public Color[] colors;
+    public string[] names;
 }

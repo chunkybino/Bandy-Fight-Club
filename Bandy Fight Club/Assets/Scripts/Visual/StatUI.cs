@@ -21,8 +21,6 @@ public class StatUI : MonoBehaviour
     float winFlashTimer;
     [SerializeField] float winFlashFreq = 0.5f;
 
-    [SerializeField] string[] playerWinColors = {"RED", "BLU"};
-
     void Awake()
     {
         gameManager = GameManager.singleton;
@@ -46,6 +44,10 @@ public class StatUI : MonoBehaviour
             if (i < scoreText.Length && i < gameManager.playerInfos.Count)
             {
                 scoreText[i].text = gameManager.playerInfos[i].score.ToString();
+            
+                Color color = Color.white;
+                if (i == gameManager.playerWinNum && isWin) color = gameManager.teamOutlineColors.colors[winPlayer];
+                scoreText[i].color = color;
             }
         }
 
@@ -53,7 +55,7 @@ public class StatUI : MonoBehaviour
         {
             if (winFlashTimer > winFlashFreq) winFlashTimer -= 2*winFlashFreq;
 
-            if (winPlayer < playerWinColors.Length) winText.text = playerWinColors[winPlayer].ToString() + " WINS";
+            if (winPlayer < gameManager.teamOutlineColors.names.Length) winText.text = gameManager.teamOutlineColors.names[winPlayer].ToString() + " WINS";
             winText.gameObject.SetActive(winFlashTimer >= 0);
             winText.color = gameManager.teamOutlineColors.colors[winPlayer];
 
