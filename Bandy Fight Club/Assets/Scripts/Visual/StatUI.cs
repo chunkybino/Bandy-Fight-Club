@@ -15,13 +15,13 @@ public class StatUI : MonoBehaviour
 
     public TextMeshProUGUI[] scoreText;
 
-    /*public TextMeshProUGUI winText;
+    public TextMeshProUGUI winText;
     [SerializeField] bool isWin;
     [SerializeField] int winPlayer = 0;
     float winFlashTimer;
     [SerializeField] float winFlashFreq = 0.5f;
 
-    [SerializeField] string[] playerWinColors;// = {"RED", "BLU"};*/
+    [SerializeField] string[] playerWinColors = {"RED", "BLU"};
 
     void Awake()
     {
@@ -49,19 +49,20 @@ public class StatUI : MonoBehaviour
             }
         }
 
-        /*if (isWin)
+        if (isWin)
         {
             if (winFlashTimer > winFlashFreq) winFlashTimer -= 2*winFlashFreq;
 
             if (winPlayer < playerWinColors.Length) winText.text = playerWinColors[winPlayer].ToString() + " WINS";
             winText.gameObject.SetActive(winFlashTimer >= 0);
+            winText.color = gameManager.teamOutlineColors.colors[winPlayer];
 
             winFlashTimer += Time.deltaTime;
         }
         else
         {
             winText.gameObject.SetActive(false);
-        }*/
+        }
     }
 
     public void SetPlayer(int index, PlayerStatus player)
@@ -71,10 +72,9 @@ public class StatUI : MonoBehaviour
             players[index] = player;
         }
     }
-
-    //public void DoWin(bool do)//, int playerNum = 0)
-    //{
-        /*if (!do) 
+    public void DoWin(bool activate, int playerNum = 0)
+    {
+        if (!activate) 
         {
             isWin = false;
             return;
@@ -82,6 +82,6 @@ public class StatUI : MonoBehaviour
 
         isWin = true;
         winPlayer = playerNum;
-        winFlashTimer = 0;*/
-    //}
+        winFlashTimer = 0;
+    }
 }

@@ -42,6 +42,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] float startDelay = 2;
     public bool gameStarted;
 
+    public int playerWinNum = 0;
+
     [SerializeField] float playerDieSlowMult = 0.2f; //when player die, so down time by this factor
     [SerializeField] float playerDieSlowTime = 2f;
     bool isPlayerDieSlowmo = false;
@@ -227,7 +229,11 @@ public class GameManager : MonoBehaviour
         //increase score
         for (int i = 0; i < playerInfos.Count; i++)
         {
-            if (i != playerThatDied) playerInfos[i].score++;
+            if (i != playerThatDied) 
+            {
+                playerInfos[i].score++;
+                playerWinNum = i;
+            }
         }
     }
 
@@ -257,7 +263,7 @@ public class GameManager : MonoBehaviour
         readyForNextRound = true;
         screenTransitions.Play("BottomClose");
 
-        ui.DoWin(true);
+        ui.DoWin(true, playerWinNum);
     }
 }
 
