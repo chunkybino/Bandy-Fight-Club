@@ -8,12 +8,14 @@ public class StatUI : MonoBehaviour
 {
     GameManager gameManager;
 
-    public PlayerStatus[] players;
+    public List<PlayerStatus> players = new List<PlayerStatus>();
 
     public Slider[] healthBars;
     public Slider[] disadvantageBars;
 
     public TextMeshProUGUI[] scoreText;
+
+    [SerializeField] Transform ThirdPlayerUI;
 
     public TextMeshProUGUI winText;
     [SerializeField] bool isWin;
@@ -28,7 +30,9 @@ public class StatUI : MonoBehaviour
 
     void Update()
     {
-        for (int i = 0; i < players.Length; i++)
+        ThirdPlayerUI.gameObject.SetActive(players.Count >= 3); //if we have 3 players, show the ui
+
+        for (int i = 0; i < players.Count; i++)
         {
             if (players[i] == null) continue;
 
@@ -69,9 +73,13 @@ public class StatUI : MonoBehaviour
 
     public void SetPlayer(int index, PlayerStatus player)
     {
-        if (index < players.Length) 
+        if (index < players.Count) 
         {
             players[index] = player;
+        }
+        else
+        {
+            players.Add(player);
         }
     }
     public void DoWin(bool activate, int playerNum = 0)
