@@ -169,6 +169,9 @@ public class PlayerFunc : MonoBehaviour
     public Vector2 blockKnockbackMult = new Vector2(0.6f, 0.7f);
     public Vector2 blockCounterKnockbackMult = new Vector2(0.3f, 0.5f);
 
+    [SerializeField] float airBlockSpeedMult = 0.5f;
+    [SerializeField] float groundBlockSpeedMult = 0;
+
     [SerializeField] ParticleSystem blockParticles;
     [SerializeField] ParticleSystem perfBlockParticles;
     [SerializeField] ParticleSystem blockCounterParticles;
@@ -405,6 +408,17 @@ public class PlayerFunc : MonoBehaviour
 
         targetSideSpeed = movementSpeed * sideInputDirection;
         if (isStun) targetSideSpeed *= stunSpeedMult;
+        if (isBlocking)
+        {
+            if (grounded)
+            {
+                targetSideSpeed *= groundBlockSpeedMult; //ground
+            }
+            else
+            {
+                targetSideSpeed *= airBlockSpeedMult; //air
+            }
+        }
         if (playerAttack.isAttacking)
         {
             targetSideSpeed *= playerAttack.attackingSpeedMult; //ussually 0, stop us from moving during attack
