@@ -39,7 +39,7 @@ public class CameraControl : MonoBehaviour
 
     float leftPlayerBound;
     float rightPlayerBound;
-    float middlePlayerPos {get {return (leftPlayerBound+rightPlayerBound)/2;}}
+    float averagePlayerPos;
     float topPlayerPos;
 
     [SerializeField] Vector2 targetCameraEdges;
@@ -71,7 +71,7 @@ public class CameraControl : MonoBehaviour
 
         playerToBoundLerp = playerDistanceToBoundLerpCurve.Evaluate(playerEdgeDistanceRatio);
         if (doZoomMult) playerToBoundLerp = 1-((1-playerToBoundLerp)/zoomMult);
-        centerToPlayerLerp = centerDistanceToCenterPlayerLerpCurve.Evaluate(2*Mathf.Abs(middlePlayerPos)/edgeDistance);
+        centerToPlayerLerp = centerDistanceToCenterPlayerLerpCurve.Evaluate(2*Mathf.Abs(averagePlayerPos)/edgeDistance);
 
         targetCameraEdges.x = Mathf.Lerp(sideEdgeBounds.x, leftPlayerBound, playerToBoundLerp);
         targetCameraEdges.y = Mathf.Lerp(sideEdgeBounds.y, rightPlayerBound, playerToBoundLerp);
@@ -86,7 +86,7 @@ public class CameraControl : MonoBehaviour
         SetHorizontalSize(size);
 
         targetPos.x = (cameraEdges.x+cameraEdges.y)/2;
-        targetPos.x = Mathf.Lerp(targetPos.x, middlePlayerPos, centerToPlayerLerp);
+        targetPos.x = Mathf.Lerp(targetPos.x, averagePlayerPos, centerToPlayerLerp);
 
         targetPos.y = Mathf.Lerp(normalYPos, topPlayerPos, verticalPlayerLerp);
         targetPos.y = Mathf.Pow(targetPos.y, yPosDegree);
@@ -109,10 +109,17 @@ public class CameraControl : MonoBehaviour
         rightPlayerBound = sideEdgeBounds.y;
         topPlayerPos = normalYPos;
 
+        averagePlayerPos = 0;
+        int totalPlayers = 0;
+
         int index = 0;
         foreach (CameraEffector e in playerEffectors)
         {
             if (e.target == null) continue;
+            if (!e.active) continue;
+
+            totalPlayers++;
+            averagePlayerPos += e.target.transform.position.x;
 
             if (e.target.transform.position.x < leftPlayerBound || index==0) leftPlayerBound = e.target.transform.position.x;
             if (e.target.transform.position.x > rightPlayerBound || index==0) rightPlayerBound = e.target.transform.position.x;
@@ -126,7 +133,9 @@ public class CameraControl : MonoBehaviour
            leftPlayerBound = playerEffectors[targetFocusIndex].target.transform.position.x; 
            rightPlayerBound = playerEffectors[targetFocusIndex].target.transform.position.x;
         }
+
         playerDistance = rightPlayerBound - leftPlayerBound;
+        averagePlayerPos = averagePlayerPos/playerEffectors.Count;
     }
 
     void SetHorizontalSize(float size)
@@ -140,7 +149,11 @@ public class CameraControl : MonoBehaviour
     }
     public void AddPlayerEffector(Transform player)
     {
-        playerEffectors.Add(new CameraEffector() {target = player, weight = 1});
+        playerEffectors.Add(new CameraEffector() {target = player, weight = 1, active = true});
+    }
+    public void RemovePlayerEffector(int index)
+    {
+        playerEffectors[index].active = false;
     }
 
     public void OnRespawn()
@@ -153,4 +166,5 @@ public class CameraEffector
 {
     public Transform target;
     public float weight = 1;
+    public bool active = true;
 }

@@ -297,6 +297,37 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &74653339
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 74653340}
+  m_Layer: 0
+  m_Name: SpawnPoint (2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &74653340
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 74653339}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: -3, z: 0}
+  m_LocalScale: {x: -1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 931608867}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &78113108 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 598497107641984357, guid: 84f3f989133dc724681733bf06f534d8, type: 3}
@@ -8944,20 +8975,31 @@ MonoBehaviour:
   inputMaps:
   - {fileID: 11400000, guid: 3736b76e1ad25af4cab884e4ad236e07, type: 2}
   - {fileID: 11400000, guid: 692473d997b0f85428a5db169e3a73a8, type: 2}
+  - {fileID: 11400000, guid: 28a86e3367a4f3d4587bca62846490ba, type: 2}
   spawnPlayersOnStart: 1
-  playerInfos:
+  playerInfos: []
+  allPlayerInfos:
   - playerNumber: 0
     characterPrefab: {fileID: 3492214244448277147, guid: 84f3f989133dc724681733bf06f534d8, type: 3}
     player: {fileID: 0}
     score: 0
+    dead: 0
   - playerNumber: 1
     characterPrefab: {fileID: 3492214244448277147, guid: 84f3f989133dc724681733bf06f534d8, type: 3}
     player: {fileID: 0}
     score: 0
+    dead: 0
+  - playerNumber: 2
+    characterPrefab: {fileID: 3492214244448277147, guid: 84f3f989133dc724681733bf06f534d8, type: 3}
+    player: {fileID: 0}
+    score: 0
+    dead: 0
+  do3Player: 0
   teamOutlineColors: {fileID: 11400000, guid: cfa810b6cb805a34394dbb2615a51edc, type: 2}
   spawnPoints:
   - {fileID: 96561685}
   - {fileID: 1835542523}
+  - {fileID: 74653340}
   isHitStop: 0
   hitStopSpeed: 0.1
   cameraShaker: {fileID: 519420033}
@@ -8975,6 +9017,7 @@ MonoBehaviour:
   playerDieSlowTime: 1
   playerDieFocusTime: 1.5
   playerDieZoomMult: 2
+  playerDieRemoveCameraEffectorDelay: 1.5
 --- !u!4 &266986421
 Transform:
   m_ObjectHideFlags: 0
@@ -14488,6 +14531,7 @@ Transform:
   - {fileID: 308062699}
   - {fileID: 96561685}
   - {fileID: 1835542523}
+  - {fileID: 74653340}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!43 &938911726

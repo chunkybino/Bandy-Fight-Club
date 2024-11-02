@@ -21,6 +21,9 @@ public class GameManager : MonoBehaviour
 
     public List<PlayerInfo> playerInfos = new List<PlayerInfo>();
 
+    public List<PlayerInfo> allPlayerInfos = new List<PlayerInfo>();
+    public bool do3Player;
+
     public TeamColorsSO teamOutlineColors;
 
     public Transform[] spawnPoints;
@@ -49,12 +52,18 @@ public class GameManager : MonoBehaviour
     bool isPlayerDieSlowmo = false;
     [SerializeField] float playerDieFocusTime = 1.5f;
     [SerializeField] float playerDieZoomMult = 2;
+    [SerializeField] float playerDieRemoveCameraEffectorDelay = 1.5f;
 
     void Awake()
     {
         CheckSingleton();
 
         if (ui == null) ui = FindObjectOfType<StatUI>();
+
+        playerInfos.Clear();
+        playerInfos.Add(allPlayerInfos[0]); //add players 1 and 2
+        playerInfos.Add(allPlayerInfos[1]);
+        if (do3Player) playerInfos.Add(allPlayerInfos[2]); //third player
 
         if (spawnPlayersOnStart) SpawnPlayers();
     }
@@ -128,6 +137,8 @@ public class GameManager : MonoBehaviour
 
             playerInfo.player = player;
             playerInfo.playerNumber = playerNum;
+
+            playerInfo.dead = false;
 
             ui.SetPlayer(playerNum, player);
             cameraControl.AddPlayerEffector(player.transform);
@@ -227,20 +238,38 @@ public class GameManager : MonoBehaviour
 
     public void PlayerDie(int playerThatDied)
     {
-        StartCoroutine("PlayerDieCoroutine", playerThatDied);
+        playerInfos[playerThatDied].dead = true;
 
-        //increase score
+        int playersAlive = 0;
+        int alivePlayer = 0;
         for (int i = 0; i < playerInfos.Count; i++)
         {
-            if (i != playerThatDied) 
+            if (!playerInfos[i].dead) 
             {
-                playerInfos[i].score++;
-                playerWinNum = i;
+                playersAlive++;
+                alivePlayer = i;
             }
         }
+
+        if (playersAlive > 1)
+        {
+            StartCoroutine("PlayerDieSlowMo", playerThatDied);
+        }
+        else
+        {
+            PlayerWin(alivePlayer, playerThatDied);
+        }
+    }
+    public void PlayerWin(int winPlayer, int diePlayer)
+    {
+        StartCoroutine("PlayerWinCoroutine", diePlayer);
+
+        //increase score
+        playerInfos[winPlayer].score++;
+        playerWinNum = winPlayer;
     }
 
-    IEnumerator PlayerDieCoroutine(int playerDiedIndex)
+    IEnumerator PlayerWinCoroutine(int playerDiedIndex)
     {
         isPlayerDieSlowmo = true;
 
@@ -253,12 +282,24 @@ public class GameManager : MonoBehaviour
 
         isPlayerDieSlowmo = false;
 
-        yield return new WaitForSecondsRealtime(playerDieFocusTime);
+        yield return new WaitForSeconds(playerDieFocusTime);
 
         cameraControl.doZoomMult = false;
         cameraControl.doFocusTarget = false;
 
         DoRoundOver();
+    }
+    IEnumerator PlayerDieSlowMo(int playerDiedIndex)
+    {
+        isPlayerDieSlowmo = true;
+
+        yield return new WaitForSecondsRealtime(playerDieSlowTime);
+
+        isPlayerDieSlowmo = false;
+        
+        yield return new WaitForSeconds(playerDieRemoveCameraEffectorDelay);
+
+        cameraControl.RemovePlayerEffector(playerDiedIndex);
     }
 
     void DoRoundOver()
@@ -278,6 +319,7 @@ public class PlayerInfo
     public PlayerStatus player;
 
     public int score;
+    public bool dead;
 }
 
 [CreateAssetMenu(fileName = "TeamColorSO", menuName = "ScriptableObjects/TeamColor")]
