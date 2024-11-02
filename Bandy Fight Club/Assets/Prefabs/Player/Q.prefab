@@ -21298,7 +21298,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4110637717697406780
 Transform:
   m_ObjectHideFlags: 0
@@ -21400,6 +21400,7 @@ MonoBehaviour:
   playerAnimation: {fileID: 5214221243728169307}
   inputs: {fileID: 6506595838519733651}
   groundCheck: {fileID: 5061188384587571447}
+  knockbackHandler: {fileID: 2094130834287096051}
   squasher: {fileID: 5031885021864614451}
   allowControl: 0
   lastFrameVels: []
@@ -21512,15 +21513,24 @@ MonoBehaviour:
   downPlatformBufferTime: 0.15
   isBlocking: 0
   timeBlocking: 0
-  perfBlockTime: 0.25
+  perfBlockTime: 0.3
   isPerfBlocking: 0
   isLateBlocking: 0
   lateBlockTime: 0.75
   lateBlockDisadvantageMult: 1.5
   blockStunTimer: 0
   isBlockStun: 0
+  isBlockCounter: 0
+  blockCounterTimer: 0
+  blockCounterTime: 0.15
+  blockCounterLateTime: 0.25
+  blockCounterStunMult: 0.4
+  blockCounterDisadvantageHeal: 0.1
+  blockKnockbackMult: {x: 0.9, y: 0.9}
+  blockCounterKnockbackMult: {x: 0.65, y: 0.8}
   blockParticles: {fileID: 1713865554369944223, guid: b005adbada3821247b0673ad5b8f75de, type: 3}
   perfBlockParticles: {fileID: 1713865554369944223, guid: 01ce6fc26f37a134bb142ec271761b09, type: 3}
+  blockCounterParticles: {fileID: 4512744190449187998, guid: f4f3ef347abed464f8e62387c48c69f3, type: 3}
   stunTimeNeeded: 0
   currentTimeStunned: 0
   isStun: 0
@@ -21533,7 +21543,6 @@ MonoBehaviour:
   blockBreakStunTime: 1
   disadvantage: 0
   disadvantageHealRate: 0.08
-  perfBlockDisadvantageHeal: 0.05
   maxDisavantage: 0.5
   disadvantageStunMult: 1
   disadvantageHealDelay: 1

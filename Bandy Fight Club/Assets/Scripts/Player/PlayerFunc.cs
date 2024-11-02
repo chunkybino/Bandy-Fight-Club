@@ -12,6 +12,7 @@ public class PlayerFunc : MonoBehaviour
     public PlayerAnimation playerAnimation;
     public PlayerInputs inputs;
     public GroundChecker groundCheck;
+    public KnockbackHandler knockbackHandler;
     public SquashStretcher squasher;
 
     public int team {get{return playerStatus.team.team;}}
@@ -157,8 +158,20 @@ public class PlayerFunc : MonoBehaviour
     [SerializeField] float blockStunTimer;
     public bool isBlockStun;
 
+    [SerializeField] bool isBlockCounter;
+    bool isBlockCounterSuccess {get {return isBlockCounter && blockCounterTimer <= blockCounterTime;}}
+    [SerializeField] float blockCounterTimer;
+    [SerializeField] float blockCounterTime = 0.15f;
+    [SerializeField] float blockCounterLateTime = 0.25f; //how long we're vulnreble for after
+    [SerializeField] float blockCounterStunMult = 0.4f; //get block stunnned fr less time if we block counter
+    [SerializeField] float blockCounterDisadvantageHeal = 0.1f;
+
+    public Vector2 blockKnockbackMult = new Vector2(0.6f, 0.7f);
+    public Vector2 blockCounterKnockbackMult = new Vector2(0.3f, 0.5f);
+
     [SerializeField] ParticleSystem blockParticles;
     [SerializeField] ParticleSystem perfBlockParticles;
+    [SerializeField] ParticleSystem blockCounterParticles;
 
     //hit stun
     [SerializeField] float stunTimeNeeded;
@@ -176,7 +189,6 @@ public class PlayerFunc : MonoBehaviour
 
     public float disadvantage = 0;
     [SerializeField] float disadvantageHealRate = 0.05f;
-    [SerializeField] float perfBlockDisadvantageHeal = 0.05f;
     public float maxDisavantage = 0.5f;
     public float disadvantageStunMult = 1; //when we add disadvantage to stun time, multply by this
 
@@ -318,7 +330,20 @@ public class PlayerFunc : MonoBehaviour
 
         if (isBlocking)
         {
-            if (!isBlockStun)
+            if (inputs.attackPressed)
+            {
+                playerAttack.attackBufferTimer = 0;
+                DoBlockCounter();
+            }
+
+            if (isBlockCounter)
+            {
+                blockCounterTimer += Time.deltaTime;
+
+                if (blockCounterTimer > blockCounterTime+blockCounterLateTime) isBlockCounter = false;
+            }
+
+            if (!isBlockStun && !isBlockCounter)
             {
                 if (!inputs.dodgeHeld) 
                 {
@@ -333,11 +358,31 @@ public class PlayerFunc : MonoBehaviour
             isPerfBlocking = timeBlocking < perfBlockTime;
             isLateBlocking = timeBlocking > lateBlockTime;
             timeBlocking += Time.deltaTime;
+
+            if (isBlockCounter)
+            {
+                if (blockCounterTimer < blockCounterTime)
+                {
+                    isPerfBlocking = true;
+                    isLateBlocking = false;
+                }
+                else //late block counter
+                {
+                    isPerfBlocking = false;
+                    isLateBlocking = true;
+                }
+            }
+
+            if (isPerfBlocking) knockbackHandler.knockbackResistanceMult = blockKnockbackMult;
+            if (isBlockCounterSuccess) knockbackHandler.knockbackResistanceMult = blockCounterKnockbackMult;
         }
         else
         {
             isPerfBlocking = false;
+            isBlockCounter = false;
             blockStunTimer = 0;
+
+            knockbackHandler.knockbackResistanceMult = new Vector2(1,1);
         }
 
         //droping through platform stuff
@@ -575,6 +620,23 @@ public class PlayerFunc : MonoBehaviour
         isBlocking = false;
     }
 
+    public void DoBlockCounter()
+    {
+        isBlockCounter = true;
+        blockCounterTimer = 0;
+    }
+    public void SuccessfulBlockCounter()
+    {
+        isBlockCounter = false;
+        blockCounterTimer = 0;
+
+        blockStunTimer *= blockCounterStunMult;
+ 
+        disadvantage = Mathf.Max(disadvantage - blockCounterDisadvantageHeal, 0);
+
+        Instantiate(blockCounterParticles, transform.position, Quaternion.identity);
+    }
+
     public void GetBlockStuned(float time)
     {
         blockStunTimer = time;
@@ -640,6 +702,11 @@ public class PlayerFunc : MonoBehaviour
     public void OnBlock(float advantageDamage)
     {
         ParticleSystem particle = blockParticles;
+
+        if (isBlockCounterSuccess)
+        {
+            SuccessfulBlockCounter(); 
+        }
 
         if (isPerfBlocking) //perfect
         {
