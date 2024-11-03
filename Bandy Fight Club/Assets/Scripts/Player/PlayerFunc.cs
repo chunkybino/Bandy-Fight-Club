@@ -645,6 +645,7 @@ public class PlayerFunc : MonoBehaviour
         Invoke("EndDodgeMovement", dodgeTime);
 
         squasher.DoSquash(dodgeSquashData);
+        playerAnimation.ExitActionAnim();
     }
     void EndDodgeBurst()
     {
