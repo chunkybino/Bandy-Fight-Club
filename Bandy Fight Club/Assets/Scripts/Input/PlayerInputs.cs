@@ -25,6 +25,7 @@ public class PlayerInputs : MonoBehaviour
 
     public bool dodgePressed;// {get {return Input.GetKeyDown(inputMap.dodge) && inputsActive;}}
     public bool dodgeHeld;// {get {return Input.GetKey(inputMap.dodge) && inputsActive;}}
+    public bool dodgeReleased;
 
     public bool attackPressed;// {get {return Input.GetKeyDown(inputMap.attack) && inputsActive;}}
     public bool attackHeld;// {get {return Input.GetKey(inputMap.attack) && inputsActive;}}
@@ -54,6 +55,7 @@ public class PlayerInputs : MonoBehaviour
 
         dodgePressed = Input.GetKeyDown(inputMap.dodge) && active;
         dodgeHeld = Input.GetKey(inputMap.dodge) && active;
+        dodgeReleased = Input.GetKeyUp(inputMap.dodge) && active;
 
         attackPressed = Input.GetKeyDown(inputMap.attack) && active;
         attackHeld = Input.GetKey(inputMap.attack) && active;

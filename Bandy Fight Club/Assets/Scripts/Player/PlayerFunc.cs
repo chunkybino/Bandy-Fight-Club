@@ -108,6 +108,9 @@ public class PlayerFunc : MonoBehaviour
 
     [SerializeField] float dodgeBufferTime = 0.1f;
     float dodgeBufferTimer;
+    float dodgeReleaseBufferTimer;
+    [SerializeField] float dodgeTapWindow = 0.35f; //how fast we have t release the button after pressing it to dodge
+    float dodgeTapTimer;
 
     [SerializeField] float dodgeCooldownTimer;
     [SerializeField] float currentDodgeCooldownTime;
@@ -297,6 +300,11 @@ public class PlayerFunc : MonoBehaviour
         //dodging
         UFunc.TickTimer(ref dodgeBufferTimer);
         if (inputs.dodgePressed) dodgeBufferTimer = dodgeBufferTime;
+        UFunc.TickTimer(ref dodgeReleaseBufferTimer);
+        if (inputs.dodgeReleased) dodgeReleaseBufferTimer = dodgeBufferTime;
+
+        UFunc.TickTimer(ref dodgeTapTimer);
+        if (inputs.dodgePressed) dodgeTapTimer = dodgeTapWindow;
 
         bool canDodge = GetIsActionable();
         if (isDodging) canDodge = false;
@@ -315,7 +323,7 @@ public class PlayerFunc : MonoBehaviour
         
         if (dodgeBufferTimer > 0)
         {
-            if (sideInputDirection != 0) //dodge
+            /*if (sideInputDirection != 0) //dodge
             {
                 if (canDodge)
                 {
@@ -326,12 +334,24 @@ public class PlayerFunc : MonoBehaviour
                 }
             }
             else //block
+            {*/
+            if (canBlock && !isBlocking)
             {
-                if (canBlock)
-                {
-                    dodgeBufferTimer = 0;
-                    StartBlock();
-                }
+                dodgeBufferTimer = 0;
+                StartBlock();
+            }
+            //}
+        }
+        if (dodgeReleaseBufferTimer > 0 && dodgeTapTimer > 0)
+        {
+            if (sideInputDirection != 0 && canDodge) //dodge
+            {
+                EndBlock();
+                dodgeBufferTimer = 0;
+                dodgeTapTimer = 0;
+                int direction = sideInputDirection;
+                if (direction == 0) direction = facing;
+                StartDodge(new Vector2(direction,0));
             }
         }
 

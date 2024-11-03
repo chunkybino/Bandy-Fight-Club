@@ -21393,6 +21393,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83cc6b77ea25c7e43830e1eeddb0a516, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameManager: {fileID: 0}
   rb: {fileID: 4633266257788118767}
   playerStatus: {fileID: 3492214244448277147}
   playerAttack: {fileID: 826615640914190225}
@@ -21405,6 +21406,7 @@ MonoBehaviour:
   allowControl: 0
   lastFrameVels: []
   lastFrameVelCount: 5
+  lastFramePos: {x: 0, y: 0}
   movementSpeed: 18
   sideInputDirection: 0
   verticalInputDirection: 0
@@ -21481,6 +21483,7 @@ MonoBehaviour:
   dodgeDirection: {x: 0, y: 0}
   dodgeAcceleration: 0.3
   dodgeBufferTime: 0.1
+  dodgeTapWindow: 0.1
   dodgeCooldownTimer: 0
   currentDodgeCooldownTime: 0
   dodgeCooldownMinMaxTime: {x: 0, y: 0.8}
@@ -21600,6 +21603,7 @@ MonoBehaviour:
   jumpHeld: 0
   dodgePressed: 0
   dodgeHeld: 0
+  dodgeReleased: 0
   attackPressed: 0
   attackHeld: 0
   heavyPressed: 0
