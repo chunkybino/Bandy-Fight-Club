@@ -32,6 +32,9 @@ public class PlayerAttack : MonoBehaviour
 
     public float attackingSpeedMult = 1;
 
+    [SerializeField] float attackStunTimer;
+    bool isAttackStun {get{return attackStunTimer > 0;}}
+
     void Awake()
     {
         characterFunc = playerFunc.characterFunc;
@@ -51,7 +54,9 @@ public class PlayerAttack : MonoBehaviour
         bool canAttack = playerFunc.GetCanAttack();
         if (canAttackAnimator.activeSelf) canAttack = true;
 
-        if (canAttack)
+        if (canAttack) UFunc.TickTimer(ref attackStunTimer);
+
+        if (canAttack && !isAttackStun)
         {
             if (attackBufferTimer > 0)
             {
@@ -152,6 +157,11 @@ public class PlayerAttack : MonoBehaviour
         playerAnim.PlayAnim("ActionBlank");
 
         playerFunc.OnAttackEnd();
+    }
+
+    public void DoAttackStun(float stun)
+    {
+        attackStunTimer = stun;
     }
 
     void OnGroundLand()

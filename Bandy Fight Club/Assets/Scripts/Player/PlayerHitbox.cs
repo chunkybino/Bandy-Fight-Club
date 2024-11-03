@@ -190,6 +190,10 @@ public class PlayerHitbox : MonoBehaviour, IDamageable
             if (playerFunc.isBlockCounterSuccess)
             {
                 returnInfo.returnDisadvantage = playerFunc.blockCounterDisadvantageReturn;
+                returnInfo.doReturnAttackStun = true;
+                returnInfo.returnAttackStun = playerFunc.blockCounterAttackStun;
+                returnInfo.doReturnKnockback = true;
+                returnInfo.returnKnockback = playerFunc.blockCounterReturnKnockback;
             }
 
             playerFunc.OnBlock(info.advantageDamage);

@@ -53,6 +53,7 @@ public class AttackHitbox : MonoBehaviour
         if (playerFunc != null)
         {
             playerFunc.AddDisadvantage(info.returnDisadvantage);
+            if (info.doReturnAttackStun) playerFunc.playerAttack.DoAttackStun(info.returnAttackStun);
         }
     }
 
@@ -74,6 +75,9 @@ public class AttackHitReturnInfo
     public Knockback returnKnockback;
 
     public float returnDisadvantage;
+
+    public bool doReturnAttackStun;
+    public float returnAttackStun;
 
     public float shakeMult = 1;
 }
