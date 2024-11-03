@@ -166,12 +166,15 @@ public class PlayerFunc : MonoBehaviour
     public bool isBlockStun;
 
     [SerializeField] bool isBlockCounter;
-    bool isBlockCounterSuccess {get {return isBlockCounter && blockCounterTimer <= blockCounterTime;}}
+    public bool isBlockCounterSuccess {get {return isBlockCounter && blockCounterTimer <= blockCounterTime;}}
     [SerializeField] float blockCounterTimer;
     [SerializeField] float blockCounterTime = 0.15f;
     [SerializeField] float blockCounterLateTime = 0.25f; //how long we're vulnreble for after
     [SerializeField] float blockCounterStunMult = 0.4f; //get block stunnned fr less time if we block counter
     [SerializeField] float blockCounterDisadvantageHeal = 0.1f;
+
+    public float perfBlockDisadvantageReturn = 0.1f; //deal this much disadvantage when attacked
+    public float blockCounterDisadvantageReturn = 0.2f;
 
     public Vector2 blockKnockbackMult = new Vector2(0.6f, 0.7f);
     public Vector2 blockCounterKnockbackMult = new Vector2(0.3f, 0.5f);

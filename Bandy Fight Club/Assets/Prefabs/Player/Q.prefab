@@ -1849,7 +1849,7 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 7010daeb2f6b3154eb20694ae282768d, type: 2}
-  - {fileID: 2100000, guid: ca73f2f9a2aa87e4eb2e8aca4166e3d2, type: 2}
+  - {fileID: 2100000, guid: 5dc7b63aedd576c43a58da879aac0af1, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2951,6 +2951,7 @@ MonoBehaviour:
     cameraShake: 0.4
   direction: 0
   directionReference: {fileID: 4110637717697406780}
+  playerFunc: {fileID: 3173985440313344023}
   knockbackHandler: {fileID: 2094130834287096051}
 --- !u!1 &1048251299111642391
 GameObject:
@@ -7794,6 +7795,7 @@ MonoBehaviour:
     cameraShake: 0.4
   direction: 0
   directionReference: {fileID: 4110637717697406780}
+  playerFunc: {fileID: 3173985440313344023}
   knockbackHandler: {fileID: 2094130834287096051}
 --- !u!1 &3105146183858177674
 GameObject:
@@ -10267,6 +10269,7 @@ MonoBehaviour:
     cameraShake: 0.55
   direction: 0
   directionReference: {fileID: 4110637717697406780}
+  playerFunc: {fileID: 3173985440313344023}
   knockbackHandler: {fileID: 2094130834287096051}
 --- !u!1 &3875489417325364167
 GameObject:
@@ -13060,12 +13063,13 @@ MonoBehaviour:
     blockStun: 0.35
     stunTime: 0.5
     advantageDamage: 0.12
-    onlyPerfBlock: 1
+    onlyPerfBlock: 0
     unblockable: 0
     hitStopTime: 0.1
     cameraShake: 0.6
   direction: 0
   directionReference: {fileID: 4110637717697406780}
+  playerFunc: {fileID: 3173985440313344023}
   knockbackHandler: {fileID: 2094130834287096051}
 --- !u!1 &4988464169874166954
 GameObject:
@@ -15831,7 +15835,7 @@ MonoBehaviour:
   matIndex: 1
   matList:
   - {fileID: 2100000, guid: 7010daeb2f6b3154eb20694ae282768d, type: 2}
-  - {fileID: 2100000, guid: ca73f2f9a2aa87e4eb2e8aca4166e3d2, type: 2}
+  - {fileID: 2100000, guid: 5dc7b63aedd576c43a58da879aac0af1, type: 2}
 --- !u!1 &6152466466019644595
 GameObject:
   m_ObjectHideFlags: 0
@@ -21533,6 +21537,8 @@ MonoBehaviour:
   blockCounterLateTime: 0.25
   blockCounterStunMult: 0.4
   blockCounterDisadvantageHeal: 0.1
+  perfBlockDisadvantageReturn: 0.1
+  blockCounterDisadvantageReturn: 0.2
   blockKnockbackMult: {x: 0.9, y: 0.9}
   blockCounterKnockbackMult: {x: 0.65, y: 0.8}
   airBlockSpeedMult: 0.8
@@ -22185,6 +22191,7 @@ MonoBehaviour:
     cameraShake: 0.25
   direction: 0
   directionReference: {fileID: 4110637717697406780}
+  playerFunc: {fileID: 3173985440313344023}
   knockbackHandler: {fileID: 2094130834287096051}
 --- !u!1 &8717194558293452352
 GameObject:

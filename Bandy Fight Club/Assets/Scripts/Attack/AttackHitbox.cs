@@ -15,6 +15,7 @@ public class AttackHitbox : MonoBehaviour
     [SerializeField] int direction;
     [SerializeField] Transform directionReference;
 
+    [SerializeField] PlayerFunc playerFunc;
     [SerializeField] KnockbackHandler knockbackHandler;
 
     void OnTriggerStay2D(Collider2D item)
@@ -49,6 +50,10 @@ public class AttackHitbox : MonoBehaviour
         {
             knockbackHandler.GetKnockbacked(info.returnKnockback, -direction);
         }
+        if (playerFunc != null)
+        {
+            playerFunc.AddDisadvantage(info.returnDisadvantage);
+        }
     }
 
     IEnumerator removeFromHitListCorountine(Collider2D target)
@@ -67,6 +72,8 @@ public class AttackHitReturnInfo
 
     public bool doReturnKnockback;
     public Knockback returnKnockback;
+
+    public float returnDisadvantage;
 
     public float shakeMult = 1;
 }
