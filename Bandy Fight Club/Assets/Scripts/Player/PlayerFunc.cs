@@ -754,7 +754,7 @@ public class PlayerFunc : MonoBehaviour
     {
         blockStunTimer = time;
     }
-    public void GetStunned(float time)
+    public virtual void GetStunned(float time)
     {
         stunTimeNeeded = time;
         isStun = true;

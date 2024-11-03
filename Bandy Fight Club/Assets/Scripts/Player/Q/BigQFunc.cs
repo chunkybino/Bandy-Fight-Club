@@ -302,6 +302,19 @@ public class BigQFunc : PlayerFunc, ICharacterFunc
         saxGrappleLine.SetPosition(1, pos2);
     }
 
+    public override void GetStunned(float time)
+    {
+        base.GetStunned(time);
+
+        //if we're grappling
+        if (isSaxGrappling)
+        {
+            isSaxGrappling = false;
+            isSaxGrapplingMovement = false;
+            if (currentSaxBullet) currentSaxBullet.Die();
+        }
+    }
+
     public override bool GetCanAttack()
     {
         if (isSaxGrappling)
