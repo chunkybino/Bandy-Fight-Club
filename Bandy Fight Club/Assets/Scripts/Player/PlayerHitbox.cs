@@ -39,6 +39,9 @@ public class PlayerHitbox : MonoBehaviour, IDamageable
     [SerializeField] ParticleSystem stunBlockParticles;
     [SerializeField] float stunBlockParticleSize = 0.5f;
 
+    public float boundingTopBound {get{return transform.position.y + boundingBox.offset.y + boundingBox.size.y/2;}}
+    public float boundingBottomBound {get{return transform.position.y + boundingBox.offset.y - boundingBox.size.y/2;}}
+
     void Awake()
     {
         normalHitboxSize = hitbox.size;

@@ -5,6 +5,7 @@ using UnityEngine.Events;
 
 public class PlayerFunc : MonoBehaviour
 {
+    public GameManager gameManager;
     public Rigidbody2D rb;
     public PlayerStatus playerStatus;
     public PlayerAttack playerAttack;
@@ -39,6 +40,8 @@ public class PlayerFunc : MonoBehaviour
         return low;
     }}
     [SerializeField] int lastFrameVelCount = 5; //number of frame we keep track of
+
+    [SerializeField] Vector2 lastFramePos;
 
     //side movement
     [SerializeField] float movementSpeed = 14;
@@ -201,7 +204,18 @@ public class PlayerFunc : MonoBehaviour
 
     //visual
     [SerializeField] PlayerMeshParent playerMesh;
+
+    //other garbage
+
+    //for when you dodge through people, the person dodge thorugh you references these
+    public float boundingTopBound {get{return playerHitbox.boundingTopBound;}}
+    public float boundingBottomBound {get{return playerHitbox.boundingBottomBound;}}
     
+    void Start()
+    {
+        gameManager = GameManager.singleton;
+    }
+
     public void Update()
     {
         //side inputs
@@ -216,6 +230,7 @@ public class PlayerFunc : MonoBehaviour
 
         bool canChangeFacing = true;
         if (playerAttack.isAttacking && playerAttack.currentAttack.lockFacing) canChangeFacing = false;
+        if (isDodging) canChangeFacing = false;
         if (canChangeFacing && sideInputDirection != 0) facing = Mathf.RoundToInt(Mathf.Sign(sideInputDirection)); 
         if (sideInputDirection != 0) facingBuffer = Mathf.RoundToInt(Mathf.Sign(sideInputDirection)); 
 
@@ -443,6 +458,7 @@ public class PlayerFunc : MonoBehaviour
         if (movementDodging)
         {
             DodgeMovement();
+            CheckForDodgeThroughPlayer();
         }
         else
         {
@@ -458,6 +474,9 @@ public class PlayerFunc : MonoBehaviour
         //lastFrameVel = rb.velocity;
         lastFrameVels.Insert(0, rb.velocity);
         if (lastFrameVels.Count > lastFrameVelCount) lastFrameVels.RemoveAt(lastFrameVels.Count-1);
+
+        //last frame pos
+        lastFramePos = transform.position;
 
         rb.velocity = new Vector2(xVel, yVel);  
 
@@ -623,6 +642,36 @@ public class PlayerFunc : MonoBehaviour
 
         DoAccelerationMult(dashJumpAccel, dashJumpAccelTime);
         DoGravMult(dashJumpGrav, dashJumpGravTime);
+    }
+
+    void CheckForDodgeThroughPlayer()
+    {
+        List<Vector2> playerPos = new List<Vector2>();
+        List<Vector2> playerVerticalBounds = new List<Vector2>(); //top and botto of the players bounding box
+        for (int i = 0; i < gameManager.players.Count; i++) 
+        {
+            if (gameManager.players[i] == playerStatus) continue;
+            playerPos.Add(gameManager.players[i].transform.position);
+            playerVerticalBounds.Add(new Vector2(gameManager.players[i].playerFunc.boundingBottomBound, gameManager.players[i].playerFunc.boundingTopBound));
+        }
+
+        for (int i = 0; i < playerPos.Count; i++)
+        {
+            bool lastFrameSide = lastFramePos.x <= playerPos[i].x; //check if ere on different sides of the player this and last frame
+            bool currentSide = transform.position.x <= playerPos[i].x;
+
+            bool inBounds = transform.position.y >= playerVerticalBounds[i].x && transform.position.y <= playerVerticalBounds[i].y; //between the top and bottom of the player bounding
+
+            if (lastFrameSide == currentSide || !inBounds) continue;
+
+            DoDodgeTurnAround();
+        }
+    }
+    void DoDodgeTurnAround()
+    {
+        if (playerAttack.isAttacking) return;
+        facing *= -1;
+        facingBuffer = facing;
     }
 
     public void StartBlock()
