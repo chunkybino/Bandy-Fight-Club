@@ -24,7 +24,7 @@ public class DisguiserParent : MonoBehaviour
     }
     void Start()
     {
-        GameManager.singleton.onRespawn.AddListener(OnRespawn);
+        if (GameManager.singleton) GameManager.singleton.onRespawn.AddListener(OnRespawn);
 
         oldLevel = disguiseLevel;
         CheckDisguise();

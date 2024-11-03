@@ -132,6 +132,8 @@ public class PlayerAttack : MonoBehaviour
         CancelInvoke("EndAttack");
 
         isAttacking = false;
+
+        playerFunc.OnAttackEnd();
     }
     public void ExitAttackAnim()
     {
@@ -148,6 +150,8 @@ public class PlayerAttack : MonoBehaviour
         isAttacking = false;
         CancelInvoke("EndAttack");
         playerAnim.PlayAnim("ActionBlank");
+
+        playerFunc.OnAttackEnd();
     }
 
     void OnGroundLand()
