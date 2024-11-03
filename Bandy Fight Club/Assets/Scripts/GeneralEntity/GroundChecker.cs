@@ -10,6 +10,7 @@ public class GroundChecker : MonoBehaviour
     public BoxCollider2D colliderReference; //reference this collider when checkign for grounded
     public Vector2 groundCheckPos;
     public Vector2 groundedCheckSize = new Vector2 (1, 0.05f);
+    public float checkSizeXMargin = 0.05f; //add a bit of a margin on the sides so we dont think we're grouinded when rubbing against a wall
     public float groundCheckDownRange = 0.05f;
     public LayerMask layerMask = 6;
     public LayerMask platformLayerMask;
@@ -35,7 +36,7 @@ public class GroundChecker : MonoBehaviour
 
         grounded = CheckGrounded(groundCheckPos, groundedCheckSize, layerMask);
 
-        RaycastHit2D[] raycastHits = Physics2D.BoxCastAll(new Vector2(groundCheckPos.x, groundCheckPos.y - (groundCheckDownRange/2)), new Vector2(groundedCheckSize.x, groundCheckDownRange), 0, Vector2.down, 50, layerMask);
+        RaycastHit2D[] raycastHits = Physics2D.BoxCastAll(new Vector2(groundCheckPos.x, groundCheckPos.y - (groundCheckDownRange/2)), new Vector2(groundedCheckSize.x-checkSizeXMargin, groundCheckDownRange), 0, Vector2.down, 50, layerMask);
         
         grounded = false;
         groundGrounded = false;

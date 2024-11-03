@@ -9727,6 +9727,7 @@ MonoBehaviour:
   colliderReference: {fileID: 6169362903709148363}
   groundCheckPos: {x: 0, y: 0}
   groundedCheckSize: {x: 1, y: 0.025}
+  checkSizeXMargin: 0.1
   groundCheckDownRange: 0.05
   layerMask:
     serializedVersion: 2
