@@ -106,7 +106,10 @@ public class PlayerAnimation : MonoBehaviour
         if (playerFunc.isStun && playerFunc.isBlocking) return "BlockStun";
         if (playerFunc.isStun) return "Stun";
         if (playerFunc.isBlocking) return blockAnimNames[blockAnimIndex];
-        if (playerFunc.isDodging)return "Dash";
+        if (playerFunc.isDodging) {
+            walking = true;
+            return "Dash";
+        }
 
         bool doWalk = false;
 
