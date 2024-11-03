@@ -177,7 +177,10 @@ public class PlayerFunc : MonoBehaviour
     public Vector2 blockCounterKnockbackMult = new Vector2(0.3f, 0.5f);
 
     [SerializeField] float airBlockSpeedMult = 0.5f;
-    [SerializeField] float groundBlockSpeedMult = 0;
+    [SerializeField] float groundBlockSpeedMult = 0; 
+
+    [SerializeField] float blockSkidTime = 0.2f;
+    float blockSkidTimer;
 
     [SerializeField] ParticleSystem blockParticles;
     [SerializeField] ParticleSystem perfBlockParticles;
@@ -271,7 +274,11 @@ public class PlayerFunc : MonoBehaviour
 
         if (canJump && jumpBufferTimer > 0)
         {
-            if (!isDodging)
+            bool jumpDash = false;
+            if (isDodging) jumpDash = true;
+            if (isBlocking && dodgeTapTimer > 0) jumpDash = true;
+
+            if (!jumpDash)
             {
                 if (grounded || groundedLeewayTimer > 0)
                 {
@@ -293,6 +300,8 @@ public class PlayerFunc : MonoBehaviour
                 {
                     DoDashJump();
                     groundedLeewayTimer = 0;
+                    dodgeReleaseBufferTimer = 0;
+                    dodgeTapTimer = 0;
                 }
             }
         }
@@ -347,7 +356,7 @@ public class PlayerFunc : MonoBehaviour
             if (sideInputDirection != 0 && canDodge) //dodge
             {
                 EndBlock();
-                dodgeBufferTimer = 0;
+                dodgeReleaseBufferTimer = 0;
                 dodgeTapTimer = 0;
                 int direction = sideInputDirection;
                 if (direction == 0) direction = facing;
@@ -445,15 +454,20 @@ public class PlayerFunc : MonoBehaviour
 
         targetSideSpeed = movementSpeed * sideInputDirection;
         if (isStun) targetSideSpeed *= stunSpeedMult;
+        
+        UFunc.TickTimerFixed(ref blockSkidTimer);
         if (isBlocking)
         {
-            if (grounded)
+            if (blockSkidTimer == 0)
             {
-                targetSideSpeed *= groundBlockSpeedMult; //ground
-            }
-            else
-            {
-                targetSideSpeed *= airBlockSpeedMult; //air
+                if (grounded)
+                {
+                    targetSideSpeed *= groundBlockSpeedMult; //ground
+                }
+                else
+                {
+                    targetSideSpeed *= airBlockSpeedMult; //air
+                }
             }
         }
         if (playerAttack.isAttacking)
@@ -699,6 +713,7 @@ public class PlayerFunc : MonoBehaviour
         isBlocking = true;
         timeBlocking = 0;
         playerAnimation.DoNewBlockAnim();
+        blockSkidTimer = blockSkidTime;
     }
     public void EndBlock()
     {

@@ -21483,7 +21483,7 @@ MonoBehaviour:
   dodgeDirection: {x: 0, y: 0}
   dodgeAcceleration: 0.3
   dodgeBufferTime: 0.1
-  dodgeTapWindow: 0.1
+  dodgeTapWindow: 0.2
   dodgeCooldownTimer: 0
   currentDodgeCooldownTime: 0
   dodgeCooldownMinMaxTime: {x: 0, y: 0.8}
@@ -21533,6 +21533,7 @@ MonoBehaviour:
   blockCounterKnockbackMult: {x: 0.65, y: 0.8}
   airBlockSpeedMult: 0.8
   groundBlockSpeedMult: 0
+  blockSkidTime: 0.2
   blockParticles: {fileID: 1713865554369944223, guid: b005adbada3821247b0673ad5b8f75de, type: 3}
   perfBlockParticles: {fileID: 1713865554369944223, guid: 01ce6fc26f37a134bb142ec271761b09, type: 3}
   blockCounterParticles: {fileID: 4512744190449187998, guid: f4f3ef347abed464f8e62387c48c69f3, type: 3}
