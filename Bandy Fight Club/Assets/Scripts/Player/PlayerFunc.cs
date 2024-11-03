@@ -176,6 +176,7 @@ public class PlayerFunc : MonoBehaviour
     public float perfBlockDisadvantageReturn = 0.1f; //deal this much disadvantage when attacked
     public float blockCounterDisadvantageReturn = 0.2f;
 
+    public float perfBlockAttackStun = 0.15f;
     public float blockCounterAttackStun = 0.4f;
     public Knockback blockCounterReturnKnockback;
 

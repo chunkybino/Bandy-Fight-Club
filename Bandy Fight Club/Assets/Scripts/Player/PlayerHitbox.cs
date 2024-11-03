@@ -186,6 +186,8 @@ public class PlayerHitbox : MonoBehaviour, IDamageable
             {
                 returnInfo.doReturnKnockback = true;
                 returnInfo.returnDisadvantage = playerFunc.perfBlockDisadvantageReturn;
+                returnInfo.doReturnAttackStun = true;
+                returnInfo.returnAttackStun = playerFunc.perfBlockAttackStun;
             }
             if (playerFunc.isBlockCounterSuccess)
             {

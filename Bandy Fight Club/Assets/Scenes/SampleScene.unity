@@ -15423,34 +15423,6 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 514524699}
-    - target: {fileID: 3173985440313344023, guid: 84f3f989133dc724681733bf06f534d8, type: 3}
-      propertyPath: blockCounterAttackStun
-      value: 0.65
-      objectReference: {fileID: 0}
-    - target: {fileID: 3173985440313344023, guid: 84f3f989133dc724681733bf06f534d8, type: 3}
-      propertyPath: blockCounterKnockbackMult.x
-      value: 0.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 3173985440313344023, guid: 84f3f989133dc724681733bf06f534d8, type: 3}
-      propertyPath: blockCounterKnockbackMult.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3173985440313344023, guid: 84f3f989133dc724681733bf06f534d8, type: 3}
-      propertyPath: perfBlockDisadvantageReturn
-      value: 0.8
-      objectReference: {fileID: 0}
-    - target: {fileID: 3173985440313344023, guid: 84f3f989133dc724681733bf06f534d8, type: 3}
-      propertyPath: blockCounterDisadvantageReturn
-      value: 0.16
-      objectReference: {fileID: 0}
-    - target: {fileID: 3173985440313344023, guid: 84f3f989133dc724681733bf06f534d8, type: 3}
-      propertyPath: blockCounterReturnKnockback.acceleration
-      value: 0.05
-      objectReference: {fileID: 0}
-    - target: {fileID: 3173985440313344023, guid: 84f3f989133dc724681733bf06f534d8, type: 3}
-      propertyPath: blockCounterReturnKnockback.accelerationTime
-      value: 0.4
-      objectReference: {fileID: 0}
     - target: {fileID: 3532034000626681271, guid: 84f3f989133dc724681733bf06f534d8, type: 3}
       propertyPath: mesh
       value: 
@@ -15534,10 +15506,6 @@ PrefabInstance:
     - target: {fileID: 8472132381444169521, guid: 84f3f989133dc724681733bf06f534d8, type: 3}
       propertyPath: m_Name
       value: Q
-      objectReference: {fileID: 0}
-    - target: {fileID: 8472132381444169521, guid: 84f3f989133dc724681733bf06f534d8, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8620700022088183152, guid: 84f3f989133dc724681733bf06f534d8, type: 3}
       propertyPath: m_Mesh
