@@ -44,6 +44,9 @@ public class PlayerAnimation : MonoBehaviour
 
     [SerializeField] ParticleSystem jumpParticles;
 
+    [SerializeField] ParticleSystem dashParticles;
+    [SerializeField] ParticleSystem dashParticlesPrefab;
+
     void Awake()
     {
         characterFunc = playerFunc.characterFunc;
@@ -240,6 +243,14 @@ public class PlayerAnimation : MonoBehaviour
             case "jump":
                 jumpParticles.Play();
                 break;
+            case "dash":
+                if (spawn) {
+                    Spawn(dashParticlesPrefab, dashParticles.transform.position);
+                } else {
+                    dashParticles.Play();
+                }
+                break;
+
         }
 
         void Spawn(ParticleSystem prefab, Vector3 pos)
