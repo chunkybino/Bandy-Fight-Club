@@ -181,6 +181,7 @@ public class PlayerFunc : MonoBehaviour
 
     [SerializeField] float blockSkidTime = 0.2f;
     float blockSkidTimer;
+    [SerializeField] float blockSkidMaxFallSpeed = 8f;
 
     [SerializeField] ParticleSystem blockParticles;
     [SerializeField] ParticleSystem perfBlockParticles;
@@ -468,6 +469,10 @@ public class PlayerFunc : MonoBehaviour
                 {
                     targetSideSpeed *= airBlockSpeedMult; //air
                 }
+            }
+            else //during skid
+            {
+                yVel = Mathf.Max(yVel, -blockSkidMaxFallSpeed);
             }
         }
         if (playerAttack.isAttacking)
