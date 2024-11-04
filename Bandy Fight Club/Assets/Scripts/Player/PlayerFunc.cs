@@ -233,6 +233,8 @@ public class PlayerFunc : MonoBehaviour
     void Start()
     {
         gameManager = GameManager.singleton;
+
+        facingBuffer = facing;
     }
 
     public void Update()

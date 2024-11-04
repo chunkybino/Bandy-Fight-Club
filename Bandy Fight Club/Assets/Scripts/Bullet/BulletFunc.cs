@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class BulletFunc : MonoBehaviour
+public class BulletFunc : MonoBehaviour, IDamageable
 {
     public BulletConfig config;
     public Rigidbody2D rb;
@@ -14,7 +14,9 @@ public class BulletFunc : MonoBehaviour
 
     [SerializeField] LayerMask layerMask;
 
-    [SerializeField] TeamHolder team;
+    [SerializeField] TeamHolder bulletTeam;
+    public TeamHolder team {get{return bulletTeam;} set{}}
+    public bool receiveHitFromAll {get {return true;}}
 
     //bool hurtPlayer;
     //bool hurtEnemy;
@@ -43,6 +45,13 @@ public class BulletFunc : MonoBehaviour
     public int currentPierce;
 
     public bool dieOnWall;
+
+    public bool deflectable = true;
+    public float deflectSpeedAdd = 8;
+
+    [SerializeField] float deflectCooldown = 0.2f;
+
+    public bool disableHitbox;
 
     //public UnityEvent<EnemyHitbox> onEnemyHit;
 
@@ -240,20 +249,6 @@ public class BulletFunc : MonoBehaviour
 
     public void Die()
     {
-        /*if (deathParticles)
-        {
-            ParticleSystem particle = Instantiate(deathParticles, transform.position, Quaternion.identity);
-            particle.transform.localScale = new Vector2(deathParticlesScale,deathParticlesScale);
-        }
-
-        isDead = true;
-
-        rb.velocity = new Vector2(0,0);
-        renderer.enabled = false;
-        collider.enabled = false;
-        if (bounding) bounding.enabled = false;
-
-        CancelInvoke("Die");*/
         Destroy(gameObject); //give some time for the trail to go away
     }
 
@@ -262,29 +257,41 @@ public class BulletFunc : MonoBehaviour
         BulletHandler.singleton.RemoveBulletFromList(this);
     }
 
-    /*public void DisableBulletKnockback()
+    public AttackHitReturnInfo GetHit(FullAttackInfo info)
     {
-        attackInfo.knockbacks.Clear();
+        if (!deflectable || !info.info.doDeflect) return new AttackHitReturnInfo();
+
+        GetDeflected(info.info.deflectForce * info.direction);
+
+        return new AttackHitReturnInfo();
+    }
+    public void GetDeflected(Vector2 deflectForce)
+    {
+        DoDeflectSpeed(deflectForce);
+
+        deflectable = false;
+        Invoke("EnableDeflectable", deflectCooldown);
+
+        circleCollider.enabled = false;
+        Invoke("EnableHitbox", deflectCooldown);
+    }
+    public virtual void DoDeflectSpeed(Vector2 dir) //for override, if we want to override just hte speed part
+    {
+        direction = new Vector2(dir.x, -direction.y);
+        speed += deflectSpeedAdd;
+        rb.velocity = direction.normalized * speed;
+    }
+    void EnableDeflectable()
+    {
+        deflectable = true;
     }
 
-    public void GetGuarded(bool perfect)
+    void EnableHitbox()
     {
-        if (perfect) GetDeflected();
-    }
-    public void GetDeflected()
-    {
-        gotDeflectedThisHit = true;
-        direction *= -1;
-        hurtPlayer = false;
-        hurtEnemy = true;
-        attackInfo.damage *= config.deflectDamageMult;
-        attackInfo.guardDamage *= config.deflectDamageMult;
-        speed *= config.deflectSpeedMult;
-        GameManager.singleton.DoHitStop(deflectHitStop);
-        onDeflect?.Invoke();
+        circleCollider.enabled = true;
     }
 
-    public void ChangeDamage(float amount)
+    /*public void ChangeDamage(float amount)
     {
         attackInfo.damage += amount;
     }

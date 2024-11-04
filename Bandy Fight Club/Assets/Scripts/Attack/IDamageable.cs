@@ -6,6 +6,8 @@ public interface IDamageable
 {
     TeamHolder team {get; set;}
 
+    bool receiveHitFromAll {get {return false;}}
+
     AttackHitReturnInfo GetHit(FullAttackInfo info);
 
     AttackHitReturnInfo GetHit(AttackInfo info, Vector2 direction)
@@ -32,6 +34,9 @@ public class AttackInfo
     public float hitStopTime = 0;
     public float cameraShake = 0;
 
+    public bool doDeflect = false;
+    public Vector2 deflectForce;
+
     public AttackInfo dataCopy {get{return CloneYourself();}}
 
     public AttackInfo CloneYourself()
@@ -50,7 +55,10 @@ public class AttackInfo
             unblockable = unblockable,
 
             hitStopTime = hitStopTime,
-            cameraShake = cameraShake
+            cameraShake = cameraShake,
+
+            doDeflect = doDeflect,
+            deflectForce = deflectForce
         };
     }
 }

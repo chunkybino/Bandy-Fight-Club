@@ -2949,6 +2949,8 @@ MonoBehaviour:
     unblockable: 0
     hitStopTime: 0.06
     cameraShake: 0.4
+    doDeflect: 0
+    deflectForce: {x: 0, y: 0}
   direction: 0
   directionReference: {fileID: 4110637717697406780}
   playerFunc: {fileID: 3173985440313344023}
@@ -7794,6 +7796,8 @@ MonoBehaviour:
     unblockable: 0
     hitStopTime: 0.06
     cameraShake: 0.4
+    doDeflect: 0
+    deflectForce: {x: 0, y: 0}
   direction: 0
   directionReference: {fileID: 4110637717697406780}
   playerFunc: {fileID: 3173985440313344023}
@@ -10268,6 +10272,8 @@ MonoBehaviour:
     unblockable: 0
     hitStopTime: 0.1
     cameraShake: 0.55
+    doDeflect: 1
+    deflectForce: {x: 1, y: 0.2}
   direction: 0
   directionReference: {fileID: 4110637717697406780}
   playerFunc: {fileID: 3173985440313344023}
@@ -13068,6 +13074,8 @@ MonoBehaviour:
     unblockable: 0
     hitStopTime: 0.1
     cameraShake: 0.6
+    doDeflect: 0
+    deflectForce: {x: 0, y: 0}
   direction: 0
   directionReference: {fileID: 4110637717697406780}
   playerFunc: {fileID: 3173985440313344023}
@@ -22216,6 +22224,8 @@ MonoBehaviour:
     unblockable: 0
     hitStopTime: 0.04
     cameraShake: 0.25
+    doDeflect: 0
+    deflectForce: {x: 0, y: 0}
   direction: 0
   directionReference: {fileID: 4110637717697406780}
   playerFunc: {fileID: 3173985440313344023}

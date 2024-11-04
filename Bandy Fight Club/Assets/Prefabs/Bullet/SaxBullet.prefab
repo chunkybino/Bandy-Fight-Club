@@ -236,7 +236,7 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 192
-  team: {fileID: 3845587466422099736}
+  bulletTeam: {fileID: 3845587466422099736}
   attackInfo:
     damage: 0
     knockbacks: []
@@ -247,6 +247,7 @@ MonoBehaviour:
     unblockable: 0
     hitStopTime: 0
     cameraShake: 0
+    doDeflect: 0
   renderer: {fileID: 1475633148454669172}
   rotateInMovementDirection: 0
   speedPerStrech: 0
@@ -257,6 +258,8 @@ MonoBehaviour:
   gravity: 55
   currentPierce: 0
   dieOnWall: 1
+  deflectable: 1
+  deflectSpeedAdd: 16
   reHitTime: 0.5
   outlineRender: {fileID: 2260475175172785630}
   disguiseOutlineRender: {fileID: 6692029942926872115}

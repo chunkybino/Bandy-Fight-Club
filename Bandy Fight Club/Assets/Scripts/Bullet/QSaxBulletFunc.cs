@@ -28,6 +28,8 @@ public class QSaxBulletFunc : BulletFunc
     [SerializeField] float grappleParrySpeed = 60;
     [SerializeField] float grappleParryDamageMult = 1.5f;
 
+    [SerializeField] float deflectVerticalDirectionMult = 0.5f;
+
     void Start()
     {
         base.Start();
@@ -114,5 +116,20 @@ public class QSaxBulletFunc : BulletFunc
         attackInfo.damage = Mathf.FloorToInt(attackInfo.damage * grappleParryDamageMult);
 
         ClearHitList(); 
+    }
+
+    public override void DoDeflectSpeed(Vector2 dir)
+    {
+        if (doGrav)
+        {
+            dir = dir.normalized;
+            dir = new Vector2(dir.x*speed + deflectSpeedAdd, dir.y*speed);
+            dir = new Vector2(dir.x, dir.y + rb.velocity.y*deflectVerticalDirectionMult);
+            rb.velocity = dir;
+        }
+        else
+        {
+            base.DoDeflectSpeed(dir);
+        }
     }
 }
