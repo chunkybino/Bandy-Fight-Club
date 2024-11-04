@@ -190,9 +190,14 @@ public class PlayerFunc : MonoBehaviour
     float blockSkidTimer;
     [SerializeField] float blockSkidMaxFallSpeed = 8f;
 
+    [SerializeField] SquashData blockCounterStartSquash; //squash for when we press the button
+    [SerializeField] ParticleSystem blockCounterStartParticles;
+
     [SerializeField] ParticleSystem blockParticles;
     [SerializeField] ParticleSystem perfBlockParticles;
     [SerializeField] ParticleSystem blockCounterParticles;
+
+    public float blockCounterHitStop = 0.5f;
 
     //hit stun
     [SerializeField] float stunTimeNeeded;
@@ -737,6 +742,9 @@ public class PlayerFunc : MonoBehaviour
     {
         isBlockCounter = true;
         blockCounterTimer = 0;
+
+        squasher.DoSquash(blockCounterStartSquash);
+        blockCounterStartParticles.Play();
     }
     public void SuccessfulBlockCounter()
     {

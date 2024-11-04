@@ -186,16 +186,22 @@ public class PlayerHitbox : MonoBehaviour, IDamageable
             {
                 returnInfo.doReturnKnockback = true;
                 returnInfo.returnDisadvantage = playerFunc.perfBlockDisadvantageReturn;
+
                 returnInfo.doReturnAttackStun = true;
                 returnInfo.returnAttackStun = playerFunc.perfBlockAttackStun;
             }
             if (playerFunc.isBlockCounterSuccess)
             {
                 returnInfo.returnDisadvantage = playerFunc.blockCounterDisadvantageReturn;
+
                 returnInfo.doReturnAttackStun = true;
                 returnInfo.returnAttackStun = playerFunc.blockCounterAttackStun;
+
                 returnInfo.doReturnKnockback = true;
                 returnInfo.returnKnockback = playerFunc.blockCounterReturnKnockback;
+
+                returnInfo.doHitStopOverride = true;
+                returnInfo.hitStopOverride = playerFunc.blockCounterHitStop;
             }
 
             playerFunc.OnBlock(info.advantageDamage);

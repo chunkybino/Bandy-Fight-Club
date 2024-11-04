@@ -43,7 +43,9 @@ public class AttackHitbox : MonoBehaviour
 
     void HitDude(AttackHitReturnInfo info)
     {
-        if (attackInfo.hitStopTime > 0) GameManager.DoHitStopStatic(attackInfo.hitStopTime);
+        float hitStop = attackInfo.hitStopTime;
+        if (info.doHitStopOverride) hitStop = info.hitStopOverride;
+        if (attackInfo.hitStopTime > 0) GameManager.DoHitStopStatic(hitStop);
         if (attackInfo.cameraShake > 0) GameManager.DoCameraShakeStatic(attackInfo.cameraShake * info.shakeMult);
 
         if (info.doReturnKnockback && knockbackHandler != null)
@@ -78,6 +80,9 @@ public class AttackHitReturnInfo
 
     public bool doReturnAttackStun;
     public float returnAttackStun;
+
+    public bool doHitStopOverride;
+    public float hitStopOverride;
 
     public float shakeMult = 1;
 }
