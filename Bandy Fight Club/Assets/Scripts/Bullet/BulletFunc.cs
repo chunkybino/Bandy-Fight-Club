@@ -63,6 +63,7 @@ public class BulletFunc : MonoBehaviour
     Vector2 lastFramPos;
 
     public SpriteRenderer outlineRender;
+    public SpriteRenderer disguiseOutlineRender;
 
     public void Start()
     {
@@ -93,8 +94,8 @@ public class BulletFunc : MonoBehaviour
 
         if (GameManager.singleton.teamOutlineColors.materials.Length > team.team) 
         {
-            //outlineColor = GameManager.singleton.teamOutlineColors.colors[team.team];
-            outlineRender.material = GameManager.singleton.teamOutlineColors.materials[team.team];
+            if (outlineRender) outlineRender.material = GameManager.singleton.teamOutlineColors.materials[team.team];
+            if (disguiseOutlineRender) disguiseOutlineRender.material = GameManager.singleton.teamOutlineColors.materials[team.team];
         }
     }
 
