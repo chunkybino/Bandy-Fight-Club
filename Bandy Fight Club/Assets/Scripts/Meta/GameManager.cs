@@ -327,4 +327,5 @@ public class TeamColorsSO : ScriptableObject
 {
     public Color[] colors;
     public string[] names;
+    public Material[] materials;
 }

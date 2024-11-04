@@ -62,6 +62,8 @@ public class BulletFunc : MonoBehaviour
 
     Vector2 lastFramPos;
 
+    public SpriteRenderer outlineRender;
+
     public void Start()
     {
         speed = config.speed;
@@ -88,6 +90,12 @@ public class BulletFunc : MonoBehaviour
         CheckCollisionNow();
 
         rb.velocity = direction.normalized * speed;
+
+        if (GameManager.singleton.teamOutlineColors.materials.Length > team.team) 
+        {
+            //outlineColor = GameManager.singleton.teamOutlineColors.colors[team.team];
+            outlineRender.material = GameManager.singleton.teamOutlineColors.materials[team.team];
+        }
     }
 
     public void Update()
