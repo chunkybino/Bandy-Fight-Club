@@ -27,11 +27,14 @@ public class PlayerAnimation : MonoBehaviour
     [SerializeField] float skidTime = 0.1f;
     float walkDashTimer;
     [SerializeField] float walkDashTime = 0.1f;
+    bool walking;
+
+    float riseToFallTimer;
+    [SerializeField] float riseToFallTime = 0.1f;
+    bool riseToFall;
 
     float timeDead;
     [SerializeField] float groundDeathAnimDelay = 0.1f; //dont do the deaath anim for this much time
-
-    bool walking;
 
     [SerializeField] ParticleSystem walkParticles;
     [SerializeField] ParticleSystem walkParticlesPrefab;
@@ -72,6 +75,8 @@ public class PlayerAnimation : MonoBehaviour
 
     string FindAnimation()
     {
+        if (playerFunc.grounded) riseToFallTimer = 0;
+
         if (characterFunc != null)
         {
             string characterAnim = characterFunc.FindAnimationName();
@@ -121,10 +126,26 @@ public class PlayerAnimation : MonoBehaviour
             if (rb.velocity.y > 0.1f)
             {
                 animName = "AirRise";
+                riseToFallTimer = 0;
+                riseToFall = false;
             }
             else
             {
-                animName = "AirDown";
+                UFunc.TickTimer(ref riseToFallTimer);
+                if (!riseToFall) 
+                {
+                    riseToFallTimer = riseToFallTime;
+                    riseToFall = true;
+                }
+
+                if (riseToFallTimer == 0)
+                {
+                    animName = "AirDown";
+                }
+                else
+                {
+                    animName = "AirRiseToFall";
+                }
             }
         }
         else
