@@ -54,6 +54,9 @@ public class GameManager : MonoBehaviour
     [SerializeField] float playerDieZoomMult = 2;
     [SerializeField] float playerDieRemoveCameraEffectorDelay = 1.5f;
 
+    bool winnerFinalized;
+    bool isDraw;
+
     void Awake()
     {
         CheckSingleton();
@@ -177,6 +180,9 @@ public class GameManager : MonoBehaviour
 
         playerWinNum = -1;
         ui.DoWin(false);
+
+        winnerFinalized = false;
+        isDraw = false;
         
         onRespawn?.Invoke();
         RespawnPlayers();
@@ -255,17 +261,23 @@ public class GameManager : MonoBehaviour
         {
             StartCoroutine("PlayerDieSlowMo", playerThatDied);
         }
-        else
+        else if (playersAlive == 1)
         {
             PlayerWin(alivePlayer, playerThatDied);
+        }
+        else if (!winnerFinalized) //draw if the last player dies fast enough
+        {
+            isDraw = true;
+
+            playerWinNum = -1;
+
+            cameraControl.doZoomMult = false;
+            cameraControl.doFocusTarget = false;
         }
     }
     public void PlayerWin(int winPlayer, int diePlayer)
     {
         StartCoroutine("PlayerWinCoroutine", diePlayer);
-
-        //increase score
-        playerInfos[winPlayer].score++;
         playerWinNum = winPlayer;
     }
 
@@ -281,6 +293,9 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSecondsRealtime(playerDieSlowTime);
 
         isPlayerDieSlowmo = false;
+
+        winnerFinalized = true;
+        IncreaseScore();
 
         yield return new WaitForSeconds(playerDieFocusTime);
 
@@ -300,6 +315,14 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(playerDieRemoveCameraEffectorDelay);
 
         cameraControl.RemovePlayerEffector(playerDiedIndex);
+    }
+
+    void IncreaseScore()
+    {
+        for (int i = 0; i < playerInfos.Count; i++)
+        {
+            if (!playerInfos[i].dead) playerInfos[i].score++;
+        }
     }
 
     void DoRoundOver()
@@ -328,4 +351,7 @@ public class TeamColorsSO : ScriptableObject
     public Color[] colors;
     public string[] names;
     public Material[] materials;
+
+    public Color drawColor;
+    public string drawName;
 }

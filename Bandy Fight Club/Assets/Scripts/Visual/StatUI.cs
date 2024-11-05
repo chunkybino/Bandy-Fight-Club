@@ -59,9 +59,18 @@ public class StatUI : MonoBehaviour
         {
             if (winFlashTimer > winFlashFreq) winFlashTimer -= 2*winFlashFreq;
 
-            if (winPlayer < gameManager.teamOutlineColors.names.Length) winText.text = gameManager.teamOutlineColors.names[winPlayer].ToString() + " WINS";
+            if (winPlayer < gameManager.teamOutlineColors.names.Length) 
+            {
+                string txt = gameManager.teamOutlineColors.drawName; //if index is negative, that means theeres a tie
+                if (winPlayer >= 0) txt = gameManager.teamOutlineColors.names[winPlayer].ToString() + " WINS";
+
+                winText.text = txt;
+            }
             winText.gameObject.SetActive(winFlashTimer >= 0);
-            winText.color = gameManager.teamOutlineColors.colors[winPlayer];
+
+            Color clr = gameManager.teamOutlineColors.drawColor; //if index is negative, that means theeres a tie
+            if (winPlayer >= 0) clr = gameManager.teamOutlineColors.colors[winPlayer];
+            winText.color = clr;
 
             winFlashTimer += Time.deltaTime;
         }
