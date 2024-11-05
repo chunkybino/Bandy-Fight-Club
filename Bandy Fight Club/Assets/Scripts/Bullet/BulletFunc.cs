@@ -51,6 +51,8 @@ public class BulletFunc : MonoBehaviour, IDamageable
     [SerializeField] float deflectCooldown = 0.1f;
     [SerializeField] bool swapTeamOnDeflect = true;
     [SerializeField] bool changeColorOnDeflectTeamSwap = true;
+    [SerializeField] float deflectHitStop = 0.15f;
+    [SerializeField] float deflectCameraShake = 0.5f;
 
     public bool disableHitbox;
 
@@ -279,6 +281,9 @@ public class BulletFunc : MonoBehaviour, IDamageable
         DoDeflectSpeed(deflectForce);
 
         DoLifetime(config.lifetime);
+
+        GameManager.DoHitStopStatic(deflectHitStop);
+        GameManager.DoCameraShakeStatic(deflectCameraShake);
 
         deflectable = false;
         Invoke("EnableDeflectable", deflectCooldown);

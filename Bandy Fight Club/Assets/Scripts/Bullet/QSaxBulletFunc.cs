@@ -123,7 +123,7 @@ public class QSaxBulletFunc : BulletFunc
         if (doGrav)
         {
             dir = dir.normalized;
-            dir = new Vector2(dir.x*speed + deflectSpeedAdd, dir.y*speed);
+            dir = new Vector2(dir.x*speed + (deflectSpeedAdd*Mathf.Sign(dir.x)), dir.y*speed);
             dir = new Vector2(dir.x, dir.y + rb.velocity.y*deflectVerticalDirectionMult);
             rb.velocity = dir;
         }

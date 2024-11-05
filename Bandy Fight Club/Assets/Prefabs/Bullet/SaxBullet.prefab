@@ -264,6 +264,8 @@ MonoBehaviour:
   deflectCooldown: 0.1
   swapTeamOnDeflect: 1
   changeColorOnDeflectTeamSwap: 0
+  deflectHitStop: 0.1
+  deflectCameraShake: 0.6
   disableHitbox: 0
   reHitTime: 0.5
   outlineRender: {fileID: 2260475175172785630}
