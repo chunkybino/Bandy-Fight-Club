@@ -32,6 +32,10 @@ MonoBehaviour:
     unblockable: 0
     hitStopTime: 0.12
     cameraShake: 0.7
+    doDeflect: 0
+    deflectForce: {x: 1, y: 0}
+    tags:
+    - sax
   speed: 40
   pierce: -1
   size: 1.8

@@ -30,6 +30,13 @@ public class QSaxBulletFunc : BulletFunc
 
     [SerializeField] float deflectVerticalDirectionMult = 0.5f;
 
+    [SerializeField] string saxClashTag = "sax"; //bounce off of bullet with this tag
+    [SerializeField] float saxClashSpeed = 120f;
+    [SerializeField] float saxClashDamageMult = 5f;
+    bool isSaxClash;
+    [SerializeField] float saxClashHitStop = 0.5f;
+    [SerializeField] float saxClashCameraShake = 3f;
+
     void Start()
     {
         base.Start();
@@ -67,6 +74,10 @@ public class QSaxBulletFunc : BulletFunc
 
         if (isGrappleParried) Die();
 
+        if (damageable.damageableTags.Contains(saxClashTag)) return;
+
+        if (isSaxClash) Die(); //do this after we check for a clash, cuase sometimes the bullets multihit and kill themslves on eacheother
+
         bounceState = true;
         direction = new Vector2(-direction.x,direction.y);
         rb.velocity = new Vector2(UFunc.Sign(direction.x),1) * bounceVel;
@@ -74,7 +85,7 @@ public class QSaxBulletFunc : BulletFunc
 
     public override void HitWall(Collider2D wall)
     {
-        if (isGrappleParried) Die();
+        if (isGrappleParried || isSaxClash) Die();
 
         bounceState = true;
 
@@ -118,6 +129,29 @@ public class QSaxBulletFunc : BulletFunc
         ClearHitList(); 
     }
 
+    public override AttackHitReturnInfo GetHit(FullAttackInfo info)
+    {
+        if (info.info.tags.Contains(saxClashTag))
+        {
+            isSaxClash = true;
+
+            rb.velocity = rb.velocity.normalized * saxClashSpeed * -1;
+            direction = new Vector2(UFunc.Sign(rb.velocity.x),direction.y);
+
+            team.team = 5; //hit everyone
+
+            GameManager.DoHitStopStatic(saxClashHitStop);
+            GameManager.DoCameraShakeStatic(saxClashCameraShake);
+
+            attackInfo.damage = Mathf.FloorToInt(attackInfo.damage * saxClashDamageMult);
+
+            return null;
+        }
+        else
+        {
+            return base.GetHit(info);
+        }
+    }
     public override void DoDeflectSpeed(Vector2 dir)
     {
         if (doGrav)

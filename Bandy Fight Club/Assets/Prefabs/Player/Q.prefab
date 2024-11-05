@@ -2951,6 +2951,7 @@ MonoBehaviour:
     cameraShake: 0.4
     doDeflect: 0
     deflectForce: {x: 0, y: 0}
+    tags: []
   direction: 0
   directionReference: {fileID: 4110637717697406780}
   playerFunc: {fileID: 3173985440313344023}
@@ -7798,6 +7799,7 @@ MonoBehaviour:
     cameraShake: 0.4
     doDeflect: 0
     deflectForce: {x: 0, y: 0}
+    tags: []
   direction: 0
   directionReference: {fileID: 4110637717697406780}
   playerFunc: {fileID: 3173985440313344023}
@@ -10274,6 +10276,7 @@ MonoBehaviour:
     cameraShake: 0.55
     doDeflect: 1
     deflectForce: {x: 1, y: 0.5}
+    tags: []
   direction: 0
   directionReference: {fileID: 4110637717697406780}
   playerFunc: {fileID: 3173985440313344023}
@@ -13076,6 +13079,7 @@ MonoBehaviour:
     cameraShake: 0.6
     doDeflect: 0
     deflectForce: {x: 0, y: 0}
+    tags: []
   direction: 0
   directionReference: {fileID: 4110637717697406780}
   playerFunc: {fileID: 3173985440313344023}
@@ -13899,6 +13903,7 @@ MonoBehaviour:
   - Block3
   skidTime: 0.1
   walkDashTime: 0.2
+  riseToFallTime: 0.1
   groundDeathAnimDelay: 0.1
   walkParticles: {fileID: 7278953536632359808}
   walkParticlesPrefab: {fileID: 2046055381380292504, guid: 253a28ecf89e1774381b4223671ede0c, type: 3}
@@ -21582,7 +21587,7 @@ MonoBehaviour:
   blockParticles: {fileID: 1713865554369944223, guid: b005adbada3821247b0673ad5b8f75de, type: 3}
   perfBlockParticles: {fileID: 1713865554369944223, guid: 01ce6fc26f37a134bb142ec271761b09, type: 3}
   blockCounterParticles: {fileID: 4512744190449187998, guid: f4f3ef347abed464f8e62387c48c69f3, type: 3}
-  blockCounterHitStop: 0.3
+  blockCounterHitStop: 0.35
   stunTimeNeeded: 0
   currentTimeStunned: 0
   isStun: 0
@@ -22226,6 +22231,7 @@ MonoBehaviour:
     cameraShake: 0.25
     doDeflect: 0
     deflectForce: {x: 0, y: 0}
+    tags: []
   direction: 0
   directionReference: {fileID: 4110637717697406780}
   playerFunc: {fileID: 3173985440313344023}

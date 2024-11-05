@@ -8,6 +8,8 @@ public interface IDamageable
 
     bool receiveHitFromAll {get {return false;}}
 
+    List<string> damageableTags {get {return new List<string>();}}
+
     AttackHitReturnInfo GetHit(FullAttackInfo info);
 
     AttackHitReturnInfo GetHit(AttackInfo info, Vector2 direction)
@@ -37,6 +39,8 @@ public class AttackInfo
     public bool doDeflect = false;
     public Vector2 deflectForce;
 
+    public List<string> tags;
+
     public AttackInfo dataCopy {get{return CloneYourself();}}
 
     public AttackInfo CloneYourself()
@@ -58,7 +62,9 @@ public class AttackInfo
             cameraShake = cameraShake,
 
             doDeflect = doDeflect,
-            deflectForce = deflectForce
+            deflectForce = deflectForce,
+
+            tags = tags
         };
     }
 }

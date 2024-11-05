@@ -80,6 +80,10 @@ public class BulletFunc : MonoBehaviour, IDamageable
     public SpriteRenderer outlineRender;
     public SpriteRenderer disguiseOutlineRender;
 
+
+    [SerializeField] List<string> hitboxTags = new List<string>();
+    public List<string> damageableTags {get {return hitboxTags;}}
+
     public void Start()
     {
         speed = config.speed;
@@ -247,8 +251,10 @@ public class BulletFunc : MonoBehaviour, IDamageable
 
     public void DoHitStopCameraShake(AttackHitReturnInfo info)
     {
+        float shakeMult = 1;
+        if (info != null) shakeMult = info.shakeMult;
         if (attackInfo.hitStopTime > 0) GameManager.DoHitStopStatic(attackInfo.hitStopTime);
-        if (attackInfo.cameraShake > 0) GameManager.DoCameraShakeStatic(attackInfo.cameraShake * info.shakeMult);
+        if (attackInfo.cameraShake > 0) GameManager.DoCameraShakeStatic(attackInfo.cameraShake * shakeMult);
     }
 
     public virtual void HitWall(Collider2D wall)
@@ -270,7 +276,7 @@ public class BulletFunc : MonoBehaviour, IDamageable
         BulletHandler.singleton.RemoveBulletFromList(this);
     }
 
-    public AttackHitReturnInfo GetHit(FullAttackInfo info)
+    public virtual AttackHitReturnInfo GetHit(FullAttackInfo info)
     {
         if (!deflectable || !info.info.doDeflect) return new AttackHitReturnInfo();
 
