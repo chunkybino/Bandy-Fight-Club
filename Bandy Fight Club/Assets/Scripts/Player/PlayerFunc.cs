@@ -845,7 +845,6 @@ public class PlayerFunc : MonoBehaviour
         {
             if (isLateBlocking) advantageDamage *= lateBlockDisadvantageMult;
             AddDisadvantage(advantageDamage);
-            disadvantageHealDelayTimer = disadvantageHealDelay;
 
             if (disadvantage >= maxDisavantage)
             {
@@ -858,6 +857,7 @@ public class PlayerFunc : MonoBehaviour
 
     public void AddDisadvantage(float amount)
     {
+        disadvantageHealDelayTimer = disadvantageHealDelay;
         disadvantage = Mathf.Min(disadvantage + amount, maxDisavantage);
     }
 
