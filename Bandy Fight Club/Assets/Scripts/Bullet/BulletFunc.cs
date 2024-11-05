@@ -278,6 +278,8 @@ public class BulletFunc : MonoBehaviour, IDamageable
     {
         DoDeflectSpeed(deflectForce);
 
+        DoLifetime(config.lifetime);
+
         deflectable = false;
         Invoke("EnableDeflectable", deflectCooldown);
 
