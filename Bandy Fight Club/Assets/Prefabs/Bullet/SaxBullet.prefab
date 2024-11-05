@@ -253,6 +253,8 @@ MonoBehaviour:
   rotateInMovementDirection: 0
   speedPerStrech: 0
   renderScale: {x: 0, y: 0}
+  deathParticles: {fileID: 8334959794579073723, guid: fc762d353cc8d8c4c87cd41dfd79d5e0, type: 3}
+  deathParticlesScale: 1.5
   direction: {x: 1, y: 0}
   speed: 8
   doGrav: 0

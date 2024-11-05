@@ -36,6 +36,9 @@ public class BulletFunc : MonoBehaviour, IDamageable
     [SerializeField] ParticleSystem deathParticles;
     [SerializeField] float deathParticlesScale = 0.6f;*/
 
+    [SerializeField] ParticleSystem deathParticles;
+    [SerializeField] float deathParticlesScale = 1;
+
     public Vector2 direction = new Vector2(1,0);
     public float speed = 8;
 
@@ -256,6 +259,9 @@ public class BulletFunc : MonoBehaviour, IDamageable
 
     public void Die()
     {
+        ParticleSystem particle = Instantiate(deathParticles, transform.position, Quaternion.identity);
+        particle.transform.localScale *= deathParticlesScale;
+
         Destroy(gameObject); //give some time for the trail to go away
     }
 
