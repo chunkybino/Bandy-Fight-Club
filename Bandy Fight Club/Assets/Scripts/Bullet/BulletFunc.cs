@@ -48,8 +48,9 @@ public class BulletFunc : MonoBehaviour, IDamageable
 
     public bool deflectable = true;
     public float deflectSpeedAdd = 8;
-
-    [SerializeField] float deflectCooldown = 0.2f;
+    [SerializeField] float deflectCooldown = 0.1f;
+    [SerializeField] bool swapTeamOnDeflect = true;
+    [SerializeField] bool changeColorOnDeflectTeamSwap = true;
 
     public bool disableHitbox;
 
@@ -101,6 +102,10 @@ public class BulletFunc : MonoBehaviour, IDamageable
 
         rb.velocity = direction.normalized * speed;
 
+        DoTeamColor();
+    }
+    void DoTeamColor()
+    {
         if (GameManager.singleton.teamOutlineColors.materials.Length > team.team) 
         {
             if (outlineRender) outlineRender.material = GameManager.singleton.teamOutlineColors.materials[team.team];
@@ -262,6 +267,10 @@ public class BulletFunc : MonoBehaviour, IDamageable
         if (!deflectable || !info.info.doDeflect) return new AttackHitReturnInfo();
 
         GetDeflected(info.info.deflectForce * info.direction);
+        if (swapTeamOnDeflect) {
+            team.team = info.team;
+            if (changeColorOnDeflectTeamSwap) DoTeamColor();
+        }
 
         return new AttackHitReturnInfo();
     }
@@ -291,6 +300,12 @@ public class BulletFunc : MonoBehaviour, IDamageable
         circleCollider.enabled = true;
     }
 
+    public void SetTeam(int num)
+    {
+        team.team = num;
+        DoTeamColor();
+    }
+
     /*public void ChangeDamage(float amount)
     {
         attackInfo.damage += amount;
@@ -308,10 +323,5 @@ public class BulletFunc : MonoBehaviour, IDamageable
     {
         CancelInvoke("Die");
         Invoke("Die", time);
-    }
-
-    public void SetTeam(int i)
-    {
-        if (team) team.team = i;
     }
 }

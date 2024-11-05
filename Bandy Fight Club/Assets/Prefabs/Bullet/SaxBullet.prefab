@@ -248,6 +248,7 @@ MonoBehaviour:
     hitStopTime: 0
     cameraShake: 0
     doDeflect: 0
+    deflectForce: {x: 0, y: 0}
   renderer: {fileID: 1475633148454669172}
   rotateInMovementDirection: 0
   speedPerStrech: 0
@@ -260,6 +261,10 @@ MonoBehaviour:
   dieOnWall: 1
   deflectable: 1
   deflectSpeedAdd: 16
+  deflectCooldown: 0.1
+  swapTeamOnDeflect: 1
+  changeColorOnDeflectTeamSwap: 0
+  disableHitbox: 0
   reHitTime: 0.5
   outlineRender: {fileID: 2260475175172785630}
   disguiseOutlineRender: {fileID: 6692029942926872115}
@@ -274,6 +279,7 @@ MonoBehaviour:
   getGrappledTimeoutLifetime: 3
   grappleParrySpeed: 90
   grappleParryDamageMult: 1.5
+  deflectVerticalDirectionMult: 0.5
 --- !u!58 &8270670476711904369
 CircleCollider2D:
   m_ObjectHideFlags: 0

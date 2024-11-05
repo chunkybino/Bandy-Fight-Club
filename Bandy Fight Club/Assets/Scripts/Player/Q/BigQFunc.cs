@@ -206,6 +206,7 @@ public class BigQFunc : PlayerFunc, ICharacterFunc
         if (!currentSaxBullet) return;
 
         currentSaxBullet.GetGrappled();
+        currentSaxBullet.SetTeam(team);
 
         isSaxGrappling = true;
 

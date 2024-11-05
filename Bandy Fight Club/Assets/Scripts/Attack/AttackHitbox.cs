@@ -32,7 +32,7 @@ public class AttackHitbox : MonoBehaviour
 
         direction = UFunc.Sign(directionReference.localScale.x);
 
-        FullAttackInfo fullInfo = new FullAttackInfo() {info = attackInfo, direction = new Vector2(direction,1)};
+        FullAttackInfo fullInfo = new FullAttackInfo() {info = attackInfo, direction = new Vector2(direction,1), team = team.team};
         AttackHitReturnInfo hitInfo = damageable.GetHit(fullInfo);
 
         if (hitInfo.hit) 

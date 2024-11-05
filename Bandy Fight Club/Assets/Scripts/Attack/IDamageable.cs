@@ -67,4 +67,5 @@ public class FullAttackInfo
 {
     public AttackInfo info;
     public Vector2 direction;
+    public int team;
 }
