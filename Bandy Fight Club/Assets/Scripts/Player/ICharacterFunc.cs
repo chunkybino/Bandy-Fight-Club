@@ -4,9 +4,9 @@ using UnityEngine;
 
 public interface ICharacterFunc
 {
-    string FindAttackName();
+    string FindAttackName() {return "";}
 
-    string FindAttackHeavyName();
+    string FindAttackHeavyName() {return "";}
 
-    string FindAnimationName();
+    string FindAnimationName() {return "";}
 }
