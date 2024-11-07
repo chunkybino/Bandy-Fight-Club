@@ -9,14 +9,19 @@ public class ShineLiner : MonoBehaviour
     [SerializeField] LineRenderer referenceLine;
 
     [SerializeField] float offset;
+    [SerializeField] bool flipEndTangents;
+
+    [SerializeField] float zOffset = 0;
 
     [SerializeField] bool limitIndexesUsed;
-    [SerializeField] int[] limitIndexes;
+    //[SerializeField] int[] limitIndexes;
+    [SerializeField] int startClamp; //limit index, start this many indexes after the start
+    [SerializeField] int endClamp; //end, this many points from the end
 
-    [SerializeField] Vector3[] referencePoints;
-    [SerializeField] Vector2[] referenceLineAngles;
-    [SerializeField] Vector2[] referenceTangents;
-    [SerializeField] Vector3[] tangentOffsetPositions; 
+    Vector3[] referencePoints;
+    Vector2[] referenceLineAngles;
+    Vector2[] referenceTangents;
+    Vector3[] tangentOffsetPositions; 
 
     void Update()
     {
@@ -37,8 +42,10 @@ public class ShineLiner : MonoBehaviour
         {
             if (i == 0 || i == referenceTangents.Length-1) //edge points
             {
-                if (i == 0) referenceTangents[i] = new Vector2(-referenceLineAngles[i].y,referenceLineAngles[i].x);
-                if (i == referenceTangents.Length-1) referenceTangents[i] = new Vector2(-referenceLineAngles[referenceTangents.Length-2].y,referenceLineAngles[referenceTangents.Length-2].x);
+                int flip = 1;
+                if (flipEndTangents) flip = -1;
+                if (i == 0) referenceTangents[i] = new Vector2(-referenceLineAngles[i].y,referenceLineAngles[i].x) * flip;
+                if (i == referenceTangents.Length-1) referenceTangents[i] = new Vector2(-referenceLineAngles[referenceTangents.Length-2].y,referenceLineAngles[referenceTangents.Length-2].x) * flip;
             }
             else 
             {
@@ -50,16 +57,18 @@ public class ShineLiner : MonoBehaviour
         tangentOffsetPositions = new Vector3[referenceTangents.Length];
         for (int i = 0; i < tangentOffsetPositions.Length; i++)
         {
-            tangentOffsetPositions[i] = referencePoints[i] + new Vector3(referenceTangents[i].x,referenceTangents[i].y,0)*offset;
+            tangentOffsetPositions[i] = referencePoints[i] + new Vector3(referenceTangents[i].x*offset,referenceTangents[i].y*offset,zOffset);
         }
 
         Vector3[] vecList = tangentOffsetPositions;
         if (limitIndexesUsed)
         {
-            vecList = new Vector3[limitIndexes.Length];
+            int length = vecList.Length - startClamp - endClamp;
+            if (length < 0) return;
+            vecList = new Vector3[length];
             for (int i = 0; i < vecList.Length; i++)
             {
-                vecList[i] = tangentOffsetPositions[limitIndexes[i]];
+                vecList[i] = tangentOffsetPositions[i+startClamp];
             }
         }
 
