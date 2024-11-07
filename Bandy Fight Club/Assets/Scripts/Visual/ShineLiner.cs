@@ -13,8 +13,9 @@ public class ShineLiner : MonoBehaviour
 
     [SerializeField] float zOffset = 0;
 
+    [SerializeField] bool flipOffset;
+
     [SerializeField] bool limitIndexesUsed;
-    //[SerializeField] int[] limitIndexes;
     [SerializeField] int startClamp; //limit index, start this many indexes after the start
     [SerializeField] int endClamp; //end, this many points from the end
 
@@ -22,6 +23,8 @@ public class ShineLiner : MonoBehaviour
     Vector2[] referenceLineAngles;
     Vector2[] referenceTangents;
     Vector3[] tangentOffsetPositions; 
+
+    List<Vector3> slopes = new List<Vector3>();
 
     void Update()
     {
@@ -37,6 +40,8 @@ public class ShineLiner : MonoBehaviour
             referenceLineAngles[i] = referenceLineAngles[i].normalized;
         }
 
+        slopes.Clear();
+
         referenceTangents = new Vector2[referencePoints.Length]; 
         for (int i = 0; i < referenceTangents.Length; i++)
         {
@@ -44,13 +49,28 @@ public class ShineLiner : MonoBehaviour
             {
                 int flip = 1;
                 if (flipEndTangents) flip = -1;
+
                 if (i == 0) referenceTangents[i] = new Vector2(-referenceLineAngles[i].y,referenceLineAngles[i].x) * flip;
                 if (i == referenceTangents.Length-1) referenceTangents[i] = new Vector2(-referenceLineAngles[referenceTangents.Length-2].y,referenceLineAngles[referenceTangents.Length-2].x) * flip;
             }
             else 
             {
-                referenceTangents[i] = referenceLineAngles[i]-referenceLineAngles[i-1];
-                referenceTangents[i] = referenceTangents[i].normalized;
+                Vector2 angle1 = -referenceLineAngles[i-1];
+                Vector2 angle2 = referenceLineAngles[i];
+                
+                float slope1 = angle1.y/angle1.x;
+                float slope2 = angle2.y/angle2.x;
+
+                int flip = 1;
+
+                float slopeSigns = Mathf.Sign(angle1.x)*Mathf.Sign(angle2.x);
+                if (slope1*slopeSigns > slope2*slopeSigns) flip = -1;
+                if (flipOffset) flip *= -1;
+
+                slopes.Add(new Vector3(slope1,slope2,slopeSigns));
+
+                referenceTangents[i] = angle1+angle2;
+                referenceTangents[i] = referenceTangents[i].normalized * flip;
             }
         }
 
