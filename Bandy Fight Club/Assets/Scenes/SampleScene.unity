@@ -15443,7 +15443,7 @@ PrefabInstance:
     - target: {fileID: 3482298752078740781, guid: 84f3f989133dc724681733bf06f534d8, type: 3}
       propertyPath: m_TargetTexture
       value: 
-      objectReference: {fileID: 8400000, guid: 02797a51b06c7a845b384228e1e012dd, type: 2}
+      objectReference: {fileID: 8400000, guid: dc8143f558bed254c897b1966e8d202f, type: 2}
     - target: {fileID: 3532034000626681271, guid: 84f3f989133dc724681733bf06f534d8, type: 3}
       propertyPath: mesh
       value: 
@@ -15682,7 +15682,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8472132381444169521, guid: 84f3f989133dc724681733bf06f534d8, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8606094641766351940, guid: 84f3f989133dc724681733bf06f534d8, type: 3}
       propertyPath: m_Positions.Array.data[0].x
@@ -18954,6 +18954,10 @@ PrefabInstance:
     - target: {fileID: 1568848647709469002, guid: 89a4bb26954076c4087def95df52bc91, type: 3}
       propertyPath: m_Name
       value: J
+      objectReference: {fileID: 0}
+    - target: {fileID: 1568848647709469002, guid: 89a4bb26954076c4087def95df52bc91, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1885475732630660217, guid: 89a4bb26954076c4087def95df52bc91, type: 3}
       propertyPath: m_Mesh
