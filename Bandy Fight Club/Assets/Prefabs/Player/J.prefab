@@ -12218,7 +12218,7 @@ MonoBehaviour:
   team: {fileID: 3331528246116513839}
   rehitTime: 0.5
   attackInfo:
-    damage: 15
+    damage: 20
     knockbacks:
     - name: piccolo
       vel: {x: 14, y: 0}
@@ -12230,9 +12230,9 @@ MonoBehaviour:
       ignoreBaseKnockbackResistance: 0
       acceleration: 0.2
       accelerationTime: 0.4
-    blockStun: 0.15
+    blockStun: 0.08
     stunTime: 0.15
-    advantageDamage: 0.03
+    advantageDamage: 0.04
     onlyPerfBlock: 0
     unblockable: 0
     hitStopTime: 0.04
@@ -21026,10 +21026,10 @@ MonoBehaviour:
   stunBlocking: 0
   blockBreakStunTime: 1
   disadvantage: 0
-  disadvantageHealRate: 0.06
+  disadvantageHealRate: 0.05
   maxDisavantage: 0.3
-  disadvantageStunMult: 1.8
-  disadvantageHealDelay: 1
+  disadvantageStunMult: 1.9
+  disadvantageHealDelay: 1.5
   playerMesh: {fileID: 398893775417935112}
   timeSinceSlash1: 0
   slash2ComboTime: 0.75
@@ -46471,9 +46471,9 @@ MonoBehaviour:
       ignoreBaseKnockbackResistance: 0
       acceleration: 0.35
       accelerationTime: 0.5
-    blockStun: 0.15
+    blockStun: 0.1
     stunTime: 0.3
-    advantageDamage: 0.04
+    advantageDamage: 0.05
     onlyPerfBlock: 0
     unblockable: 0
     hitStopTime: 0.04
@@ -51874,7 +51874,7 @@ MonoBehaviour:
   team: {fileID: 3331528246116513839}
   rehitTime: 0.5
   attackInfo:
-    damage: 45
+    damage: 40
     knockbacks:
     - name: slash2flute
       vel: {x: 10, y: 0}
@@ -51896,9 +51896,9 @@ MonoBehaviour:
       ignoreBaseKnockbackResistance: 0
       acceleration: 0.1
       accelerationTime: 0.6
-    blockStun: 0.3
-    stunTime: 0.35
-    advantageDamage: 0.08
+    blockStun: 0.25
+    stunTime: 0.4
+    advantageDamage: 0.1
     onlyPerfBlock: 0
     unblockable: 0
     hitStopTime: 0.1
