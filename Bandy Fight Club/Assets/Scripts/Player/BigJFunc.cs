@@ -9,6 +9,8 @@ public class BigJFunc : PlayerFunc, ICharacterFunc
 
     public BulletConfig piccoloBulletConfig;
 
+    public JPiccoloBulletFunc currentPiccoloBullet;
+
     void Awake()
     {
         if (characterFunc == null) characterFunc = this;
@@ -48,11 +50,25 @@ public class BigJFunc : PlayerFunc, ICharacterFunc
 
     public void PiccoloThrowAttack()
     {
-        ShootPiccolo();
+        if (!currentPiccoloBullet)
+        {
+            ShootPiccolo();
+        }
+        else
+        {
+            DoPiccoloClone(new Vector2(1,0));
+        }
     }
     public void ShootPiccolo()
     {
         BulletFunc bullet = BulletHandler.ShootBulletStatic(piccoloBulletConfig, transform.position, new Vector2(facing, 1), team);
+        JPiccoloBulletFunc piccolo = bullet.GetComponent<JPiccoloBulletFunc>();
+        if (piccolo) currentPiccoloBullet = piccolo;
+    }
+
+    public void DoPiccoloClone(Vector2 direciton)
+    {
+        if (!currentPiccoloBullet) return;
     }
 }
 
