@@ -211,6 +211,10 @@ public class PlayerAnimation : MonoBehaviour
     {
         rb.velocity = new Vector2(force * playerFunc.facing, rb.velocity.y);
     }
+    public void DoVerticalBoost(float force)
+    {
+        rb.velocity = new Vector2(rb.velocity.x, force);
+    }
 
     public void DoAnimatorEvent(string name)
     {
