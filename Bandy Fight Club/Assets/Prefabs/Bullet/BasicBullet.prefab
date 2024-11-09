@@ -234,7 +234,7 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 192
-  team: {fileID: 5887056381096453671}
+  bulletTeam: {fileID: 0}
   attackInfo:
     damage: 1
     knockbacks:
@@ -245,18 +245,44 @@ MonoBehaviour:
       yVelType: 3
       normalizeVel: 0
       dontDoAgainstGroundedTarget: 0
+      ignoreBaseKnockbackResistance: 0
       acceleration: 0.4
       accelerationTime: 0.3
+    blockStun: 0.4
+    stunTime: 0
+    advantageDamage: 0
+    onlyPerfBlock: 0
+    unblockable: 0
     hitStopTime: 0
     cameraShake: 0
+    doDeflect: 0
+    deflectForce: {x: 0, y: 0}
+    tags: []
   renderer: {fileID: 2413970961632217467}
   rotateInMovementDirection: 1
   speedPerStrech: 30
   renderScale: {x: 0, y: 0}
+  deathParticles: {fileID: 0}
+  deathParticlesScale: 1
   direction: {x: 1, y: 0}
   speed: 8
+  doGrav: 0
+  gravity: 0
   currentPierce: 0
+  dieOnWall: 0
+  deflectable: 1
+  deflectSpeedAdd: 8
+  deflectCooldown: 0.1
+  swapTeamOnDeflect: 1
+  changeColorOnDeflectTeamSwap: 1
+  deflectHitStop: 0.15
+  deflectCameraShake: 0.5
+  disableHitbox: 0
+  hitPlayers: 1
   reHitTime: 0.5
+  outlineRender: {fileID: 0}
+  disguiseOutlineRender: {fileID: 0}
+  hitboxTags: []
 --- !u!58 &4091999052722105223
 CircleCollider2D:
   m_ObjectHideFlags: 0

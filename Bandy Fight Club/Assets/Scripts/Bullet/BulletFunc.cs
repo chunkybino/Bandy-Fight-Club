@@ -58,7 +58,7 @@ public class BulletFunc : MonoBehaviour, IDamageable
     [SerializeField] float deflectCameraShake = 0.5f;
 
     public bool disableHitbox;
-    public bool hitPlayers;
+    public bool hitPlayers = true;
 
     //public UnityEvent<EnemyHitbox> onEnemyHit;
 
