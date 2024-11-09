@@ -869,7 +869,7 @@ Transform:
   m_GameObject: {fileID: 253806987234097496}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 142, y: -997, z: 0}
+  m_LocalPosition: {x: 152, y: -997, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2055,8 +2055,8 @@ LineRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 15
   m_Positions:
-  - {x: 130.10524, y: -1001.63684, z: 11.546272}
-  - {x: 129.91502, y: -1000.79254, z: 12.051292}
+  - {x: 140.10524, y: -1001.63684, z: 11.546272}
+  - {x: 139.91502, y: -1000.79254, z: 12.051292}
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 0.1
@@ -2931,6 +2931,7 @@ MonoBehaviour:
       yVelType: 3
       normalizeVel: 0
       dontDoAgainstGroundedTarget: 0
+      ignoreBaseKnockbackResistance: 0
       acceleration: 0.12
       accelerationTime: 0.45
     - name: airkickadd
@@ -2940,6 +2941,7 @@ MonoBehaviour:
       yVelType: 2
       normalizeVel: 0
       dontDoAgainstGroundedTarget: 0
+      ignoreBaseKnockbackResistance: 0
       acceleration: 0.08
       accelerationTime: 0.6
     blockStun: 0.2
@@ -4944,14 +4946,14 @@ LineRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 30
   m_Positions:
-  - {x: 129.2102, y: -997.7345, z: -0.19000001}
-  - {x: 129.55193, y: -997.684, z: -0.351}
-  - {x: 129.82457, y: -998.7601, z: -0.586}
-  - {x: 129.64508, y: -999.26086, z: -0.3}
-  - {x: 129.52068, y: -1000.69446, z: -0.19000001}
-  - {x: 128.82664, y: -1001.02527, z: -0.10100001}
-  - {x: 129.16135, y: -999.169, z: -0.16548443}
-  - {x: 128.95274, y: -998.0817, z: -0.19000001}
+  - {x: 139.2102, y: -997.7345, z: -0.19000001}
+  - {x: 139.55193, y: -997.684, z: -0.351}
+  - {x: 139.82457, y: -998.7601, z: -0.586}
+  - {x: 139.64508, y: -999.26086, z: -0.3}
+  - {x: 139.52068, y: -1000.69446, z: -0.19000001}
+  - {x: 138.82664, y: -1001.02527, z: -0.10100001}
+  - {x: 139.16135, y: -999.169, z: -0.16548443}
+  - {x: 138.95274, y: -998.0817, z: -0.19000001}
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 0.1
@@ -5660,6 +5662,7 @@ MonoBehaviour:
     yVelType: 0
     normalizeVel: 0
     dontDoAgainstGroundedTarget: 0
+    ignoreBaseKnockbackResistance: 0
     acceleration: 0.2
     accelerationTime: 0.5
   stunBlockParticles: {fileID: 1713865554369944223, guid: b005adbada3821247b0673ad5b8f75de, type: 3}
@@ -5970,8 +5973,8 @@ LineRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 25
   m_Positions:
-  - {x: 129.7619, y: -1001.7793, z: 2.82}
-  - {x: 130.17345, y: -1000.7445, z: 2.77}
+  - {x: 139.7619, y: -1001.7793, z: 2.82}
+  - {x: 140.17345, y: -1000.7445, z: 2.77}
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 0.1
@@ -6657,9 +6660,9 @@ LineRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 15
   m_Positions:
-  - {x: 130.5744, y: -999.92535, z: 11.82}
-  - {x: 130.74286, y: -1000.4362, z: 11.82}
-  - {x: 130.86453, y: -1001.5022, z: 11.45948}
+  - {x: 140.5744, y: -999.92535, z: 11.82}
+  - {x: 140.74286, y: -1000.4362, z: 11.82}
+  - {x: 140.86453, y: -1001.5022, z: 11.45948}
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 0.1
@@ -7779,6 +7782,7 @@ MonoBehaviour:
       yVelType: 3
       normalizeVel: 0
       dontDoAgainstGroundedTarget: 0
+      ignoreBaseKnockbackResistance: 0
       acceleration: 0.12
       accelerationTime: 0.45
     - name: airkickadd
@@ -7788,6 +7792,7 @@ MonoBehaviour:
       yVelType: 2
       normalizeVel: 0
       dontDoAgainstGroundedTarget: 0
+      ignoreBaseKnockbackResistance: 0
       acceleration: 0.12
       accelerationTime: 0.55
     blockStun: 0.3
@@ -9949,14 +9954,14 @@ LineRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 24
   m_Positions:
-  - {x: 129.393, y: -997.789, z: 9.59}
-  - {x: 130.266, y: -997.778, z: 9.59}
-  - {x: 130.668, y: -998.618, z: 9.477}
-  - {x: 130.508, y: -999.176, z: 9.59}
-  - {x: 130.5744, y: -999.92535, z: 9.59}
-  - {x: 129.2452, y: -999.9212, z: 9.59}
-  - {x: 129.39, y: -999.146, z: 9.59}
-  - {x: 129.349, y: -998.516, z: 9.59}
+  - {x: 139.393, y: -997.789, z: 9.59}
+  - {x: 140.266, y: -997.778, z: 9.59}
+  - {x: 140.668, y: -998.618, z: 9.477}
+  - {x: 140.508, y: -999.176, z: 9.59}
+  - {x: 140.5744, y: -999.92535, z: 9.59}
+  - {x: 139.2452, y: -999.9212, z: 9.59}
+  - {x: 139.39, y: -999.146, z: 9.59}
+  - {x: 139.349, y: -998.516, z: 9.59}
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 0.1
@@ -10091,10 +10096,10 @@ LineRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 10
   m_Positions:
-  - {x: 131.0743, y: -999.0579, z: 21.81}
-  - {x: 131.12091, y: -1000.182, z: 21.81}
-  - {x: 130.58289, y: -1000.22906, z: 21.81}
-  - {x: 130.4598, y: -999.1722, z: 21.81}
+  - {x: 141.0743, y: -999.0579, z: 21.81}
+  - {x: 141.12091, y: -1000.182, z: 21.81}
+  - {x: 140.58289, y: -1000.22906, z: 21.81}
+  - {x: 140.4598, y: -999.1722, z: 21.81}
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 0.1
@@ -10256,6 +10261,7 @@ MonoBehaviour:
       yVelType: 3
       normalizeVel: 0
       dontDoAgainstGroundedTarget: 0
+      ignoreBaseKnockbackResistance: 0
       acceleration: 0.1
       accelerationTime: 0.5
     - name: highkickadd
@@ -10265,6 +10271,7 @@ MonoBehaviour:
       yVelType: 2
       normalizeVel: 0
       dontDoAgainstGroundedTarget: 0
+      ignoreBaseKnockbackResistance: 0
       acceleration: 0.1
       accelerationTime: 0.8
     blockStun: 0.3
@@ -10921,14 +10928,14 @@ LineRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 20
   m_Positions:
-  - {x: 130.53896, y: -997.73486, z: 8.809999}
-  - {x: 130.17796, y: -997.67554, z: 8.648999}
-  - {x: 130.39055, y: -998.6864, z: 8.440999}
-  - {x: 130.31995, y: -999.21387, z: 8.7}
-  - {x: 130.5263, y: -1000.69916, z: 8.809999}
-  - {x: 130.93944, y: -1000.95337, z: 8.809999}
-  - {x: 130.65775, y: -999.1703, z: 8.809999}
-  - {x: 130.79684, y: -998.4646, z: 8.809999}
+  - {x: 140.53896, y: -997.73486, z: 8.809999}
+  - {x: 140.17796, y: -997.67554, z: 8.648999}
+  - {x: 140.39055, y: -998.6864, z: 8.440999}
+  - {x: 140.31995, y: -999.21387, z: 8.7}
+  - {x: 140.5263, y: -1000.69916, z: 8.809999}
+  - {x: 140.93944, y: -1000.95337, z: 8.809999}
+  - {x: 140.65775, y: -999.1703, z: 8.809999}
+  - {x: 140.79684, y: -998.4646, z: 8.809999}
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 0.1
@@ -11279,8 +11286,8 @@ LineRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 24
   m_Positions:
-  - {x: 129.2452, y: -999.9212, z: 17.82}
-  - {x: 130.5744, y: -999.92535, z: 17.82}
+  - {x: 139.2452, y: -999.9212, z: 17.82}
+  - {x: 140.5744, y: -999.92535, z: 17.82}
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 0.1
@@ -12444,10 +12451,10 @@ LineRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 40
   m_Positions:
-  - {x: 129.19273, y: -999.1803, z: -6.19}
-  - {x: 129.46574, y: -1000.1936, z: -6.19}
-  - {x: 128.945, y: -1000.3368, z: -6.19}
-  - {x: 128.59863, y: -999.18475, z: -6.19}
+  - {x: 139.19273, y: -999.1803, z: -6.19}
+  - {x: 139.46574, y: -1000.1936, z: -6.19}
+  - {x: 138.945, y: -1000.3368, z: -6.19}
+  - {x: 138.59863, y: -999.18475, z: -6.19}
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 0.1
@@ -13059,6 +13066,7 @@ MonoBehaviour:
       yVelType: 3
       normalizeVel: 0
       dontDoAgainstGroundedTarget: 0
+      ignoreBaseKnockbackResistance: 2
       acceleration: 0.15
       accelerationTime: 0.45
     - name: slideadd
@@ -13068,6 +13076,7 @@ MonoBehaviour:
       yVelType: 2
       normalizeVel: 0
       dontDoAgainstGroundedTarget: 0
+      ignoreBaseKnockbackResistance: 0
       acceleration: 0.2
       accelerationTime: 0.6
     blockStun: 0.35
@@ -13421,8 +13430,8 @@ LineRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 24
   m_Positions:
-  - {x: 130.00157, y: -1001.1767, z: 17.82}
-  - {x: 130.00157, y: -1001.1767, z: 17.82}
+  - {x: 140.00157, y: -1001.1767, z: 17.82}
+  - {x: 140.00157, y: -1001.1767, z: 17.82}
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 0.1
@@ -15509,19 +15518,19 @@ LineRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 20
   m_Positions:
-  - {x: 128.82664, y: -1001.02527, z: 29.899}
-  - {x: 128.88066, y: -1000.9085, z: 30.036999}
-  - {x: 130.00977, y: -1000.54114, z: 29.837}
-  - {x: 130.93944, y: -1000.95337, z: 29.81}
-  - {x: 130.65775, y: -999.1703, z: 29.81}
-  - {x: 130.79684, y: -998.4646, z: 29.81}
-  - {x: 130.53896, y: -997.73486, z: 29.81}
-  - {x: 130.17796, y: -997.67554, z: 29.649}
-  - {x: 129.55193, y: -997.684, z: 29.649}
-  - {x: 129.2102, y: -997.7345, z: 29.81}
-  - {x: 128.95274, y: -998.0817, z: 29.81}
-  - {x: 128.9643, y: -998.4437, z: 29.81}
-  - {x: 129.16135, y: -999.169, z: 29.834515}
+  - {x: 138.82664, y: -1001.02527, z: 29.899}
+  - {x: 138.88066, y: -1000.9085, z: 30.036999}
+  - {x: 140.00977, y: -1000.54114, z: 29.837}
+  - {x: 140.93944, y: -1000.95337, z: 29.81}
+  - {x: 140.65775, y: -999.1703, z: 29.81}
+  - {x: 140.79684, y: -998.4646, z: 29.81}
+  - {x: 140.53896, y: -997.73486, z: 29.81}
+  - {x: 140.17796, y: -997.67554, z: 29.649}
+  - {x: 139.55193, y: -997.684, z: 29.649}
+  - {x: 139.2102, y: -997.7345, z: 29.81}
+  - {x: 138.95274, y: -998.0817, z: 29.81}
+  - {x: 138.9643, y: -998.4437, z: 29.81}
+  - {x: 139.16135, y: -999.169, z: 29.834515}
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 0.1
@@ -17258,11 +17267,11 @@ LineRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 35
   m_Positions:
-  - {x: 129.2634, y: -997.77936, z: -3.19}
-  - {x: 128.82231, y: -997.9773, z: -3.19}
-  - {x: 128.59863, y: -999.18475, z: -3.19}
-  - {x: 129.21266, y: -999.3015, z: -3.19}
-  - {x: 129.44534, y: -998.0215, z: -3.19}
+  - {x: 139.2634, y: -997.77936, z: -3.19}
+  - {x: 138.82231, y: -997.9773, z: -3.19}
+  - {x: 138.59863, y: -999.18475, z: -3.19}
+  - {x: 139.21266, y: -999.3015, z: -3.19}
+  - {x: 139.44534, y: -998.0215, z: -3.19}
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 0.1
@@ -18760,10 +18769,10 @@ LineRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 14
   m_Positions:
-  - {x: 130.86453, y: -1001.5022, z: 14.45948}
-  - {x: 130.90971, y: -1002.4546, z: 13.920437}
-  - {x: 130.27975, y: -1002.5744, z: 13.9995575}
-  - {x: 130.10121, y: -1001.61896, z: 14.82}
+  - {x: 140.86453, y: -1001.5022, z: 14.45948}
+  - {x: 140.90971, y: -1002.4546, z: 13.920437}
+  - {x: 140.27975, y: -1002.5744, z: 13.9995575}
+  - {x: 140.10121, y: -1001.61896, z: 14.82}
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 0.1
@@ -19099,11 +19108,11 @@ LineRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 5
   m_Positions:
-  - {x: 130.22964, y: -997.96594, z: 24.81}
-  - {x: 130.4598, y: -999.1722, z: 24.81}
-  - {x: 131.0743, y: -999.0579, z: 24.81}
-  - {x: 130.85359, y: -997.9415, z: 24.81}
-  - {x: 130.38008, y: -997.7222, z: 24.81}
+  - {x: 140.22964, y: -997.96594, z: 24.81}
+  - {x: 140.4598, y: -999.1722, z: 24.81}
+  - {x: 141.0743, y: -999.0579, z: 24.81}
+  - {x: 140.85359, y: -997.9415, z: 24.81}
+  - {x: 140.38008, y: -997.7222, z: 24.81}
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 0.1
@@ -20152,7 +20161,7 @@ Transform:
   m_GameObject: {fileID: 7933233339599293399}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 142, y: -997, z: -100}
+  m_LocalPosition: {x: 152, y: -997, z: -100}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -20199,7 +20208,7 @@ Camera:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingPath: -1
-  m_TargetTexture: {fileID: 8400000, guid: 02797a51b06c7a845b384228e1e012dd, type: 2}
+  m_TargetTexture: {fileID: 8400000, guid: dc8143f558bed254c897b1966e8d202f, type: 2}
   m_TargetDisplay: 0
   m_TargetEye: 3
   m_HDR: 1
@@ -20913,10 +20922,10 @@ LineRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 24
   m_Positions:
-  - {x: 129.7619, y: -1001.7793, z: 5.82}
-  - {x: 129.2448, y: -1002.7868, z: 5.82}
-  - {x: 128.63481, y: -1002.5737, z: 5.82}
-  - {x: 128.96896, y: -1001.5432, z: 5.82}
+  - {x: 139.7619, y: -1001.7793, z: 5.82}
+  - {x: 139.2448, y: -1002.7868, z: 5.82}
+  - {x: 138.63481, y: -1002.5737, z: 5.82}
+  - {x: 138.96896, y: -1001.5432, z: 5.82}
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 0.1
@@ -21239,9 +21248,9 @@ LineRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 25
   m_Positions:
-  - {x: 129.2452, y: -999.9212, z: 2.82}
-  - {x: 129.23515, y: -1000.278, z: 2.82}
-  - {x: 128.96896, y: -1001.5432, z: 2.82}
+  - {x: 139.2452, y: -999.9212, z: 2.82}
+  - {x: 139.23515, y: -1000.278, z: 2.82}
+  - {x: 138.96896, y: -1001.5432, z: 2.82}
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 0.1
@@ -21322,7 +21331,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4110637717697406780
 Transform:
   m_ObjectHideFlags: 0
@@ -21565,6 +21574,7 @@ MonoBehaviour:
     yVelType: 3
     normalizeVel: 0
     dontDoAgainstGroundedTarget: 0
+    ignoreBaseKnockbackResistance: 0
     acceleration: 0.05
     accelerationTime: 0.4
   blockKnockbackMult: {x: 0.9, y: 0.9}
@@ -21698,6 +21708,7 @@ MonoBehaviour:
     yVelType: 1
     normalizeVel: 0
     dontDoAgainstGroundedTarget: 0
+    ignoreBaseKnockbackResistance: 0
     acceleration: 0
     accelerationTime: 0
   doKnock: 0
@@ -22220,6 +22231,7 @@ MonoBehaviour:
       yVelType: 3
       normalizeVel: 0
       dontDoAgainstGroundedTarget: 0
+      ignoreBaseKnockbackResistance: 1
       acceleration: 0.3
       accelerationTime: 0.6
     blockStun: 0.25

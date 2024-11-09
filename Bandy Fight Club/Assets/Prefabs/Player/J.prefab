@@ -12227,6 +12227,7 @@ MonoBehaviour:
       yVelType: 3
       normalizeVel: 0
       dontDoAgainstGroundedTarget: 0
+      ignoreBaseKnockbackResistance: 0
       acceleration: 0.1
       accelerationTime: 0.5
     - name: highkickadd
@@ -12236,6 +12237,7 @@ MonoBehaviour:
       yVelType: 2
       normalizeVel: 0
       dontDoAgainstGroundedTarget: 0
+      ignoreBaseKnockbackResistance: 0
       acceleration: 0.1
       accelerationTime: 0.8
     blockStun: 0.3
@@ -13217,6 +13219,7 @@ MonoBehaviour:
       yVelType: 3
       normalizeVel: 0
       dontDoAgainstGroundedTarget: 0
+      ignoreBaseKnockbackResistance: 0
       acceleration: 0.15
       accelerationTime: 0.45
     - name: slideadd
@@ -13226,6 +13229,7 @@ MonoBehaviour:
       yVelType: 2
       normalizeVel: 0
       dontDoAgainstGroundedTarget: 0
+      ignoreBaseKnockbackResistance: 0
       acceleration: 0.2
       accelerationTime: 0.6
     blockStun: 0.35
@@ -20995,8 +20999,8 @@ MonoBehaviour:
   movementSpeed: 24
   sideInputDirection: 0
   verticalInputDirection: 0
-  multAccleration: 0.5
-  flatAccleration: 0.3
+  multAccleration: 0.6
+  flatAccleration: 0.4
   currentMultAcceleration: 0
   currentFlatAcceleration: 0
   accelerationAnimator: {fileID: 6327729545796327246}
@@ -21126,6 +21130,7 @@ MonoBehaviour:
     yVelType: 3
     normalizeVel: 0
     dontDoAgainstGroundedTarget: 0
+    ignoreBaseKnockbackResistance: 0
     acceleration: 0.05
     accelerationTime: 0.4
   blockKnockbackMult: {x: 0.9, y: 0.9}
@@ -21234,6 +21239,7 @@ MonoBehaviour:
     yVelType: 1
     normalizeVel: 0
     dontDoAgainstGroundedTarget: 0
+    ignoreBaseKnockbackResistance: 0
     acceleration: 0
     accelerationTime: 0
   doKnock: 0
@@ -28881,6 +28887,7 @@ MonoBehaviour:
     yVelType: 0
     normalizeVel: 0
     dontDoAgainstGroundedTarget: 0
+    ignoreBaseKnockbackResistance: 0
     acceleration: 0.2
     accelerationTime: 0.5
   stunBlockParticles: {fileID: 1713865554369944223, guid: b005adbada3821247b0673ad5b8f75de, type: 3}
@@ -46600,6 +46607,7 @@ MonoBehaviour:
       yVelType: 3
       normalizeVel: 0
       dontDoAgainstGroundedTarget: 0
+      ignoreBaseKnockbackResistance: 0
       acceleration: 0.35
       accelerationTime: 0.5
     blockStun: 0.15
@@ -51881,6 +51889,7 @@ MonoBehaviour:
       yVelType: 3
       normalizeVel: 0
       dontDoAgainstGroundedTarget: 0
+      ignoreBaseKnockbackResistance: 0
       acceleration: 0.12
       accelerationTime: 0.45
     - name: airkickadd
@@ -51890,6 +51899,7 @@ MonoBehaviour:
       yVelType: 2
       normalizeVel: 0
       dontDoAgainstGroundedTarget: 0
+      ignoreBaseKnockbackResistance: 0
       acceleration: 0.08
       accelerationTime: 0.6
     blockStun: 0.2
@@ -52141,6 +52151,7 @@ MonoBehaviour:
       yVelType: 3
       normalizeVel: 0
       dontDoAgainstGroundedTarget: 0
+      ignoreBaseKnockbackResistance: 0
       acceleration: 0.12
       accelerationTime: 0.45
     - name: airkickadd
@@ -52150,6 +52161,7 @@ MonoBehaviour:
       yVelType: 2
       normalizeVel: 0
       dontDoAgainstGroundedTarget: 0
+      ignoreBaseKnockbackResistance: 0
       acceleration: 0.12
       accelerationTime: 0.55
     blockStun: 0.3

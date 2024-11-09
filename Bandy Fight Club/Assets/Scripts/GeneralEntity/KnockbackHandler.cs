@@ -86,10 +86,20 @@ public class KnockbackHandler : MonoBehaviour
             direction = new Vector2(UFunc.FloatToDirection(direction.x), UFunc.FloatToDirection(direction.y));
         }
         
-        Vector2 resistance = baseKnockbackResistance * knockbackResistanceMult;
-        //if (knockbackResistanceController) if (knockbackResistanceController.gameObject.activeSelf) resistance *= knockbackResistanceController.localPosition;
-        //if (enemyFunc) resistance *= enemyFunc.totalHyperArmorKnockbackResistance;
-
+        Vector2 resistance = knockbackResistanceMult * baseKnockbackResistance;
+        switch (knockback.ignoreBaseKnockbackResistance)
+        {
+            case Knockback.GroundedKnockback.X:
+                resistance = new Vector2(knockbackResistanceMult.x, resistance.y);
+                break;
+            case Knockback.GroundedKnockback.Y:
+                resistance = new Vector2(resistance.x, knockbackResistanceMult.y);
+                break;
+            case Knockback.GroundedKnockback.Both:
+                resistance = knockbackResistanceMult;
+                break;
+        }
+        
         newVel = new Vector2(
         VelCalc(knockback.xVelType, rb.velocity.x, resistance.x * ((knockback.vel.x * direction.x) + knockback.fixedVel.x)),
         VelCalc(knockback.yVelType, rb.velocity.y, resistance.y * ((knockback.vel.y * direction.y) + knockback.fixedVel.y)));
@@ -201,6 +211,8 @@ public struct Knockback
     public bool normalizeVel;
     [Tooltip("EX. x = dont do x velocity against grounded target")]
     public GroundedKnockback dontDoAgainstGroundedTarget;
+
+    public GroundedKnockback ignoreBaseKnockbackResistance;
 
     public float acceleration;
     public float accelerationTime;
