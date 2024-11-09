@@ -12137,7 +12137,7 @@ GameObject:
   - component: {fileID: 6926290447458381988}
   - component: {fileID: 8376580742004156691}
   m_Layer: 8
-  m_Name: HighLeg
+  m_Name: Attack2Piccolo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12190,7 +12190,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 2.153534, y: 0.9870441}
+  m_Offset: {x: 2.0671906, y: -0.2858665}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -12201,7 +12201,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 3.8886147, y: 2.2570992}
+  m_Size: {x: 2.8309145, y: 1.5866485}
   m_EdgeRadius: 0
 --- !u!114 &8376580742004156691
 MonoBehaviour:
@@ -12218,41 +12218,31 @@ MonoBehaviour:
   team: {fileID: 3331528246116513839}
   rehitTime: 0.5
   attackInfo:
-    damage: 40
+    damage: 15
     knockbacks:
-    - name: highkick
-      vel: {x: 10, y: 0}
-      fixedVel: {x: 0, y: 15}
-      xVelType: 3
-      yVelType: 3
-      normalizeVel: 0
-      dontDoAgainstGroundedTarget: 0
-      ignoreBaseKnockbackResistance: 0
-      acceleration: 0.1
-      accelerationTime: 0.5
-    - name: highkickadd
-      vel: {x: 15, y: 0}
-      fixedVel: {x: 0, y: 8}
+    - name: piccolo
+      vel: {x: 14, y: 0}
+      fixedVel: {x: 0, y: 6}
       xVelType: 2
       yVelType: 2
       normalizeVel: 0
       dontDoAgainstGroundedTarget: 0
       ignoreBaseKnockbackResistance: 0
-      acceleration: 0.1
-      accelerationTime: 0.8
-    blockStun: 0.3
-    stunTime: 0.4
-    advantageDamage: 0.08
+      acceleration: 0.2
+      accelerationTime: 0.4
+    blockStun: 0.15
+    stunTime: 0.15
+    advantageDamage: 0.03
     onlyPerfBlock: 0
     unblockable: 0
-    hitStopTime: 0.1
-    cameraShake: 0.55
+    hitStopTime: 0.04
+    cameraShake: 0.2
     doDeflect: 1
     deflectForce: {x: 1, y: 0.5}
     tags: []
   direction: 0
   directionReference: {fileID: 7577120169397887839}
-  playerFunc: {fileID: 0}
+  playerFunc: {fileID: 9045482197941810018}
   knockbackHandler: {fileID: 5166431708020599540}
 --- !u!1 &913684019360615959
 GameObject:
@@ -13117,135 +13107,6 @@ LineRenderer:
   m_UseWorldSpace: 1
   m_Loop: 0
   m_ApplyActiveColorSpace: 1
---- !u!1 &1103644826683989295
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 6298395185325847027}
-  - component: {fileID: 2094964105312351858}
-  - component: {fileID: 4960510802150900740}
-  m_Layer: 8
-  m_Name: Slide
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &6298395185325847027
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1103644826683989295}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 2290274408303487384}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &2094964105312351858
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1103644826683989295}
-  m_Enabled: 0
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 1.9047099, y: -2.1245003}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 3.4756072, y: 2.2110386}
-  m_EdgeRadius: 0
---- !u!114 &4960510802150900740
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1103644826683989295}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 15bd414acfc493f4a9f14987b0906063, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  team: {fileID: 3331528246116513839}
-  rehitTime: 0.5
-  attackInfo:
-    damage: 50
-    knockbacks:
-    - name: slide
-      vel: {x: 0, y: 0}
-      fixedVel: {x: 0, y: 36}
-      xVelType: 3
-      yVelType: 3
-      normalizeVel: 0
-      dontDoAgainstGroundedTarget: 0
-      ignoreBaseKnockbackResistance: 0
-      acceleration: 0.15
-      accelerationTime: 0.45
-    - name: slideadd
-      vel: {x: 8, y: 0}
-      fixedVel: {x: 0, y: 4}
-      xVelType: 2
-      yVelType: 2
-      normalizeVel: 0
-      dontDoAgainstGroundedTarget: 0
-      ignoreBaseKnockbackResistance: 0
-      acceleration: 0.2
-      accelerationTime: 0.6
-    blockStun: 0.35
-    stunTime: 0.5
-    advantageDamage: 0.12
-    onlyPerfBlock: 0
-    unblockable: 0
-    hitStopTime: 0.1
-    cameraShake: 0.6
-    doDeflect: 0
-    deflectForce: {x: 0, y: 0}
-    tags: []
-  direction: 0
-  directionReference: {fileID: 7577120169397887839}
-  playerFunc: {fileID: 0}
-  knockbackHandler: {fileID: 5166431708020599540}
 --- !u!1 &1109281078599171597
 GameObject:
   m_ObjectHideFlags: 0
@@ -20887,7 +20748,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7577120169397887839
 Transform:
   m_ObjectHideFlags: 0
@@ -21171,7 +21032,7 @@ MonoBehaviour:
   disadvantageHealDelay: 1
   playerMesh: {fileID: 398893775417935112}
   timeSinceSlash1: 0
-  slash2ComboTime: 0.5
+  slash2ComboTime: 0.75
 --- !u!114 &2659656187462880160
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22485,8 +22346,6 @@ Transform:
   - {fileID: 7598527874380656775}
   - {fileID: 7091539919990023888}
   - {fileID: 3398472276146951771}
-  - {fileID: 6298395185325847027}
-  - {fileID: 7873224448348165855}
   m_Father: {fileID: 5647498173138659669}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1964768034591308921
@@ -43933,7 +43792,7 @@ Transform:
   m_GameObject: {fileID: 4657999042801307133}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: 0.00000009362676, w: 1}
-  m_LocalPosition: {x: 0.55999756, y: -0.17675781, z: 3.1616821}
+  m_LocalPosition: {x: 0.55999756, y: -0.17675781, z: 3.1616402}
   m_LocalScale: {x: 0.75, y: 0.75, z: 0.75}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -46617,8 +46476,8 @@ MonoBehaviour:
     advantageDamage: 0.04
     onlyPerfBlock: 0
     unblockable: 0
-    hitStopTime: 0.03
-    cameraShake: 0.2
+    hitStopTime: 0.04
+    cameraShake: 0.25
     doDeflect: 0
     deflectForce: {x: 0, y: 0}
     tags: []
@@ -51789,135 +51648,6 @@ MonoBehaviour:
   doMeshPoints: 0
   meshPoints: []
   flipPointOrder: 0
---- !u!1 &5992187629905895369
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 7873224448348165855}
-  - component: {fileID: 6520877542999871610}
-  - component: {fileID: 8621324793202450110}
-  m_Layer: 8
-  m_Name: GrapplePullKick
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &7873224448348165855
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5992187629905895369}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 2290274408303487384}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &6520877542999871610
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5992187629905895369}
-  m_Enabled: 0
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 1.4, y: 0.6}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 4.5, y: 2.3}
-  m_EdgeRadius: 0
---- !u!114 &8621324793202450110
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5992187629905895369}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 15bd414acfc493f4a9f14987b0906063, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  team: {fileID: 3331528246116513839}
-  rehitTime: 0.5
-  attackInfo:
-    damage: 30
-    knockbacks:
-    - name: airkick
-      vel: {x: 16, y: 0}
-      fixedVel: {x: 0, y: 10}
-      xVelType: 3
-      yVelType: 3
-      normalizeVel: 0
-      dontDoAgainstGroundedTarget: 0
-      ignoreBaseKnockbackResistance: 0
-      acceleration: 0.12
-      accelerationTime: 0.45
-    - name: airkickadd
-      vel: {x: 12, y: 0}
-      fixedVel: {x: 0, y: 12}
-      xVelType: 2
-      yVelType: 2
-      normalizeVel: 0
-      dontDoAgainstGroundedTarget: 0
-      ignoreBaseKnockbackResistance: 0
-      acceleration: 0.08
-      accelerationTime: 0.6
-    blockStun: 0.2
-    stunTime: 0.25
-    advantageDamage: 0.05
-    onlyPerfBlock: 0
-    unblockable: 0
-    hitStopTime: 0.06
-    cameraShake: 0.4
-    doDeflect: 0
-    deflectForce: {x: 0, y: 0}
-    tags: []
-  direction: 0
-  directionReference: {fileID: 7577120169397887839}
-  playerFunc: {fileID: 0}
-  knockbackHandler: {fileID: 5166431708020599540}
 --- !u!1 &5995376829284649435
 GameObject:
   m_ObjectHideFlags: 0
@@ -52063,7 +51793,7 @@ GameObject:
   - component: {fileID: 7424683455018792111}
   - component: {fileID: 6638425608704197645}
   m_Layer: 8
-  m_Name: AirKick
+  m_Name: Attack2Flute
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -52116,7 +51846,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 1.9973147, y: 0.035944104}
+  m_Offset: {x: 2.5490222, y: 0.03979075}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -52127,7 +51857,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 3.2821164, y: 1.8251989}
+  m_Size: {x: 3.8782473, y: 1.7935479}
   m_EdgeRadius: 0
 --- !u!114 &6638425608704197645
 MonoBehaviour:
@@ -52144,41 +51874,41 @@ MonoBehaviour:
   team: {fileID: 3331528246116513839}
   rehitTime: 0.5
   attackInfo:
-    damage: 35
+    damage: 45
     knockbacks:
-    - name: airkick
-      vel: {x: 16, y: 0}
-      fixedVel: {x: 0, y: 10}
+    - name: slash2flute
+      vel: {x: 10, y: 0}
+      fixedVel: {x: 0, y: 6}
       xVelType: 3
       yVelType: 3
       normalizeVel: 0
       dontDoAgainstGroundedTarget: 0
       ignoreBaseKnockbackResistance: 0
-      acceleration: 0.12
+      acceleration: 0
       accelerationTime: 0.45
-    - name: airkickadd
-      vel: {x: 4, y: 0}
+    - name: slash2fluteadd
+      vel: {x: 10, y: 0}
       fixedVel: {x: 0, y: 8}
       xVelType: 2
       yVelType: 2
       normalizeVel: 0
       dontDoAgainstGroundedTarget: 0
       ignoreBaseKnockbackResistance: 0
-      acceleration: 0.12
-      accelerationTime: 0.55
+      acceleration: 0.1
+      accelerationTime: 0.6
     blockStun: 0.3
     stunTime: 0.35
-    advantageDamage: 0.05
+    advantageDamage: 0.08
     onlyPerfBlock: 0
     unblockable: 0
-    hitStopTime: 0.06
-    cameraShake: 0.4
+    hitStopTime: 0.1
+    cameraShake: 0.55
     doDeflect: 0
     deflectForce: {x: 0, y: 0}
     tags: []
   direction: 0
   directionReference: {fileID: 7577120169397887839}
-  playerFunc: {fileID: 0}
+  playerFunc: {fileID: 9045482197941810018}
   knockbackHandler: {fileID: 5166431708020599540}
 --- !u!1 &6106493395023950373
 GameObject:
@@ -63072,7 +62802,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animationName: Attack1
   cancelOnGroundLand: 0
-  speedMult: 0
+  speedMult: 0.15
   lockFacing: 1
   onAttackStart:
     m_PersistentCalls:

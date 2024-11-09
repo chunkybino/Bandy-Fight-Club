@@ -5,7 +5,7 @@ using UnityEngine;
 public class BigJFunc : PlayerFunc, ICharacterFunc
 {
     [SerializeField] float timeSinceSlash1;
-    [SerializeField] float slash2ComboTime = 0.5f;
+    [SerializeField] float slash2ComboTime = 1.2f;
 
     void Awake()
     {
