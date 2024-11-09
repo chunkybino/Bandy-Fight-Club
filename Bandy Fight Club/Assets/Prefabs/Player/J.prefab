@@ -734,7 +734,7 @@ Transform:
   m_GameObject: {fileID: 228504808770117920}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: 0.00000009362676, w: 1}
-  m_LocalPosition: {x: -0.8710022, y: -0.18200684, z: -0.77}
+  m_LocalPosition: {x: -0.8710022, y: -0.1820068, z: -0.77}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -13989,7 +13989,7 @@ GameObject:
   - component: {fileID: 8409997615899062878}
   - component: {fileID: 4099613606669678269}
   m_Layer: 7
-  m_Name: Kick
+  m_Name: slash2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14022,14 +14022,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6328962f40e72f4c99bab6fffcac689, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animationName: HighKick
+  animationName: Attack2
   cancelOnGroundLand: 0
   speedMult: 0
   lockFacing: 1
   onAttackStart:
     m_PersistentCalls:
       m_Calls: []
-  attackTime: 1
+  attackTime: 0.6
 --- !u!1 &1289926240167080154
 GameObject:
   m_ObjectHideFlags: 0
@@ -21170,6 +21170,8 @@ MonoBehaviour:
   disadvantageStunMult: 1.8
   disadvantageHealDelay: 1
   playerMesh: {fileID: 398893775417935112}
+  timeSinceSlash1: 0
+  slash2ComboTime: 0.5
 --- !u!114 &2659656187462880160
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -36524,7 +36526,7 @@ Transform:
   m_GameObject: {fileID: 3857253540686115230}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -5.5805898e-15, y: -0.000000029802322, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -43931,7 +43933,7 @@ Transform:
   m_GameObject: {fileID: 4657999042801307133}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: 0.00000009362676, w: 1}
-  m_LocalPosition: {x: 0.55999756, y: -0.17675781, z: 3.161766}
+  m_LocalPosition: {x: 0.55999756, y: -0.17675781, z: 3.1617393}
   m_LocalScale: {x: 0.75, y: 0.75, z: 0.75}
   m_ConstrainProportionsScale: 1
   m_Children: []
