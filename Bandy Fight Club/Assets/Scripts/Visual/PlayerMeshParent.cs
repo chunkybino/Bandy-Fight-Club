@@ -8,6 +8,10 @@ public class PlayerMeshParent : MonoBehaviour
     public PlayerFunc playerFunc;
     public int facing;
 
+    public Transform anchor;
+
+    public int team;
+
     public BeanBody skeleton;
     public Transform flatTex;
 
@@ -50,10 +54,14 @@ public class PlayerMeshParent : MonoBehaviour
         players++;
         pos += new Vector2(num*10, 0);
 
-        if (GameManager.singleton.teamOutlineColors.colors.Length > playerFunc.playerStatus.team.team) 
+        if (playerFunc) team = playerFunc.playerStatus.team.team;
+
+        if (GameManager.singleton.teamOutlineColors.colors.Length > team) 
         {
-            outlineColor = GameManager.singleton.teamOutlineColors.colors[playerFunc.playerStatus.team.team];
+            outlineColor = GameManager.singleton.teamOutlineColors.colors[team];
         }
+
+        if (playerFunc) anchor = playerFunc.transform;
 
         DoTextureMaterial();
     }
@@ -81,7 +89,7 @@ public class PlayerMeshParent : MonoBehaviour
 
         foreach (Transform t in unmoveTransforms)
         {
-            t.localPosition = playerFunc.transform.position + new Vector3(-pos.x,-pos.y,0);
+            t.localPosition = anchor.position + new Vector3(-pos.x,-pos.y,0);
         }
 
         if (instanceMeshes)
@@ -113,7 +121,7 @@ public class PlayerMeshParent : MonoBehaviour
 
     public void UpdateFacing()
     {
-        facing = playerFunc.facing;
+        if (playerFunc) facing = playerFunc.facing;
         transform.localScale = new Vector3(facing, transform.localScale.y, transform.localScale.z);
         float skeletonScale = facing;
         if (!skeleton.shouldFlip) skeletonScale = 1;
