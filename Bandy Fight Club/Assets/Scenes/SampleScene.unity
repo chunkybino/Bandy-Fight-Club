@@ -9392,7 +9392,7 @@ MonoBehaviour:
   - {fileID: 1228158914771108052}
   - {fileID: 6428945389610884689}
   - {fileID: 7250455678024612078}
-  doSilhouette: 1
+  doSilhouette: 0
   removeNull: 0
 --- !u!1 &308062698
 GameObject:
@@ -15491,7 +15491,7 @@ PrefabInstance:
     - target: {fileID: 1663709583450352777, guid: 84f3f989133dc724681733bf06f534d8, type: 3}
       propertyPath: m_Materials.Array.data[1]
       value: 
-      objectReference: {fileID: 2100000, guid: ca73f2f9a2aa87e4eb2e8aca4166e3d2, type: 2}
+      objectReference: {fileID: 2100000, guid: 5dc7b63aedd576c43a58da879aac0af1, type: 2}
     - target: {fileID: 1688312685288853089, guid: 84f3f989133dc724681733bf06f534d8, type: 3}
       propertyPath: m_Mesh
       value: 

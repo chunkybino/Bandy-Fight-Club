@@ -91,10 +91,6 @@ public class PlayerAttack : MonoBehaviour
         {
             DoAttack(attack);
         }
-
-        /*string attack = attackNames[attackIndex];
-        attackIndex++;
-        if (attackIndex >= attackNames.Length) attackIndex = 0;*/
     }
     void AttackHeavy()
     {

@@ -7,6 +7,8 @@ public class BigJFunc : PlayerFunc, ICharacterFunc
     [SerializeField] float timeSinceSlash1;
     [SerializeField] float slash2ComboTime = 1.2f;
 
+    public BulletConfig piccoloBulletConfig;
+
     void Awake()
     {
         if (characterFunc == null) characterFunc = this;
@@ -36,6 +38,21 @@ public class BigJFunc : PlayerFunc, ICharacterFunc
         }
 
         return attackName;
+    }
+    public string FindAttackHeavyName()
+    {
+        string attackName = "PiccoloThrow";
+
+        return attackName;
+    }
+
+    public void PiccoloThrowAttack()
+    {
+        ShootPiccolo();
+    }
+    public void ShootPiccolo()
+    {
+        BulletFunc bullet = BulletHandler.ShootBulletStatic(piccoloBulletConfig, transform.position, new Vector2(facing, 1), team);
     }
 }
 

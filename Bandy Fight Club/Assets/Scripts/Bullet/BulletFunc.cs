@@ -58,6 +58,7 @@ public class BulletFunc : MonoBehaviour, IDamageable
     [SerializeField] float deflectCameraShake = 0.5f;
 
     public bool disableHitbox;
+    public bool hitPlayers;
 
     //public UnityEvent<EnemyHitbox> onEnemyHit;
 
@@ -194,8 +195,11 @@ public class BulletFunc : MonoBehaviour, IDamageable
             hitWall = true;
         }
 
-        IDamageable damageable = item.GetComponent<IDamageable>();
-        TryDamageable(damageable);
+        if (hitPlayers)
+        {
+            IDamageable damageable = item.GetComponent<IDamageable>();
+            TryDamageable(damageable);
+        }
 
         if (foundHit)
         {
@@ -215,7 +219,7 @@ public class BulletFunc : MonoBehaviour, IDamageable
         {
             if (dam == null) return;
             if (hitTargetsList.Contains(dam)) return;
-            if (team) if (team.team == damageable.team.team) return; //if we on the same team, if this hitbox isnt assigned to a team, hit everyone
+            if (team) if (team.team == dam.team.team) return; //if we on the same team, if this hitbox isnt assigned to a team, hit everyone
             
             foundHit = true;
             HitDude(dam);

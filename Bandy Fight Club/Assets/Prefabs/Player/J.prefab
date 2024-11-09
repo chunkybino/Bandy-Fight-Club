@@ -20748,7 +20748,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &7577120169397887839
 Transform:
   m_ObjectHideFlags: 0
@@ -21033,6 +21033,7 @@ MonoBehaviour:
   playerMesh: {fileID: 398893775417935112}
   timeSinceSlash1: 0
   slash2ComboTime: 0.75
+  piccoloBulletConfig: {fileID: 11400000, guid: a86ca759d4df37642b11c441a1034f27, type: 2}
 --- !u!114 &2659656187462880160
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -35172,8 +35173,6 @@ Transform:
   m_Children:
   - {fileID: 5955310887092633504}
   - {fileID: 8409997615899062878}
-  - {fileID: 3167380999859943019}
-  - {fileID: 6183960283570810846}
   - {fileID: 865964961743031299}
   m_Father: {fileID: 7577120169397887839}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -35202,8 +35201,6 @@ MonoBehaviour:
   attacks:
   - {fileID: 9087548387452334790}
   - {fileID: 4099613606669678269}
-  - {fileID: 1041591049542165227}
-  - {fileID: 8772516268575876127}
   - {fileID: 6480556249798396795}
   attackIndex: 0
   attackIndexResetTime: 0.4
@@ -35579,58 +35576,6 @@ SortingGroup:
   m_SortingLayer: 0
   m_SortingOrder: 29
   m_SortAtRoot: 0
---- !u!1 &3397658990818161457
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 3167380999859943019}
-  - component: {fileID: 1041591049542165227}
-  m_Layer: 7
-  m_Name: Slide
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &3167380999859943019
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3397658990818161457}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 651738455086092208}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1041591049542165227
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3397658990818161457}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b6328962f40e72f4c99bab6fffcac689, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  animationName: Slide
-  cancelOnGroundLand: 0
-  speedMult: 0
-  lockFacing: 1
-  onAttackStart:
-    m_PersistentCalls:
-      m_Calls: []
-  attackTime: 1
 --- !u!1 &3469619805418880273
 GameObject:
   m_ObjectHideFlags: 0
@@ -42842,58 +42787,6 @@ ParentConstraint:
   m_Sources:
   - sourceTransform: {fileID: 2092492991514734828}
     weight: 1
---- !u!1 &4355571638854708288
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 6183960283570810846}
-  - component: {fileID: 8772516268575876127}
-  m_Layer: 7
-  m_Name: AirKick
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &6183960283570810846
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4355571638854708288}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 651738455086092208}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8772516268575876127
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4355571638854708288}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b6328962f40e72f4c99bab6fffcac689, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  animationName: AirKick
-  cancelOnGroundLand: 1
-  speedMult: 1
-  lockFacing: 1
-  onAttackStart:
-    m_PersistentCalls:
-      m_Calls: []
-  attackTime: 1
 --- !u!1 &4371553265699397624
 GameObject:
   m_ObjectHideFlags: 0
@@ -42982,7 +42875,7 @@ MonoBehaviour:
   matIndex: 1
   matList:
   - {fileID: 2100000, guid: 7010daeb2f6b3154eb20694ae282768d, type: 2}
-  - {fileID: 2100000, guid: ca73f2f9a2aa87e4eb2e8aca4166e3d2, type: 2}
+  - {fileID: 2100000, guid: 5dc7b63aedd576c43a58da879aac0af1, type: 2}
 --- !u!1 &4412718971876902916
 GameObject:
   m_ObjectHideFlags: 0
@@ -60664,7 +60557,7 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 7010daeb2f6b3154eb20694ae282768d, type: 2}
-  - {fileID: 2100000, guid: ca73f2f9a2aa87e4eb2e8aca4166e3d2, type: 2}
+  - {fileID: 2100000, guid: 5dc7b63aedd576c43a58da879aac0af1, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -60776,7 +60669,7 @@ GameObject:
   - component: {fileID: 865964961743031299}
   - component: {fileID: 6480556249798396795}
   m_Layer: 7
-  m_Name: SaxThrow
+  m_Name: PiccoloThrow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -60811,14 +60704,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animationName: 
   cancelOnGroundLand: 0
-  speedMult: 0.25
+  speedMult: 1
   lockFacing: 0
   onAttackStart:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: BigQFunc, Assembly-CSharp
-        m_MethodName: SaxThrowAttack
+      - m_Target: {fileID: 9045482197941810018}
+        m_TargetAssemblyTypeName: BigJFunc, Assembly-CSharp
+        m_MethodName: PiccoloThrowAttack
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -60828,7 +60721,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  attackTime: 1
+  attackTime: 0.6
 --- !u!1 &7705732245945809516
 GameObject:
   m_ObjectHideFlags: 0
