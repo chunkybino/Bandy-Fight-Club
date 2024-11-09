@@ -680,7 +680,7 @@ Transform:
   m_Children:
   - {fileID: 3892784250113202291}
   m_Father: {fileID: 5358592497398425650}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 22.547, y: 5.156, z: -104.081}
 --- !u!1773428102 &2980780537283320472
 ParentConstraint:
   m_ObjectHideFlags: 0
@@ -13724,8 +13724,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1235701688357420077}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: 0.0026535082, w: -0.9999965}
-  m_LocalPosition: {x: -0.147995, y: 2.6900024, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: 0.041138485, w: 0.9991535}
+  m_LocalPosition: {x: -0.16690063, y: 2.755371, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -30129,7 +30129,7 @@ Transform:
   m_GameObject: {fileID: 3091944832985937411}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.1284885, y: 0.7849097, z: 0}
+  m_LocalPosition: {x: 0.11746305, y: 1.1609025, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -42908,7 +42908,7 @@ Transform:
   m_GameObject: {fileID: 4250237146603998447}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: 0.5656272, w: 0.82466114}
-  m_LocalPosition: {x: 0.107904494, y: 0.44635975, z: -0}
+  m_LocalPosition: {x: 0.7112603, y: 1.2766687, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -42939,8 +42939,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4263317931160586473}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.118, y: 1.814, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: 0.04378955, w: 0.9990408}
+  m_LocalPosition: {x: -0.0909996, y: 1.884, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -42954,15 +42954,15 @@ ParentConstraint:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4263317931160586473}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 2
   m_Weight: 1
-  m_TranslationAtRest: {x: -0.129, y: 1.804, z: 0}
-  m_RotationAtRest: {x: 0, y: 0, z: 1.9086379}
+  m_TranslationAtRest: {x: -0.091, y: 1.884, z: 0}
+  m_RotationAtRest: {x: 0, y: 0, z: 5.019518}
   m_TranslationOffsets:
-  - {x: 0.011396408, y: -0.1175549, z: 0}
+  - {x: 0.10199928, y: -0.533, z: 0}
   m_RotationOffsets:
-  - {x: 0, y: 0, z: 5.0195026}
+  - {x: 0, y: 0, z: 5.019507}
   m_AffectTranslationX: 1
   m_AffectTranslationY: 1
   m_AffectTranslationZ: 1
@@ -51630,23 +51630,7 @@ MonoBehaviour:
   playerFunc: {fileID: 9045482197941810018}
   rb: {fileID: 5490017913412603456}
   currentAnim: Idle
-  animatorEvents:
-  - name: ShootSax
-    theEvent:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 0}
-          m_TargetAssemblyTypeName: BigQFunc, Assembly-CSharp
-          m_MethodName: ShootSax
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
+  animatorEvents: []
   squasher: {fileID: 8778573409757513484}
   squashDatas:
   - name: block
@@ -63040,7 +63024,7 @@ GameObject:
   - component: {fileID: 5955310887092633504}
   - component: {fileID: 9087548387452334790}
   m_Layer: 7
-  m_Name: Knee
+  m_Name: slash1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -63073,14 +63057,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6328962f40e72f4c99bab6fffcac689, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animationName: Knee
+  animationName: Attack1
   cancelOnGroundLand: 0
   speedMult: 0
   lockFacing: 1
   onAttackStart:
     m_PersistentCalls:
       m_Calls: []
-  attackTime: 1
+  attackTime: 0.6
 --- !u!1 &8772268957756832795
 GameObject:
   m_ObjectHideFlags: 0
