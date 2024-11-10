@@ -62,6 +62,7 @@ public class DisguiserParent : MonoBehaviour
     {
         foreach (Disguiser d in disguiserList)
         {
+            if (d == null) continue;
             d.CheckDisguise();
         }
     }

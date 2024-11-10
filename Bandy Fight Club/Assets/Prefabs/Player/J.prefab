@@ -2058,6 +2058,10 @@ PrefabInstance:
       propertyPath: points.Array.data[0].y
       value: -4.403688
       objectReference: {fileID: 0}
+    - target: {fileID: 3263962523017334358, guid: fe70ef1e12400454dab17dbd913906c3, type: 3}
+      propertyPath: groundCheck
+      value: 
+      objectReference: {fileID: 7707651264237173837}
     - target: {fileID: 3280674932676146755, guid: fe70ef1e12400454dab17dbd913906c3, type: 3}
       propertyPath: points.Array.data[0].x
       value: 11.844
@@ -2217,7 +2221,7 @@ PrefabInstance:
     - target: {fileID: 3917332109786792305, guid: fe70ef1e12400454dab17dbd913906c3, type: 3}
       propertyPath: m_TargetTexture
       value: 
-      objectReference: {fileID: 8400000, guid: dc8143f558bed254c897b1966e8d202f, type: 2}
+      objectReference: {fileID: 8400000, guid: 02797a51b06c7a845b384228e1e012dd, type: 2}
     - target: {fileID: 3984031689526887079, guid: fe70ef1e12400454dab17dbd913906c3, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.048089296
@@ -2254,6 +2258,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.x
       value: 0.049014702
       objectReference: {fileID: 0}
+    - target: {fileID: 4495119660588407729, guid: fe70ef1e12400454dab17dbd913906c3, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: ca73f2f9a2aa87e4eb2e8aca4166e3d2, type: 2}
     - target: {fileID: 4510540966448769332, guid: fe70ef1e12400454dab17dbd913906c3, type: 3}
       propertyPath: uvRotation.x
       value: -0.50699997
@@ -2598,6 +2606,10 @@ PrefabInstance:
       propertyPath: doIt
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5841460466195172434, guid: fe70ef1e12400454dab17dbd913906c3, type: 3}
+      propertyPath: playerFunc
+      value: 
+      objectReference: {fileID: 9045482197941810018}
     - target: {fileID: 5841460466195172434, guid: fe70ef1e12400454dab17dbd913906c3, type: 3}
       propertyPath: instanceMeshes
       value: 0

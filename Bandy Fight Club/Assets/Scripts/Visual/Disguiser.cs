@@ -7,6 +7,7 @@ public class Disguiser : MonoBehaviour
     DisguiserParent parent;
 
     public int enableLevel; //enable if disguise level is less or equal this
+    public bool disguiseOnSilhouette;
     public bool inverse;
 
     public GameObject targetObject; //if null do self
@@ -34,6 +35,7 @@ public class Disguiser : MonoBehaviour
 
         bool activate = DisguiserParent.disguiseLevelStatic <= enableLevel;
         if (inverse) activate = !activate;
+        if (disguiseOnSilhouette && DisguiserParent.doSilhouetteStatic) activate = false;
         targetObject.SetActive(activate);
         if (inverseObject) inverseObject.SetActive(!activate);
 

@@ -56,9 +56,12 @@ public class PlayerMeshParent : MonoBehaviour
 
         if (playerFunc) team = playerFunc.playerStatus.team.team;
 
-        if (GameManager.singleton.teamOutlineColors.colors.Length > team) 
+        if (GameManager.singleton)
         {
-            outlineColor = GameManager.singleton.teamOutlineColors.colors[team];
+            if (GameManager.singleton.teamOutlineColors.colors.Length > team) 
+            {
+                outlineColor = GameManager.singleton.teamOutlineColors.colors[team];
+            }
         }
 
         if (playerFunc) anchor = playerFunc.transform;
