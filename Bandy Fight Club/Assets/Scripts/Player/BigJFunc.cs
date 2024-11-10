@@ -10,10 +10,18 @@ public class BigJFunc : PlayerFunc, ICharacterFunc
     public BulletConfig piccoloBulletConfig;
 
     public JPiccoloBulletFunc currentPiccoloBullet;
+    public JCloneFunc currentClone;
+    public JCloneFunc clonePrefab;
 
     void Awake()
     {
         if (characterFunc == null) characterFunc = this;
+    }
+    void Start()
+    {
+        base.Start();
+
+        SpawnClone();
     }
     void Update()
     {
@@ -22,6 +30,14 @@ public class BigJFunc : PlayerFunc, ICharacterFunc
         if (characterFunc == null) characterFunc = this;
 
         timeSinceSlash1 += Time.deltaTime;
+
+        if (currentPiccoloBullet)
+        {
+            if (currentPiccoloBullet.isActive && inputs.heavyPressed)
+            {
+                DoPiccoloClone(inputVector);
+            }
+        }
     }
 
     public string FindAttackName()
@@ -58,7 +74,7 @@ public class BigJFunc : PlayerFunc, ICharacterFunc
         {
             DoPiccoloClone(new Vector2(1,0));
         }
-    }
+    } 
     public void ShootPiccolo()
     {
         BulletFunc bullet = BulletHandler.ShootBulletStatic(piccoloBulletConfig, transform.position, new Vector2(facing, 1), team);
@@ -66,9 +82,28 @@ public class BigJFunc : PlayerFunc, ICharacterFunc
         if (piccolo) currentPiccoloBullet = piccolo;
     }
 
-    public void DoPiccoloClone(Vector2 direciton)
+    public void DoPiccoloClone(Vector2 direction)
     {
         if (!currentPiccoloBullet) return;
+
+        currentClone.transform.position = currentPiccoloBullet.transform.position;
+        currentClone.direction = direction;
+        currentClone.Activate();
+
+        currentPiccoloBullet.Die();
+    }
+
+    void SpawnClone()
+    {
+        currentClone = Instantiate(clonePrefab);
+        currentClone.SetTeam(team);
+        currentClone.Deactivate();
+        currentClone.Spawn(playerMesh.num+4);
+    }
+
+    void OnDestroy()
+    {
+        Destroy(currentClone.gameObject);
     }
 }
 

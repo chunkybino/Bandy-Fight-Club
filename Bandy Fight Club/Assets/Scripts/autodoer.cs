@@ -5,6 +5,9 @@ using UnityEngine;
 [ExecuteInEditMode]
 public class autodoer : MonoBehaviour
 {
+    //throwaway script i used to go to all the meshes in the render and changes their anchor reference from the player transform 
+    //to the render transform, for seperating the render into its own prefab sperate from the player
+
     [SerializeField] bool doo;
 
     void Update()

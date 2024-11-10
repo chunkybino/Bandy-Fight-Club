@@ -48,6 +48,8 @@ public class PlayerFunc : MonoBehaviour
     [HideInInspector] public int sideInputDirection;
     [HideInInspector] public int verticalInputDirection;
 
+    public Vector2 inputVector {get{return new Vector2(sideInputDirection,verticalInputDirection);}}
+
     [SerializeField] float multAccleration = 0.5f;
     [SerializeField] float flatAccleration = 0.3f;
     float accelerationCurve = 100; //for making acceleration values easier to deal with
@@ -222,15 +224,14 @@ public class PlayerFunc : MonoBehaviour
     [SerializeField] float disadvantageHealDelay = 0.75f;
 
     //visual
-    [SerializeField] PlayerMeshParent playerMesh;
+    public PlayerMeshParent playerMesh;
 
     //other garbage
-
     //for when you dodge through people, the person dodge thorugh you references these
     public float boundingTopBound {get{return playerHitbox.boundingTopBound;}}
     public float boundingBottomBound {get{return playerHitbox.boundingBottomBound;}}
     
-    void Start()
+    public void Start()
     {
         gameManager = GameManager.singleton;
 

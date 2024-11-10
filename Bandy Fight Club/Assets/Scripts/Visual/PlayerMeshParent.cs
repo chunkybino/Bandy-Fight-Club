@@ -35,9 +35,11 @@ public class PlayerMeshParent : MonoBehaviour
     public bool doIt;
 
     [SerializeField] RenderTextureMaterials materialTextures;
-    [SerializeField] int num;
+    public int num;
 
     static int players = 0;
+
+    [SerializeField] bool countPlayers = true;
 
     public Color outlineColor;
     public float outlineThickness = 0.01f;
@@ -45,13 +47,17 @@ public class PlayerMeshParent : MonoBehaviour
 
     void Awake()
     {
-        players = 0;
+        if (countPlayers) players = 0;
     }
 
     void Start()
     {
-        num = players;
-        players++;
+        if (countPlayers)
+        {
+            num = players;
+            players++;
+        }
+
         pos += new Vector2(num*10, 0);
 
         if (playerFunc) team = playerFunc.playerStatus.team.team;

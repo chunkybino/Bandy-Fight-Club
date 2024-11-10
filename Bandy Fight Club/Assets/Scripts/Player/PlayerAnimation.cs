@@ -59,12 +59,12 @@ public class PlayerAnimation : MonoBehaviour
 
     void Awake()
     {
-        characterFunc = playerFunc.characterFunc;
+        if (playerFunc) characterFunc = playerFunc.characterFunc;
     }
 
     void Update()
     {
-        if (characterFunc == null) characterFunc = playerFunc.characterFunc;
+        if (characterFunc != null) characterFunc = playerFunc.characterFunc;
 
         if (playerFunc)
         {

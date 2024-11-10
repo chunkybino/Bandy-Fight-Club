@@ -360,6 +360,8 @@ MonoBehaviour:
   slash2ComboTime: 0.75
   piccoloBulletConfig: {fileID: 11400000, guid: a86ca759d4df37642b11c441a1034f27, type: 2}
   currentPiccoloBullet: {fileID: 0}
+  currentClone: {fileID: 0}
+  clonePrefab: {fileID: 4950847131231921027, guid: 5d86985bd37d4b141a0c24cdeffa1e01, type: 3}
 --- !u!114 &2659656187462880160
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -981,7 +983,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  attackTime: 0.6
+  attackTime: 0
 --- !u!1 &8759419649415069377
 GameObject:
   m_ObjectHideFlags: 0
