@@ -9,6 +9,15 @@ public class BigJFunc : PlayerFunc, ICharacterFunc
 
     public BulletConfig piccoloBulletConfig;
 
+    [SerializeField] Vector2 piccoloSideThrowDirection = new Vector2(1f,1.2f);
+    [SerializeField] Vector2 piccoloUpThrowDirection = new Vector2(0.2f,1.8f);
+    [SerializeField] Vector2 piccoloDownThrowDirection = new Vector2(0.8f,-0.3f);
+
+    [SerializeField] Vector2 piccoloSideThrowInheritanceMult = new Vector2(0.6f,0.6f);
+    [SerializeField] Vector2 piccoloUpThrowInheritanceMult = new Vector2(0.15f,0.7f);
+    [SerializeField] Vector2 piccoloDownThrowInheritanceMult = new Vector2(0.6f,0.8f);
+    [SerializeField] float piccoloVerticalVelInheritenceDegree = 0.5f; //raise the yvel add to this degree
+
     public JPiccoloBulletFunc currentPiccoloBullet;
     public JCloneFunc currentClone;
     public JCloneFunc clonePrefab;
@@ -80,6 +89,21 @@ public class BigJFunc : PlayerFunc, ICharacterFunc
         BulletFunc bullet = BulletHandler.ShootBulletStatic(piccoloBulletConfig, transform.position, new Vector2(facing, 1), team);
         JPiccoloBulletFunc piccolo = bullet.GetComponent<JPiccoloBulletFunc>();
         if (piccolo) currentPiccoloBullet = piccolo;
+
+        Vector2 throwDirection = piccoloSideThrowDirection;
+        Vector2 velAdd = piccoloSideThrowInheritanceMult;
+        if (inputVector.y > 0) {
+            throwDirection = piccoloUpThrowDirection;
+            velAdd = piccoloUpThrowInheritanceMult;
+        } else if (inputVector.y < 0) {
+            throwDirection = piccoloDownThrowDirection;
+            velAdd = piccoloDownThrowInheritanceMult;
+        }
+        velAdd *= rb.velocity;
+
+        if (rb.velocity.y > 0) velAdd = new Vector2(velAdd.x, Mathf.Pow(velAdd.y, piccoloVerticalVelInheritenceDegree));
+
+        currentPiccoloBullet.InheritVel(throwDirection, velAdd);
     }
 
     public void DoPiccoloClone(Vector2 direction)

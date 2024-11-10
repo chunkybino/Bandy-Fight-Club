@@ -359,6 +359,13 @@ MonoBehaviour:
   timeSinceSlash1: 0
   slash2ComboTime: 0.75
   piccoloBulletConfig: {fileID: 11400000, guid: a86ca759d4df37642b11c441a1034f27, type: 2}
+  piccoloSideThrowDirection: {x: 1, y: 1.2}
+  piccoloUpThrowDirection: {x: 0.2, y: 1.8}
+  piccoloDownThrowDirection: {x: 0.8, y: -0.3}
+  piccoloSideThrowInheritanceMult: {x: 0.6, y: 0.6}
+  piccoloUpThrowInheritanceMult: {x: 0.15, y: 0.7}
+  piccoloDownThrowInheritanceMult: {x: 0.6, y: 0.8}
+  piccoloVerticalVelInheritenceDegree: 0.8
   currentPiccoloBullet: {fileID: 0}
   currentClone: {fileID: 0}
   clonePrefab: {fileID: 4950847131231921027, guid: 5d86985bd37d4b141a0c24cdeffa1e01, type: 3}

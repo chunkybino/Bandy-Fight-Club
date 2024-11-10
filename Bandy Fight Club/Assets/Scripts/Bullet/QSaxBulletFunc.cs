@@ -44,7 +44,7 @@ public class QSaxBulletFunc : BulletFunc
         lastFrameVel = rb.velocity;
     }
 
-    void Update()
+    public override void Update()
     {
         if (isGrappled) return;
 
@@ -58,7 +58,7 @@ public class QSaxBulletFunc : BulletFunc
         renderer.transform.localEulerAngles = renderer.transform.localEulerAngles + new Vector3(0,0,rotSpeed*Time.deltaTime);
     }
 
-    void FixedUpdate()
+    public override void FixedUpdate()
     {
         if (isGrappled) return;
 

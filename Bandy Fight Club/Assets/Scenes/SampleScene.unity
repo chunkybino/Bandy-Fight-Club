@@ -9295,7 +9295,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 3736b76e1ad25af4cab884e4ad236e07, type: 2}
   - {fileID: 11400000, guid: 692473d997b0f85428a5db169e3a73a8, type: 2}
   - {fileID: 11400000, guid: 28a86e3367a4f3d4587bca62846490ba, type: 2}
-  spawnPlayersOnStart: 1
+  spawnPlayersOnStart: 0
   playerInfos: []
   allPlayerInfos:
   - playerNumber: 0
@@ -20005,7 +20005,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1568848647709469002, guid: 89a4bb26954076c4087def95df52bc91, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1590443613012494321, guid: 89a4bb26954076c4087def95df52bc91, type: 3}
       propertyPath: m_Positions.Array.data[0].x
@@ -20519,6 +20519,14 @@ PrefabInstance:
       propertyPath: mesh
       value: 
       objectReference: {fileID: 1161304109}
+    - target: {fileID: 9045482197941810018, guid: 89a4bb26954076c4087def95df52bc91, type: 3}
+      propertyPath: piccoloVelInheritenceMult.x
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 9045482197941810018, guid: 89a4bb26954076c4087def95df52bc91, type: 3}
+      propertyPath: piccoloVelInheritenceMult.y
+      value: 0.6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

@@ -43,6 +43,11 @@ public class UFunc
         return 0;
     }
 
+    public static float SignSqrt(float num) //sqrt but it works on negative numbers
+    {
+        return UFunc.Sign(num)*Mathf.Sqrt(Mathf.Abs(num));
+    }
+
     public static bool CheckIsSameDirection(float num1, float num2) //are both numbers the same positive or negative
     {
         return FloatToDirection(num1) == FloatToDirection(num2);

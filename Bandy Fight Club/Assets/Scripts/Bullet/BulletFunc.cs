@@ -85,7 +85,7 @@ public class BulletFunc : MonoBehaviour, IDamageable
     [SerializeField] List<string> hitboxTags = new List<string>();
     public List<string> damageableTags {get {return hitboxTags;}}
 
-    public void Start()
+    public virtual void Start()
     {
         speed = config.speed;
         currentPierce = config.pierce;
@@ -110,9 +110,13 @@ public class BulletFunc : MonoBehaviour, IDamageable
 
         CheckCollisionNow();
 
-        rb.velocity = direction.normalized * speed;
+        SetStartSpeed();
 
         DoTeamColor();
+    }
+    public virtual void SetStartSpeed()
+    {
+        rb.velocity = direction.normalized * speed;
     }
     void DoTeamColor()
     {
@@ -123,7 +127,7 @@ public class BulletFunc : MonoBehaviour, IDamageable
         }
     }
 
-    public void Update()
+    public virtual void Update()
     {
         if (renderer && rotateInMovementDirection)
         {
@@ -132,7 +136,7 @@ public class BulletFunc : MonoBehaviour, IDamageable
         }
     }
 
-    public void FixedUpdate()
+    public virtual void FixedUpdate()
     {
         if (!doGrav)
         {

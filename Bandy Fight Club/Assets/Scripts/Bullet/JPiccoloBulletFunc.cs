@@ -11,7 +11,7 @@ public class JPiccoloBulletFunc : BulletFunc
     public float activateTime = 0.75f;
     public bool isActive {get{return timeActive >= activateTime;}}
 
-    void Update()
+    public override void Update()
     {
         base.Update();
 
@@ -20,5 +20,20 @@ public class JPiccoloBulletFunc : BulletFunc
         rotationTranform.localEulerAngles = rotationTranform.localEulerAngles + new Vector3(0,0,rotSpeed*Time.deltaTime);
 
         timeActive += Time.deltaTime;
+    }
+
+    public void InheritVel(Vector2 throwMult, Vector2 velAdd)
+    {
+        speed = config.speed;
+        rb.velocity = direction * speed;
+
+        rb.velocity *= throwMult;
+
+        rb.velocity += velAdd;
+    }
+
+    public override void SetStartSpeed()
+    {
+        //overwrite this funcition because otherwise it will voerrite the inherited velocity
     }
 }
