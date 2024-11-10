@@ -50,6 +50,13 @@ public class PlayerAnimation : MonoBehaviour
     [SerializeField] ParticleSystem dashParticles;
     [SerializeField] ParticleSystem dashParticlesPrefab;
 
+    public int facing;
+    public bool grounded;
+    public bool isStun;
+    public bool isBlocking;
+    public bool isDodging;
+    public float targetSideSpeed;
+
     void Awake()
     {
         characterFunc = playerFunc.characterFunc;
@@ -59,23 +66,32 @@ public class PlayerAnimation : MonoBehaviour
     {
         if (characterFunc == null) characterFunc = playerFunc.characterFunc;
 
-        if (playerFunc.GetDoAnimation())
+        if (playerFunc)
+        {
+            facing = playerFunc.facing;
+            grounded = playerFunc.grounded;
+            isStun = playerFunc.isStun;
+            isBlocking = playerFunc.isBlocking;
+            isDodging = playerFunc.isDodging;
+            targetSideSpeed = playerFunc.targetSideSpeed;
+        }
+
+
+        currentAnim = "BaseBlank";
+        if (playerFunc) if (playerFunc.GetDoAnimation())
         {
             currentAnim = FindAnimation();
 
             PlayAnim(currentAnim);
         }
-        else
-        {
-            PlayAnim("BaseBlank");
-        }
+        PlayAnim(currentAnim);
 
-        walkParticles.transform.eulerAngles = new Vector3(0,(playerFunc.facing*90)+90,0);
+        walkParticles.transform.eulerAngles = new Vector3(0,(facing*90)+90,0);
     }
 
     string FindAnimation()
     {
-        if (playerFunc.grounded) riseToFallTimer = 0;
+        if (grounded) riseToFallTimer = 0;
 
         if (characterFunc != null)
         {
@@ -88,40 +104,43 @@ public class PlayerAnimation : MonoBehaviour
 
         string animName = "Idle";
 
-        if (playerStatus.isDead)
+        if (playerStatus)
         {
-            timeDead += Time.deltaTime;
+            if (playerStatus.isDead)
+            {
+                timeDead += Time.deltaTime;
 
-            if (playerFunc.grounded && timeDead >= groundDeathAnimDelay)
-            {
-                animName = "Dead";
-            }
-            else
-            {
-                if (rb.velocity.y > 0.1f)
+                if (grounded && timeDead >= groundDeathAnimDelay)
                 {
-                    animName = "Stun";
+                    animName = "Dead";
                 }
                 else
                 {
-                    animName = "DeadFall";
+                    if (rb.velocity.y > 0.1f)
+                    {
+                        animName = "Stun";
+                    }
+                    else
+                    {
+                        animName = "DeadFall";
+                    }
                 }
-            }
 
-            return animName;
+                return animName;
+            }
         }
 
-        if (playerFunc.isStun && playerFunc.isBlocking) return "BlockStun";
-        if (playerFunc.isStun) return "Stun";
-        if (playerFunc.isBlocking) return blockAnimNames[blockAnimIndex];
-        if (playerFunc.isDodging) {
+        if (isStun && isBlocking) return "BlockStun";
+        if (isStun) return "Stun";
+        if (isBlocking) return blockAnimNames[blockAnimIndex];
+        if (isDodging) {
             walking = true;
             return "Dash";
         }
 
         bool doWalk = false;
 
-        if (!playerFunc.grounded)
+        if (!grounded)
         {
             if (rb.velocity.y > 0.1f)
             {
@@ -151,7 +170,7 @@ public class PlayerAnimation : MonoBehaviour
         else
         {
             timeSinceWalk += Time.deltaTime;
-            if (playerFunc.targetSideSpeed != 0) 
+            if (targetSideSpeed != 0) 
             {
                 if (!walking) walkDashTimer = 0;
                 doWalk = true;
@@ -187,7 +206,7 @@ public class PlayerAnimation : MonoBehaviour
 
     public void ExitAnim()
     {  
-        playerAttack.ExitAttackAnim();
+        playerAttack?.ExitAttackAnim();
     }
     public void ExitActionAnim()
     {
@@ -209,7 +228,7 @@ public class PlayerAnimation : MonoBehaviour
 
     public void DoKnockbackBoost(float force)
     {
-        rb.velocity = new Vector2(force * playerFunc.facing, rb.velocity.y);
+        rb.velocity = new Vector2(force * facing, rb.velocity.y);
     }
     public void DoVerticalBoost(float force)
     {
@@ -281,7 +300,7 @@ public class PlayerAnimation : MonoBehaviour
         void Spawn(ParticleSystem prefab, Vector3 pos)
         {
             ParticleSystem particle = Instantiate(prefab, pos, Quaternion.identity);
-            particle.transform.eulerAngles = new Vector3(0,(playerFunc.facing*90)+90,0);
+            particle.transform.eulerAngles = new Vector3(0,(facing*90)+90,0);
         }
     }
 }
