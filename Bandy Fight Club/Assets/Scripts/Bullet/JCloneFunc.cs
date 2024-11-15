@@ -17,11 +17,17 @@ public class JCloneFunc : MonoBehaviour
     [SerializeField] float attackForceDecaySpeed = 20f;
     [SerializeField] float currentForce;
 
+    [SerializeField] float forceDecaySpeed = 1.5f;
+    [SerializeField] AnimationCurve forceDecayCurve;
+    [SerializeField] float attackForceTimer;
+
     void Update()
     {
+        attackForceTimer += forceDecaySpeed*Time.deltaTime;
+
         rb.velocity = forceVector;
 
-        forceMagnitude = Mathf.Max(forceMagnitude - attackForceDecaySpeed*Time.deltaTime, 0);
+        forceMagnitude = attackForce * forceDecayCurve.Evaluate(attackForceTimer);
         forceVector = forceMagnitude * direction;
     }
 
@@ -50,5 +56,7 @@ public class JCloneFunc : MonoBehaviour
     public void DoAttack()
     {   
         forceMagnitude = attackForce;
+
+        attackForceTimer = 0;
     }
 }

@@ -156,8 +156,45 @@ MonoBehaviour:
   playerAnimation: {fileID: 2317021675467248568}
   meshParent: {fileID: 5770167834969562246}
   forceVector: {x: 0, y: 0}
-  attackForce: 36
+  forceMagnitude: 0
+  attackForce: 40
   attackForceDecaySpeed: 40
+  currentForce: 0
+  forceDecaySpeed: 2
+  forceDecayCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0.99999994
+      inSlope: -0.33677393
+      outSlope: -0.33677393
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.15965076
+    - serializedVersion: 3
+      time: 0.743961
+      value: 0.39912534
+      inSlope: -2.153302
+      outSlope: -2.153302
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.28598383
+    - serializedVersion: 3
+      time: 0.99999994
+      value: -0.000000048428774
+      inSlope: -0.5458825
+      outSlope: -0.5458825
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.9588019
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  attackForceTimer: 0
 --- !u!1001 &72840769390760148
 PrefabInstance:
   m_ObjectHideFlags: 0
