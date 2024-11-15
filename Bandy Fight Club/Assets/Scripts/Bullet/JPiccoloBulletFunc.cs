@@ -8,7 +8,7 @@ public class JPiccoloBulletFunc : BulletFunc
     [SerializeField] Transform rotationTranform; //the target of rotationSpeed
 
     public float timeActive;
-    public float activateTime = 0.75f;
+    public float activateTime = 0.25f;
     public bool isActive {get{return timeActive >= activateTime;}}
 
     public override void Update()

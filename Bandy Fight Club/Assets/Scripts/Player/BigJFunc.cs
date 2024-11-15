@@ -81,7 +81,7 @@ public class BigJFunc : PlayerFunc, ICharacterFunc
         }
         else
         {
-            DoPiccoloClone(new Vector2(1,0));
+            //DoPiccoloClone(new Vector2(1,0));
         }
     } 
     public void ShootPiccolo()

@@ -155,6 +155,9 @@ MonoBehaviour:
   rb: {fileID: 2478867748927038978}
   playerAnimation: {fileID: 2317021675467248568}
   meshParent: {fileID: 5770167834969562246}
+  forceVector: {x: 0, y: 0}
+  attackForce: 36
+  attackForceDecaySpeed: 40
 --- !u!1001 &72840769390760148
 PrefabInstance:
   m_ObjectHideFlags: 0

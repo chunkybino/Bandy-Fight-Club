@@ -10,6 +10,21 @@ public class JCloneFunc : MonoBehaviour
     [SerializeField] PlayerAnimation playerAnimation;
     [SerializeField] PlayerMeshParent meshParent;
 
+    public Vector2 forceVector;
+    public float forceMagnitude;
+    public float attackForce = 24f;
+
+    [SerializeField] float attackForceDecaySpeed = 20f;
+    [SerializeField] float currentForce;
+
+    void Update()
+    {
+        rb.velocity = forceVector;
+
+        forceMagnitude = Mathf.Max(forceMagnitude - attackForceDecaySpeed*Time.deltaTime, 0);
+        forceVector = forceMagnitude * direction;
+    }
+
     public void Spawn(int renderNum)
     {
         meshParent.num = renderNum;
@@ -18,14 +33,22 @@ public class JCloneFunc : MonoBehaviour
     public void Activate()
     {
         gameObject.SetActive(true);
+
+        DoAttack();
     }
     public void Deactivate()
     {
+        forceVector = new Vector2(0,0);
         gameObject.SetActive(false);
     }
 
     public void SetTeam(int team)
     {
         meshParent.team = team;
+    }
+
+    public void DoAttack()
+    {   
+        forceMagnitude = attackForce;
     }
 }

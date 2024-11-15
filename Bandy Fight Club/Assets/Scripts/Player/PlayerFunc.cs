@@ -48,7 +48,7 @@ public class PlayerFunc : MonoBehaviour
     [HideInInspector] public int sideInputDirection;
     [HideInInspector] public int verticalInputDirection;
 
-    public Vector2 inputVector {get{return new Vector2(sideInputDirection,verticalInputDirection);}}
+    public Vector2 inputVector;
 
     [SerializeField] float multAccleration = 0.5f;
     [SerializeField] float flatAccleration = 0.3f;
@@ -249,6 +249,8 @@ public class PlayerFunc : MonoBehaviour
         verticalInputDirection = 0;
         if (inputs.upHeld) verticalInputDirection++;
         if (inputs.downHeld) verticalInputDirection--;
+
+        inputVector = new Vector2(sideInputDirection, verticalInputDirection);
 
         bool canChangeFacing = true;
         if (playerAttack.isAttacking && playerAttack.currentAttack.lockFacing) canChangeFacing = false;
