@@ -111,7 +111,7 @@ public class BigJFunc : PlayerFunc, ICharacterFunc
         if (!currentPiccoloBullet) return;
 
         currentClone.transform.position = currentPiccoloBullet.transform.position;
-        currentClone.direction = direction;
+        currentClone.direction = direction.normalized;
         currentClone.Activate();
 
         currentPiccoloBullet.Die();

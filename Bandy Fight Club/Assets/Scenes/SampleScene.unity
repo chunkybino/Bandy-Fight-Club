@@ -9295,16 +9295,16 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 3736b76e1ad25af4cab884e4ad236e07, type: 2}
   - {fileID: 11400000, guid: 692473d997b0f85428a5db169e3a73a8, type: 2}
   - {fileID: 11400000, guid: 28a86e3367a4f3d4587bca62846490ba, type: 2}
-  spawnPlayersOnStart: 0
+  spawnPlayersOnStart: 1
   playerInfos: []
   allPlayerInfos:
   - playerNumber: 0
-    characterPrefab: {fileID: 3492214244448277147, guid: 84f3f989133dc724681733bf06f534d8, type: 3}
+    characterPrefab: {fileID: 7082116060841657837, guid: 89a4bb26954076c4087def95df52bc91, type: 3}
     player: {fileID: 0}
     score: 0
     dead: 0
   - playerNumber: 1
-    characterPrefab: {fileID: 7082116060841657837, guid: 89a4bb26954076c4087def95df52bc91, type: 3}
+    characterPrefab: {fileID: 3492214244448277147, guid: 84f3f989133dc724681733bf06f534d8, type: 3}
     player: {fileID: 0}
     score: 0
     dead: 0
@@ -19963,10 +19963,6 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 537381038}
-    - target: {fileID: 1235701688357420077, guid: 89a4bb26954076c4087def95df52bc91, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1515343279297017031, guid: 89a4bb26954076c4087def95df52bc91, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -19975,18 +19971,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: J
       objectReference: {fileID: 0}
+    - target: {fileID: 1568848647709469002, guid: 89a4bb26954076c4087def95df52bc91, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1885475732630660217, guid: 89a4bb26954076c4087def95df52bc91, type: 3}
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 2019158932}
-    - target: {fileID: 2037778598914027996, guid: 89a4bb26954076c4087def95df52bc91, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2075039079137242895, guid: 89a4bb26954076c4087def95df52bc91, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2082803097567262916, guid: 89a4bb26954076c4087def95df52bc91, type: 3}
       propertyPath: mesh
       value: 
@@ -20007,10 +19999,6 @@ PrefabInstance:
       propertyPath: mesh
       value: 
       objectReference: {fileID: 125364638}
-    - target: {fileID: 3857253540686115230, guid: 89a4bb26954076c4087def95df52bc91, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 3897313640594843384, guid: 89a4bb26954076c4087def95df52bc91, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -20035,18 +20023,10 @@ PrefabInstance:
       propertyPath: mesh
       value: 
       objectReference: {fileID: 1148016850}
-    - target: {fileID: 5905520176061268263, guid: 89a4bb26954076c4087def95df52bc91, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6073047826357543869, guid: 89a4bb26954076c4087def95df52bc91, type: 3}
       propertyPath: mesh
       value: 
       objectReference: {fileID: 1926531415}
-    - target: {fileID: 6529148620718356289, guid: 89a4bb26954076c4087def95df52bc91, type: 3}
-      propertyPath: enableLevel
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 6808418535093938446, guid: 89a4bb26954076c4087def95df52bc91, type: 3}
       propertyPath: mesh
       value: 
@@ -20111,10 +20091,6 @@ PrefabInstance:
       propertyPath: mesh
       value: 
       objectReference: {fileID: 2019158932}
-    - target: {fileID: 8187883896987015412, guid: 89a4bb26954076c4087def95df52bc91, type: 3}
-      propertyPath: enableLevel
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 8378978195631221851, guid: 89a4bb26954076c4087def95df52bc91, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -20127,10 +20103,6 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 1831999241}
-    - target: {fileID: 8772268957756832795, guid: 89a4bb26954076c4087def95df52bc91, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 8920946396123657878, guid: 89a4bb26954076c4087def95df52bc91, type: 3}
       propertyPath: mesh
       value: 

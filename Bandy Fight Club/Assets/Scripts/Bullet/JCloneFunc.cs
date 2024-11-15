@@ -21,6 +21,8 @@ public class JCloneFunc : MonoBehaviour
     [SerializeField] AnimationCurve forceDecayCurve;
     [SerializeField] float attackForceTimer;
 
+    [SerializeField] float attackBoostDelay = 0.25f;
+
     void Update()
     {
         attackForceTimer += forceDecaySpeed*Time.deltaTime;
@@ -54,6 +56,10 @@ public class JCloneFunc : MonoBehaviour
     }
 
     public void DoAttack()
+    {
+        Invoke("DoAttackBoost", attackBoostDelay);
+    }
+    public void DoAttackBoost()
     {   
         forceMagnitude = attackForce;
 
