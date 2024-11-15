@@ -6,7 +6,7 @@ public class JCloneFunc : MonoBehaviour
 {
     public Vector2 direction;
 
-    [SerializeField] Rigidbody2D rb;
+    public Rigidbody2D rb;
     [SerializeField] PlayerAnimation playerAnimation;
     [SerializeField] PlayerMeshParent meshParent;
 
@@ -22,6 +22,10 @@ public class JCloneFunc : MonoBehaviour
     [SerializeField] float attackForceTimer;
 
     [SerializeField] float attackBoostDelay = 0.25f;
+
+    [SerializeField] float deactivateTime = 1;
+
+    public bool active;
 
     void Update()
     {
@@ -41,12 +45,18 @@ public class JCloneFunc : MonoBehaviour
     public void Activate()
     {
         gameObject.SetActive(true);
+        active = true;
 
         DoAttack();
+
+        CancelInvoke("Deactivate");
+        Invoke("Deactivate", deactivateTime);
     }
     public void Deactivate()
     {
         forceVector = new Vector2(0,0);
+
+        active = false;
         gameObject.SetActive(false);
     }
 

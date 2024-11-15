@@ -22,6 +22,10 @@ public class BigJFunc : PlayerFunc, ICharacterFunc
     public JCloneFunc currentClone;
     public JCloneFunc clonePrefab;
 
+    [SerializeField] float cloneTeleportTime = 0.1f;
+    [SerializeField] float cloneTeleportAccelMult = 0.15f;
+    [SerializeField] float cloneTeleportAccelTime = 0.5f;
+
     void Awake()
     {
         if (characterFunc == null) characterFunc = this;
@@ -45,6 +49,13 @@ public class BigJFunc : PlayerFunc, ICharacterFunc
             if (currentPiccoloBullet.isActive && inputs.heavyPressed)
             {
                 DoPiccoloClone(inputVector);
+            }
+        }
+        else if (currentClone.active)
+        {
+            if (inputs.heavyPressed && GetIsActionable())
+            {
+                DoCloneTeleport();
             }
         }
     }
@@ -75,7 +86,7 @@ public class BigJFunc : PlayerFunc, ICharacterFunc
 
     public void PiccoloThrowAttack()
     {
-        if (!currentPiccoloBullet)
+        if (!currentPiccoloBullet && !currentClone.active)
         {
             ShootPiccolo();
         }
@@ -123,6 +134,15 @@ public class BigJFunc : PlayerFunc, ICharacterFunc
         currentClone.SetTeam(team);
         currentClone.Deactivate();
         currentClone.Spawn(playerMesh.num+4);
+    }
+
+    void DoCloneTeleport()
+    {
+        transform.position = currentClone.transform.position;
+        rb.velocity = currentClone.rb.velocity;
+        DoAccelerationMult(cloneTeleportAccelMult, cloneTeleportAccelTime);
+
+        currentClone.Deactivate();
     }
 
     void OnDestroy()
