@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class AttackHitbox : MonoBehaviour
 {
-    [SerializeField] TeamHolder team;
+    [SerializeField] TeamHolder teamHolder;
+    public int team;
 
     [SerializeField] float rehitTime = 0.5f;
     List<Collider2D> rehitList = new List<Collider2D>();
@@ -27,12 +28,13 @@ public class AttackHitbox : MonoBehaviour
 
         if (!damageable.receiveHitFromAll)
         {
-            if (team) if (team.team == damageable.team.team) return; //if we on the same team, if this hitbox isnt assigned to a team, hit everyone
+            if (teamHolder) team = teamHolder.team;
+            if (team == damageable.team.team) return; //if we on the same team, if this hitbox isnt assigned to a team, hit everyone
         }
 
         direction = UFunc.Sign(directionReference.localScale.x);
 
-        FullAttackInfo fullInfo = new FullAttackInfo() {info = attackInfo, direction = new Vector2(direction,1), team = team.team};
+        FullAttackInfo fullInfo = new FullAttackInfo() {info = attackInfo, direction = new Vector2(direction,1), team = team};
         AttackHitReturnInfo hitInfo = damageable.GetHit(fullInfo);
 
         if (hitInfo.hit) 
@@ -67,6 +69,11 @@ public class AttackHitbox : MonoBehaviour
         rehitList.Add(target);
         yield return new WaitForSeconds(rehitTime);
         rehitList.Remove(target);
+    }
+
+    public void ClearHitList()
+    {
+        rehitList.Clear();
     }
 }
 

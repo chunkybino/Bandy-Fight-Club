@@ -5990,7 +5990,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15bd414acfc493f4a9f14987b0906063, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  team: {fileID: 0}
+  teamHolder: {fileID: 0}
+  team: 0
   rehitTime: 0.5
   attackInfo:
     damage: 30
@@ -6159,6 +6160,12 @@ MonoBehaviour:
   jumpParticles: {fileID: 3850498550207727440}
   dashParticles: {fileID: 3552895314187141835}
   dashParticlesPrefab: {fileID: 7924371216980689347, guid: a360aeb906487cf4ea994d3151e25ce4, type: 3}
+  facing: 0
+  grounded: 0
+  isStun: 0
+  isBlocking: 0
+  isDodging: 0
+  targetSideSpeed: 0
 --- !u!210 &6409359841261701850
 SortingGroup:
   m_ObjectHideFlags: 0
@@ -6274,7 +6281,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15bd414acfc493f4a9f14987b0906063, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  team: {fileID: 0}
+  teamHolder: {fileID: 0}
+  team: 0
   rehitTime: 0.5
   attackInfo:
     damage: 40
@@ -24077,6 +24085,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enableLevel: 0
+  disguiseOnSilhouette: 0
   inverse: 0
   targetObject: {fileID: 5211838575459231317}
   inverseObject: {fileID: 3253132466191578433}
@@ -31998,6 +32007,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enableLevel: 0
+  disguiseOnSilhouette: 0
   inverse: 0
   targetObject: {fileID: 5025514420458976631}
   inverseObject: {fileID: 0}
@@ -33319,6 +33329,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enableLevel: 1
+  disguiseOnSilhouette: 0
   inverse: 0
   targetObject: {fileID: 5251067734741121158}
   inverseObject: {fileID: 0}
@@ -45428,6 +45439,7 @@ MonoBehaviour:
   doIt: 0
   materialTextures: {fileID: 11400000, guid: 3bc50daa089981643aff5754b4e0be3d, type: 2}
   num: 0
+  countPlayers: 1
   outlineColor: {r: 0.5566038, g: 0.5566038, b: 0.5566038, a: 1}
   outlineThickness: 0.006
   outlineAlpha: 0.5
@@ -45930,6 +45942,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enableLevel: 1
+  disguiseOnSilhouette: 0
   inverse: 0
   targetObject: {fileID: 6998480806903363780}
   inverseObject: {fileID: 0}
@@ -46296,7 +46309,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15bd414acfc493f4a9f14987b0906063, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  team: {fileID: 0}
+  teamHolder: {fileID: 0}
+  team: 0
   rehitTime: 0.5
   attackInfo:
     damage: 20
@@ -49263,6 +49277,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enableLevel: 10
+  disguiseOnSilhouette: 0
   inverse: 0
   targetObject: {fileID: 4426812985412133292}
   inverseObject: {fileID: 0}
@@ -49708,6 +49723,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enableLevel: 1
+  disguiseOnSilhouette: 0
   inverse: 0
   targetObject: {fileID: 390882783039539325}
   inverseObject: {fileID: 0}
@@ -61646,6 +61662,136 @@ Transform:
   m_Children: []
   m_Father: {fileID: 7177748852899314888}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &8550341002628648107
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3736141105894519144}
+  - component: {fileID: 5600927875237143989}
+  - component: {fileID: 4620643253525335306}
+  m_Layer: 8
+  m_Name: CloneAttack
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3736141105894519144
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8550341002628648107}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1174475025532484836}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &5600927875237143989
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8550341002628648107}
+  m_Enabled: 0
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 1.9936537, y: 0.890573}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 3.8996427, y: 4.654353}
+  m_EdgeRadius: 0
+--- !u!114 &4620643253525335306
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8550341002628648107}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15bd414acfc493f4a9f14987b0906063, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  teamHolder: {fileID: 0}
+  team: 0
+  rehitTime: 0.5
+  attackInfo:
+    damage: 45
+    knockbacks:
+    - name: slash2flute
+      vel: {x: 10, y: 0}
+      fixedVel: {x: 0, y: 6}
+      xVelType: 3
+      yVelType: 3
+      normalizeVel: 0
+      dontDoAgainstGroundedTarget: 0
+      ignoreBaseKnockbackResistance: 0
+      acceleration: 0
+      accelerationTime: 0.45
+    - name: slash2fluteadd
+      vel: {x: 10, y: 0}
+      fixedVel: {x: 0, y: 8}
+      xVelType: 2
+      yVelType: 2
+      normalizeVel: 0
+      dontDoAgainstGroundedTarget: 0
+      ignoreBaseKnockbackResistance: 0
+      acceleration: 0.1
+      accelerationTime: 0.6
+    blockStun: 0.1
+    stunTime: 0.4
+    advantageDamage: 0.08
+    onlyPerfBlock: 0
+    unblockable: 0
+    hitStopTime: 0.14
+    cameraShake: 0.65
+    doDeflect: 0
+    deflectForce: {x: 0, y: 0}
+    tags: []
+  direction: 0
+  directionReference: {fileID: 1174475025532484836}
+  playerFunc: {fileID: 0}
+  knockbackHandler: {fileID: 0}
 --- !u!1 &8622467398987606115
 GameObject:
   m_ObjectHideFlags: 0
@@ -63037,6 +63183,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2978154426957277611}
+  - {fileID: 3736141105894519144}
   m_Father: {fileID: 1929756383749824527}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &9111034864468016985

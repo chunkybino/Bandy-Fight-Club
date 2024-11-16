@@ -152,6 +152,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   direction: {x: 1, y: 0}
+  team: 0
   rb: {fileID: 2478867748927038978}
   playerAnimation: {fileID: 2317021675467248568}
   meshParent: {fileID: 5770167834969562246}
@@ -199,6 +200,7 @@ MonoBehaviour:
   attackBoostDelay: 0.1
   deactivateTime: 0.6
   active: 0
+  cloneAttackHitbox: {fileID: 4691935824103415262}
 --- !u!1001 &72840769390760148
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1711,6 +1713,14 @@ PrefabInstance:
       propertyPath: points.Array.data[0].z
       value: -0.09345213
       objectReference: {fileID: 0}
+    - target: {fileID: 4761469925925676479, guid: fe70ef1e12400454dab17dbd913906c3, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.74129236
+      objectReference: {fileID: 0}
+    - target: {fileID: 4761469925925676479, guid: fe70ef1e12400454dab17dbd913906c3, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.5176108
+      objectReference: {fileID: 0}
     - target: {fileID: 4772670293108524534, guid: fe70ef1e12400454dab17dbd913906c3, type: 3}
       propertyPath: points.Array.data[0].x
       value: -0.42914432
@@ -1974,6 +1984,22 @@ PrefabInstance:
     - target: {fileID: 5535860466289720327, guid: fe70ef1e12400454dab17dbd913906c3, type: 3}
       propertyPath: points.Array.data[0].z
       value: -0.09345213
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600927875237143989, guid: fe70ef1e12400454dab17dbd913906c3, type: 3}
+      propertyPath: m_Size.x
+      value: 4.4642057
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600927875237143989, guid: fe70ef1e12400454dab17dbd913906c3, type: 3}
+      propertyPath: m_Size.y
+      value: 5.38572
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600927875237143989, guid: fe70ef1e12400454dab17dbd913906c3, type: 3}
+      propertyPath: m_Offset.x
+      value: 2.2759352
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600927875237143989, guid: fe70ef1e12400454dab17dbd913906c3, type: 3}
+      propertyPath: m_Offset.y
+      value: 1.0124671
       objectReference: {fileID: 0}
     - target: {fileID: 5608909506561793422, guid: fe70ef1e12400454dab17dbd913906c3, type: 3}
       propertyPath: points.Array.data[0].x
@@ -2421,7 +2447,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7919796922975948066, guid: fe70ef1e12400454dab17dbd913906c3, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 3.1616745
+      value: 3.1616707
       objectReference: {fileID: 0}
     - target: {fileID: 8043263459216682246, guid: fe70ef1e12400454dab17dbd913906c3, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2811,6 +2837,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7f8da68fffd0d9a49858fa0c47f84472, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &4691935824103415262 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4620643253525335306, guid: fe70ef1e12400454dab17dbd913906c3, type: 3}
+  m_PrefabInstance: {fileID: 72840769390760148}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15bd414acfc493f4a9f14987b0906063, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &5770167834969562246 stripped

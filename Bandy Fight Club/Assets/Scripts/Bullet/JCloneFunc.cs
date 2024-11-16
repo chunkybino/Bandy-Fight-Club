@@ -6,6 +6,8 @@ public class JCloneFunc : MonoBehaviour
 {
     public Vector2 direction;
 
+    public int team;
+
     public Rigidbody2D rb;
     [SerializeField] PlayerAnimation playerAnimation;
     [SerializeField] PlayerMeshParent meshParent;
@@ -27,6 +29,8 @@ public class JCloneFunc : MonoBehaviour
     [SerializeField] float deactivateTime = 1;
 
     public bool active;
+
+    [SerializeField] AttackHitbox cloneAttackHitbox;
 
     void Update()
     {
@@ -54,6 +58,8 @@ public class JCloneFunc : MonoBehaviour
         textureTransform.eulerAngles = new Vector3(0,0,yRot);
         textureTransform.localScale = new Vector3(facing,1,1);
 
+        cloneAttackHitbox.ClearHitList();
+
         gameObject.SetActive(true);
         active = true;
 
@@ -70,9 +76,11 @@ public class JCloneFunc : MonoBehaviour
         gameObject.SetActive(false);
     }
 
-    public void SetTeam(int team)
+    public void SetTeam(int theTeam)
     {
-        meshParent.team = team;
+        meshParent.team = theTeam;
+        team = theTeam;
+        cloneAttackHitbox.team = theTeam;
     }
 
     public void DoAttack()
