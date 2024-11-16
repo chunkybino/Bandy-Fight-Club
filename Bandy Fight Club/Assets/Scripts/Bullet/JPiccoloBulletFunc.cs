@@ -14,6 +14,7 @@ public class JPiccoloBulletFunc : BulletFunc
     [SerializeField] float jumpForce;
 
     public bool canJump = true;
+    [SerializeField] ParticleSystem jumpParticles;
 
     public override void Update()
     {
@@ -42,6 +43,8 @@ public class JPiccoloBulletFunc : BulletFunc
 
         rb.velocity = new Vector2(0, jumpForce);
         canJump = false;
+
+        jumpParticles.Play();
     }
 
     public override void SetStartSpeed()
