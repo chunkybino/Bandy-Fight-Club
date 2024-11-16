@@ -35,6 +35,8 @@ public class JCloneFunc : MonoBehaviour
 
     public bool hitTarget;
 
+    [SerializeField] ParticleSystem attackParticles;
+
     void Start()
     {
         cloneAttackHitbox.onHit.AddListener(OnAttackHit);
@@ -74,6 +76,8 @@ public class JCloneFunc : MonoBehaviour
         hitTarget = false;
 
         DoAttack();
+
+        attackParticles.Play();
 
         CancelInvoke("Deactivate");
         Invoke("Deactivate", deactivateTime);
