@@ -22,7 +22,6 @@ public class BigJFunc : PlayerFunc, ICharacterFunc
     public JCloneFunc currentClone;
     public JCloneFunc clonePrefab;
 
-    [SerializeField] float cloneTeleportTime = 0.1f;
     [SerializeField] float cloneTeleportAccelMult = 0.15f;
     [SerializeField] float cloneTeleportAccelTime = 0.5f;
 

@@ -9,6 +9,7 @@ public class JCloneFunc : MonoBehaviour
     public Rigidbody2D rb;
     [SerializeField] PlayerAnimation playerAnimation;
     [SerializeField] PlayerMeshParent meshParent;
+    [SerializeField] Transform textureTransform;
 
     public Vector2 forceVector;
     public float forceMagnitude;
@@ -44,6 +45,15 @@ public class JCloneFunc : MonoBehaviour
 
     public void Activate()
     {
+        int facing = 1;
+        if (direction.x < 0) facing = -1;
+
+        float yRot = UFunc.Sign(direction.y) * 90 * facing;
+        if (direction.x != 0) yRot *= 0.5f;
+
+        textureTransform.eulerAngles = new Vector3(0,0,yRot);
+        textureTransform.localScale = new Vector3(facing,1,1);
+
         gameObject.SetActive(true);
         active = true;
 
@@ -67,6 +77,7 @@ public class JCloneFunc : MonoBehaviour
 
     public void DoAttack()
     {
+        playerAnimation.PlayAnim("CloneAttack");
         Invoke("DoAttackBoost", attackBoostDelay);
     }
     public void DoAttackBoost()
