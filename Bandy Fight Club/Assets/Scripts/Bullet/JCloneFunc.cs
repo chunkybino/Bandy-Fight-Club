@@ -8,6 +8,8 @@ public class JCloneFunc : MonoBehaviour
 
     public int team;
 
+    public int facing = 1;
+
     public Rigidbody2D rb;
     [SerializeField] PlayerAnimation playerAnimation;
     [SerializeField] PlayerMeshParent meshParent;
@@ -16,9 +18,6 @@ public class JCloneFunc : MonoBehaviour
     public Vector2 forceVector;
     public float forceMagnitude;
     public float attackForce = 24f;
-
-    [SerializeField] float attackForceDecaySpeed = 20f;
-    [SerializeField] float currentForce;
 
     [SerializeField] float forceDecaySpeed = 1.5f;
     [SerializeField] AnimationCurve forceDecayCurve;
@@ -49,7 +48,7 @@ public class JCloneFunc : MonoBehaviour
 
     public void Activate()
     {
-        int facing = 1;
+        if (direction.x > 0) facing = 1;
         if (direction.x < 0) facing = -1;
 
         float yRot = UFunc.Sign(direction.y) * 90 * facing;

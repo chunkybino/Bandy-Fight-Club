@@ -370,6 +370,8 @@ MonoBehaviour:
   currentPiccoloBullet: {fileID: 0}
   currentClone: {fileID: 0}
   clonePrefab: {fileID: 4950847131231921027, guid: 5d86985bd37d4b141a0c24cdeffa1e01, type: 3}
+  cloneTeleportAccelMult: 0.15
+  cloneTeleportAccelTime: 0.5
 --- !u!114 &2659656187462880160
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1270,12 +1272,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 496627745798645577, guid: fe70ef1e12400454dab17dbd913906c3, type: 3}
       propertyPath: team
-      value: 
-      objectReference: {fileID: 3331528246116513839}
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 496627745798645577, guid: fe70ef1e12400454dab17dbd913906c3, type: 3}
       propertyPath: playerFunc
       value: 
       objectReference: {fileID: 9045482197941810018}
+    - target: {fileID: 496627745798645577, guid: fe70ef1e12400454dab17dbd913906c3, type: 3}
+      propertyPath: teamHolder
+      value: 
+      objectReference: {fileID: 3331528246116513839}
     - target: {fileID: 496627745798645577, guid: fe70ef1e12400454dab17dbd913906c3, type: 3}
       propertyPath: knockbackHandler
       value: 
@@ -1294,12 +1300,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 628325218586201431, guid: fe70ef1e12400454dab17dbd913906c3, type: 3}
       propertyPath: team
-      value: 
-      objectReference: {fileID: 3331528246116513839}
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 628325218586201431, guid: fe70ef1e12400454dab17dbd913906c3, type: 3}
       propertyPath: playerFunc
       value: 
       objectReference: {fileID: 9045482197941810018}
+    - target: {fileID: 628325218586201431, guid: fe70ef1e12400454dab17dbd913906c3, type: 3}
+      propertyPath: teamHolder
+      value: 
+      objectReference: {fileID: 3331528246116513839}
     - target: {fileID: 628325218586201431, guid: fe70ef1e12400454dab17dbd913906c3, type: 3}
       propertyPath: knockbackHandler
       value: 
@@ -1543,7 +1553,7 @@ PrefabInstance:
     - target: {fileID: 1085727441473210169, guid: fe70ef1e12400454dab17dbd913906c3, type: 3}
       propertyPath: matList.Array.data[1]
       value: 
-      objectReference: {fileID: 2100000, guid: ca73f2f9a2aa87e4eb2e8aca4166e3d2, type: 2}
+      objectReference: {fileID: 2100000, guid: 5dc7b63aedd576c43a58da879aac0af1, type: 2}
     - target: {fileID: 1106693284915352422, guid: fe70ef1e12400454dab17dbd913906c3, type: 3}
       propertyPath: points.Array.data[0].x
       value: 12.531
@@ -1942,12 +1952,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2353053098678853705, guid: fe70ef1e12400454dab17dbd913906c3, type: 3}
       propertyPath: team
-      value: 
-      objectReference: {fileID: 3331528246116513839}
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2353053098678853705, guid: fe70ef1e12400454dab17dbd913906c3, type: 3}
       propertyPath: playerFunc
       value: 
       objectReference: {fileID: 9045482197941810018}
+    - target: {fileID: 2353053098678853705, guid: fe70ef1e12400454dab17dbd913906c3, type: 3}
+      propertyPath: teamHolder
+      value: 
+      objectReference: {fileID: 3331528246116513839}
     - target: {fileID: 2353053098678853705, guid: fe70ef1e12400454dab17dbd913906c3, type: 3}
       propertyPath: knockbackHandler
       value: 
@@ -2082,7 +2096,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3253132466191578433, guid: fe70ef1e12400454dab17dbd913906c3, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3263962523017334358, guid: fe70ef1e12400454dab17dbd913906c3, type: 3}
       propertyPath: groundCheck
@@ -2287,7 +2301,7 @@ PrefabInstance:
     - target: {fileID: 4495119660588407729, guid: fe70ef1e12400454dab17dbd913906c3, type: 3}
       propertyPath: m_Materials.Array.data[1]
       value: 
-      objectReference: {fileID: 2100000, guid: ca73f2f9a2aa87e4eb2e8aca4166e3d2, type: 2}
+      objectReference: {fileID: 2100000, guid: 5dc7b63aedd576c43a58da879aac0af1, type: 2}
     - target: {fileID: 4510540966448769332, guid: fe70ef1e12400454dab17dbd913906c3, type: 3}
       propertyPath: uvRotation.x
       value: -0.50699997
@@ -2454,7 +2468,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5025514420458976631, guid: fe70ef1e12400454dab17dbd913906c3, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5083043298683240846, guid: fe70ef1e12400454dab17dbd913906c3, type: 3}
       propertyPath: points.Array.data[0].x
@@ -2478,7 +2492,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5211838575459231317, guid: fe70ef1e12400454dab17dbd913906c3, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5224093102439920030, guid: fe70ef1e12400454dab17dbd913906c3, type: 3}
       propertyPath: uvRotation.x

@@ -153,45 +153,53 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   direction: {x: 1, y: 0}
   team: 0
+  facing: 1
   rb: {fileID: 2478867748927038978}
   playerAnimation: {fileID: 2317021675467248568}
   meshParent: {fileID: 5770167834969562246}
   textureTransform: {fileID: 1247033769112480816}
   forceVector: {x: 0, y: 0}
   forceMagnitude: 0
-  attackForce: 40
-  attackForceDecaySpeed: 40
-  currentForce: 0
-  forceDecaySpeed: 2
+  attackForce: 75
+  forceDecaySpeed: 1.8
   forceDecayCurve:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
       time: 0
       value: 0.99999994
-      inSlope: -0.33677393
-      outSlope: -0.33677393
+      inSlope: -0.28746697
+      outSlope: -0.28746697
       tangentMode: 0
       weightedMode: 0
       inWeight: 0
-      outWeight: 0.15965076
+      outWeight: 0.17397845
     - serializedVersion: 3
-      time: 0.743961
-      value: 0.39912534
-      inSlope: -2.153302
-      outSlope: -2.153302
+      time: 0.20105925
+      value: 0.72560936
+      inSlope: -3.0181005
+      outSlope: -3.0181005
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.17752296
+      outWeight: 0.08185307
+    - serializedVersion: 3
+      time: 0.50145113
+      value: 0.13392109
+      inSlope: -0.71113193
+      outSlope: -0.71113193
       tangentMode: 0
       weightedMode: 0
       inWeight: 0.33333334
-      outWeight: 0.28598383
+      outWeight: 0.13946815
     - serializedVersion: 3
       time: 0.99999994
       value: -0.000000048428774
-      inSlope: -0.5458825
-      outSlope: -0.5458825
+      inSlope: -0.17662641
+      outSlope: -0.17662641
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.9588019
+      inWeight: 0.1132544
       outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2

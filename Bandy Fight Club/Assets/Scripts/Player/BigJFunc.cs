@@ -122,6 +122,7 @@ public class BigJFunc : PlayerFunc, ICharacterFunc
 
         currentClone.transform.position = currentPiccoloBullet.transform.position;
         currentClone.direction = direction.normalized;
+        currentClone.facing = Mathf.FloorToInt(Mathf.Sign(currentPiccoloBullet.rb.velocity.x)); //face in direciton of piccolo by default
         currentClone.Activate();
 
         currentPiccoloBullet.Die();
