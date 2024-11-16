@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class JCloneFunc : MonoBehaviour
 {
+    public BigJFunc parentJ;
+
     public Vector2 direction;
 
     public int team;
@@ -30,6 +32,13 @@ public class JCloneFunc : MonoBehaviour
     public bool active;
 
     [SerializeField] AttackHitbox cloneAttackHitbox;
+
+    public bool hitTarget;
+
+    void Start()
+    {
+        cloneAttackHitbox.onHit.AddListener(OnAttackHit);
+    }
 
     void Update()
     {
@@ -62,6 +71,8 @@ public class JCloneFunc : MonoBehaviour
         gameObject.SetActive(true);
         active = true;
 
+        hitTarget = false;
+
         DoAttack();
 
         CancelInvoke("Deactivate");
@@ -70,6 +81,8 @@ public class JCloneFunc : MonoBehaviour
     public void Deactivate()
     {
         forceVector = new Vector2(0,0);
+
+        hitTarget = false;
 
         active = false;
         gameObject.SetActive(false);
@@ -92,5 +105,13 @@ public class JCloneFunc : MonoBehaviour
         forceMagnitude = attackForce;
 
         attackForceTimer = 0;
+    }
+
+    public void OnAttackHit(AttackHitReturnInfo info)
+    {
+        if (parentJ != null)
+        {
+            parentJ.AddDisadvantage(info.returnDisadvantage);
+        }
     }
 }

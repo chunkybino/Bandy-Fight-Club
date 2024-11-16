@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class AttackHitbox : MonoBehaviour
 {
@@ -18,6 +19,8 @@ public class AttackHitbox : MonoBehaviour
 
     [SerializeField] PlayerFunc playerFunc;
     [SerializeField] KnockbackHandler knockbackHandler;
+
+    public UnityEvent<AttackHitReturnInfo> onHit;
 
     void OnTriggerStay2D(Collider2D item)
     {
@@ -41,6 +44,8 @@ public class AttackHitbox : MonoBehaviour
         if (hitInfo.hit) 
         {
             HitDude(hitInfo);
+
+            onHit?.Invoke(hitInfo);
 
             rehitCorountine = removeFromHitListCorountine(item);
             StartCoroutine(rehitCorountine);
