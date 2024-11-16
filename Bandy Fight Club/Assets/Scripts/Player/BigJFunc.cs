@@ -24,6 +24,7 @@ public class BigJFunc : PlayerFunc, ICharacterFunc
 
     [SerializeField] float cloneTeleportAccelMult = 0.15f;
     [SerializeField] float cloneTeleportAccelTime = 0.5f;
+    [SerializeField] float cloneTeleportAttackStun = 0.2f;
 
     void Awake()
     {
@@ -47,12 +48,19 @@ public class BigJFunc : PlayerFunc, ICharacterFunc
         {
             if (currentPiccoloBullet.isActive && inputs.heavyPressed)
             {
-                DoPiccoloClone(inputVector);
+                if (inputVector.x != 0 || inputVector.y != 0) //if we hold a direction
+                {
+                    DoPiccoloClone(inputVector);
+                }
+                else
+                {
+                    currentPiccoloBullet.DoJump();
+                }
             }
         }
         else if (currentClone.active)
         {
-            if (inputs.heavyPressed && GetIsActionable())
+            if (inputs.heavyPressed && GetIsActionable() && currentClone.hitTarget)
             {
                 DoCloneTeleport();
             }
@@ -144,6 +152,8 @@ public class BigJFunc : PlayerFunc, ICharacterFunc
         DoAccelerationMult(cloneTeleportAccelMult, cloneTeleportAccelTime);
 
         currentClone.Deactivate();
+
+        playerAttack.attackStunTimer = cloneTeleportAttackStun;
     }
 
     void OnDestroy()

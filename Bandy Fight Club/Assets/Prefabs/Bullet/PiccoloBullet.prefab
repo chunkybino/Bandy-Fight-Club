@@ -493,6 +493,8 @@ MonoBehaviour:
   rotationTranform: {fileID: 2323173281108002525}
   timeActive: 0
   activateTime: 0.25
+  jumpForce: 22
+  canJump: 1
 --- !u!58 &8270670476711904369
 CircleCollider2D:
   m_ObjectHideFlags: 0

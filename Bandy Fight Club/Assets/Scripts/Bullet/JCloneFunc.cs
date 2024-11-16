@@ -109,6 +109,7 @@ public class JCloneFunc : MonoBehaviour
 
     public void OnAttackHit(AttackHitReturnInfo info)
     {
+        hitTarget = true;
         if (parentJ != null)
         {
             parentJ.AddDisadvantage(info.returnDisadvantage);

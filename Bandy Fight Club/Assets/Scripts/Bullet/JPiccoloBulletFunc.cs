@@ -11,6 +11,10 @@ public class JPiccoloBulletFunc : BulletFunc
     public float activateTime = 0.25f;
     public bool isActive {get{return timeActive >= activateTime;}}
 
+    [SerializeField] float jumpForce;
+
+    public bool canJump = true;
+
     public override void Update()
     {
         base.Update();
@@ -32,8 +36,23 @@ public class JPiccoloBulletFunc : BulletFunc
         rb.velocity += velAdd;
     }
 
+    public void DoJump()
+    {
+        if (!canJump) return;
+
+        rb.velocity = new Vector2(0, jumpForce);
+        canJump = false;
+    }
+
     public override void SetStartSpeed()
     {
         //overwrite this funcition because otherwise it will voerrite the inherited velocity
+    }
+
+    public override void GetDeflected(Vector2 deflectForce)
+    {
+        base.GetDeflected(deflectForce);
+
+        canJump = false;
     }
 }

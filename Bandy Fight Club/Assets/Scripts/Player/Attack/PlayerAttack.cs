@@ -32,7 +32,7 @@ public class PlayerAttack : MonoBehaviour
 
     public float attackingSpeedMult = 1;
 
-    [SerializeField] float attackStunTimer;
+    public float attackStunTimer;
     bool isAttackStun {get{return attackStunTimer > 0;}}
 
     [SerializeField] float disadvantageAttackStunMult = 0.5f; //get attakced stunned for longer with more disadvantage

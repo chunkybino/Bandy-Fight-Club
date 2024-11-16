@@ -151,6 +151,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bcc842ef3924b3498df700a6ecc463b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  parentJ: {fileID: 0}
   direction: {x: 1, y: 0}
   team: 0
   facing: 1
@@ -209,6 +210,7 @@ MonoBehaviour:
   deactivateTime: 0.6
   active: 0
   cloneAttackHitbox: {fileID: 4691935824103415262}
+  hitTarget: 0
 --- !u!1001 &72840769390760148
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1994,16 +1996,8 @@ PrefabInstance:
       value: -0.09345213
       objectReference: {fileID: 0}
     - target: {fileID: 5600927875237143989, guid: fe70ef1e12400454dab17dbd913906c3, type: 3}
-      propertyPath: m_Size.x
-      value: 4.4642057
-      objectReference: {fileID: 0}
-    - target: {fileID: 5600927875237143989, guid: fe70ef1e12400454dab17dbd913906c3, type: 3}
       propertyPath: m_Size.y
       value: 5.38572
-      objectReference: {fileID: 0}
-    - target: {fileID: 5600927875237143989, guid: fe70ef1e12400454dab17dbd913906c3, type: 3}
-      propertyPath: m_Offset.x
-      value: 2.2759352
       objectReference: {fileID: 0}
     - target: {fileID: 5600927875237143989, guid: fe70ef1e12400454dab17dbd913906c3, type: 3}
       propertyPath: m_Offset.y

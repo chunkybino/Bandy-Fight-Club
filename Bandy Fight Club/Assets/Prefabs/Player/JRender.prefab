@@ -6020,6 +6020,9 @@ MonoBehaviour:
   directionReference: {fileID: 0}
   playerFunc: {fileID: 0}
   knockbackHandler: {fileID: 0}
+  onHit:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &492026219497786010
 GameObject:
   m_ObjectHideFlags: 0
@@ -6321,6 +6324,9 @@ MonoBehaviour:
   directionReference: {fileID: 0}
   playerFunc: {fileID: 0}
   knockbackHandler: {fileID: 0}
+  onHit:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &548150867263444940
 GameObject:
   m_ObjectHideFlags: 0
@@ -46339,6 +46345,9 @@ MonoBehaviour:
   directionReference: {fileID: 0}
   playerFunc: {fileID: 0}
   knockbackHandler: {fileID: 0}
+  onHit:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &6444562344594315360
 GameObject:
   m_ObjectHideFlags: 0
@@ -61727,7 +61736,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 1.9936537, y: 0.890573}
+  m_Offset: {x: 1.7503018, y: 0.890573}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -61738,7 +61747,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 3.8996427, y: 4.654353}
+  m_Size: {x: 5.5154724, y: 4.654353}
   m_EdgeRadius: 0
 --- !u!114 &4620643253525335306
 MonoBehaviour:
@@ -61792,6 +61801,9 @@ MonoBehaviour:
   directionReference: {fileID: 1174475025532484836}
   playerFunc: {fileID: 0}
   knockbackHandler: {fileID: 0}
+  onHit:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &8622467398987606115
 GameObject:
   m_ObjectHideFlags: 0

@@ -296,7 +296,7 @@ public class BulletFunc : MonoBehaviour, IDamageable
 
         return new AttackHitReturnInfo();
     }
-    public void GetDeflected(Vector2 deflectForce)
+    public virtual void GetDeflected(Vector2 deflectForce)
     {
         DoDeflectSpeed(deflectForce);
 
