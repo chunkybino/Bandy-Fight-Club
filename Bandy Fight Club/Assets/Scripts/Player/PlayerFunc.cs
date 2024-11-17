@@ -345,7 +345,7 @@ public class PlayerFunc : MonoBehaviour
         if (canDodge) currentDodgeCooldownTime = Mathf.Max(currentDodgeCooldownTime-(dodgeCooldownDecaySpeed*Time.deltaTime),0);
 
         bool canBlock = true;
-        if (isStun && !canBlockOutOfStun) canBlock = false;
+        //if (isStun && !canBlockOutOfStun) canBlock = false; ///stun block is not a thing anymore
         if (isDodging || playerAttack.isAttacking) canBlock = false;
         
         if (dodgeBufferTimer > 0)
