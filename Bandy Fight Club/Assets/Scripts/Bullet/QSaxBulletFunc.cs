@@ -36,6 +36,7 @@ public class QSaxBulletFunc : BulletFunc
     bool isSaxClash;
     [SerializeField] float saxClashHitStop = 0.5f;
     [SerializeField] float saxClashCameraShake = 3f;
+    [SerializeField] Knockback saxClashKnockback;
 
     void Start()
     {
@@ -144,6 +145,7 @@ public class QSaxBulletFunc : BulletFunc
             GameManager.DoCameraShakeStatic(saxClashCameraShake);
 
             attackInfo.damage = Mathf.FloorToInt(attackInfo.damage * saxClashDamageMult);
+            attackInfo.knockbacks[0] = saxClashKnockback;
 
             return null;
         }

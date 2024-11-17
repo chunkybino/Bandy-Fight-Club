@@ -270,6 +270,7 @@ MonoBehaviour:
   deflectHitStop: 0.1
   deflectCameraShake: 0.6
   disableHitbox: 0
+  hitPlayers: 1
   reHitTime: 0.5
   outlineRender: {fileID: 2260475175172785630}
   disguiseOutlineRender: {fileID: 6692029942926872115}
@@ -292,6 +293,17 @@ MonoBehaviour:
   saxClashDamageMult: 5.5
   saxClashHitStop: 0.5
   saxClashCameraShake: 3
+  saxClashKnockback:
+    name: 
+    vel: {x: 75, y: 0}
+    fixedVel: {x: 0, y: 40}
+    xVelType: 3
+    yVelType: 3
+    normalizeVel: 0
+    dontDoAgainstGroundedTarget: 0
+    ignoreBaseKnockbackResistance: 0
+    acceleration: 0.04
+    accelerationTime: 0.8
 --- !u!58 &8270670476711904369
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -385,6 +397,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enableLevel: 1
+  disguiseOnSilhouette: 0
   inverse: 0
   targetObject: {fileID: 6901596727519367571}
   inverseObject: {fileID: 8272737417206143364}
