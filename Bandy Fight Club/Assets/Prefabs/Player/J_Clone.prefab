@@ -9996,6 +9996,7 @@ MonoBehaviour:
   playerAnimation: {fileID: 2317021675467248568}
   meshParent: {fileID: 5770167834969562246}
   textureTransform: {fileID: 1247033769112480816}
+  squasher: {fileID: 3191122304458366594}
   forceVector: {x: 0, y: 0}
   forceMagnitude: 0
   attackForce: 75
@@ -10145,6 +10146,16 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  teleportSquash:
+    name: 
+    speed: 3
+    amplitude: 0.4
+    freqency: 2
+    decayPower: 2
+    flipXY: 0
+    doPivot: 0
+    perpAmp: 1
+    doPivotOnGrounded: 0
   meshRenderer: {fileID: 4567520598477818725}
 --- !u!1001 &72840769390760148
 PrefabInstance:
@@ -12790,6 +12801,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7f8da68fffd0d9a49858fa0c47f84472, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &3191122304458366594 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3263962523017334358, guid: fe70ef1e12400454dab17dbd913906c3, type: 3}
+  m_PrefabInstance: {fileID: 72840769390760148}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd79ccaf609e6fe42a08c3d9e5592ba4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!23 &4567520598477818725 stripped

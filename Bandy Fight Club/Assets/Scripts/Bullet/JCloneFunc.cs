@@ -16,6 +16,7 @@ public class JCloneFunc : MonoBehaviour
     [SerializeField] PlayerAnimation playerAnimation;
     [SerializeField] PlayerMeshParent meshParent;
     [SerializeField] Transform textureTransform;
+    [SerializeField] SquashStretcher squasher;
 
     public Vector2 forceVector;
     public float forceMagnitude;
@@ -42,6 +43,8 @@ public class JCloneFunc : MonoBehaviour
     [SerializeField] float teleportShaderTimer = 1;
     [SerializeField] AnimationCurve teleportShaderCurve;
     [SerializeField] AnimationCurve teleportXScaleCurve;
+
+    [SerializeField] SquashData teleportSquash;
 
     [SerializeField] MeshRenderer meshRenderer;
 
@@ -98,6 +101,7 @@ public class JCloneFunc : MonoBehaviour
         hitTarget = false;
 
         teleportShaderTimer = 0;
+        squasher.DoSquash(teleportSquash);
 
         DoAttack();
 
