@@ -17,14 +17,15 @@ MonoBehaviour:
     damage: 55
     knockbacks:
     - name: 
-      vel: {x: 20, y: 0}
-      fixedVel: {x: 0, y: 24}
+      vel: {x: 25, y: 0}
+      fixedVel: {x: 0, y: 2}
       xVelType: 3
       yVelType: 3
       normalizeVel: 0
       dontDoAgainstGroundedTarget: 0
-      acceleration: 0.1
-      accelerationTime: 0.6
+      ignoreBaseKnockbackResistance: 0
+      acceleration: 0.04
+      accelerationTime: 0.8
     blockStun: 0.4
     stunTime: 0.55
     advantageDamage: 0.1

@@ -9313,7 +9313,7 @@ MonoBehaviour:
     player: {fileID: 0}
     score: 0
     dead: 0
-  do3Player: 0
+  do3Player: 1
   teamOutlineColors: {fileID: 11400000, guid: cfa810b6cb805a34394dbb2615a51edc, type: 2}
   spawnPoints:
   - {fileID: 96561685}
@@ -18885,7 +18885,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1568848647709469002, guid: 89a4bb26954076c4087def95df52bc91, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1590443613012494321, guid: 89a4bb26954076c4087def95df52bc91, type: 3}
       propertyPath: m_Positions.Array.data[0].x

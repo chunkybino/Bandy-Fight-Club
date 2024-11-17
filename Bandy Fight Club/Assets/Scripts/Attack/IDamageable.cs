@@ -48,7 +48,7 @@ public class AttackInfo
         return new AttackInfo()
         {
             damage = damage,
-            knockbacks = knockbacks,
+            knockbacks = CloneKnockback(),
 
             blockStun = blockStun,
             stunTime = stunTime,
@@ -66,6 +66,13 @@ public class AttackInfo
 
             tags = tags
         };
+
+        Knockback[] CloneKnockback()
+        {
+            Knockback[] k = new Knockback[knockbacks.Length];
+            for (int i = 0; i < knockbacks.Length; i++) {k[i] = knockbacks[i];}
+            return k;
+        }
     }
 }
 [System.Serializable]
