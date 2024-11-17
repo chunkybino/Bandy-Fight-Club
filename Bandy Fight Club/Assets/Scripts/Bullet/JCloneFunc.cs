@@ -31,6 +31,7 @@ public class JCloneFunc : MonoBehaviour
     [SerializeField] float deactivateTime = 1;
 
     public bool active;
+    public float timeActive;
 
     [SerializeField] AttackHitbox cloneAttackHitbox;
 
@@ -44,6 +45,8 @@ public class JCloneFunc : MonoBehaviour
     [SerializeField] AnimationCurve teleportShaderCurve;
     [SerializeField] AnimationCurve teleportXScaleCurve;
 
+    bool doUnTeleportShader;
+
     [SerializeField] SquashData teleportSquash;
 
     [SerializeField] MeshRenderer meshRenderer;
@@ -55,6 +58,8 @@ public class JCloneFunc : MonoBehaviour
 
     void Update()
     {
+        if (active) timeActive += Time.deltaTime;
+
         attackForceTimer += forceDecaySpeed*Time.deltaTime;
 
         rb.velocity = forceVector;
@@ -62,18 +67,27 @@ public class JCloneFunc : MonoBehaviour
         forceMagnitude = attackForce * forceDecayCurve.Evaluate(attackForceTimer);
         forceVector = forceMagnitude * direction;
 
+        if (!doUnTeleportShader && timeActive >= deactivateTime-teleportShaderTime)
+        {
+            teleportShaderTimer = 0;
+            doUnTeleportShader = true;
+        }
+
         if (teleportShaderTimer <= 1)
         {
             teleportShaderTimer += Time.deltaTime/teleportShaderTime;
 
-            float str = Mathf.Lerp(0, teleportShaderStrength, teleportShaderCurve.Evaluate(teleportShaderTimer));
+            float progress = teleportShaderTimer;
+            if (doUnTeleportShader) progress = 1-progress;
+
+            float str = Mathf.Lerp(0, teleportShaderStrength, teleportShaderCurve.Evaluate(progress));
 
             MaterialPropertyBlock matBlock = new MaterialPropertyBlock();
             matBlock.SetTexture("_MainTex", meshParent.renderTex);
             matBlock.SetFloat("_Strength", teleportShaderStrength-str);
             meshRenderer.SetPropertyBlock(matBlock, 1);
 
-            textureTransform.localScale = new Vector3(facing*teleportXScaleCurve.Evaluate(teleportShaderTimer),1,1);
+            textureTransform.localScale = new Vector3(facing*teleportXScaleCurve.Evaluate(progress),1,1);
         }
     }
 
@@ -97,10 +111,12 @@ public class JCloneFunc : MonoBehaviour
 
         gameObject.SetActive(true);
         active = true;
+        timeActive = 0;
 
         hitTarget = false;
 
         teleportShaderTimer = 0;
+        doUnTeleportShader = false;
         squasher.DoSquash(teleportSquash);
 
         DoAttack();
