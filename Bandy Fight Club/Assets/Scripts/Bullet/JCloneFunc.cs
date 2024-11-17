@@ -37,6 +37,14 @@ public class JCloneFunc : MonoBehaviour
 
     [SerializeField] ParticleSystem attackParticles;
 
+    [SerializeField] float teleportShaderTime = 0.05f;
+    [SerializeField] float teleportShaderStrength = 15f;
+    [SerializeField] float teleportShaderTimer = 1;
+    [SerializeField] AnimationCurve teleportShaderCurve;
+    [SerializeField] AnimationCurve teleportXScaleCurve;
+
+    [SerializeField] MeshRenderer meshRenderer;
+
     void Start()
     {
         cloneAttackHitbox.onHit.AddListener(OnAttackHit);
@@ -50,6 +58,20 @@ public class JCloneFunc : MonoBehaviour
 
         forceMagnitude = attackForce * forceDecayCurve.Evaluate(attackForceTimer);
         forceVector = forceMagnitude * direction;
+
+        if (teleportShaderTimer <= 1)
+        {
+            teleportShaderTimer += Time.deltaTime/teleportShaderTime;
+
+            float str = Mathf.Lerp(0, teleportShaderStrength, teleportShaderCurve.Evaluate(teleportShaderTimer));
+
+            MaterialPropertyBlock matBlock = new MaterialPropertyBlock();
+            matBlock.SetTexture("_MainTex", meshParent.renderTex);
+            matBlock.SetFloat("_Strength", teleportShaderStrength-str);
+            meshRenderer.SetPropertyBlock(matBlock, 1);
+
+            textureTransform.localScale = new Vector3(facing*teleportXScaleCurve.Evaluate(teleportShaderTimer),1,1);
+        }
     }
 
     public void Spawn(int renderNum)
@@ -74,6 +96,8 @@ public class JCloneFunc : MonoBehaviour
         active = true;
 
         hitTarget = false;
+
+        teleportShaderTimer = 0;
 
         DoAttack();
 

@@ -10049,6 +10049,103 @@ MonoBehaviour:
   cloneAttackHitbox: {fileID: 4691935824103415262}
   hitTarget: 0
   attackParticles: {fileID: 8270984325053838803}
+  teleportShaderTime: 0.1
+  teleportShaderStrength: 40
+  teleportShaderTimer: 1
+  teleportShaderCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.6922179
+      value: 0.23113444
+      inSlope: 1.0826291
+      outSlope: 1.0826291
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.10928964
+      outWeight: 0.55688226
+    - serializedVersion: 3
+      time: 0.8225285
+      value: 0.5920393
+      inSlope: 5.4175267
+      outSlope: 5.4175267
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.15391523
+      outWeight: 0.16764387
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0.34726405
+      outSlope: 0.34726405
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.43459308
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  teleportXScaleCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 5.3882318
+      outSlope: 5.3882318
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.1325064
+    - serializedVersion: 3
+      time: 0.19817427
+      value: 0.5766087
+      inSlope: 1.3136557
+      outSlope: 1.3136557
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.1700657
+    - serializedVersion: 3
+      time: 0.6932595
+      value: 0.5960307
+      inSlope: -1.3037924
+      outSlope: -1.3037924
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33783612
+    - serializedVersion: 3
+      time: 0.84389544
+      value: 0.401727
+      inSlope: 0.5623283
+      outSlope: 0.5623283
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.10754403
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  meshRenderer: {fileID: 4567520598477818725}
 --- !u!1001 &72840769390760148
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10461,6 +10558,10 @@ PrefabInstance:
       propertyPath: points.Array.data[0].z
       value: -0.09376834
       objectReference: {fileID: 0}
+    - target: {fileID: 1085727441473210169, guid: fe70ef1e12400454dab17dbd913906c3, type: 3}
+      propertyPath: normalMat
+      value: 
+      objectReference: {fileID: 2100000, guid: f5234d4eb0a151744a8b2617c5e3d45e, type: 2}
     - target: {fileID: 1085727441473210169, guid: fe70ef1e12400454dab17dbd913906c3, type: 3}
       propertyPath: matList.Array.data[1]
       value: 
@@ -11404,7 +11505,7 @@ PrefabInstance:
     - target: {fileID: 4495119660588407729, guid: fe70ef1e12400454dab17dbd913906c3, type: 3}
       propertyPath: m_Materials.Array.data[1]
       value: 
-      objectReference: {fileID: 2100000, guid: 5dc7b63aedd576c43a58da879aac0af1, type: 2}
+      objectReference: {fileID: 2100000, guid: f5234d4eb0a151744a8b2617c5e3d45e, type: 2}
     - target: {fileID: 4510540966448769332, guid: fe70ef1e12400454dab17dbd913906c3, type: 3}
       propertyPath: uvRotation.y
       value: -0.25600052
@@ -11876,6 +11977,18 @@ PrefabInstance:
     - target: {fileID: 5841460466195172434, guid: fe70ef1e12400454dab17dbd913906c3, type: 3}
       propertyPath: countPlayers
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5841460466195172434, guid: fe70ef1e12400454dab17dbd913906c3, type: 3}
+      propertyPath: outlineColor.b
+      value: 0.008157618
+      objectReference: {fileID: 0}
+    - target: {fileID: 5841460466195172434, guid: fe70ef1e12400454dab17dbd913906c3, type: 3}
+      propertyPath: outlineColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5841460466195172434, guid: fe70ef1e12400454dab17dbd913906c3, type: 3}
+      propertyPath: outlineColor.r
+      value: 0.85882354
       objectReference: {fileID: 0}
     - target: {fileID: 5858325304405173183, guid: fe70ef1e12400454dab17dbd913906c3, type: 3}
       propertyPath: m_LocalPosition.x
@@ -12679,6 +12792,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f8da68fffd0d9a49858fa0c47f84472, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!23 &4567520598477818725 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 4495119660588407729, guid: fe70ef1e12400454dab17dbd913906c3, type: 3}
+  m_PrefabInstance: {fileID: 72840769390760148}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &4691935824103415262 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4620643253525335306, guid: fe70ef1e12400454dab17dbd913906c3, type: 3}
