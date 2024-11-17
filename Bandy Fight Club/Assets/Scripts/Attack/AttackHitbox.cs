@@ -12,7 +12,7 @@ public class AttackHitbox : MonoBehaviour
     List<Collider2D> rehitList = new List<Collider2D>();
     IEnumerator rehitCorountine;
 
-    [SerializeField] AttackInfo attackInfo;
+    public AttackInfo attackInfo;
 
     [SerializeField] int direction;
     [SerializeField] Transform directionReference;

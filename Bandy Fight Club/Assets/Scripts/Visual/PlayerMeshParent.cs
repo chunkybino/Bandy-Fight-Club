@@ -118,6 +118,7 @@ public class PlayerMeshParent : MonoBehaviour
         matBlock1.SetColor("_Color", outlineColor);
         matBlock1.SetFloat("_Thickness", outlineThickness);
         matBlock1.SetFloat("_Opacity", outlineAlpha);
+        
         matBlock2.SetTexture("_MainTex", renderTex);
 
         meshRenderer.SetPropertyBlock(matBlock1, 0);

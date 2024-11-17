@@ -51,6 +51,10 @@ public class JCloneFunc : MonoBehaviour
 
     [SerializeField] MeshRenderer meshRenderer;
 
+    [SerializeField] Knockback sideAttackKnockback;
+    [SerializeField] Knockback diagAttackKnockback;
+    [SerializeField] Knockback upAttackKnockback;
+
     void Start()
     {
         cloneAttackHitbox.onHit.AddListener(OnAttackHit);
@@ -145,6 +149,18 @@ public class JCloneFunc : MonoBehaviour
 
     public void DoAttack()
     {
+        Knockback attackKnock = sideAttackKnockback;
+        if (direction.y > 0)
+        {
+            if (direction.x == 0) {
+                attackKnock = upAttackKnockback;
+            } else {
+                attackKnock = diagAttackKnockback;
+            }
+        }
+
+        cloneAttackHitbox.attackInfo.knockbacks[0] = attackKnock;
+
         playerAnimation.PlayAnim("CloneAttack");
         Invoke("DoAttackBoost", attackBoostDelay);
     }
