@@ -397,7 +397,7 @@ public class PlayerFunc : MonoBehaviour
 
         if (isBlocking)
         {
-            if (inputs.attackPressed)
+            if (inputs.attackPressed && !isBlockCounter)
             {
                 playerAttack.attackBufferTimer = 0;
                 DoBlockCounter();
