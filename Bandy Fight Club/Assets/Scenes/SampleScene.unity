@@ -9313,7 +9313,7 @@ MonoBehaviour:
     player: {fileID: 0}
     score: 0
     dead: 0
-  do3Player: 1
+  do3Player: 0
   teamOutlineColors: {fileID: 11400000, guid: cfa810b6cb805a34394dbb2615a51edc, type: 2}
   spawnPoints:
   - {fileID: 96561685}
@@ -9392,7 +9392,7 @@ MonoBehaviour:
   - {fileID: 1228158914771108052}
   - {fileID: 6428945389610884689}
   - {fileID: 7250455678024612078}
-  doSilhouette: 0
+  doSilhouette: 1
   removeNull: 0
 --- !u!1 &308062698
 GameObject:
@@ -15240,6 +15240,10 @@ PrefabInstance:
       propertyPath: mesh
       value: 
       objectReference: {fileID: 1389799654}
+    - target: {fileID: 1663709583450352777, guid: 84f3f989133dc724681733bf06f534d8, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: ca73f2f9a2aa87e4eb2e8aca4166e3d2, type: 2}
     - target: {fileID: 1688312685288853089, guid: 84f3f989133dc724681733bf06f534d8, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -20727,6 +20731,10 @@ PrefabInstance:
       propertyPath: m_Positions.Array.data[4].z
       value: -0.43
       objectReference: {fileID: 0}
+    - target: {fileID: 7708457346826277611, guid: 89a4bb26954076c4087def95df52bc91, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: ca73f2f9a2aa87e4eb2e8aca4166e3d2, type: 2}
     - target: {fileID: 7858103323741655144, guid: 89a4bb26954076c4087def95df52bc91, type: 3}
       propertyPath: m_Positions.Array.data[0].x
       value: 199.15295
