@@ -18,6 +18,7 @@ public class JCloneFunc : MonoBehaviour
     [SerializeField] Transform textureTransform;
     [SerializeField] SquashStretcher squasher;
     [SerializeField] PlayerHitbox hitbox;
+    [SerializeField] TeamHolder teamHolder;
 
     public Vector2 forceVector;
     public float forceMagnitude;
@@ -145,6 +146,7 @@ public class JCloneFunc : MonoBehaviour
     public void SetTeam(int theTeam)
     {
         meshParent.team = theTeam;
+        teamHolder.team = theTeam;
         team = theTeam;
         cloneAttackHitbox.team = theTeam;
     }
@@ -185,5 +187,6 @@ public class JCloneFunc : MonoBehaviour
     public void GetHit(FullAttackInfo info)
     {
         parentJ.GetCloneHit(info);
+        Deactivate();
     }
 }

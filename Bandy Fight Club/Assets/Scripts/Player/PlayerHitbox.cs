@@ -11,6 +11,8 @@ public class PlayerHitbox : MonoBehaviour, IDamageable
     public GroundChecker groundCheck;
     public KnockbackHandler knockbackHandler;
 
+    public TeamHolder teamHolder;
+
     public Shaker renderShaker;
     public float hitShakeStrength = 1;
 
@@ -241,5 +243,11 @@ public class PlayerHitbox : MonoBehaviour, IDamageable
         platformBox.enabled = false;
     }
 
-    public TeamHolder team {get{return playerStatus.team;} set{}}
+    public TeamHolder team {get{return GetTeam();} set{}}
+
+    TeamHolder GetTeam()
+    {
+        if (playerStatus) return playerStatus.team;
+        return teamHolder;
+    }
 }

@@ -88,7 +88,7 @@ GameObject:
   - component: {fileID: 3096119845858337783}
   - component: {fileID: 5390635850625634854}
   - component: {fileID: 7330936716486722841}
-  m_Layer: 9
+  m_Layer: 7
   m_Name: Hitbox
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -172,6 +172,7 @@ MonoBehaviour:
   playerFunc: {fileID: 0}
   groundCheck: {fileID: 0}
   knockbackHandler: {fileID: 0}
+  teamHolder: {fileID: 4805875632869718300}
   renderShaker: {fileID: 0}
   hitShakeStrength: 1
   hitbox: {fileID: 5390635850625634854}
@@ -10046,6 +10047,7 @@ GameObject:
   - component: {fileID: 6965974702841422094}
   - component: {fileID: 2478867748927038978}
   - component: {fileID: 4950847131231921027}
+  - component: {fileID: 4805875632869718300}
   m_Layer: 0
   m_Name: J_Clone
   m_TagString: Untagged
@@ -10121,6 +10123,7 @@ MonoBehaviour:
   textureTransform: {fileID: 1247033769112480816}
   squasher: {fileID: 3191122304458366594}
   hitbox: {fileID: 7330936716486722841}
+  teamHolder: {fileID: 4805875632869718300}
   forceVector: {x: 0, y: 0}
   forceMagnitude: 0
   attackForce: 75
@@ -10315,6 +10318,19 @@ MonoBehaviour:
     ignoreBaseKnockbackResistance: 0
     acceleration: 0.15
     accelerationTime: 0.4
+--- !u!114 &4805875632869718300
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8792103002477216246}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d9429278c10a0248a8ecaa00880a5ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  team: 0
 --- !u!1001 &72840769390760148
 PrefabInstance:
   m_ObjectHideFlags: 0
