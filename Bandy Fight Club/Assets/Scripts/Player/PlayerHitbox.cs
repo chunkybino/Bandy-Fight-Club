@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class PlayerHitbox : MonoBehaviour, IDamageable
 {
@@ -42,19 +43,34 @@ public class PlayerHitbox : MonoBehaviour, IDamageable
     public float boundingTopBound {get{return transform.position.y + boundingBox.offset.y + boundingBox.size.y/2;}}
     public float boundingBottomBound {get{return transform.position.y + boundingBox.offset.y - boundingBox.size.y/2;}}
 
+    public UnityEvent<FullAttackInfo> onHit;
+
+    public bool doUpdate = true;
+
     void Awake()
     {
-        normalHitboxSize = hitbox.size;
-        normalHitboxOffset = hitbox.offset;
-        normalBoundingSize = boundingBox.size;
-        normalBoundingOffset = boundingBox.offset;
+        if (hitbox)
+        {
+            normalHitboxSize = hitbox.size;
+            normalHitboxOffset = hitbox.offset;
+        }
+        if (boundingBox)
+        {
+            normalBoundingSize = boundingBox.size;
+            normalBoundingOffset = boundingBox.offset;
+        }
 
-        Physics2D.IgnoreCollision(boundingBox, entityBounding);
-        Physics2D.IgnoreCollision(platformBox, entityBounding);
+        if (entityBounding)
+        {
+            Physics2D.IgnoreCollision(boundingBox, entityBounding);
+            Physics2D.IgnoreCollision(platformBox, entityBounding);
+        }
     }
 
     void Update()
     {
+        if (!doUpdate) return;
+
         float startGroundHeight = groundCheck.groundHeight;
         float startGroundDelta = groundCheck.groundHeight + (platformBox.size.y/2) - platformBox.transform.position.y;
 
@@ -130,20 +146,27 @@ public class PlayerHitbox : MonoBehaviour, IDamageable
     {
         AttackHitReturnInfo returnInfo = new AttackHitReturnInfo();
 
-        AttackInfo info = fullInfo.info;
+        AttackInfo info = fullInfo.info;print("hh");
         if (!isIntangible)
         {
-            bool block = playerFunc.isBlocking;
-            if (info.onlyPerfBlock && !playerFunc.isPerfBlocking) block = false;
-            if (info.unblockable) block = false;
-
-            if (!block || playerFunc.isStun) //get hity=
+            if (!playerFunc)
             {
-                Hit();
+                Hit(fullInfo);
             }
-            else //if we guard
+            else
             {
-                Blocked();
+                bool block = playerFunc.isBlocking;
+                if (info.onlyPerfBlock && !playerFunc.isPerfBlocking) block = false;
+                if (info.unblockable) block = false;
+
+                else if (!block || playerFunc.isStun) //get hity=
+                {
+                    Hit(fullInfo);
+                }
+                else //if we guard
+                {
+                    Blocked();
+                }
             }
 
             returnInfo.hit = true;
@@ -155,22 +178,6 @@ public class PlayerHitbox : MonoBehaviour, IDamageable
 
         return returnInfo;
 
-        void Hit()
-        {
-            playerStatus.GetHit(info);
-            playerFunc.GetStunned(info.stunTime);
-            foreach (Knockback knockback in info.knockbacks)
-            {
-                knockbackHandler.GetKnockbacked(knockback, fullInfo.direction);
-            }
-            renderShaker.DoShake(hitShakeStrength, fullInfo.direction);
-
-            if (playerFunc.stunBlocking)
-            {
-                ParticleSystem particle = Instantiate(stunBlockParticles, transform.position, Quaternion.identity);
-                particle.transform.localScale = new Vector2(stunBlockParticleSize, stunBlockParticleSize);
-            }
-        }
         void Blocked()
         {
             foreach (Knockback knockback in info.knockbacks)
@@ -205,6 +212,26 @@ public class PlayerHitbox : MonoBehaviour, IDamageable
             }
 
             playerFunc.OnBlock(info.advantageDamage);
+        }
+    }
+    public void Hit(FullAttackInfo fullInfo)
+    {
+        onHit?.Invoke(fullInfo);
+
+        if (!playerStatus || !playerFunc) return;
+
+        playerStatus.GetHit(fullInfo.info);
+        playerFunc.GetStunned(fullInfo.info.stunTime);
+        foreach (Knockback knockback in fullInfo.info.knockbacks)
+        {
+            knockbackHandler.GetKnockbacked(knockback, fullInfo.direction);
+        }
+        renderShaker.DoShake(hitShakeStrength, fullInfo.direction);
+
+        if (playerFunc.stunBlocking)
+        {
+            ParticleSystem particle = Instantiate(stunBlockParticles, transform.position, Quaternion.identity);
+            particle.transform.localScale = new Vector2(stunBlockParticleSize, stunBlockParticleSize);
         }
     }
 

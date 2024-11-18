@@ -160,5 +160,10 @@ public class BigJFunc : PlayerFunc, ICharacterFunc
     {
         Destroy(currentClone.gameObject);
     }
+
+    public void GetCloneHit(FullAttackInfo info)
+    {
+        playerHitbox.Hit(info);
+    }
 }
 

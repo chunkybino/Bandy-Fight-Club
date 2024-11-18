@@ -17,6 +17,7 @@ public class JCloneFunc : MonoBehaviour
     [SerializeField] PlayerMeshParent meshParent;
     [SerializeField] Transform textureTransform;
     [SerializeField] SquashStretcher squasher;
+    [SerializeField] PlayerHitbox hitbox;
 
     public Vector2 forceVector;
     public float forceMagnitude;
@@ -58,6 +59,7 @@ public class JCloneFunc : MonoBehaviour
     void Start()
     {
         cloneAttackHitbox.onHit.AddListener(OnAttackHit);
+        hitbox.onHit.AddListener(GetHit);
     }
 
     void Update()
@@ -178,5 +180,10 @@ public class JCloneFunc : MonoBehaviour
         {
             parentJ.AddDisadvantage(info.returnDisadvantage);
         }
+    }
+
+    public void GetHit(FullAttackInfo info)
+    {
+        parentJ.GetCloneHit(info);
     }
 }
