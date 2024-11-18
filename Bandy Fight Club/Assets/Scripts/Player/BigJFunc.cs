@@ -141,7 +141,7 @@ public class BigJFunc : PlayerFunc, ICharacterFunc
         currentClone = Instantiate(clonePrefab);
         currentClone.parentJ = this;
         currentClone.SetTeam(team);
-        currentClone.Deactivate();
+        //currentClone.Deactivate();
         currentClone.Spawn(playerMesh.num+4);
     }
 

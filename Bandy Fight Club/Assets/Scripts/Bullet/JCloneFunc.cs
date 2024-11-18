@@ -61,6 +61,11 @@ public class JCloneFunc : MonoBehaviour
     {
         cloneAttackHitbox.onHit.AddListener(OnAttackHit);
         hitbox.onHit.AddListener(GetHit);
+
+        attackForceTimer = 1;
+        rb.velocity = new Vector2(0,0);
+
+        Deactivate();
     }
 
     void Update()
@@ -68,8 +73,6 @@ public class JCloneFunc : MonoBehaviour
         if (active) timeActive += Time.deltaTime;
 
         attackForceTimer += forceDecaySpeed*Time.deltaTime;
-
-        rb.velocity = forceVector;
 
         forceMagnitude = attackForce * forceDecayCurve.Evaluate(attackForceTimer);
         forceVector = forceMagnitude * direction;
@@ -98,6 +101,11 @@ public class JCloneFunc : MonoBehaviour
         }
     }
 
+    void FixedUpdate()
+    {
+        rb.velocity = forceVector;
+    }
+
     public void Spawn(int renderNum)
     {
         meshParent.num = renderNum;
@@ -119,6 +127,8 @@ public class JCloneFunc : MonoBehaviour
         gameObject.SetActive(true);
         active = true;
         timeActive = 0;
+
+        attackForceTimer = 1;
 
         hitTarget = false;
 
