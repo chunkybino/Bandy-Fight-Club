@@ -148,7 +148,7 @@ public class PlayerHitbox : MonoBehaviour, IDamageable
     {
         AttackHitReturnInfo returnInfo = new AttackHitReturnInfo();
 
-        AttackInfo info = fullInfo.info;print("hh");
+        AttackInfo info = fullInfo.info;
         if (!isIntangible)
         {
             if (!playerFunc)

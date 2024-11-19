@@ -6,6 +6,8 @@ public class BigJFunc : PlayerFunc, ICharacterFunc
 {
     [SerializeField] float timeSinceSlash1;
     [SerializeField] float slash2ComboTime = 1.2f;
+    [SerializeField] float timeSinceSlash2;
+    [SerializeField] float slash3ComboTime = 1.2f;
 
     public BulletConfig piccoloBulletConfig;
 
@@ -43,6 +45,7 @@ public class BigJFunc : PlayerFunc, ICharacterFunc
         if (characterFunc == null) characterFunc = this;
 
         timeSinceSlash1 += Time.deltaTime;
+        timeSinceSlash2 += Time.deltaTime;
 
         if (currentPiccoloBullet)
         {
@@ -71,15 +74,22 @@ public class BigJFunc : PlayerFunc, ICharacterFunc
     {
         string attackName = "nope";
 
-        if (timeSinceSlash1 <= slash2ComboTime)
+        if (timeSinceSlash2 <= slash3ComboTime)
+        {
+            attackName = "slash3";
+            timeSinceSlash2 = 1;
+        }
+        else if (timeSinceSlash1 <= slash2ComboTime)
         {
             attackName = "slash2";
+            timeSinceSlash2 = 0;
             timeSinceSlash1 = 1;
         }
         else
         {
             attackName = "slash1";
             timeSinceSlash1 = 0;
+            timeSinceSlash2 = 1;
         }
 
         return attackName;
