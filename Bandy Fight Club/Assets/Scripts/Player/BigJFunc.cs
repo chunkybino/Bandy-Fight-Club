@@ -28,6 +28,9 @@ public class BigJFunc : PlayerFunc, ICharacterFunc
     [SerializeField] float cloneTeleportAccelTime = 0.5f;
     [SerializeField] float cloneTeleportAttackStun = 0.2f;
 
+    [SerializeField] float upDownAttackCooldown = 0.4f;
+    float upDownAttackCooldownTimer;
+
     void Awake()
     {
         if (characterFunc == null) characterFunc = this;
@@ -46,6 +49,11 @@ public class BigJFunc : PlayerFunc, ICharacterFunc
 
         timeSinceSlash1 += Time.deltaTime;
         timeSinceSlash2 += Time.deltaTime;
+
+        if (!playerAttack.isAttacking)
+        {
+            UFunc.TickTimer(ref upDownAttackCooldownTimer);
+        }
 
         if (currentPiccoloBullet)
         {
@@ -76,7 +84,19 @@ public class BigJFunc : PlayerFunc, ICharacterFunc
 
         if (inputs.upHeld) //up attack
         {
-            attackName = "upslash";
+            if (upDownAttackCooldownTimer == 0)
+            {
+                attackName = "upslash";
+                upDownAttackCooldownTimer = upDownAttackCooldown;
+            }
+        }
+        else if (inputs.downHeld) //down attack
+        {
+            if (upDownAttackCooldownTimer == 0)
+            {
+                attackName = "downslash";
+                upDownAttackCooldownTimer = upDownAttackCooldown;
+            }
         }
         else ///side attacks
         {
