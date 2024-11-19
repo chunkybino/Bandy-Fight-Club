@@ -233,6 +233,7 @@ public class PlayerAnimation : MonoBehaviour
     public void DoVerticalBoost(float force)
     {
         rb.velocity = new Vector2(rb.velocity.x, force);
+        playerFunc.enableJumpReleaseFall = false;
     }
 
     public void DoAnimatorEvent(string name)
