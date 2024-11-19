@@ -1852,7 +1852,7 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 7010daeb2f6b3154eb20694ae282768d, type: 2}
-  - {fileID: 2100000, guid: 5dc7b63aedd576c43a58da879aac0af1, type: 2}
+  - {fileID: 2100000, guid: ca73f2f9a2aa87e4eb2e8aca4166e3d2, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2963,6 +2963,9 @@ MonoBehaviour:
   directionReference: {fileID: 4110637717697406780}
   playerFunc: {fileID: 3173985440313344023}
   knockbackHandler: {fileID: 2094130834287096051}
+  onHit:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1048251299111642391
 GameObject:
   m_ObjectHideFlags: 0
@@ -5649,6 +5652,7 @@ MonoBehaviour:
   playerFunc: {fileID: 3173985440313344023}
   groundCheck: {fileID: 5061188384587571447}
   knockbackHandler: {fileID: 2094130834287096051}
+  teamHolder: {fileID: 0}
   renderShaker: {fileID: 4001308584753740114}
   hitShakeStrength: 1
   hitbox: {fileID: 2798322378995512335}
@@ -5672,6 +5676,10 @@ MonoBehaviour:
     accelerationTime: 0.5
   stunBlockParticles: {fileID: 1713865554369944223, guid: b005adbada3821247b0673ad5b8f75de, type: 3}
   stunBlockParticleSize: 0.5
+  onHit:
+    m_PersistentCalls:
+      m_Calls: []
+  doUpdate: 1
 --- !u!1 &1986770384813292198
 GameObject:
   m_ObjectHideFlags: 0
@@ -7815,6 +7823,9 @@ MonoBehaviour:
   directionReference: {fileID: 4110637717697406780}
   playerFunc: {fileID: 3173985440313344023}
   knockbackHandler: {fileID: 2094130834287096051}
+  onHit:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &3105146183858177674
 GameObject:
   m_ObjectHideFlags: 0
@@ -10295,6 +10306,9 @@ MonoBehaviour:
   directionReference: {fileID: 4110637717697406780}
   playerFunc: {fileID: 3173985440313344023}
   knockbackHandler: {fileID: 2094130834287096051}
+  onHit:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &3875489417325364167
 GameObject:
   m_ObjectHideFlags: 0
@@ -13101,6 +13115,9 @@ MonoBehaviour:
   directionReference: {fileID: 4110637717697406780}
   playerFunc: {fileID: 3173985440313344023}
   knockbackHandler: {fileID: 2094130834287096051}
+  onHit:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &4988464169874166954
 GameObject:
   m_ObjectHideFlags: 0
@@ -13524,7 +13541,7 @@ Transform:
   m_GameObject: {fileID: 5166753245546931066}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: 0.5656272, w: 0.82466114}
-  m_LocalPosition: {x: -0.025768787, y: -0.27966803, z: 0}
+  m_LocalPosition: {x: -0.13334423, y: -0.27883685, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -13965,7 +13982,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &492184165980955251
 Transform:
   m_ObjectHideFlags: 0
@@ -14239,7 +14256,7 @@ Transform:
   m_GameObject: {fileID: 5386563023357190490}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: 0.035266567, w: 0.99937797}
-  m_LocalPosition: {x: 0.8752289, y: -0.39385986, z: 3.1617508}
+  m_LocalPosition: {x: 0.8752289, y: -0.39385986, z: 3.1617527}
   m_LocalScale: {x: 0.75, y: 0.75, z: 0.75}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -14428,7 +14445,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2902138218111473604
 Transform:
   m_ObjectHideFlags: 0
@@ -14512,7 +14529,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1112335275081904152
 Transform:
   m_ObjectHideFlags: 0
@@ -15874,7 +15891,7 @@ MonoBehaviour:
   matIndex: 1
   matList:
   - {fileID: 2100000, guid: 7010daeb2f6b3154eb20694ae282768d, type: 2}
-  - {fileID: 2100000, guid: 5dc7b63aedd576c43a58da879aac0af1, type: 2}
+  - {fileID: 2100000, guid: ca73f2f9a2aa87e4eb2e8aca4166e3d2, type: 2}
 --- !u!1 &6152466466019644595
 GameObject:
   m_ObjectHideFlags: 0
@@ -22268,6 +22285,9 @@ MonoBehaviour:
   directionReference: {fileID: 4110637717697406780}
   playerFunc: {fileID: 3173985440313344023}
   knockbackHandler: {fileID: 2094130834287096051}
+  onHit:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &8717194558293452352
 GameObject:
   m_ObjectHideFlags: 0
