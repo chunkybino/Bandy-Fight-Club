@@ -74,22 +74,29 @@ public class BigJFunc : PlayerFunc, ICharacterFunc
     {
         string attackName = "nope";
 
-        if (timeSinceSlash2 <= slash3ComboTime)
+        if (inputs.upHeld) //up attack
         {
-            attackName = "slash3";
-            timeSinceSlash2 = 1;
+            attackName = "upslash";
         }
-        else if (timeSinceSlash1 <= slash2ComboTime)
+        else ///side attacks
         {
-            attackName = "slash2";
-            timeSinceSlash2 = 0;
-            timeSinceSlash1 = 1;
-        }
-        else
-        {
-            attackName = "slash1";
-            timeSinceSlash1 = 0;
-            timeSinceSlash2 = 1;
+            if (timeSinceSlash2 <= slash3ComboTime)
+            {
+                attackName = "slash3";
+                timeSinceSlash2 = 1;
+            }
+            else if (timeSinceSlash1 <= slash2ComboTime)
+            {
+                attackName = "slash2";
+                timeSinceSlash2 = 0;
+                timeSinceSlash1 = 1;
+            }
+            else
+            {
+                attackName = "slash1";
+                timeSinceSlash1 = 0;
+                timeSinceSlash2 = 1;
+            }
         }
 
         return attackName;

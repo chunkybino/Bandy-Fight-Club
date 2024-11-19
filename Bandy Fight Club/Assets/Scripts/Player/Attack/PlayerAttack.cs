@@ -95,7 +95,7 @@ public class PlayerAttack : MonoBehaviour
     void AttackHeavy()
     {
         string attackName = characterFunc.FindAttackHeavyName();
-        PlayerAttackConfig attack = FindAttackByName(attackName);print(attackName);
+        PlayerAttackConfig attack = FindAttackByName(attackName);
 
         if (attack)
         {

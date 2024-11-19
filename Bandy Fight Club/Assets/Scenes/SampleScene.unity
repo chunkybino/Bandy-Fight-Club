@@ -9295,7 +9295,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 3736b76e1ad25af4cab884e4ad236e07, type: 2}
   - {fileID: 11400000, guid: 692473d997b0f85428a5db169e3a73a8, type: 2}
   - {fileID: 11400000, guid: 28a86e3367a4f3d4587bca62846490ba, type: 2}
-  spawnPlayersOnStart: 1
+  spawnPlayersOnStart: 0
   playerInfos: []
   allPlayerInfos:
   - playerNumber: 0
@@ -9392,7 +9392,7 @@ MonoBehaviour:
   - {fileID: 1228158914771108052}
   - {fileID: 6428945389610884689}
   - {fileID: 7250455678024612078}
-  doSilhouette: 0
+  doSilhouette: 1
   removeNull: 0
 --- !u!1 &308062698
 GameObject:
@@ -15243,7 +15243,7 @@ PrefabInstance:
     - target: {fileID: 1663709583450352777, guid: 84f3f989133dc724681733bf06f534d8, type: 3}
       propertyPath: m_Materials.Array.data[1]
       value: 
-      objectReference: {fileID: 2100000, guid: 5dc7b63aedd576c43a58da879aac0af1, type: 2}
+      objectReference: {fileID: 2100000, guid: ca73f2f9a2aa87e4eb2e8aca4166e3d2, type: 2}
     - target: {fileID: 1688312685288853089, guid: 84f3f989133dc724681733bf06f534d8, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -18614,10 +18614,6 @@ PrefabInstance:
     - target: {fileID: 1568848647709469002, guid: 89a4bb26954076c4087def95df52bc91, type: 3}
       propertyPath: m_Name
       value: J
-      objectReference: {fileID: 0}
-    - target: {fileID: 1568848647709469002, guid: 89a4bb26954076c4087def95df52bc91, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1885475732630660217, guid: 89a4bb26954076c4087def95df52bc91, type: 3}
       propertyPath: m_Mesh
