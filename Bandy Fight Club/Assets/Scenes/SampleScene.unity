@@ -22179,6 +22179,10 @@ PrefabInstance:
       propertyPath: m_Sources.Array.data[0].sourceTransform
       value: 
       objectReference: {fileID: 314667565}
+    - target: {fileID: 2705629410686197275, guid: 803fb5acdd3cb8e4da35c245bd6a34d8, type: 3}
+      propertyPath: continueText
+      value: 
+      objectReference: {fileID: 3734832840022591347}
     - target: {fileID: 2865889004548229918, guid: 803fb5acdd3cb8e4da35c245bd6a34d8, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -22385,6 +22389,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 57b4940d714566645a5cd540ce3149c3, type: 3}
+--- !u!114 &3734832840022591347 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1201451750232821792, guid: 57b4940d714566645a5cd540ce3149c3, type: 3}
+  m_PrefabInstance: {fileID: 3734832840022591346}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &6428945389610884689 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2068520307336456605, guid: 89a4bb26954076c4087def95df52bc91, type: 3}

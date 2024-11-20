@@ -23,6 +23,8 @@ public class StatUI : MonoBehaviour
     float winFlashTimer;
     [SerializeField] float winFlashFreq = 0.5f;
 
+    [SerializeField] TextMeshProUGUI continueText;
+
     void Awake()
     {
         gameManager = GameManager.singleton;
@@ -31,6 +33,8 @@ public class StatUI : MonoBehaviour
     void Update()
     {
         ThirdPlayerUI.gameObject.SetActive(players.Count >= 3); //if we have 3 players, show the ui
+
+        continueText.gameObject.SetActive(isWin);
 
         for (int i = 0; i < players.Count; i++)
         {
