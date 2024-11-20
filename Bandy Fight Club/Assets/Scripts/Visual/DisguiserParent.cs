@@ -13,6 +13,11 @@ public class DisguiserParent : MonoBehaviour
     public bool doSilhouette;
     public static bool doSilhouetteStatic;
 
+    public bool hideQWeap;
+    public static bool hideQWeapStatic;
+    public bool hideJWeap;
+    public static bool hideJWeapStatic;
+
     int oldLevel;
     bool oldSilhouette;
 
@@ -33,6 +38,9 @@ public class DisguiserParent : MonoBehaviour
     {
         disguiseLevelStatic = disguiseLevel;
         doSilhouetteStatic = doSilhouette;
+
+        hideQWeapStatic = hideQWeap;
+        hideJWeapStatic = hideJWeap;
 
         if (oldLevel == disguiseLevel && oldSilhouette == doSilhouette) return;
 

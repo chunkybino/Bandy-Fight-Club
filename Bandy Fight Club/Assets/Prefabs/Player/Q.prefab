@@ -2351,6 +2351,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enableLevel: 1
   disguiseOnSilhouette: 0
+  disguiseOnQWeap: 1
+  disguiseOnJWeap: 0
   inverse: 0
   targetObject: {fileID: 865003778337878882}
   inverseObject: {fileID: 0}
@@ -14560,6 +14562,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enableLevel: 0
   disguiseOnSilhouette: 0
+  disguiseOnQWeap: 0
+  disguiseOnJWeap: 0
   inverse: 0
   targetObject: {fileID: 5407984899218119566}
   inverseObject: {fileID: 0}
@@ -15882,6 +15886,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enableLevel: 10
   disguiseOnSilhouette: 0
+  disguiseOnQWeap: 0
+  disguiseOnJWeap: 0
   inverse: 0
   targetObject: {fileID: 602737209216104417}
   inverseObject: {fileID: 0}
@@ -16302,6 +16308,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enableLevel: 1
   disguiseOnSilhouette: 0
+  disguiseOnQWeap: 1
+  disguiseOnJWeap: 0
   inverse: 0
   targetObject: {fileID: 1626537394165745460}
   inverseObject: {fileID: 0}
@@ -20636,6 +20644,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enableLevel: 0
   disguiseOnSilhouette: 0
+  disguiseOnQWeap: 0
+  disguiseOnJWeap: 0
   inverse: 0
   targetObject: {fileID: 5283389835952355606}
   inverseObject: {fileID: 5399609387554739747}
@@ -21366,7 +21376,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4110637717697406780
 Transform:
   m_ObjectHideFlags: 0
