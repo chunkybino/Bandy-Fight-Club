@@ -24,6 +24,8 @@ public class GameManager : MonoBehaviour
     public List<PlayerInfo> allPlayerInfos = new List<PlayerInfo>();
     public bool do3Player;
 
+    public PlayerStatus[] characterList;
+
     public TeamColorsSO teamOutlineColors;
 
     public Transform[] spawnPoints;
@@ -57,18 +59,23 @@ public class GameManager : MonoBehaviour
     bool winnerFinalized;
     bool isDraw;
 
+    public bool isMenu;
+    [SerializeField] MenuManager menu;
+
     void Awake()
     {
         CheckSingleton();
 
         if (ui == null) ui = FindObjectOfType<StatUI>();
 
+        DoPlayerInfo();
+    }
+    void DoPlayerInfo()
+    {
         playerInfos.Clear();
         playerInfos.Add(allPlayerInfos[0]); //add players 1 and 2
         playerInfos.Add(allPlayerInfos[1]);
         if (do3Player) playerInfos.Add(allPlayerInfos[2]); //third player
-
-        if (spawnPlayersOnStart) SpawnPlayers();
     }
     void CheckSingleton()
     {
@@ -85,6 +92,19 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         DoScreenTransition(true);
+        isMenu = true;
+
+        //StartCoroutine("StartGameCoroutine");
+    }
+
+    void StartMatch()
+    {
+        DoScreenTransition(true);
+        for (int i = 0; i < allPlayerInfos.Count; i++)
+        {
+            allPlayerInfos[i].characterPrefab = characterList[menu.selectedCharacters[i]];
+        }
+        SpawnPlayers();
         StartCoroutine("StartGameCoroutine");
     }
 
@@ -92,27 +112,39 @@ public class GameManager : MonoBehaviour
     {
         CheckSingleton();
 
-        if (doRespawnNow)
-        {
-            doRespawnNow = false;
-            DoRespawn();
-        }
-        if (readyForNextRound && Input.GetKeyDown("space"))
-        {
-            DoRespawn();
-        }
+        menu.gameObject.SetActive(isMenu);
 
-        if (isHitStop)
+        if (isMenu)
         {
-            timeScaleFRFR = hitStopSpeed;
+            if (Input.GetKeyDown("space"))
+            {
+                StartMatch();
+            }
         }
-        else
+        else //game game
         {
-            timeScaleFRFR = 1;
+            if (doRespawnNow)
+            {
+                doRespawnNow = false;
+                DoRespawn();
+            }
+            if (readyForNextRound && Input.GetKeyDown("space"))
+            {
+                DoRespawn();
+            }
+
+            if (isHitStop)
+            {
+                timeScaleFRFR = hitStopSpeed;
+            }
+            else
+            {
+                timeScaleFRFR = 1;
+            }
+            if (isPlayerDieSlowmo) timeScaleFRFR *= playerDieSlowMult;
+            timeScaleFRFR *= timeScale;
+            Time.timeScale = timeScaleFRFR;
         }
-        if (isPlayerDieSlowmo) timeScaleFRFR *= playerDieSlowMult;
-        timeScaleFRFR *= timeScale;
-        Time.timeScale = timeScaleFRFR;
     }
 
     public int AddPlayer(PlayerStatus player)
