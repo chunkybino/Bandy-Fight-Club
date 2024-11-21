@@ -62,6 +62,8 @@ public class GameManager : MonoBehaviour
     public bool isMenu;
     [SerializeField] MenuManager menu;
 
+    [SerializeField] float startMatchTransitionTime = 1f;
+
     void Awake()
     {
         CheckSingleton();
@@ -70,7 +72,7 @@ public class GameManager : MonoBehaviour
 
         DoPlayerInfo();
     }
-    void DoPlayerInfo()
+    public void DoPlayerInfo()
     {
         playerInfos.Clear();
         playerInfos.Add(allPlayerInfos[0]); //add players 1 and 2
@@ -97,14 +99,21 @@ public class GameManager : MonoBehaviour
         //StartCoroutine("StartGameCoroutine");
     }
 
-    void StartMatch()
+    public void StartMatchTransition()
     {
-        DoScreenTransition(true);
+        DoScreenTransition(false);
         for (int i = 0; i < allPlayerInfos.Count; i++)
         {
             allPlayerInfos[i].characterPrefab = characterList[menu.selectedCharacters[i]];
         }
+
+        Invoke("StartMatch", startMatchTransitionTime);
+    }
+    void StartMatch()
+    {
+        isMenu = false;
         SpawnPlayers();
+        DoScreenTransition(true);
         StartCoroutine("StartGameCoroutine");
     }
 
@@ -113,15 +122,9 @@ public class GameManager : MonoBehaviour
         CheckSingleton();
 
         menu.gameObject.SetActive(isMenu);
+        ui.gameObject.SetActive(!isMenu);
 
-        if (isMenu)
-        {
-            if (Input.GetKeyDown("space"))
-            {
-                StartMatch();
-            }
-        }
-        else //game game
+        if (!isMenu) //game is game
         {
             if (doRespawnNow)
             {
