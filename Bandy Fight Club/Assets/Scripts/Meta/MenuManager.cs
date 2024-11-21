@@ -23,12 +23,32 @@ public class MenuManager : MonoBehaviour
     [SerializeField] int mainMenuIndex = 0;
     [SerializeField] int mainMenuSelectionOptions = 2;
 
+    [SerializeField] Vector4[] mainMenuButtonPosSize;
+    [SerializeField] RectTransform[] mainMenuButtons;
+    [SerializeField] float timeSinceSinceButtonSelect;
+    [SerializeField] float buttonSelectAnimSpeed = 1;
+    [SerializeField] AnimationCurve buttonSelectAnimCurve;
+    [SerializeField] RectTransform buttonSelectionObject;
+    [SerializeField] Vector4 lastButtonPosSize;
+    [SerializeField] Vector4 targetButtonPosSize;
+
     [SerializeField] GameObject characterSelect;
     [SerializeField] int characterSelectMenuIndex = 1;
 
     void Awake()
     {
         gameManager = GameManager.singleton;
+
+        mainMenuButtonPosSize = new Vector4[mainMenuButtons.Length];
+        for (int i = 0; i < mainMenuButtons.Length; i++)
+        {
+            mainMenuButtonPosSize[i] = new Vector4(
+                mainMenuButtons[i].anchoredPosition.x,
+                mainMenuButtons[i].anchoredPosition.y,
+                mainMenuButtons[i].sizeDelta.x,
+                mainMenuButtons[i].sizeDelta.y
+            );
+        }
     }
 
     void Start()
@@ -49,19 +69,46 @@ public class MenuManager : MonoBehaviour
         if (!gameManager.isMenu) return;
 
         mainMenu.SetActive(menuIndex == mainMenuIndex);
+        buttonSelectionObject.gameObject.SetActive(menuIndex == mainMenuIndex);
         characterSelect.SetActive(menuIndex == characterSelectMenuIndex);
 
         if (menuIndex == mainMenuIndex)
         {
-            if (Input.GetKeyDown(inputMaps[0].up)) selectPos++; //the wall
-            if (Input.GetKeyDown(inputMaps[1].up)) selectPos++;
-            if (Input.GetKeyDown(inputMaps[2].up)) selectPos++;
-            if (Input.GetKeyDown(inputMaps[0].down)) selectPos--;
-            if (Input.GetKeyDown(inputMaps[1].down)) selectPos--;
-            if (Input.GetKeyDown(inputMaps[2].down)) selectPos--;
+            timeSinceSinceButtonSelect += Time.deltaTime * buttonSelectAnimSpeed;
+
+            buttonSelectionObject.anchoredPosition = new Vector2(
+                Mathf.Lerp(lastButtonPosSize.x, mainMenuButtonPosSize[selectPos].x, timeSinceSinceButtonSelect),
+                Mathf.Lerp(lastButtonPosSize.y, mainMenuButtonPosSize[selectPos].y, timeSinceSinceButtonSelect)
+            );
+            buttonSelectionObject.sizeDelta = new Vector2(
+                Mathf.Lerp(lastButtonPosSize.z, mainMenuButtonPosSize[selectPos].z, timeSinceSinceButtonSelect),
+                Mathf.Lerp(lastButtonPosSize.w, mainMenuButtonPosSize[selectPos].w, timeSinceSinceButtonSelect)
+            );
+
+            int add = 0;
+            if (Input.GetKeyDown(inputMaps[0].up)) add = 1; //the wall
+            if (Input.GetKeyDown(inputMaps[1].up)) add = 1;
+            if (Input.GetKeyDown(inputMaps[2].up)) add = 1;
+            if (Input.GetKeyDown(inputMaps[0].down)) add = -1;
+            if (Input.GetKeyDown(inputMaps[1].down)) add = -1;
+            if (Input.GetKeyDown(inputMaps[2].down)) add = -1;
+
+            if (add != 0)
+            {
+                selectPos += add;
+                timeSinceSinceButtonSelect = 0;
+                lastButtonPosSize = new Vector4(
+                    buttonSelectionObject.anchoredPosition.x,
+                    buttonSelectionObject.anchoredPosition.y,
+                    buttonSelectionObject.sizeDelta.x,
+                    buttonSelectionObject.sizeDelta.y
+                );
+            }
 
             if (selectPos < 0) selectPos = mainMenuSelectionOptions-1;
             if (selectPos >= mainMenuSelectionOptions) selectPos = 0;
+
+            if (add != 0) targetButtonPosSize = mainMenuButtonPosSize[selectPos]; //do after we've looped select pos
 
             if (Input.GetKeyDown("space")) SelectPlayerAmount(selectPos == 1); //do 3 player if we selected 1
         }
