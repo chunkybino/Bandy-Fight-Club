@@ -19640,6 +19640,7 @@ MonoBehaviour:
   - {fileID: 3242646531481773995}
   - {fileID: 8479443681876356464}
   - {fileID: 7995521526827511020}
+  canAttack: 0
   attackIndex: 0
   attackIndexResetTime: 0.4
   attackBufferTime: 0.15
@@ -21685,6 +21686,9 @@ MonoBehaviour:
   saxParryHitstop: 0.15
   saxParryCameraShake: 0.5
   renderToRotate: {fileID: 7964651198177828865}
+  attackChargeHeld: 0
+  timeAttackCharging: 0
+  attackChargeNeeded: 0.4
 --- !u!114 &6506595838519733651
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -39,6 +39,10 @@ public class BigQFunc : PlayerFunc, ICharacterFunc
 
     [SerializeField] Transform renderToRotate; //rotate this when grappling, rotate towards sax
 
+    [SerializeField] bool attackChargeHeld;
+    [SerializeField] float timeAttackCharging;
+    [SerializeField] float attackChargeNeeded = 0.5f;
+
     void Awake()
     {
         if (characterFunc == null) characterFunc = this;
@@ -70,6 +74,23 @@ public class BigQFunc : PlayerFunc, ICharacterFunc
         else
         {
             renderToRotate.transform.eulerAngles = new Vector3(0,0,0);
+        }
+
+        //charge attacks
+        if (!inputs.attackHeld || !GetIsActionable())
+        {
+            attackChargeHeld = false;
+        }
+        if (attackChargeHeld)
+        {
+            if (playerAttack.canAttack) timeAttackCharging += Time.deltaTime;
+
+            if (timeAttackCharging >= attackChargeNeeded) 
+            {
+                DoChargeAttack();
+                attackChargeHeld = false;
+                timeAttackCharging = 0;
+            }
         }
     }
     void FixedUpdate()
@@ -148,6 +169,9 @@ public class BigQFunc : PlayerFunc, ICharacterFunc
             attackName = "AirKick";
         }
 
+        attackChargeHeld = true;
+        timeAttackCharging = 0;
+
         return attackName;
     }
     public string FindAttackHeavyName()
@@ -156,6 +180,12 @@ public class BigQFunc : PlayerFunc, ICharacterFunc
 
         return attackName;
     }
+    public void DoChargeAttack()
+    {
+        print("charge");
+        playerAttack.AttackByName("Kick");
+    }
+
     public string FindAnimationName()
     {
         if (isSaxGrappling) 
