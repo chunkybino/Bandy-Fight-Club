@@ -49,6 +49,8 @@ public class MenuManager : MonoBehaviour
                 mainMenuButtons[i].sizeDelta.y
             );
         }
+
+        timeSinceSinceButtonSelect = 1;
     }
 
     void Start()
@@ -76,22 +78,23 @@ public class MenuManager : MonoBehaviour
         {
             timeSinceSinceButtonSelect += Time.deltaTime * buttonSelectAnimSpeed;
 
+            float t = buttonSelectAnimCurve.Evaluate(timeSinceSinceButtonSelect);
+
             buttonSelectionObject.anchoredPosition = new Vector2(
-                Mathf.Lerp(lastButtonPosSize.x, mainMenuButtonPosSize[selectPos].x, timeSinceSinceButtonSelect),
-                Mathf.Lerp(lastButtonPosSize.y, mainMenuButtonPosSize[selectPos].y, timeSinceSinceButtonSelect)
+                Mathf.Lerp(lastButtonPosSize.x, mainMenuButtonPosSize[selectPos].x, t),
+                Mathf.Lerp(lastButtonPosSize.y, mainMenuButtonPosSize[selectPos].y, t)
             );
             buttonSelectionObject.sizeDelta = new Vector2(
-                Mathf.Lerp(lastButtonPosSize.z, mainMenuButtonPosSize[selectPos].z, timeSinceSinceButtonSelect),
-                Mathf.Lerp(lastButtonPosSize.w, mainMenuButtonPosSize[selectPos].w, timeSinceSinceButtonSelect)
+                Mathf.Lerp(lastButtonPosSize.z, mainMenuButtonPosSize[selectPos].z, t),
+                Mathf.Lerp(lastButtonPosSize.w, mainMenuButtonPosSize[selectPos].w, t)
             );
 
             int add = 0;
-            if (Input.GetKeyDown(inputMaps[0].up)) add = 1; //the wall
-            if (Input.GetKeyDown(inputMaps[1].up)) add = 1;
-            if (Input.GetKeyDown(inputMaps[2].up)) add = 1;
-            if (Input.GetKeyDown(inputMaps[0].down)) add = -1;
-            if (Input.GetKeyDown(inputMaps[1].down)) add = -1;
-            if (Input.GetKeyDown(inputMaps[2].down)) add = -1;
+            for (int i = 0; i < 3; i++)
+            {
+                if (Input.GetKeyDown(inputMaps[i].up)) add = 1;
+                if (Input.GetKeyDown(inputMaps[i].down)) add = -1;
+            }
 
             if (add != 0)
             {
