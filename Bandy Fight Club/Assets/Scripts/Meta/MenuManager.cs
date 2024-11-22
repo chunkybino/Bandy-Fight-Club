@@ -138,6 +138,7 @@ public class MenuManager : MonoBehaviour
             {
                 gameManager.StartMatchTransition();
             }
+            if (Input.GetKeyDown("escape")) menuIndex = mainMenuIndex; 
         }
     }
 
