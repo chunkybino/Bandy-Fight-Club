@@ -42,7 +42,7 @@ public class KnockbackHandler : MonoBehaviour
         if (enemyStatus && !enemyFunc) enemyFunc = enemyStatus.enemyFunc;*/
     }
 
-    void Update()
+    void LateUpdate()
     {
         if (doKnock)
         {
@@ -99,7 +99,7 @@ public class KnockbackHandler : MonoBehaviour
                 resistance = knockbackResistanceMult;
                 break;
         }
-        
+               
         newVel = new Vector2(
         VelCalc(knockback.xVelType, rb.velocity.x, resistance.x * ((knockback.vel.x * direction.x) + knockback.fixedVel.x)),
         VelCalc(knockback.yVelType, rb.velocity.y, resistance.y * ((knockback.vel.y * direction.y) + knockback.fixedVel.y)));
@@ -129,6 +129,7 @@ public class KnockbackHandler : MonoBehaviour
         }
 
         rb.velocity = newVel;
+        print(newVel);
 
         //if (playerStatus) playerMovement.SetAccelerationMult(knockback.acceleration, knockback.acceleration, knockback.accelerationTime);
         if (playerFunc) playerFunc.DoAccelerationMult(knockback.acceleration, knockback.accelerationTime);
