@@ -182,8 +182,18 @@ public class BigQFunc : PlayerFunc, ICharacterFunc
     }
     public void DoChargeAttack()
     {
-        print("charge");
-        string name = "SuperHighKick";
+        string name = "Kick";
+
+        if (inputs.upHeld)
+        {
+            name = "SuperHighKick";
+        }
+        else if (inputs.downHeld)
+        {
+            name = "Helicopter";
+        }
+
+
         playerAttack.AttackByName(name);
     }
 

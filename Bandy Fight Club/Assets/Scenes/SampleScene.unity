@@ -14366,8 +14366,8 @@ Mesh:
     firstVertex: 0
     vertexCount: 5
     localAABB:
-      m_Center: {x: -0.97801256, y: 1.4595746, z: -0.1}
-      m_Extent: {x: 0.4233594, y: 0.7610642, z: 0}
+      m_Center: {x: 0.90107775, y: -1.9225051, z: -0.6033475}
+      m_Extent: {x: 0.75038195, y: 0.28983045, z: 0.24016602}
   m_Shapes:
     vertices: []
     shapes: []
@@ -14446,7 +14446,7 @@ Mesh:
       format: 0
       dimension: 0
     m_DataSize: 100
-    _typelessdata: a0be96bf53740140cdccccbd00000000000000002860b3bf74b4503fcdccccbd00000000952f9dbf408f49bf94d1323fcdccccbd780120bf1f909dbfc0fd0dbf9b40fd3fcdccccbdf5e31ebfae6d8f3df0913cbff21e0e40cdccccbd629acbbecac58c3e
+    _typelessdata: 20ced23ee8960dc04c8532bf000000000000000038a6d03f2c860ac080f057bf0000803187119c3f0863d33f7cfbd0bf0f0804bfc4cf073f497aa13f409eb83ea8f3d7bfebf2b9be6cdd063fa7a7f9bc00501a3e4841f1bf9f66e9be01d1ac3ea3ea7dbe
   m_CompressedMesh:
     m_Vertices:
       m_NumItems: 0
@@ -14599,8 +14599,8 @@ Mesh:
     firstVertex: 0
     vertexCount: 8
     localAABB:
-      m_Center: {x: 0.5586958, y: 0.6855421, z: -0.2845}
-      m_Extent: {x: 0.38073826, y: 1.6389351, z: 0.1845}
+      m_Center: {x: -1.1287255, y: -1.0411854, z: 0.0988113}
+      m_Extent: {x: 0.8979001, y: 1.2021723, z: 0.2792635}
   m_Shapes:
     vertices: []
     shapes: []
@@ -14679,7 +14679,7 @@ Mesh:
       format: 0
       dimension: 0
     m_DataSize: 160
-    _typelessdata: 50f9093f62f81040cdccccbd0000000000000000803a363e3cc41440cba185be34e5b2be5e12debd20f6c73e5724a83fc420f0be734f8ebefe0c6c3fe0cfa33e6041493f3e0a57bedc47d7be4fa7b73f70bc063fc0fa32bfcdccccbddd47d7be74cc3b40c07e703f901174bfcdccccbd70853dbd018e4f408062283f1067543fcdccccbd519aa3bd6215b83fa0fd4b3f1987c43fcdccccbd4db61e3e1222423f
+    _typelessdata: d0a41cbff0910bc0c3c19b3d0000000000000000805d6cbe2c930fc02d55c7bdb1c9983e02fc7a3e404b0ebf6084b9bf76c838be327ed43ec0d91abf102522bfe82d3dbfe8fc48bcc631343f3416a1bff02e82bfc0669cbd9443243ec631343f048c01c03cb401c0c0d9243e0593c13e204850bde0112fc0801459bf70675abf5595873edc04ec3e8a34a2bfb0cf5bbfc0e2bcbf5d99b53e7a260f3e21dd3bbf
   m_CompressedMesh:
     m_Vertices:
       m_NumItems: 0
@@ -15025,6 +15025,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73a5e08f29d76074dbf45e9789ec3611, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &920892635 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5539808984509969794, guid: 84f3f989133dc724681733bf06f534d8, type: 3}
+  m_PrefabInstance: {fileID: 1076515825}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &931608865
 GameObject:
   m_ObjectHideFlags: 0
@@ -15092,8 +15097,8 @@ Mesh:
     firstVertex: 0
     vertexCount: 5
     localAABB:
-      m_Center: {x: -0.42879343, y: -0.85026157, z: -0.125}
-      m_Extent: {x: 0.6022401, y: 0.92902863, z: 0.025000002}
+      m_Center: {x: 1.2231131, y: 0.47207338, z: -0.099895224}
+      m_Extent: {x: 0.6300478, y: 0.553809, z: 0.030275404}
   m_Shapes:
     vertices: []
     shapes: []
@@ -15172,7 +15177,7 @@ Mesh:
       format: 0
       dimension: 0
     m_DataSize: 100
-    _typelessdata: 403b41bfa050a13dcdccccbd000000000000000010cd43bf985b8ebecdccccbd1d8fb0be0ccbbc3de8f883bfe888c5bfcdccccbd2513d1bfe9cc4a3e40d173bec8bfe3bfcdccccbd2613d1bf3c3f833f009c313e70983ebf9a9919bea53206bfe1f18f3f
+    _typelessdata: d04d423f406065bdcdccccbd000000000000000020d3173f0065a7bdc726ccbd7ff02bbede96e13a6034ed3fc02b543ecb56abbdb96e8f3ff0c1d4bdd80cde3f1d50833fd6948ebdb96e8f3faa5b6ebf508e1f3ffc67773f734b05be8098443ca80284bf
   m_CompressedMesh:
     m_Vertices:
       m_NumItems: 0
@@ -15256,6 +15261,14 @@ PrefabInstance:
       propertyPath: mesh
       value: 
       objectReference: {fileID: 1700605573}
+    - target: {fileID: 826615640914190225, guid: 84f3f989133dc724681733bf06f534d8, type: 3}
+      propertyPath: attacks.Array.size
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 826615640914190225, guid: 84f3f989133dc724681733bf06f534d8, type: 3}
+      propertyPath: attacks.Array.data[6]
+      value: 
+      objectReference: {fileID: 1087678421}
     - target: {fileID: 1147119273630492370, guid: 84f3f989133dc724681733bf06f534d8, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -15374,7 +15387,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8472132381444169521, guid: 84f3f989133dc724681733bf06f534d8, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8620700022088183152, guid: 84f3f989133dc724681733bf06f534d8, type: 3}
       propertyPath: m_Mesh
@@ -15402,9 +15415,64 @@ PrefabInstance:
       objectReference: {fileID: 1301645901}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 5539808984509969794, guid: 84f3f989133dc724681733bf06f534d8, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1087678422}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 84f3f989133dc724681733bf06f534d8, type: 3}
+--- !u!1 &1087678420
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1087678422}
+  - component: {fileID: 1087678421}
+  m_Layer: 7
+  m_Name: Helicopter
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1087678421
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1087678420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6328962f40e72f4c99bab6fffcac689, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animationName: Helicopter
+  cancelOnGroundLand: 0
+  speedMult: 0
+  lockFacing: 1
+  onAttackStart:
+    m_PersistentCalls:
+      m_Calls: []
+  attackTime: 1
+--- !u!4 &1087678422
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1087678420}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 920892635}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!43 &1148016850
 Mesh:
   m_ObjectHideFlags: 0
@@ -15763,8 +15831,8 @@ Mesh:
     firstVertex: 0
     vertexCount: 8
     localAABB:
-      m_Center: {x: -0.043405056, y: 1.1483129, z: -0.1565}
-      m_Extent: {x: 0.7114053, y: 1.073687, z: 0.0565}
+      m_Center: {x: 0.019499779, y: -1.0985266, z: -0.119362}
+      m_Extent: {x: 0.73950005, y: 1.0685266, z: 0.3067252}
   m_Shapes:
     vertices: []
     shapes: []
@@ -15843,7 +15911,7 @@ Mesh:
       format: 0
       dimension: 0
     m_DataSize: 160
-    _typelessdata: 60641bbf05810d40cdccccbd00000000000000002031883e3f350e40cdccccbd000080b07b815f3f10022b3f60e5b03fac1c5abecd5158bfa6d9a13f500c023fa8f1523fcdccccbdf051b3bfd0788c3f400c133f80d5983dcdccccbd72ab09c039c3933f403b41bfa050a13dcdccccbd375508c0e3da32be00291cbfbc9f5a3fcdccccbd67adadbf54a3a4bcf0a726bfb4f3bd3fcdccccbd8ff439bf0eba59bd
+    _typelessdata: e056033f00b10ac0d9669cbe00000000000000008044b7be805908c0b04d00bc000080b17a2b5fbf10a324bf2c13c7bf24dc3f3e010e103f042597bf006feebefce148bf309a3b3ef486ab3f319884bff05138bf80c2f5bccdccccbdac560540122ca9bfd04d423f406065bdcdccccbd28a60740e0e6203e60aa153f089c51bf75d5d5be83cfac3f72a6743c00c9fd3e9806b4bf1a28dabe1b5b423fc4d949bd
   m_CompressedMesh:
     m_Vertices:
       m_NumItems: 0
@@ -15939,8 +16007,8 @@ Mesh:
     firstVertex: 0
     vertexCount: 6
     localAABB:
-      m_Center: {x: -0.9678111, y: 0.24144757, z: -0.1}
-      m_Extent: {x: 0.43356085, y: 0.5782639, z: 0}
+      m_Center: {x: 2.106193, y: -1.7073987, z: -0.62111795}
+      m_Extent: {x: 0.6014209, y: 0.45704055, z: 0.22239557}
   m_Shapes:
     vertices: []
     shapes: []
@@ -16019,7 +16087,7 @@ Mesh:
       format: 0
       dimension: 0
     m_DataSize: 120
-    _typelessdata: f00987bf3073acbecdccccbd0000000000000000a0c408bff03f46becdccccbd69380a3fd881513c70a94ebf9cd8513fcdccccbd30fa113f12a384bf2860b3bf74b4503fcdccccbd0000003364fc99bf70a94ebf9cd8513fcdccccbd30fa113f12a384bf2860b3bf74b4503fcdccccbd0000003364fc99bf
+    _typelessdata: 8c492d4020c7d3bf918f2ebf0000000000000000f83d1f40bc0ba0bf5625ccbeb91aeb3e06ccd0bc609cc03fa419c5bfcda4dfbe1f401e3f8fe384bf38a6d03f2c860ac080f057bf000000b3f49698bf609cc03fa419c5bfcda4dfbe1f401e3f8fe384bf38a6d03f2c860ac080f057bf000000b3f49698bf
   m_CompressedMesh:
     m_Vertices:
       m_NumItems: 0
@@ -16208,8 +16276,8 @@ Mesh:
     firstVertex: 0
     vertexCount: 13
     localAABB:
-      m_Center: {x: -0.11695957, y: 0.64961743, z: -0.067}
-      m_Extent: {x: 1.0563936, y: 1.6748598, z: 0.194}
+      m_Center: {x: -0.007028103, y: -0.9866036, z: -0.15365343}
+      m_Extent: {x: 2.0195975, y: 1.2926074, z: 0.5317282}
   m_Shapes:
     vertices: []
     shapes: []
@@ -16288,7 +16356,7 @@ Mesh:
       format: 0
       dimension: 0
     m_DataSize: 260
-    _typelessdata: 703096bf243b83bf583934bc000000000000000090468fbf109268bf4a0c023e7593923d32f1dabd00f81f3c64870abf068195bdd0409f3f1a4f96bec07e703f901174bfcdccccbd954706403a75843e8062283f1067543fcdccccbd9547064093f3c5bfa0fd4b3f1987c43fcdccccbd881e16405f320ec050f9093f62f81040cdccccbdf01a0d4006e83ec0803a363e3cc41440cba185beb6c0ed3fe24246c0e06ae5bee1381440cba185be786e9e3fbaf94bc0a02f4abf80fe1040cdccccbd4571643f0f334cc0680c86bf0a8af53fcdccccbda777153f7cd138c0e09184bfca34c73fcdccccbdd1ed093ff8d121c030b256bf74bc543f92979abd34c81e3ffd00e4bf
+    _typelessdata: f0cd004000afdfbc2c752fbf0000000000000000a08b573f20959b3e97c109bf482f03bf803a8dbfc02d51bf88ac9c3ef6c1b9bd4fe4cbbf1a3117c03cb401c0c0d9243e0593c13e14781fc039d14bc0801459bf70675abf5595873e13781fc0c69bd0bfb0cf5bbfc0e2bcbf5d99b53ea21d3ec028ac9dbfd0a41cbff0910bc0c3c19b3d1c0656c023bb15bf805d6cbe2c930fc02d55c7bd3d2749c08cab82be807fab3d98de11c08291debe1bc33dc055e5d83b00d5d43e90280fc04ce4f7bed4d92dc02e276c3e9081243f38a0d4bf077120bff07208c03e4fde3c80cc043f342fb1bfb5c121bfa52f00c0b9467dbea0a3103f58a18abf619004bf2649dfbf2f45d1be
   m_CompressedMesh:
     m_Vertices:
       m_NumItems: 0
@@ -16384,8 +16452,8 @@ Mesh:
     firstVertex: 2
     vertexCount: 6
     localAABB:
-      m_Center: {x: 0.505466, y: -2.0382898, z: -0.5497812}
-      m_Extent: {x: 0.40424967, y: 0.5360873, z: 0.44978127}
+      m_Center: {x: -2.2326488, y: 0.74702907, z: -0.092543155}
+      m_Extent: {x: 0.61082554, y: 0.44753456, z: 0.07584962}
   m_Shapes:
     vertices: []
     shapes: []
@@ -16464,7 +16532,7 @@ Mesh:
       format: 0
       dimension: 0
     m_DataSize: 180
-    _typelessdata: 400c133f80d5983dcdccccbd0000000000000000802b3e3fd859dfbecdccccbd438808bfb7818f3d00525d3f2c48c0bf24c9ebbeeb37cdbf53361bbc00525d3f2c48c0bf24c9ebbeeb37cdbf53361bbc20e3683f68181dc054e37fbffa0723c09b6412be603b8f3e98c224c01aa26bbff90723c007c248bf804acf3dbc3acfbfc5ccccbdbca7c9bfacfa47bf804acf3dbc3acfbfc5ccccbdbca7c9bfacfa47bf000baebdb4e44abf9071063ea8903abf594b4fbf
+    _typelessdata: f05138bf80c2f5bccdccccbd0000000000000000805e2abf00e2123c1a6065bda6c140bdd84c433d101ee5bf5857993ee0c088bc10248e3f90c7113e101ee5bf5857993ee0c088bc10248e3f90c7113e7cfb35c090260f3f286f2cbe0a570c40a0ff5f3e64f32ec076e7983f287802be0a570c4037125d3fe897cfbf9b9b873fd1ccccbd7c81893fe27a6b3fe897cfbf9b9b873fd1ccccbd7c81893fe27a6b3ff0522bbfb073793f4045453e640df83d10967f3f
   m_CompressedMesh:
     m_Vertices:
       m_NumItems: 0
@@ -16549,8 +16617,8 @@ Mesh:
     firstVertex: 0
     vertexCount: 5
     localAABB:
-      m_Center: {x: 0.6519704, y: 1.5527922, z: -0.1}
-      m_Extent: {x: 0.42232466, y: 0.72497165, z: 0}
+      m_Center: {x: -0.8616619, y: -1.9230361, z: 0.27510664}
+      m_Extent: {x: 0.71834946, y: 0.27987766, z: 0.21547036}
   m_Shapes:
     vertices: []
     shapes: []
@@ -16629,7 +16697,7 @@ Mesh:
       format: 0
       dimension: 0
     m_DataSize: 100
-    _typelessdata: 40286b3e4a2e0240cdccccbd0000000000000000806aeb3e0cec533fcdccccbd00008032962f9d3f8082893f402b713fcdccccbd6201203f21909d3f10855a3fd5bd0340cdccccbdf4111e3f9f6ebe3d209ac23ee2c61140cdccccbdb515463e8e3e58be
+    _typelessdata: 6090b6bea877d7bf2e45743d0000000000000000d03dcabf0453d2bf5465213e0000000055af9cbf286ec9bf54030bc0e92cfb3ef84607bfe3a699bf204ee1be8afc0cc0f5a0ca3e12a405bfc2f187bd80c012be244fedbfc843153ebb7827be6ffe5f3e
   m_CompressedMesh:
     m_Vertices:
       m_NumItems: 0
@@ -16761,8 +16829,8 @@ Mesh:
     firstVertex: 0
     vertexCount: 4
     localAABB:
-      m_Center: {x: -0.09020233, y: -0.54895794, z: -0.1}
-      m_Extent: {x: 0.664608, y: 0.627725, z: 0}
+      m_Center: {x: 0.019499779, y: 0.45921075, z: 0.031238176}
+      m_Extent: {x: 0.73950005, y: 0.51521075, z: 0.16140881}
   m_Shapes:
     vertices: []
     shapes: []
@@ -16841,7 +16909,7 @@ Mesh:
       format: 0
       dimension: 0
     m_DataSize: 80
-    _typelessdata: 403b41bfa050a13dcdccccbd00000000000000000020cd3a8c9d96bfcdccccbd2d65a0bfe6a1423f0020cd3a8c9d96bfcdccccbd2d65a0bfe6a1423f400c133f80d5983dcdccccbd000000b0f623aa3f
+    _typelessdata: d04d423f406065bdcdccccbd0000000000000000508e1f3ffc67773f734b05bea68b823f7e5f1dbef0522bbfb073793f4045453e0aa9803f9f1ab9bff05138bf80c2f5bccdccccbd000000005d57bdbf
   m_CompressedMesh:
     m_Vertices:
       m_NumItems: 0
@@ -17287,8 +17355,8 @@ Mesh:
     firstVertex: 0
     vertexCount: 6
     localAABB:
-      m_Center: {x: 0.7903552, y: 0.35650635, z: -0.1}
-      m_Extent: {x: 0.3305583, y: 0.58555984, z: 0}
+      m_Center: {x: -2.129273, y: -1.8576016, z: 0.32460457}
+      m_Extent: {x: 0.55559874, y: 0.3144765, z: 0.16699155}
   m_Shapes:
     vertices: []
     shapes: []
@@ -17367,7 +17435,7 @@ Mesh:
       format: 0
       dimension: 0
     m_DataSize: 120
-    _typelessdata: 6038153f008d6abecdccccbd0000000000000000187a8f3f50613abecdccccbdba330a3f763b7e3c8082893f402b713fcdccccbd88a31f3fbb9e8dbf806aeb3e0cec533fcdccccbd000080b2c13188bf8082893f402b713fcdccccbd88a31f3fbb9e8dbf806aeb3e0cec533fcdccccbd000080b2c13188bf
+    _typelessdata: d8db28c02085c5bf8c084e3e0000000000000000f0d42bc09080ffbf7db2fb3e3f23e9bec1846dbb286ec9bf54030bc0eb2cfb3e6aa606bff8418f3fd03dcabf0453d2bf5065213e000000006f14883f286ec9bf54030bc0eb2cfb3e6aa606bff8418f3fd03dcabf0453d2bf5065213e000000006f14883f
   m_CompressedMesh:
     m_Vertices:
       m_NumItems: 0
@@ -17452,8 +17520,8 @@ Mesh:
     firstVertex: 0
     vertexCount: 8
     localAABB:
-      m_Center: {x: -0.67439175, y: 0.64536464, z: -0.25349998}
-      m_Extent: {x: 0.49896145, y: 1.670607, z: 0.24249999}
+      m_Center: {x: 0.97207785, y: -1.1532581, z: -0.5298295}
+      m_Extent: {x: 1.0404916, y: 1.125953, z: 0.15555215}
   m_Shapes:
     vertices: []
     shapes: []
@@ -17532,7 +17600,7 @@ Mesh:
       format: 0
       dimension: 0
     m_DataSize: 160
-    _typelessdata: a02f4abf80fe1040cdccccbd0000000000000000e06ae5bee1381440cba185be2211acbeae69a33d00a433be71b69e3fb6f3fdbeba6233bf97f877bf80b7b5be38363d3f3e0a57beadb110bfa6d6bdbf6069f5be48c831bfcdccccbdadb110bf38033bc0703096bf243b83bf583934bc78f0c73d82f153c030b256bf74bc543f92979abd524a9abd3679b7bf680c86bf0a8af53fcdccccbdfbe9673ef186bcbe
+    _typelessdata: 00d5d43e90280fc04ce4f7be0000000000000000807fab3d98de11c08291debeeaca3b3edb508fbe801c8cbd58d4abbf7f7302bf9f987e3f4cf3593e408c033e109040bf48a1bfbed05fa83f8df23e3f009f4f3f60382dbe204fc2bed05fa83f2f60d23ff0cd004000afdfbc2c752fbfb693243f418e2940a0a3103f58a18abf619004bfbcc3473f8ae85c3f9081243f38a0d4bf077120bf18ab943ee6e40b3f
   m_CompressedMesh:
     m_Vertices:
       m_NumItems: 0
@@ -18112,8 +18180,8 @@ Mesh:
     firstVertex: 0
     vertexCount: 5
     localAABB:
-      m_Center: {x: 0.38977528, y: -0.78109765, z: -0.16461319}
-      m_Extent: {x: 0.4747572, y: 0.8557236, z: 0.29590577}
+      m_Center: {x: -1.2277422, y: 0.5161139, z: 0.04632349}
+      m_Extent: {x: 0.56223774, y: 0.54611385, z: 0.14632349}
   m_Shapes:
     vertices: []
     shapes: []
@@ -18192,7 +18260,7 @@ Mesh:
       format: 0
       dimension: 0
     m_DataSize: 100
-    _typelessdata: 400c133f80d5983dcdccccbd0000000000000000802b3e3fd859dfbecdccccbda74c08bf2c099d3d00525d3f2c48c0bf24c9ebbebc37cdbf036e2a3c0086d73d5c83d1bf2459bfbebc37cdbf8ebf42bf000baebdb4e44abf9071063ed81e3dbf35f74cbf
+    _typelessdata: f05138bf80c2f5bccdccccbd0000000000000000805e2abf00e2123c1a6065bda2833fbdbe84443d101ee5bf5857993ee0c088bce9408e3ff1900a3ee098d3bf14f7873f80c8c73ce9408e3f3c05693ff0522bbfb073793f4045453e9c81023e6c627f3f
   m_CompressedMesh:
     m_Vertices:
       m_NumItems: 0
@@ -18442,8 +18510,8 @@ Mesh:
     firstVertex: 0
     vertexCount: 6
     localAABB:
-      m_Center: {x: -0.8016429, y: -2.1650078, z: -0.1}
-      m_Extent: {x: 0.56354, y: 0.6217673, z: 0}
+      m_Center: {x: 2.3367953, y: 0.66258204, z: -0.039036416}
+      m_Extent: {x: 0.60202837, y: 0.4553839, z: 0.044625223}
   m_Shapes:
     vertices: []
     shapes: []
@@ -18522,7 +18590,7 @@ Mesh:
       format: 0
       dimension: 0
     m_DataSize: 120
-    _typelessdata: 40d173bec8bfe3bfcdccccbd000000000000000040d173bec8bfe3bfcdccccbd0000000000000000a05441bf865a32c0cdccccbdd4918fbfbac21fbe50beaebf60b824c0cdccccbdd4918fbf42584dbfe8f883bfe888c5bfcdccccbd44021ebd459053bfe8f883bfe888c5bfcdccccbd44021ebd459053bf
+    _typelessdata: d80cde3f1e50833fd5948ebd0000000000000000d80cde3f1e50833fd5948ebd0000000000000000b834334082198f3f5022b73b43b6873fd1240e3eb0153c40e04ff93e00bec23a43b6873fe9ef483f6034ed3fc02b543ecb56abbd9c6676bde433533f6034ed3fc02b543ecb56abbd9c6676bde433533f
   m_CompressedMesh:
     m_Vertices:
       m_NumItems: 0
