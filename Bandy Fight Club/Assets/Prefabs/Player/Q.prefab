@@ -4449,7 +4449,7 @@ MonoBehaviour:
       yVelType: 3
       normalizeVel: 0
       dontDoAgainstGroundedTarget: 0
-      ignoreBaseKnockbackResistance: 1
+      ignoreBaseKnockbackResistance: 3
       acceleration: 0.1
       accelerationTime: 0.5
     - name: helicopteradd
@@ -4459,7 +4459,7 @@ MonoBehaviour:
       yVelType: 2
       normalizeVel: 0
       dontDoAgainstGroundedTarget: 0
-      ignoreBaseKnockbackResistance: 1
+      ignoreBaseKnockbackResistance: 3
       acceleration: 0.3
       accelerationTime: 0.6
     blockStun: 0.15
@@ -4468,7 +4468,7 @@ MonoBehaviour:
     onlyPerfBlock: 0
     unblockable: 0
     hitStopTime: 0.08
-    cameraShake: 0.5
+    cameraShake: 0.4
     doDeflect: 1
     deflectForce: {x: 1, y: 4}
     tags: []

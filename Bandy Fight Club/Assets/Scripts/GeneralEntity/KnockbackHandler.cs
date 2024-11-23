@@ -129,7 +129,6 @@ public class KnockbackHandler : MonoBehaviour
         }
 
         rb.velocity = newVel;
-        print(newVel);
 
         //if (playerStatus) playerMovement.SetAccelerationMult(knockback.acceleration, knockback.acceleration, knockback.accelerationTime);
         if (playerFunc) playerFunc.DoAccelerationMult(knockback.acceleration, knockback.accelerationTime);
