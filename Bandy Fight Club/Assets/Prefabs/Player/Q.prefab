@@ -9138,6 +9138,7 @@ Transform:
   - {fileID: 1423595433273120783}
   - {fileID: 6934588720708321266}
   - {fileID: 954122661869788077}
+  - {fileID: 537957694283007171}
   m_Father: {fileID: 6232906185103021542}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3575348210299467492
@@ -12662,7 +12663,7 @@ Transform:
   m_GameObject: {fileID: 4669064943574059178}
   serializedVersion: 2
   m_LocalRotation: {x: -0.12661073, y: 0.0066433186, z: -0.007291632, w: -0.9919035}
-  m_LocalPosition: {x: 0.6276703, y: -2.604004, z: 1.051877}
+  m_LocalPosition: {x: 0.6276703, y: -2.604004, z: 1.0518732}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -13350,6 +13351,139 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1304133896720195652}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &5074474190495727241
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 537957694283007171}
+  - component: {fileID: 1197159680638732302}
+  - component: {fileID: 4683981156848654260}
+  m_Layer: 8
+  m_Name: SuperHighKick
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &537957694283007171
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5074474190495727241}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 458168746412387145}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &1197159680638732302
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5074474190495727241}
+  m_Enabled: 0
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.47418213, y: 2.2016096}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 2.5749836, y: 4.6876707}
+  m_EdgeRadius: 0
+--- !u!114 &4683981156848654260
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5074474190495727241}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15bd414acfc493f4a9f14987b0906063, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  teamHolder: {fileID: 1172696303370988009}
+  team: 0
+  rehitTime: 0.5
+  attackInfo:
+    damage: 90
+    knockbacks:
+    - name: superhighkick
+      vel: {x: 5, y: 0}
+      fixedVel: {x: 0, y: 40}
+      xVelType: 3
+      yVelType: 3
+      normalizeVel: 0
+      dontDoAgainstGroundedTarget: 0
+      ignoreBaseKnockbackResistance: 0
+      acceleration: 0.1
+      accelerationTime: 0.5
+    - name: highkickadd
+      vel: {x: 5, y: 0}
+      fixedVel: {x: 0, y: 20}
+      xVelType: 2
+      yVelType: 2
+      normalizeVel: 0
+      dontDoAgainstGroundedTarget: 0
+      ignoreBaseKnockbackResistance: 0
+      acceleration: 0.15
+      accelerationTime: 0.6
+    blockStun: 0.6
+    stunTime: 0.85
+    advantageDamage: 0.2
+    onlyPerfBlock: 0
+    unblockable: 0
+    hitStopTime: 0.35
+    cameraShake: 2.5
+    doDeflect: 1
+    deflectForce: {x: 1, y: 4}
+    tags: []
+  direction: 0
+  directionReference: {fileID: 4110637717697406780}
+  playerFunc: {fileID: 3173985440313344023}
+  knockbackHandler: {fileID: 2094130834287096051}
+  onHit:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &5133322244271699541
 GameObject:
   m_ObjectHideFlags: 0
@@ -13595,7 +13729,7 @@ Transform:
   m_GameObject: {fileID: 5166753245546931066}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: 0.5656272, w: 0.82466114}
-  m_LocalPosition: {x: 0.0107806325, y: -0.39395574, z: -0}
+  m_LocalPosition: {x: 0.014269426, y: -0.3651229, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -14310,7 +14444,7 @@ Transform:
   m_GameObject: {fileID: 5386563023357190490}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: 0.035266567, w: 0.99937797}
-  m_LocalPosition: {x: 0.8752289, y: -0.39385986, z: 3.161724}
+  m_LocalPosition: {x: 0.8752289, y: -0.39385986, z: 3.1616936}
   m_LocalScale: {x: 0.75, y: 0.75, z: 0.75}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -20384,7 +20518,7 @@ Transform:
   m_GameObject: {fileID: 7938889876430366004}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.0046132207, y: 0.40184712, z: 0}
+  m_LocalPosition: {x: -0.018496558, y: 0.5651679, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
