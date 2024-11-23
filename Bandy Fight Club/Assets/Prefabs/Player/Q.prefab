@@ -1783,7 +1783,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animationName: Knee
   cancelOnGroundLand: 0
-  speedMult: 0
+  speedMult: 0.1
   lockFacing: 1
   onAttackStart:
     m_PersistentCalls:
@@ -1852,7 +1852,7 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 7010daeb2f6b3154eb20694ae282768d, type: 2}
-  - {fileID: 2100000, guid: ca73f2f9a2aa87e4eb2e8aca4166e3d2, type: 2}
+  - {fileID: 2100000, guid: 5dc7b63aedd576c43a58da879aac0af1, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -7498,6 +7498,58 @@ Transform:
   - {fileID: 2418904175159916926}
   m_Father: {fileID: 6232906185103021542}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2944695418282127246
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 36440267085914540}
+  - component: {fileID: 1329125977683414423}
+  m_Layer: 7
+  m_Name: SuperHighKick
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &36440267085914540
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2944695418282127246}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5539808984509969794}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1329125977683414423
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2944695418282127246}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6328962f40e72f4c99bab6fffcac689, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animationName: HighKick
+  cancelOnGroundLand: 0
+  speedMult: 0
+  lockFacing: 1
+  onAttackStart:
+    m_PersistentCalls:
+      m_Calls: []
+  attackTime: 1
 --- !u!1 &2980900389568112014
 GameObject:
   m_ObjectHideFlags: 0
@@ -13984,7 +14036,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &492184165980955251
 Transform:
   m_ObjectHideFlags: 0
@@ -14174,7 +14226,7 @@ Transform:
   m_GameObject: {fileID: 5383258696377743699}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.8487396, y: -1.7275391, z: 0}
+  m_LocalPosition: {x: -0.8487396, y: -1.7275391, z: 0.0000019073486}
   m_LocalScale: {x: 1.25, y: 1.25, z: 1.25}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -14447,7 +14499,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2902138218111473604
 Transform:
   m_ObjectHideFlags: 0
@@ -14531,7 +14583,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1112335275081904152
 Transform:
   m_ObjectHideFlags: 0
@@ -15897,7 +15949,7 @@ MonoBehaviour:
   matIndex: 1
   matList:
   - {fileID: 2100000, guid: 7010daeb2f6b3154eb20694ae282768d, type: 2}
-  - {fileID: 2100000, guid: ca73f2f9a2aa87e4eb2e8aca4166e3d2, type: 2}
+  - {fileID: 2100000, guid: 5dc7b63aedd576c43a58da879aac0af1, type: 2}
 --- !u!1 &6152466466019644595
 GameObject:
   m_ObjectHideFlags: 0
@@ -19406,7 +19458,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animationName: HighKick
   cancelOnGroundLand: 0
-  speedMult: 0
+  speedMult: 0.1
   lockFacing: 1
   onAttackStart:
     m_PersistentCalls:
@@ -19610,6 +19662,7 @@ Transform:
   - {fileID: 4865234063384209215}
   - {fileID: 5767210886925568914}
   - {fileID: 4376912463183969174}
+  - {fileID: 36440267085914540}
   m_Father: {fileID: 4110637717697406780}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &826615640914190225
@@ -21377,7 +21430,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &4110637717697406780
 Transform:
   m_ObjectHideFlags: 0

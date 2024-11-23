@@ -183,7 +183,8 @@ public class BigQFunc : PlayerFunc, ICharacterFunc
     public void DoChargeAttack()
     {
         print("charge");
-        playerAttack.AttackByName("Kick");
+        string name = "SuperHighKick";
+        playerAttack.AttackByName(name);
     }
 
     public string FindAnimationName()

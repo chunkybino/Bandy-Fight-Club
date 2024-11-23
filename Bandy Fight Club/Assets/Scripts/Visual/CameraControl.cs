@@ -100,6 +100,8 @@ public class CameraControl : MonoBehaviour
 
         if (doSideBounds) pos.x = Mathf.Clamp(pos.x, sideEdgeBounds.x + horizontalSize, sideEdgeBounds.y - horizontalSize);
 
+        if (float.IsNaN(pos.x)) pos.x = 0;
+
         transform.position = new Vector3(pos.x, pos.y, zOffset);
     }
 
