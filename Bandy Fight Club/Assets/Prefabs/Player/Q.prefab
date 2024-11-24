@@ -3471,7 +3471,7 @@ Transform:
   m_GameObject: {fileID: 1162099124277357437}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: 0.5656272, w: 0.82466114}
-  m_LocalPosition: {x: 0.06914878, y: 0.1554015, z: -0}
+  m_LocalPosition: {x: -0.33018568, y: 0.046025455, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4469,7 +4469,7 @@ MonoBehaviour:
     unblockable: 0
     hitStopTime: 0.08
     cameraShake: 0.4
-    doDeflect: 1
+    doDeflect: 0
     deflectForce: {x: 1, y: 4}
     tags: []
   direction: 0
@@ -4701,6 +4701,139 @@ MonoBehaviour:
   doMeshPoints: 0
   meshPoints: []
   flipPointOrder: 0
+--- !u!1 &1782772709586292526
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 341570959559790378}
+  - component: {fileID: 3142472115945711711}
+  - component: {fileID: 239059689644805914}
+  m_Layer: 8
+  m_Name: SpinKick1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &341570959559790378
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1782772709586292526}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 458168746412387145}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &3142472115945711711
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1782772709586292526}
+  m_Enabled: 0
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 1.6606803, y: -0.338933}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 3.5051146, y: 3.4021292}
+  m_EdgeRadius: 0
+--- !u!114 &239059689644805914
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1782772709586292526}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15bd414acfc493f4a9f14987b0906063, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  teamHolder: {fileID: 1172696303370988009}
+  team: 0
+  rehitTime: 0.5
+  attackInfo:
+    damage: 25
+    knockbacks:
+    - name: helicopter
+      vel: {x: 10, y: 0}
+      fixedVel: {x: 0, y: 10}
+      xVelType: 3
+      yVelType: 3
+      normalizeVel: 0
+      dontDoAgainstGroundedTarget: 0
+      ignoreBaseKnockbackResistance: 3
+      acceleration: 0.1
+      accelerationTime: 0.5
+    - name: helicopteradd
+      vel: {x: 5, y: 0}
+      fixedVel: {x: 0, y: 5}
+      xVelType: 2
+      yVelType: 2
+      normalizeVel: 0
+      dontDoAgainstGroundedTarget: 0
+      ignoreBaseKnockbackResistance: 3
+      acceleration: 0.5
+      accelerationTime: 0.5
+    blockStun: 0.2
+    stunTime: 0.4
+    advantageDamage: 0.06
+    onlyPerfBlock: 0
+    unblockable: 0
+    hitStopTime: 0.1
+    cameraShake: 0.45
+    doDeflect: 0
+    deflectForce: {x: 1, y: 4}
+    tags: []
+  direction: 0
+  directionReference: {fileID: 4110637717697406780}
+  playerFunc: {fileID: 3173985440313344023}
+  knockbackHandler: {fileID: 2094130834287096051}
+  onHit:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1807811363922389326
 GameObject:
   m_ObjectHideFlags: 0
@@ -6587,6 +6720,139 @@ MonoBehaviour:
   doMeshPoints: 0
   meshPoints: []
   flipPointOrder: 0
+--- !u!1 &2331903834989466410
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6867781714506959865}
+  - component: {fileID: 6103857656148621773}
+  - component: {fileID: 9168166082237301223}
+  m_Layer: 8
+  m_Name: SpinKick2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6867781714506959865
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2331903834989466410}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 458168746412387145}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &6103857656148621773
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2331903834989466410}
+  m_Enabled: 0
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 2.154907, y: 0.27715826}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 4.493568, y: 3.5239935}
+  m_EdgeRadius: 0
+--- !u!114 &9168166082237301223
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2331903834989466410}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15bd414acfc493f4a9f14987b0906063, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  teamHolder: {fileID: 1172696303370988009}
+  team: 0
+  rehitTime: 0.5
+  attackInfo:
+    damage: 45
+    knockbacks:
+    - name: helicopter
+      vel: {x: 25, y: 0}
+      fixedVel: {x: 0, y: 15}
+      xVelType: 3
+      yVelType: 3
+      normalizeVel: 0
+      dontDoAgainstGroundedTarget: 0
+      ignoreBaseKnockbackResistance: 0
+      acceleration: 0.1
+      accelerationTime: 0.5
+    - name: helicopteradd
+      vel: {x: 25, y: 0}
+      fixedVel: {x: 0, y: 20}
+      xVelType: 2
+      yVelType: 2
+      normalizeVel: 0
+      dontDoAgainstGroundedTarget: 0
+      ignoreBaseKnockbackResistance: 0
+      acceleration: 0.12
+      accelerationTime: 0.7
+    blockStun: 0.4
+    stunTime: 0.7
+    advantageDamage: 0.12
+    onlyPerfBlock: 0
+    unblockable: 0
+    hitStopTime: 0.16
+    cameraShake: 0.85
+    doDeflect: 1
+    deflectForce: {x: 3, y: 0.5}
+    tags: []
+  direction: 0
+  directionReference: {fileID: 4110637717697406780}
+  playerFunc: {fileID: 3173985440313344023}
+  knockbackHandler: {fileID: 2094130834287096051}
+  onHit:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &2354978347514268902
 GameObject:
   m_ObjectHideFlags: 0
@@ -9209,7 +9475,7 @@ Transform:
   m_Children:
   - {fileID: 6196578375886537078}
   m_Father: {fileID: 16384360078915958}
-  m_LocalEulerAnglesHint: {x: 34.223, y: 42.135, z: 63.335}
+  m_LocalEulerAnglesHint: {x: -11.283, y: -11.686, z: -18.881}
 --- !u!1773428102 &8005323795936607462
 ParentConstraint:
   m_ObjectHideFlags: 0
@@ -9274,6 +9540,8 @@ Transform:
   - {fileID: 537957694283007171}
   - {fileID: 4758843086769287339}
   - {fileID: 3638050876755532405}
+  - {fileID: 341570959559790378}
+  - {fileID: 6867781714506959865}
   m_Father: {fileID: 6232906185103021542}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3575348210299467492
@@ -11076,7 +11344,7 @@ MonoBehaviour:
     unblockable: 0
     hitStopTime: 0.15
     cameraShake: 0.85
-    doDeflect: 1
+    doDeflect: 0
     deflectForce: {x: 1, y: 4}
     tags: []
   direction: 0
@@ -13997,7 +14265,7 @@ Transform:
   m_GameObject: {fileID: 5166753245546931066}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: 0.5656272, w: 0.82466114}
-  m_LocalPosition: {x: 0.014269426, y: -0.3651229, z: -0}
+  m_LocalPosition: {x: 0.0007272661, y: -0.273369, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -14628,7 +14896,7 @@ Transform:
   m_GameObject: {fileID: 5383258696377743699}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.8487396, y: -1.7275391, z: 0.0004119873}
+  m_LocalPosition: {x: -0.8487396, y: -1.7275391, z: 0.00045776367}
   m_LocalScale: {x: 1.25, y: 1.25, z: 1.25}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -20842,7 +21110,7 @@ Transform:
   m_GameObject: {fileID: 7938889876430366004}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.0031411052, y: 0.38457766, z: -0}
+  m_LocalPosition: {x: -0.10620591, y: 0.6519227, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -21889,7 +22157,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4110637717697406780
 Transform:
   m_ObjectHideFlags: 0
