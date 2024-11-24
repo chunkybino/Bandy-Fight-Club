@@ -182,7 +182,7 @@ public class BigQFunc : PlayerFunc, ICharacterFunc
     }
     public void DoChargeAttack()
     {
-        string name = "Kick";
+        string name = "SpinKick";
 
         if (inputs.upHeld)
         {
