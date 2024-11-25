@@ -6837,7 +6837,7 @@ MonoBehaviour:
       acceleration: 0.12
       accelerationTime: 0.7
     blockStun: 0.4
-    stunTime: 0.7
+    stunTime: 0.8
     advantageDamage: 0.12
     onlyPerfBlock: 0
     unblockable: 0
@@ -8263,7 +8263,7 @@ MonoBehaviour:
       acceleration: 0.12
       accelerationTime: 0.55
     blockStun: 0.3
-    stunTime: 0.35
+    stunTime: 0.45
     advantageDamage: 0.05
     onlyPerfBlock: 0
     unblockable: 0
@@ -10751,7 +10751,7 @@ MonoBehaviour:
       acceleration: 0.1
       accelerationTime: 0.8
     blockStun: 0.3
-    stunTime: 0.4
+    stunTime: 0.55
     advantageDamage: 0.08
     onlyPerfBlock: 0
     unblockable: 0
@@ -11338,7 +11338,7 @@ MonoBehaviour:
       acceleration: 0.1
       accelerationTime: 0.6
     blockStun: 0.35
-    stunTime: 0.55
+    stunTime: 0.7
     advantageDamage: 0.06
     onlyPerfBlock: 0
     unblockable: 0
@@ -13693,7 +13693,7 @@ MonoBehaviour:
       acceleration: 0.2
       accelerationTime: 0.6
     blockStun: 0.35
-    stunTime: 0.5
+    stunTime: 0.6
     advantageDamage: 0.12
     onlyPerfBlock: 0
     unblockable: 0
@@ -14004,7 +14004,7 @@ MonoBehaviour:
       acceleration: 0.15
       accelerationTime: 0.6
     blockStun: 0.6
-    stunTime: 0.85
+    stunTime: 0.9
     advantageDamage: 0.2
     onlyPerfBlock: 0
     unblockable: 0
@@ -14265,7 +14265,7 @@ Transform:
   m_GameObject: {fileID: 5166753245546931066}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: 0.5656272, w: 0.82466114}
-  m_LocalPosition: {x: 0.033762798, y: -0.43037447, z: -0}
+  m_LocalPosition: {x: 0.04256445, y: -0.30475095, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -21110,7 +21110,7 @@ Transform:
   m_GameObject: {fileID: 7938889876430366004}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.01861927, y: 0.41624913, z: 0}
+  m_LocalPosition: {x: -0.0029227138, y: 0.4008606, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -22157,7 +22157,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4110637717697406780
 Transform:
   m_ObjectHideFlags: 0
