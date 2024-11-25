@@ -206,7 +206,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7577120169397887839
 Transform:
   m_ObjectHideFlags: 0
@@ -1146,7 +1146,7 @@ MonoBehaviour:
       acceleration: 0.1
       accelerationTime: 0.6
     blockStun: 0.3
-    stunTime: 0.65
+    stunTime: 0.5
     advantageDamage: 0.18
     onlyPerfBlock: 0
     unblockable: 0
@@ -1919,7 +1919,7 @@ PrefabInstance:
       objectReference: {fileID: 7577120169397887839}
     - target: {fileID: 628325218586201431, guid: fe70ef1e12400454dab17dbd913906c3, type: 3}
       propertyPath: attackInfo.stunTime
-      value: 0.5
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 628325218586201431, guid: fe70ef1e12400454dab17dbd913906c3, type: 3}
       propertyPath: attackInfo.knockbacks.Array.data[0].vel.x
@@ -3108,6 +3108,10 @@ PrefabInstance:
     - target: {fileID: 4620643253525335306, guid: fe70ef1e12400454dab17dbd913906c3, type: 3}
       propertyPath: attackInfo.damage
       value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 4620643253525335306, guid: fe70ef1e12400454dab17dbd913906c3, type: 3}
+      propertyPath: attackInfo.stunTime
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 4671806020913821040, guid: fe70ef1e12400454dab17dbd913906c3, type: 3}
       propertyPath: m_LocalPosition.x
