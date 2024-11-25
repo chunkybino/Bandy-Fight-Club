@@ -9398,7 +9398,7 @@ MonoBehaviour:
   - {fileID: 1228158914771108052}
   - {fileID: 6428945389610884689}
   - {fileID: 7250455678024612078}
-  doSilhouette: 0
+  doSilhouette: 1
   hideQWeap: 0
   hideJWeap: 0
   removeNull: 0
@@ -15264,6 +15264,10 @@ PrefabInstance:
       propertyPath: mesh
       value: 
       objectReference: {fileID: 1389799654}
+    - target: {fileID: 1663709583450352777, guid: 84f3f989133dc724681733bf06f534d8, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: ca73f2f9a2aa87e4eb2e8aca4166e3d2, type: 2}
     - target: {fileID: 1688312685288853089, guid: 84f3f989133dc724681733bf06f534d8, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -18277,8 +18281,8 @@ Mesh:
     firstVertex: 0
     vertexCount: 9
     localAABB:
-      m_Center: {x: -0.08870602, y: 1.5732741, z: -0.1565}
-      m_Extent: {x: 0.6711054, y: 1.1197257, z: 0.0565}
+      m_Center: {x: -0.09730053, y: 1.5732741, z: -0.1565}
+      m_Extent: {x: 0.6796999, y: 1.1197257, z: 0.0565}
   m_Shapes:
     vertices: []
     shapes: []
@@ -18357,7 +18361,7 @@ Mesh:
       format: 0
       dimension: 0
     m_DataSize: 180
-    _typelessdata: 60ba29bfcef71b40cdccccbd000000000000000080be1fbe1c5a2c40cdccccbd000080b23266113f80c0ca3eaaf12240cdccccbd9892c2beb0947e3fa0ef073fc2caf13fac1c5abe3a8083bf2a9f513fc0ca013f20858b3fcdccccbd0969ddbfb2e2df3e2018153fe02bf33ecdccccbdba0414c058d0683e008342bf8037e83ecdccccbd6a0bddbf0afd7abfc0492cbf0581953fcdccccbd656b90bf32b614bfc0ca41bffdd4f83fcdccccbdf4a0cbbed3bb9cbe
+    _typelessdata: 60ba29bfcef71b40cdccccbd000000000000000080be1fbe1c5a2c40cdccccbd000080b23266113f80c0ca3eaaf12240cdccccbd9892c2beb0947e3fa0ef073fc2caf13fac1c5abe3a8083bf2a9f513fc0ca013f20858b3fcdccccbd0969ddbfb2e2df3e2018153fe02bf33ecdccccbdba0414c058d0683e008342bf8037e83ecdccccbd6a0bddbf0afd7abf80e946bfb71e953f105839be1dc38abff6d22cbfc0ca41bffdd4f83fcdccccbdf4a0cbbed3bb9cbe
   m_CompressedMesh:
     m_Vertices:
       m_NumItems: 0
@@ -18636,6 +18640,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: J
       objectReference: {fileID: 0}
+    - target: {fileID: 1568848647709469002, guid: 89a4bb26954076c4087def95df52bc91, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1885475732630660217, guid: 89a4bb26954076c4087def95df52bc91, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -18752,6 +18760,10 @@ PrefabInstance:
       propertyPath: mesh
       value: 
       objectReference: {fileID: 2019158932}
+    - target: {fileID: 7708457346826277611, guid: 89a4bb26954076c4087def95df52bc91, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: ca73f2f9a2aa87e4eb2e8aca4166e3d2, type: 2}
     - target: {fileID: 8378978195631221851, guid: 89a4bb26954076c4087def95df52bc91, type: 3}
       propertyPath: m_Mesh
       value: 
