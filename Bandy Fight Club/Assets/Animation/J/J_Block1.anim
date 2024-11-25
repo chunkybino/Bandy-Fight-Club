@@ -35,7 +35,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: {x: 30.244, y: 34.152, z: 205.609}
+        value: {x: 30.996, y: 32.802, z: 200.872}
         inSlope: {x: 0, y: 0, z: 0}
         outSlope: {x: 0, y: 0, z: 0}
         tangentMode: 0
@@ -292,7 +292,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: {x: 0.36, y: 0.213, z: -0.114}
+        value: {x: 0.302, y: 0.176, z: -0.1}
         inSlope: {x: 0, y: 0, z: 0}
         outSlope: {x: 0, y: 0, z: 0}
         tangentMode: 0
@@ -2004,7 +2004,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 0.36
+        value: 0.302
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -2025,7 +2025,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 0.213
+        value: 0.176
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -2046,7 +2046,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: -0.114
+        value: -0.1
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -2067,7 +2067,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 30.244
+        value: 30.996
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -2088,7 +2088,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 34.152
+        value: 32.802
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -2109,7 +2109,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 205.609
+        value: 200.872
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -6360,7 +6360,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: dude/LWeapon/lweaponren
+    path: dude/upperbody/upperbodyren
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -6372,7 +6372,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: dude/LWeapon/lweaponren
+    path: dude/upperbody/upperbodyren
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -6384,7 +6384,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: dude/LWeapon/lweaponren
+    path: dude/upperbody/upperbodyren
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -6432,7 +6432,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: dude/upperbody/upperbodyren
+    path: dude/LWeapon/lweaponren
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -6444,7 +6444,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: dude/upperbody/upperbodyren
+    path: dude/LWeapon/lweaponren
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -6456,7 +6456,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: dude/upperbody/upperbodyren
+    path: dude/LWeapon/lweaponren
     classID: 4
     script: {fileID: 0}
     flags: 0
