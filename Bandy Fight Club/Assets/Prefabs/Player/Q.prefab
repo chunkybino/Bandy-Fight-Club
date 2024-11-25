@@ -3471,7 +3471,7 @@ Transform:
   m_GameObject: {fileID: 1162099124277357437}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: 0.5656272, w: 0.82466114}
-  m_LocalPosition: {x: -0.33018568, y: 0.046025455, z: 0}
+  m_LocalPosition: {x: 0.059121594, y: 0.09702477, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6817,7 +6817,7 @@ MonoBehaviour:
     damage: 45
     knockbacks:
     - name: helicopter
-      vel: {x: 25, y: 0}
+      vel: {x: 20, y: 0}
       fixedVel: {x: 0, y: 15}
       xVelType: 3
       yVelType: 3
@@ -13952,7 +13952,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.18361425, y: 1.0131085}
+  m_Offset: {x: 0.2306695, y: 0.5355327}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -13963,7 +13963,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 3.1561174, y: 6.3055263}
+  m_Size: {x: 3.1247473, y: 7.260678}
   m_EdgeRadius: 0
 --- !u!114 &4683981156848654260
 MonoBehaviour:
@@ -14265,7 +14265,7 @@ Transform:
   m_GameObject: {fileID: 5166753245546931066}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: 0.5656272, w: 0.82466114}
-  m_LocalPosition: {x: 0.0007272661, y: -0.273369, z: 0}
+  m_LocalPosition: {x: 0.033762798, y: -0.43037447, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -14896,7 +14896,7 @@ Transform:
   m_GameObject: {fileID: 5383258696377743699}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.8487396, y: -1.7275391, z: 0.00045776367}
+  m_LocalPosition: {x: -0.8487396, y: -1.7275391, z: 0.00046730042}
   m_LocalScale: {x: 1.25, y: 1.25, z: 1.25}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -21110,7 +21110,7 @@ Transform:
   m_GameObject: {fileID: 7938889876430366004}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.10620591, y: 0.6519227, z: 0}
+  m_LocalPosition: {x: -0.01861927, y: 0.41624913, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -22157,7 +22157,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &4110637717697406780
 Transform:
   m_ObjectHideFlags: 0
@@ -22468,7 +22468,7 @@ MonoBehaviour:
   renderToRotate: {fileID: 7964651198177828865}
   attackChargeHeld: 0
   timeAttackCharging: 0
-  attackChargeNeeded: 0.5
+  attackChargeNeeded: 0.35
 --- !u!114 &6506595838519733651
 MonoBehaviour:
   m_ObjectHideFlags: 0
