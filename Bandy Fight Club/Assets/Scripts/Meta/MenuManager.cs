@@ -35,6 +35,8 @@ public class MenuManager : MonoBehaviour
     [SerializeField] GameObject characterSelect;
     [SerializeField] int characterSelectMenuIndex = 1;
 
+    public List<InputMapSO> playerOrderedInputMaps = new List<InputMapSO>(); //press a button to join
+
     void Awake()
     {
         gameManager = GameManager.singleton;
@@ -123,15 +125,28 @@ public class MenuManager : MonoBehaviour
             {
                 int num = selectedCharacters[i];
 
-                if (Input.GetKeyDown(inputMaps[i].up)) num++;
-                if (Input.GetKeyDown(inputMaps[i].down)) num--;
+                if (i < playerOrderedInputMaps.Count) //if player has joined
+                {
+                    if (Input.GetKeyDown(playerOrderedInputMaps[i].up)) num++;
+                    if (Input.GetKeyDown(playerOrderedInputMaps[i].down)) num--;
 
-                if (num < 0) num = characterCount-1;
-                if (num > characterCount-1 ) num = 0;
+                    if (num < 0) num = characterCount-1;
+                    if (num > characterCount-1) num = 0;
 
-                selectedCharacters[i] = num;
+                    selectedCharacters[i] = num;
 
-                characterSelectText[i].text = characterNames[num];
+                    characterSelectText[i].text = characterNames[num];
+                }
+                else // if player has not joined
+                {
+                    characterSelectText[i].text = ";)";
+                }
+            }
+
+            for (int i = 0; i < inputMaps.Length; i++)
+            {
+                if (playerOrderedInputMaps.Contains(inputMaps[i])) continue;
+                if (inputMaps[i].AnyInputPressed()) playerOrderedInputMaps.Add(inputMaps[i]);
             }
 
             if (Input.GetKeyDown("space"))
@@ -144,7 +159,14 @@ public class MenuManager : MonoBehaviour
 
     void SelectPlayerAmount(bool do3Player)
     {
+        int num = 2;
+        if (do3Player) num = 3;
+
         gameManager.do3Player = do3Player;
+
+        playerOrderedInputMaps.Clear();
+        selectedCharacters = new int[num];
+
         gameManager.DoPlayerInfo();
 
         menuIndex = characterSelectMenuIndex;

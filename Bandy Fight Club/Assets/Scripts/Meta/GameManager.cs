@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour
     public List<PlayerStatus> players = new List<PlayerStatus>();
 
     public InputMapSO[] inputMaps;
+    public List<InputMapSO> playerOrderInputMaps;
 
     public bool spawnPlayersOnStart = true;
 
@@ -102,10 +103,11 @@ public class GameManager : MonoBehaviour
     public void StartMatchTransition()
     {
         DoScreenTransition(false);
-        for (int i = 0; i < allPlayerInfos.Count; i++)
+        for (int i = 0; i < allPlayerInfos.Count && i < menu.selectedCharacters.Length; i++)
         {
             allPlayerInfos[i].characterPrefab = characterList[menu.selectedCharacters[i]];
         }
+        playerOrderInputMaps = menu.playerOrderedInputMaps;
 
         Invoke("StartMatch", startMatchTransitionTime);
     }
@@ -157,8 +159,8 @@ public class GameManager : MonoBehaviour
     }
     public InputMapSO GetInputMap(int playerNumber)
     {
-        if (inputMaps.Length == 0) return null; 
-        return inputMaps[playerNumber % players.Count];
+        if (playerOrderInputMaps.Count == 0) return null; 
+        return playerOrderInputMaps[playerNumber % players.Count];
     }
 
     public void SpawnPlayers()

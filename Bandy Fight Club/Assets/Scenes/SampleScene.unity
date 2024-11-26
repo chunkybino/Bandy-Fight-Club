@@ -9295,6 +9295,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 3736b76e1ad25af4cab884e4ad236e07, type: 2}
   - {fileID: 11400000, guid: 692473d997b0f85428a5db169e3a73a8, type: 2}
   - {fileID: 11400000, guid: 28a86e3367a4f3d4587bca62846490ba, type: 2}
+  playerOrderInputMaps: []
   spawnPlayersOnStart: 1
   playerInfos: []
   allPlayerInfos:
@@ -9399,7 +9400,7 @@ MonoBehaviour:
   - {fileID: 6428945389610884689}
   - {fileID: 7250455678024612078}
   doSilhouette: 1
-  hideQWeap: 0
+  hideQWeap: 1
   hideJWeap: 0
   removeNull: 0
 --- !u!1 &308062698

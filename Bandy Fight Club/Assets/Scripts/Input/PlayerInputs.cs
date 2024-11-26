@@ -8,30 +8,30 @@ public class PlayerInputs : MonoBehaviour
 
     public bool inputsActive = true; //when disabled, all inputs return false
 
-    public bool upPressed;// {get {return Input.GetKey(inputMap.up) && inputsActive;}}
-    public bool upHeld;// {get {return Input.GetKey(inputMap.up) && inputsActive;}}
+    public bool upPressed;
+    public bool upHeld;
 
-    public bool downPressed;// {get {return Input.GetKeyDown(inputMap.down) && inputsActive;}}
-    public bool downHeld;// {get {return Input.GetKey(inputMap.down) && inputsActive;}}
+    public bool downPressed;
+    public bool downHeld;
 
-    public bool leftPressed;// {get {return Input.GetKeyDown(inputMap.left) && inputsActive;}}
-    public bool leftHeld;// {get {return Input.GetKey(inputMap.left) && inputsActive;}}
+    public bool leftPressed;
+    public bool leftHeld;
 
-    public bool rightPressed;// {get {return Input.GetKeyDown(inputMap.right) && inputsActive;}}
-    public bool rightHeld;// {get {return Input.GetKey(inputMap.right) && inputsActive;}}
+    public bool rightPressed;
+    public bool rightHeld;
 
-    public bool jumpPressed;// {get {return Input.GetKeyDown(inputMap.jump) && inputsActive;}}
-    public bool jumpHeld;// {get {return Input.GetKey(inputMap.jump) && inputsActive;}}
+    public bool jumpPressed;
+    public bool jumpHeld;
 
-    public bool dodgePressed;// {get {return Input.GetKeyDown(inputMap.dodge) && inputsActive;}}
-    public bool dodgeHeld;// {get {return Input.GetKey(inputMap.dodge) && inputsActive;}}
+    public bool dodgePressed;
+    public bool dodgeHeld;
     public bool dodgeReleased;
 
-    public bool attackPressed;// {get {return Input.GetKeyDown(inputMap.attack) && inputsActive;}}
-    public bool attackHeld;// {get {return Input.GetKey(inputMap.attack) && inputsActive;}}
+    public bool attackPressed;
+    public bool attackHeld;
 
-    public bool heavyPressed;// {get {return Input.GetKeyDown(inputMap.heavy) && inputsActive;}}
-    public bool heavyHeld;// {get {return Input.GetKey(inputMap.heavy) && inputsActive;}}
+    public bool heavyPressed;
+    public bool heavyHeld;
 
     void Update()
     {
