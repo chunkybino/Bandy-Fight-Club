@@ -19,14 +19,25 @@ public class InputMapSO : ScriptableObject
     
     public bool AnyInputPressed()
     {
-        if(Input.GetKeyDown(up)) return true;
-        if(Input.GetKeyDown(down)) return true;
-        if(Input.GetKeyDown(left)) return true;
-        if(Input.GetKeyDown(right)) return true;
-        if(Input.GetKeyDown(jump)) return true;
-        if(Input.GetKeyDown(dodge)) return true;
-        if(Input.GetKeyDown(attack)) return true;
-        if(Input.GetKeyDown(heavy)) return true;
+        if (!doControllerInput) 
+        {
+            if(Input.GetKeyDown(up)) return true;
+            if(Input.GetKeyDown(down)) return true;
+            if(Input.GetKeyDown(left)) return true;
+            if(Input.GetKeyDown(right)) return true;
+            if(Input.GetKeyDown(jump)) return true;
+            if(Input.GetKeyDown(dodge)) return true;
+            if(Input.GetKeyDown(attack)) return true;
+            if(Input.GetKeyDown(heavy)) return true;
+        }
+        if (doControllerInput) 
+        {
+            ControllerInput controller = new ControllerInput();
+
+            controller.Gameplay.Left.IsPressed();
+            controller.Gameplay.Right.IsPressed();
+        }
+
         return false;
     }
 
