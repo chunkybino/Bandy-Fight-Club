@@ -37,6 +37,9 @@ public class MenuManager : MonoBehaviour
 
     public List<InputMapSO> playerOrderedInputMaps = new List<InputMapSO>(); //press a button to join
 
+    float timeEscapeHeld;
+    [SerializeField] float exitToMainMenuEscapeHoldTime = 1.5f;
+
     void Awake()
     {
         gameManager = GameManager.singleton;
@@ -70,11 +73,26 @@ public class MenuManager : MonoBehaviour
 
     void Update()
     {
-        if (!gameManager.isMenu) return;
+        //if (!gameManager.isMenu) return;
 
         mainMenu.SetActive(menuIndex == mainMenuIndex);
         buttonSelectionObject.gameObject.SetActive(menuIndex == mainMenuIndex);
         characterSelect.SetActive(menuIndex == characterSelectMenuIndex);
+
+        if (!gameManager.isMenu) //in game
+        {
+            if (Input.GetKey("escape")) {
+                timeEscapeHeld += Time.deltaTime;
+            } else {
+                timeEscapeHeld = 0;
+            }
+            
+            if (timeEscapeHeld >= exitToMainMenuEscapeHoldTime)
+            {
+                timeEscapeHeld = 0;
+                gameManager.ExitMatch();
+            }
+        }
 
         if (menuIndex == mainMenuIndex)
         {
@@ -153,7 +171,7 @@ public class MenuManager : MonoBehaviour
             {
                 gameManager.StartMatchTransition();
             }
-            if (Input.GetKeyDown("escape")) menuIndex = mainMenuIndex; 
+            if (Input.GetKeyDown("escape")) ToMainMenu(); 
         }
     }
 
@@ -170,5 +188,14 @@ public class MenuManager : MonoBehaviour
         gameManager.DoPlayerInfo();
 
         menuIndex = characterSelectMenuIndex;
+    }
+
+    public void ToGame()
+    {
+        menuIndex = -1;
+    }
+    public void ToMainMenu()
+    {
+        menuIndex = mainMenuIndex;
     }
 }

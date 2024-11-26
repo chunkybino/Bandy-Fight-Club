@@ -9295,6 +9295,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 3736b76e1ad25af4cab884e4ad236e07, type: 2}
   - {fileID: 11400000, guid: 692473d997b0f85428a5db169e3a73a8, type: 2}
   - {fileID: 11400000, guid: 28a86e3367a4f3d4587bca62846490ba, type: 2}
+  playerOrderInputMaps: []
   spawnPlayersOnStart: 1
   playerInfos: []
   allPlayerInfos:
@@ -9398,8 +9399,8 @@ MonoBehaviour:
   - {fileID: 1228158914771108052}
   - {fileID: 6428945389610884689}
   - {fileID: 7250455678024612078}
-  doSilhouette: 0
-  hideQWeap: 0
+  doSilhouette: 1
+  hideQWeap: 1
   hideJWeap: 0
   removeNull: 0
 --- !u!1 &308062698
@@ -15264,6 +15265,10 @@ PrefabInstance:
       propertyPath: mesh
       value: 
       objectReference: {fileID: 1389799654}
+    - target: {fileID: 1663709583450352777, guid: 84f3f989133dc724681733bf06f534d8, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: ca73f2f9a2aa87e4eb2e8aca4166e3d2, type: 2}
     - target: {fileID: 1688312685288853089, guid: 84f3f989133dc724681733bf06f534d8, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -20256,6 +20261,10 @@ PrefabInstance:
       propertyPath: m_Positions.Array.data[4].z
       value: -0.43
       objectReference: {fileID: 0}
+    - target: {fileID: 7708457346826277611, guid: 89a4bb26954076c4087def95df52bc91, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: ca73f2f9a2aa87e4eb2e8aca4166e3d2, type: 2}
     - target: {fileID: 7858103323741655144, guid: 89a4bb26954076c4087def95df52bc91, type: 3}
       propertyPath: m_Positions.Array.data[0].x
       value: 199.15295
