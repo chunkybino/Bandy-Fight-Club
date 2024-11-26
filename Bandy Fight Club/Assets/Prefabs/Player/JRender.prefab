@@ -24092,6 +24092,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enableLevel: 0
   disguiseOnSilhouette: 0
+  disguiseOnQWeap: 0
+  disguiseOnJWeap: 0
   inverse: 0
   targetObject: {fileID: 5211838575459231317}
   inverseObject: {fileID: 3253132466191578433}
@@ -32014,6 +32016,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enableLevel: 0
   disguiseOnSilhouette: 0
+  disguiseOnQWeap: 0
+  disguiseOnJWeap: 0
   inverse: 0
   targetObject: {fileID: 5025514420458976631}
   inverseObject: {fileID: 0}
@@ -33336,6 +33340,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enableLevel: 1
   disguiseOnSilhouette: 0
+  disguiseOnQWeap: 0
+  disguiseOnJWeap: 0
   inverse: 0
   targetObject: {fileID: 5251067734741121158}
   inverseObject: {fileID: 0}
@@ -45949,6 +45955,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enableLevel: 1
   disguiseOnSilhouette: 0
+  disguiseOnQWeap: 0
+  disguiseOnJWeap: 0
   inverse: 0
   targetObject: {fileID: 6998480806903363780}
   inverseObject: {fileID: 0}
@@ -49287,6 +49295,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enableLevel: 10
   disguiseOnSilhouette: 0
+  disguiseOnQWeap: 0
+  disguiseOnJWeap: 0
   inverse: 0
   targetObject: {fileID: 4426812985412133292}
   inverseObject: {fileID: 0}
@@ -49733,6 +49743,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enableLevel: 1
   disguiseOnSilhouette: 0
+  disguiseOnQWeap: 0
+  disguiseOnJWeap: 0
   inverse: 0
   targetObject: {fileID: 390882783039539325}
   inverseObject: {fileID: 0}
@@ -61736,7 +61748,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 1.7503018, y: 0.890573}
+  m_Offset: {x: 1.8499444, y: 0.99021626}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -61747,7 +61759,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 5.5154724, y: 4.654353}
+  m_Size: {x: 5.7147574, y: 5.960785}
   m_EdgeRadius: 0
 --- !u!114 &4620643253525335306
 MonoBehaviour:
@@ -61765,7 +61777,7 @@ MonoBehaviour:
   team: 0
   rehitTime: 0.5
   attackInfo:
-    damage: 45
+    damage: 55
     knockbacks:
     - name: slash2flute
       vel: {x: 10, y: 0}

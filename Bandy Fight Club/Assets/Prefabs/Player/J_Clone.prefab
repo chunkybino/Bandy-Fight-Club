@@ -10126,7 +10126,7 @@ MonoBehaviour:
   teamHolder: {fileID: 4805875632869718300}
   forceVector: {x: 0, y: 0}
   forceMagnitude: 0
-  attackForce: 75
+  attackForce: 90
   forceDecaySpeed: 1.8
   forceDecayCurve:
     serializedVersion: 2
@@ -10141,22 +10141,22 @@ MonoBehaviour:
       inWeight: 0
       outWeight: 0.17397845
     - serializedVersion: 3
-      time: 0.20105925
-      value: 0.72560936
-      inSlope: -3.0181005
-      outSlope: -3.0181005
+      time: 0.2603416
+      value: 0.6982121
+      inSlope: -3.0224915
+      outSlope: -3.0224915
       tangentMode: 0
       weightedMode: 0
       inWeight: 0.17752296
-      outWeight: 0.08185307
+      outWeight: 0.15607135
     - serializedVersion: 3
-      time: 0.50145113
-      value: 0.13392109
-      inSlope: -0.71113193
-      outSlope: -0.71113193
+      time: 0.4998911
+      value: 0.14761972
+      inSlope: -0.77062273
+      outSlope: -0.77062273
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.33333334
+      inWeight: 0.27632603
       outWeight: 0.13946815
     - serializedVersion: 3
       time: 0.99999994
@@ -12582,14 +12582,6 @@ PrefabInstance:
     - target: {fileID: 5535860466289720327, guid: fe70ef1e12400454dab17dbd913906c3, type: 3}
       propertyPath: points.Array.data[0].z
       value: -0.09345213
-      objectReference: {fileID: 0}
-    - target: {fileID: 5600927875237143989, guid: fe70ef1e12400454dab17dbd913906c3, type: 3}
-      propertyPath: m_Size.y
-      value: 5.38572
-      objectReference: {fileID: 0}
-    - target: {fileID: 5600927875237143989, guid: fe70ef1e12400454dab17dbd913906c3, type: 3}
-      propertyPath: m_Offset.y
-      value: 1.0124671
       objectReference: {fileID: 0}
     - target: {fileID: 5608909506561793422, guid: fe70ef1e12400454dab17dbd913906c3, type: 3}
       propertyPath: points.Array.data[0].x

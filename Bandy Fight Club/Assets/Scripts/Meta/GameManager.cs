@@ -114,6 +114,7 @@ public class GameManager : MonoBehaviour
     void StartMatch()
     {
         isMenu = false;
+        menu.ToGame();
         SpawnPlayers();
         DoScreenTransition(true);
         StartCoroutine("StartGameCoroutine");
@@ -123,7 +124,7 @@ public class GameManager : MonoBehaviour
     {
         CheckSingleton();
 
-        menu.gameObject.SetActive(isMenu);
+        //menu.gameObject.SetActive(isMenu);
         ui.gameObject.SetActive(!isMenu);
 
         if (!isMenu) //game is game
@@ -229,7 +230,7 @@ public class GameManager : MonoBehaviour
 
         yield break;
     }
-    public void RespawnPlayers()
+    public void DestroyPlayers()
     {
         //destroy current players
         foreach (PlayerStatus player in players)
@@ -238,7 +239,10 @@ public class GameManager : MonoBehaviour
         }
         cameraControl.ResetEffectors();
         players.Clear();
-
+    }
+    public void RespawnPlayers()
+    {
+        DestroyPlayers();
         SpawnPlayers();
     }
 
@@ -368,6 +372,30 @@ public class GameManager : MonoBehaviour
         screenTransitions.Play("BottomClose");
 
         ui.DoWin(true, playerWinNum);
+    }
+
+    public void ExitMatch()
+    {
+        DoScreenTransition(false);
+
+        Invoke("ToMainMenu", startMatchTransitionTime);
+    }
+    void ToMainMenu()
+    {
+        gameStarted = false;
+
+        DestroyPlayers();
+
+        playerWinNum = -1;
+        ui.DoWin(false);
+
+        winnerFinalized = false;
+        isDraw = false;
+
+        isMenu = true;
+        menu.ToMainMenu();
+
+        DoScreenTransition(true);
     }
 }
 
