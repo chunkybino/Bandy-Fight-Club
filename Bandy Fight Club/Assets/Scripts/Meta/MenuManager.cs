@@ -13,6 +13,8 @@ public class MenuManager : MonoBehaviour
     int characterCount;
 
     public TextMeshProUGUI[] characterSelectText;
+    public TextMeshProUGUI characterSelectStartText;
+    public float characterSelectNotReadyOpacity;
 
     public string[] characterNames;
 
@@ -86,7 +88,7 @@ public class MenuManager : MonoBehaviour
             } else {
                 timeEscapeHeld = 0;
             }
-            
+
             if (timeEscapeHeld >= exitToMainMenuEscapeHoldTime)
             {
                 timeEscapeHeld = 0;
@@ -167,7 +169,17 @@ public class MenuManager : MonoBehaviour
                 if (inputMaps[i].AnyInputPressed()) playerOrderedInputMaps.Add(inputMaps[i]);
             }
 
-            if (Input.GetKeyDown("space"))
+            bool canStart = false;
+            if (playerOrderedInputMaps.Count >= selectedCharacters.Length) {
+                canStart = true;
+                Color c = characterSelectStartText.color;
+                characterSelectStartText.color = new Vector4(c.r,c.g,c.b,1);
+            } else {
+                Color c = characterSelectStartText.color;
+                characterSelectStartText.color = new Vector4(c.r,c.g,c.b,characterSelectNotReadyOpacity);
+            }
+
+            if (Input.GetKeyDown("space") && canStart)
             {
                 gameManager.StartMatchTransition();
             }
