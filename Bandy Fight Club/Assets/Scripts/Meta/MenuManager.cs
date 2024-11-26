@@ -35,6 +35,9 @@ public class MenuManager : MonoBehaviour
     [SerializeField] GameObject characterSelect;
     [SerializeField] int characterSelectMenuIndex = 1;
 
+    float timeEscapeHeld;
+    [SerializeField] float exitToMainMenuEscapeHoldTime = 1.5f;
+
     void Awake()
     {
         gameManager = GameManager.singleton;
@@ -68,77 +71,92 @@ public class MenuManager : MonoBehaviour
 
     void Update()
     {
-        if (!gameManager.isMenu) return;
-
         mainMenu.SetActive(menuIndex == mainMenuIndex);
         buttonSelectionObject.gameObject.SetActive(menuIndex == mainMenuIndex);
         characterSelect.SetActive(menuIndex == characterSelectMenuIndex);
 
-        if (menuIndex == mainMenuIndex)
+        if (!gameManager.isMenu) //is game
         {
-            timeSinceSinceButtonSelect += Time.deltaTime * buttonSelectAnimSpeed;
-
-            float t = buttonSelectAnimCurve.Evaluate(timeSinceSinceButtonSelect);
-
-            buttonSelectionObject.anchoredPosition = new Vector2(
-                Mathf.Lerp(lastButtonPosSize.x, mainMenuButtonPosSize[selectPos].x, t),
-                Mathf.Lerp(lastButtonPosSize.y, mainMenuButtonPosSize[selectPos].y, t)
-            );
-            buttonSelectionObject.sizeDelta = new Vector2(
-                Mathf.Lerp(lastButtonPosSize.z, mainMenuButtonPosSize[selectPos].z, t),
-                Mathf.Lerp(lastButtonPosSize.w, mainMenuButtonPosSize[selectPos].w, t)
-            );
-
-            int add = 0;
-            for (int i = 0; i < 3; i++)
-            {
-                if (Input.GetKeyDown(inputMaps[i].up)) add = 1;
-                if (Input.GetKeyDown(inputMaps[i].down)) add = -1;
+            if (Input.GetKey("escape")) {
+                timeEscapeHeld += Time.deltaTime;
+            } else {
+                timeEscapeHeld = 0;
             }
 
-            if (add != 0)
+            if (timeEscapeHeld >= exitToMainMenuEscapeHoldTime)
             {
-                selectPos += add;
-                timeSinceSinceButtonSelect = 0;
-                lastButtonPosSize = new Vector4(
-                    buttonSelectionObject.anchoredPosition.x,
-                    buttonSelectionObject.anchoredPosition.y,
-                    buttonSelectionObject.sizeDelta.x,
-                    buttonSelectionObject.sizeDelta.y
-                );
+                timeEscapeHeld = 0;
+                gameManager.ExitMatch();
             }
-
-            if (selectPos < 0) selectPos = mainMenuSelectionOptions-1;
-            if (selectPos >= mainMenuSelectionOptions) selectPos = 0;
-
-            if (add != 0) targetButtonPosSize = mainMenuButtonPosSize[selectPos]; //do after we've looped select pos
-
-            if (Input.GetKeyDown("space")) SelectPlayerAmount(selectPos == 1); //do 3 player if we selected 1
         }
-        else if (menuIndex == characterSelectMenuIndex)
+        else
         {
-            characterSelectText[2].gameObject.SetActive(gameManager.do3Player);
-
-            for (int i = 0; i < selectedCharacters.Length; i++)
+            if (menuIndex == mainMenuIndex)
             {
-                int num = selectedCharacters[i];
+                timeSinceSinceButtonSelect += Time.deltaTime * buttonSelectAnimSpeed;
 
-                if (Input.GetKeyDown(inputMaps[i].up)) num++;
-                if (Input.GetKeyDown(inputMaps[i].down)) num--;
+                float t = buttonSelectAnimCurve.Evaluate(timeSinceSinceButtonSelect);
 
-                if (num < 0) num = characterCount-1;
-                if (num > characterCount-1 ) num = 0;
+                buttonSelectionObject.anchoredPosition = new Vector2(
+                    Mathf.Lerp(lastButtonPosSize.x, mainMenuButtonPosSize[selectPos].x, t),
+                    Mathf.Lerp(lastButtonPosSize.y, mainMenuButtonPosSize[selectPos].y, t)
+                );
+                buttonSelectionObject.sizeDelta = new Vector2(
+                    Mathf.Lerp(lastButtonPosSize.z, mainMenuButtonPosSize[selectPos].z, t),
+                    Mathf.Lerp(lastButtonPosSize.w, mainMenuButtonPosSize[selectPos].w, t)
+                );
 
-                selectedCharacters[i] = num;
+                int add = 0;
+                for (int i = 0; i < 3; i++)
+                {
+                    if (Input.GetKeyDown(inputMaps[i].up)) add = 1;
+                    if (Input.GetKeyDown(inputMaps[i].down)) add = -1;
+                }
 
-                characterSelectText[i].text = characterNames[num];
+                if (add != 0)
+                {
+                    selectPos += add;
+                    timeSinceSinceButtonSelect = 0;
+                    lastButtonPosSize = new Vector4(
+                        buttonSelectionObject.anchoredPosition.x,
+                        buttonSelectionObject.anchoredPosition.y,
+                        buttonSelectionObject.sizeDelta.x,
+                        buttonSelectionObject.sizeDelta.y
+                    );
+                }
+
+                if (selectPos < 0) selectPos = mainMenuSelectionOptions-1;
+                if (selectPos >= mainMenuSelectionOptions) selectPos = 0;
+
+                if (add != 0) targetButtonPosSize = mainMenuButtonPosSize[selectPos]; //do after we've looped select pos
+
+                if (Input.GetKeyDown("space")) SelectPlayerAmount(selectPos == 1); //do 3 player if we selected 1
             }
-
-            if (Input.GetKeyDown("space"))
+            else if (menuIndex == characterSelectMenuIndex)
             {
-                gameManager.StartMatchTransition();
+                characterSelectText[2].gameObject.SetActive(gameManager.do3Player);
+
+                for (int i = 0; i < selectedCharacters.Length; i++)
+                {
+                    int num = selectedCharacters[i];
+
+                    if (Input.GetKeyDown(inputMaps[i].up)) num++;
+                    if (Input.GetKeyDown(inputMaps[i].down)) num--;
+
+                    if (num < 0) num = characterCount-1;
+                    if (num > characterCount-1 ) num = 0;
+
+                    selectedCharacters[i] = num;
+
+                    characterSelectText[i].text = characterNames[num];
+                }
+
+                if (Input.GetKeyDown("space"))
+                {
+                    gameManager.StartMatchTransition();
+                }
+                if (Input.GetKeyDown("escape")) ToMainMenu(); 
             }
-            if (Input.GetKeyDown("escape")) menuIndex = mainMenuIndex; 
         }
     }
 
@@ -148,5 +166,14 @@ public class MenuManager : MonoBehaviour
         gameManager.DoPlayerInfo();
 
         menuIndex = characterSelectMenuIndex;
+    }
+
+    public void ToMainMenu()
+    {
+        menuIndex = mainMenuIndex; 
+    }
+    public void ToGame()
+    {
+        menuIndex = -1;
     }
 }
