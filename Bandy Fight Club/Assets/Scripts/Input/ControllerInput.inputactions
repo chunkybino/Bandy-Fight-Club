@@ -1,0 +1,54 @@
+{
+    "name": "ControllerInput",
+    "maps": [
+        {
+            "name": "Gameplay",
+            "id": "4b10dc3e-adc3-4450-8780-3aa1f1414a31",
+            "actions": [
+                {
+                    "name": "Left",
+                    "type": "Button",
+                    "id": "68a094c9-fbaa-4d3a-9d9f-aacdfc15cb85",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Right",
+                    "type": "Button",
+                    "id": "37b668e6-9e40-4a66-8f6d-bd9261b5253e",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "35be8208-fbcf-4791-a07a-cd2a385c403d",
+                    "path": "<Gamepad>/dpad/left",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Left",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "18ab1a2e-1423-4500-8106-4c7c365cecf1",
+                    "path": "<Gamepad>/dpad/right",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Right",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}

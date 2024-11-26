@@ -29,4 +29,6 @@ public class InputMapSO : ScriptableObject
         if(Input.GetKeyDown(heavy)) return true;
         return false;
     }
+
+    public bool doControllerInput;
 }
