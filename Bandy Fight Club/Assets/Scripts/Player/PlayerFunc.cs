@@ -119,6 +119,8 @@ public class PlayerFunc : MonoBehaviour
     [SerializeField] Vector2 dodgeCooldownMinMaxTime = new Vector2(0.25f, 1.5f);
     [SerializeField] float dodgeCooldownAddPerDodge = 0.5f;
     [SerializeField] float dodgeCooldownDecaySpeed = 0.5f;
+    [SerializeField] Transform dodgeCooldownBar;
+    Vector2 dodgeCooldownBarSize;
 
     [SerializeField] float timeDodging;
     [SerializeField] float timeSinceDodge;
@@ -236,6 +238,8 @@ public class PlayerFunc : MonoBehaviour
         gameManager = GameManager.singleton;
 
         facingBuffer = facing;
+
+        dodgeCooldownBarSize = dodgeCooldownBar.localScale;
     }
 
     public void Update()
@@ -342,7 +346,9 @@ public class PlayerFunc : MonoBehaviour
         if (dodgeCooldownTimer > 0) canDodge = false;
 
         if (!isDodging) UFunc.TickTimer(ref dodgeCooldownTimer);
-        if (canDodge) currentDodgeCooldownTime = Mathf.Max(currentDodgeCooldownTime-(dodgeCooldownDecaySpeed*Time.deltaTime),0);
+        if (dodgeCooldownTimer == 0) currentDodgeCooldownTime *= Mathf.Pow(dodgeCooldownDecaySpeed, Time.deltaTime * 50);
+        if (currentDodgeCooldownTime < 0.01f) currentDodgeCooldownTime = 0;
+        dodgeCooldownBar.localScale = new Vector2(dodgeCooldownBarSize.x * (dodgeCooldownTimer/dodgeCooldownMinMaxTime.y), dodgeCooldownBarSize.y);
 
         bool canBlock = true;
         //if (isStun && !canBlockOutOfStun) canBlock = false; ///stun block is not a thing anymore
