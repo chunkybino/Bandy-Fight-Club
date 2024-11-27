@@ -6837,7 +6837,7 @@ MonoBehaviour:
       acceleration: 0.12
       accelerationTime: 0.7
     blockStun: 0.4
-    stunTime: 0.8
+    stunTime: 0.75
     advantageDamage: 0.12
     onlyPerfBlock: 0
     unblockable: 0
@@ -8263,7 +8263,7 @@ MonoBehaviour:
       acceleration: 0.12
       accelerationTime: 0.55
     blockStun: 0.3
-    stunTime: 0.4
+    stunTime: 0.35
     advantageDamage: 0.05
     onlyPerfBlock: 0
     unblockable: 0
@@ -11338,7 +11338,7 @@ MonoBehaviour:
       acceleration: 0.1
       accelerationTime: 0.6
     blockStun: 0.35
-    stunTime: 0.7
+    stunTime: 0.65
     advantageDamage: 0.06
     onlyPerfBlock: 0
     unblockable: 0
@@ -22243,7 +22243,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4110637717697406780
 Transform:
   m_ObjectHideFlags: 0
@@ -23154,7 +23154,7 @@ MonoBehaviour:
       acceleration: 0.3
       accelerationTime: 0.6
     blockStun: 0.25
-    stunTime: 0.4
+    stunTime: 0.35
     advantageDamage: 0.03
     onlyPerfBlock: 0
     unblockable: 0
