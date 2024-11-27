@@ -108,8 +108,8 @@ public class PlayerInputs : MonoBehaviour
                 downPressed = downAction.WasPressedThisFrame();
                 downHeld = downAction.IsPressed();
 
-                leftPressed = leftAction.WasPressedThisFrame();
-                leftHeld = leftAction.IsPressed();
+                leftPressed = controller.Gameplay.Left.WasPressedThisFrame();
+                leftHeld = controller.Gameplay.Left.IsPressed();
 
                 rightPressed = rightAction.WasPressedThisFrame();
                 rightHeld = rightAction.IsPressed();

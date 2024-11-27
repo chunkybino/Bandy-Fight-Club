@@ -51,4 +51,25 @@ public class InputMapSO : ScriptableObject
 
         return false;
     }
+
+    /*public bool GetUpInput()
+    {
+        if (doControllerInput) 
+        {
+            ControllerInput controller = new ControllerInput();
+            controller.Gameplay.Enable();
+            controller.Gameplay.Up.WasPressedThisFrame();
+        }
+        return Input.GetKeyDown(up);
+    }
+    public bool GetDownInput()
+    {
+        if (doControllerInput) 
+        {
+            ControllerInput controller = new ControllerInput();
+            controller.Gameplay.Enable();
+            controller.Gameplay.Down.WasPressedThisFrame();
+        }
+        return Input.GetKeyDown(down);
+    }*/
 }

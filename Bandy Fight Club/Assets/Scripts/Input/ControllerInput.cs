@@ -98,6 +98,24 @@ public partial class @ControllerInput: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Start"",
+                    ""type"": ""Button"",
+                    ""id"": ""cc838459-170f-4455-8b9d-5d3ad49bd438"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Back"",
+                    ""type"": ""Button"",
+                    ""id"": ""1485f002-f952-4cec-81f3-8cd84b5e80d2"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -232,6 +250,28 @@ public partial class @ControllerInput: IInputActionCollection2, IDisposable
                     ""action"": ""Heavy"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b8b233ef-60b9-41c8-af85-3a489f6baf8a"",
+                    ""path"": ""<Gamepad>/start"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Start"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""839157f6-c697-4892-afbe-010170632835"",
+                    ""path"": ""<Gamepad>/select"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Back"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -248,6 +288,8 @@ public partial class @ControllerInput: IInputActionCollection2, IDisposable
         m_Gameplay_Dodge = m_Gameplay.FindAction("Dodge", throwIfNotFound: true);
         m_Gameplay_Attack = m_Gameplay.FindAction("Attack", throwIfNotFound: true);
         m_Gameplay_Heavy = m_Gameplay.FindAction("Heavy", throwIfNotFound: true);
+        m_Gameplay_Start = m_Gameplay.FindAction("Start", throwIfNotFound: true);
+        m_Gameplay_Back = m_Gameplay.FindAction("Back", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -317,6 +359,8 @@ public partial class @ControllerInput: IInputActionCollection2, IDisposable
     private readonly InputAction m_Gameplay_Dodge;
     private readonly InputAction m_Gameplay_Attack;
     private readonly InputAction m_Gameplay_Heavy;
+    private readonly InputAction m_Gameplay_Start;
+    private readonly InputAction m_Gameplay_Back;
     public struct GameplayActions
     {
         private @ControllerInput m_Wrapper;
@@ -329,6 +373,8 @@ public partial class @ControllerInput: IInputActionCollection2, IDisposable
         public InputAction @Dodge => m_Wrapper.m_Gameplay_Dodge;
         public InputAction @Attack => m_Wrapper.m_Gameplay_Attack;
         public InputAction @Heavy => m_Wrapper.m_Gameplay_Heavy;
+        public InputAction @Start => m_Wrapper.m_Gameplay_Start;
+        public InputAction @Back => m_Wrapper.m_Gameplay_Back;
         public InputActionMap Get() { return m_Wrapper.m_Gameplay; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -362,6 +408,12 @@ public partial class @ControllerInput: IInputActionCollection2, IDisposable
             @Heavy.started += instance.OnHeavy;
             @Heavy.performed += instance.OnHeavy;
             @Heavy.canceled += instance.OnHeavy;
+            @Start.started += instance.OnStart;
+            @Start.performed += instance.OnStart;
+            @Start.canceled += instance.OnStart;
+            @Back.started += instance.OnBack;
+            @Back.performed += instance.OnBack;
+            @Back.canceled += instance.OnBack;
         }
 
         private void UnregisterCallbacks(IGameplayActions instance)
@@ -390,6 +442,12 @@ public partial class @ControllerInput: IInputActionCollection2, IDisposable
             @Heavy.started -= instance.OnHeavy;
             @Heavy.performed -= instance.OnHeavy;
             @Heavy.canceled -= instance.OnHeavy;
+            @Start.started -= instance.OnStart;
+            @Start.performed -= instance.OnStart;
+            @Start.canceled -= instance.OnStart;
+            @Back.started -= instance.OnBack;
+            @Back.performed -= instance.OnBack;
+            @Back.canceled -= instance.OnBack;
         }
 
         public void RemoveCallbacks(IGameplayActions instance)
@@ -417,5 +475,7 @@ public partial class @ControllerInput: IInputActionCollection2, IDisposable
         void OnDodge(InputAction.CallbackContext context);
         void OnAttack(InputAction.CallbackContext context);
         void OnHeavy(InputAction.CallbackContext context);
+        void OnStart(InputAction.CallbackContext context);
+        void OnBack(InputAction.CallbackContext context);
     }
 }

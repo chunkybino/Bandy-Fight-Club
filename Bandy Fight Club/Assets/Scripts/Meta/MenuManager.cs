@@ -44,7 +44,7 @@ public class MenuManager : MonoBehaviour
     [SerializeField] float exitToMainMenuEscapeHoldTime = 1.5f;
 
     ControllerInput controller;
-    InputAction upAction;
+    /*InputAction upAction;
     InputAction downAction;
     InputAction leftAction;
     InputAction rightAction;
@@ -53,12 +53,8 @@ public class MenuManager : MonoBehaviour
     InputAction attackAction;
     InputAction heavyAction;
 
-    public bool jmp;
-
-    public bool up;
-    public bool down;
-    public bool left;
-    public bool right;
+    InputAction startAction;
+    InputAction backAction;*/
 
     void Awake()
     {
@@ -78,7 +74,7 @@ public class MenuManager : MonoBehaviour
         timeSinceSinceButtonSelect = 1;
 
         controller = new ControllerInput();
-        upAction = controller.Gameplay.Up;
+        /*upAction = controller.Gameplay.Up;
         downAction = controller.Gameplay.Down;
         leftAction = controller.Gameplay.Left;
         rightAction = controller.Gameplay.Right;
@@ -86,6 +82,8 @@ public class MenuManager : MonoBehaviour
         dodgeAction = controller.Gameplay.Dodge;
         attackAction = controller.Gameplay.Attack;
         heavyAction = controller.Gameplay.Heavy;
+        startAction = controller.Gameplay.Start;
+        backAction = controller.Gameplay.Back;*/
 
         //controller.Gameplay.Enable();
     }
@@ -109,20 +107,13 @@ public class MenuManager : MonoBehaviour
     {
         //if (!gameManager.isMenu) return;
 
-        jmp = jumpAction.IsPressed();
-
-        up = Input.GetKey("up");
-        down = Input.GetKey("down");
-        left = Input.GetKey("left");
-        right = Input.GetKey("right");
-
         mainMenu.SetActive(menuIndex == mainMenuIndex);
         buttonSelectionObject.gameObject.SetActive(menuIndex == mainMenuIndex);
         characterSelect.SetActive(menuIndex == characterSelectMenuIndex);
 
         if (!gameManager.isMenu) //in game
         {
-            if (Input.GetKey("escape")) {
+            if (GetBackInputHold()) {
                 timeEscapeHeld += Time.deltaTime;
             } else {
                 timeEscapeHeld = 0;
@@ -134,14 +125,16 @@ public class MenuManager : MonoBehaviour
                 gameManager.ExitMatch();
             }
         }
-
-        if (menuIndex == mainMenuIndex)
+        else
         {
-            MainMenuFunc();
-        }
-        else if (menuIndex == characterSelectMenuIndex)
-        {
-            CharacterSelectFunc();
+            if (menuIndex == mainMenuIndex)
+            {
+                MainMenuFunc();
+            }
+            else if (menuIndex == characterSelectMenuIndex)
+            {
+                CharacterSelectFunc();
+            }
         }
     }
 
@@ -161,10 +154,10 @@ public class MenuManager : MonoBehaviour
         );
 
         int add = 0;
-        for (int i = 0; i < 3; i++)
+        for (int i = 0; i < inputMaps.Length; i++)
         {
-            if (Input.GetKeyDown(inputMaps[i].up)) add = 1;
-            if (Input.GetKeyDown(inputMaps[i].down)) add = -1;
+            if (GetUpInput(inputMaps[i])) add = 1;
+            if (GetDownInput(inputMaps[i])) add = -1;
         }
 
         if (add != 0)
@@ -184,7 +177,7 @@ public class MenuManager : MonoBehaviour
 
         if (add != 0) targetButtonPosSize = mainMenuButtonPosSize[selectPos]; //do after we've looped select pos
 
-        if (Input.GetKeyDown("space")) SelectPlayerAmount(selectPos == 1); //do 3 player if we selected 1
+        if (GetStartInput()) SelectPlayerAmount(selectPos == 1); //do 3 player if we selected 1
     }
     void CharacterSelectFunc()
     {
@@ -196,8 +189,8 @@ public class MenuManager : MonoBehaviour
 
             if (i < playerOrderedInputMaps.Count) //if player has joined
             {
-                if (Input.GetKeyDown(playerOrderedInputMaps[i].up)) num++;
-                if (Input.GetKeyDown(playerOrderedInputMaps[i].down)) num--;
+                if (GetUpInput(playerOrderedInputMaps[i])) num++;
+                if (GetDownInput(playerOrderedInputMaps[i])) num++;
 
                 if (num < 0) num = characterCount-1;
                 if (num > characterCount-1) num = 0;
@@ -240,14 +233,14 @@ public class MenuManager : MonoBehaviour
 
         bool CheckControllerInput()
         {
-            if(upAction.IsPressed()) return true;
-            if(downAction.IsPressed()) return true;
-            if(leftAction.IsPressed()) return true;
-            if(rightAction.IsPressed()) return true;
-            if(jumpAction.IsPressed()) return true;
-            if(dodgeAction.IsPressed()) return true;
-            if(attackAction.IsPressed()) return true;
-            if(heavyAction.IsPressed()) return true;
+            if(controller.Gameplay.Up.IsPressed()) return true;
+            if(controller.Gameplay.Down.IsPressed()) return true;
+            if(controller.Gameplay.Left.IsPressed()) return true;
+            if(controller.Gameplay.Right.IsPressed()) return true;
+            if(controller.Gameplay.Jump.IsPressed()) return true;
+            if(controller.Gameplay.Dodge.IsPressed()) return true;
+            if(controller.Gameplay.Attack.IsPressed()) return true;
+            if(controller.Gameplay.Heavy.IsPressed()) return true;
             return false;
         }
 
@@ -261,11 +254,11 @@ public class MenuManager : MonoBehaviour
             characterSelectStartText.color = new Vector4(c.r,c.g,c.b,characterSelectNotReadyOpacity);
         }
 
-        if (Input.GetKeyDown("space") && canStart)
+        if (GetStartInput() && canStart)
         {
             gameManager.StartMatchTransition();
         }
-        if (Input.GetKeyDown("escape")) ToMainMenu(); 
+        if (GetBackInput()) ToMainMenu(); 
     }
 
     void SelectPlayerAmount(bool do3Player)
@@ -290,5 +283,46 @@ public class MenuManager : MonoBehaviour
     public void ToMainMenu()
     {
         menuIndex = mainMenuIndex;
+    }
+
+    bool GetUpInput(InputMapSO map)
+    {
+        if (map.doControllerInput)
+        {
+            return controller.Gameplay.Up.WasPressedThisFrame();
+        }
+        else
+        {
+            return Input.GetKeyDown(map.up);
+        }
+    }
+    bool GetDownInput(InputMapSO map)
+    {
+        if (map.doControllerInput)
+        {
+            return controller.Gameplay.Down.WasPressedThisFrame();
+        }
+        else
+        {
+            return Input.GetKeyDown(map.down);
+        }
+    }
+    bool GetStartInput()
+    {
+        if (Input.GetKeyDown("space")) return true;
+        if (controller.Gameplay.Start.WasPressedThisFrame()) return true;
+        return false;
+    }
+    bool GetBackInput()
+    {
+        if (Input.GetKeyDown("escape")) return true;
+        if (controller.Gameplay.Back.WasPressedThisFrame()) return true;
+        return false;
+    }
+    bool GetBackInputHold()
+    {
+        if (Input.GetKey("escape")) return true;
+        if (controller.Gameplay.Back.IsPressed()) return true;
+        return false;
     }
 }
