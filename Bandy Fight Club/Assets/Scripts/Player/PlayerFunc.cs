@@ -650,8 +650,8 @@ public class PlayerFunc : MonoBehaviour
 
         timeSinceDodge = 0;
 
-        dodgeCooldownTimer = currentDodgeCooldownTime;
         currentDodgeCooldownTime = Mathf.Clamp(currentDodgeCooldownTime+dodgeCooldownAddPerDodge, dodgeCooldownMinMaxTime.x,dodgeCooldownMinMaxTime.y);
+        dodgeCooldownTimer = currentDodgeCooldownTime;
 
         CancelInvoke("EndDodge");
         CancelInvoke("EndDodgeBurst");

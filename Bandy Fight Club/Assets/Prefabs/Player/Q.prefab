@@ -22346,9 +22346,9 @@ MonoBehaviour:
   dodgeTapWindow: 0.2
   dodgeCooldownTimer: 0
   currentDodgeCooldownTime: 0
-  dodgeCooldownMinMaxTime: {x: 0, y: 0.8}
-  dodgeCooldownAddPerDodge: 0.2
-  dodgeCooldownDecaySpeed: 0.9
+  dodgeCooldownMinMaxTime: {x: 0.25, y: 0.6}
+  dodgeCooldownAddPerDodge: 0.15
+  dodgeCooldownDecaySpeed: 1.6
   timeDodging: 0
   timeSinceDodge: 0
   dodgeIntangibilityTime: 0.15

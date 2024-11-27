@@ -395,9 +395,9 @@ MonoBehaviour:
   dodgeTapWindow: 0.2
   dodgeCooldownTimer: 0
   currentDodgeCooldownTime: 0
-  dodgeCooldownMinMaxTime: {x: 0.4, y: 0.8}
-  dodgeCooldownAddPerDodge: 0.35
-  dodgeCooldownDecaySpeed: 0.8
+  dodgeCooldownMinMaxTime: {x: 0.25, y: 0.6}
+  dodgeCooldownAddPerDodge: 0.15
+  dodgeCooldownDecaySpeed: 1.3
   timeDodging: 0
   timeSinceDodge: 0
   dodgeIntangibilityTime: 0.15
@@ -3807,7 +3807,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7919796922975948066, guid: fe70ef1e12400454dab17dbd913906c3, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 3.1616764
+      value: 3.1616707
       objectReference: {fileID: 0}
     - target: {fileID: 8043263459216682246, guid: fe70ef1e12400454dab17dbd913906c3, type: 3}
       propertyPath: m_LocalPosition.x
