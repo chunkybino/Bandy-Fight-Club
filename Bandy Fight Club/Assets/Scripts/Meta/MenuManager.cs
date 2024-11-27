@@ -307,13 +307,13 @@ public class MenuManager : MonoBehaviour
             return Input.GetKeyDown(map.down);
         }
     }
-    bool GetStartInput()
+    public bool GetStartInput()
     {
         if (Input.GetKeyDown("space")) return true;
         if (controller.Gameplay.Start.WasPressedThisFrame()) return true;
         return false;
     }
-    bool GetBackInput()
+    public bool GetBackInput()
     {
         if (Input.GetKeyDown("escape")) return true;
         if (controller.Gameplay.Back.WasPressedThisFrame()) return true;

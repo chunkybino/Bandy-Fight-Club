@@ -134,7 +134,7 @@ public class GameManager : MonoBehaviour
                 doRespawnNow = false;
                 DoRespawn();
             }
-            if (readyForNextRound && Input.GetKeyDown("space"))
+            if (readyForNextRound && menu.GetStartInput())
             {
                 DoRespawn();
             }
