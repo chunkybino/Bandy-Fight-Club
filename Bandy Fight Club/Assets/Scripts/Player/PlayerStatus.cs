@@ -7,6 +7,7 @@ public class PlayerStatus : MonoBehaviour
 {
     public GameManager gameManager;
     public PlayerFunc playerFunc;
+    public PlayerAttack playerAttack;
     public PlayerInputs inputs;
 
     public int playerNumber;
@@ -51,6 +52,8 @@ public class PlayerStatus : MonoBehaviour
 
         ParticleSystem particle = Instantiate(hitParticles, transform.position, Quaternion.identity);
         particle.transform.eulerAngles = new Vector3(0,0,Random.Range(0,360));
+
+        playerAttack.OnHit();
     }
 
     public void Spawn(int playerNum)

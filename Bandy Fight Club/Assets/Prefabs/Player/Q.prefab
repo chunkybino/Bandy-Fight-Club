@@ -20514,6 +20514,7 @@ MonoBehaviour:
   attackingSpeedMult: 1
   attackStunTimer: 0
   disadvantageAttackStunMult: 0.5
+  onHitAttackStun: 0.15
 --- !u!1 &7789707057989093805
 GameObject:
   m_ObjectHideFlags: 0
@@ -22302,6 +22303,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameManager: {fileID: 0}
   playerFunc: {fileID: 3173985440313344023}
+  playerAttack: {fileID: 826615640914190225}
   inputs: {fileID: 6506595838519733651}
   playerNumber: 0
   team: {fileID: 1172696303370988009}

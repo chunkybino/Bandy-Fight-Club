@@ -754,6 +754,8 @@ public class PlayerFunc : MonoBehaviour
         isBlockCounter = true;
         blockCounterTimer = 0;
 
+        playerAttack.OnBlockCounter();
+
         squasher.DoSquash(blockCounterStartSquash);
         blockCounterStartParticles.Play();
     }

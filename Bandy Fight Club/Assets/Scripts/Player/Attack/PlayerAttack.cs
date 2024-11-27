@@ -39,6 +39,8 @@ public class PlayerAttack : MonoBehaviour
 
     [SerializeField] float disadvantageAttackStunMult = 0.5f; //get attakced stunned for longer with more disadvantage
 
+    [SerializeField] float onHitAttackStun = 0.15f; //add attack stun on hit
+
     void Awake()
     {
         characterFunc = playerFunc.characterFunc;
@@ -162,6 +164,15 @@ public class PlayerAttack : MonoBehaviour
     public void DoAttackStun(float stun)
     {
         attackStunTimer = stun + (playerFunc.disadvantage*disadvantageAttackStunMult);
+    }
+
+    public void OnHit()
+    {
+        DoAttackStun(onHitAttackStun);
+    }
+    public void OnBlockCounter()
+    {
+        attackStunTimer = 0;
     }
 
     void OnGroundLand()
