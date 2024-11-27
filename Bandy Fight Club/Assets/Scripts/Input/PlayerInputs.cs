@@ -45,7 +45,7 @@ public class PlayerInputs : MonoBehaviour
     public bool heavyPressed;// {get {return Input.GetKeyDown(inputMap.heavy) && inputsActive;}}
     public bool heavyHeld;// {get {return Input.GetKey(inputMap.heavy) && inputsActive;}}
 
-    void Awake()
+    void Start()
     {
         doController = inputMap.doControllerInput;
 
@@ -61,6 +61,8 @@ public class PlayerInputs : MonoBehaviour
             dodgeAction = controller.Gameplay.Dodge;
             attackAction = controller.Gameplay.Attack;
             heavyAction = controller.Gameplay.Heavy;
+
+            controller.Gameplay.Enable();
         }
     }
 
@@ -123,7 +125,7 @@ public class PlayerInputs : MonoBehaviour
                 attackHeld = attackAction.IsPressed();
 
                 heavyPressed = heavyAction.WasPressedThisFrame();
-                heavyHeld = heavyAction.IsPressed();print(heavyHeld);
+                heavyHeld = heavyAction.IsPressed();
             }
         }
         else
@@ -146,16 +148,5 @@ public class PlayerInputs : MonoBehaviour
             heavyPressed = false;
             heavyHeld = false;
         }
-    }
-
-    void HoldLeft()
-    {
-        print("true");
-        leftHeld = true;
-    }
-
-    void OnEnable()
-    {
-        if (controller != null) controller.Gameplay.Enable();
     }
 }

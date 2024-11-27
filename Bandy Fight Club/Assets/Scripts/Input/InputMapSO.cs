@@ -16,6 +16,8 @@ public class InputMapSO : ScriptableObject
 
     public string attack = "3";
     public string heavy = "4";
+
+    public bool doControllerInput;
     
     public bool AnyInputPressed()
     {
@@ -32,14 +34,21 @@ public class InputMapSO : ScriptableObject
         }
         if (doControllerInput) 
         {
-            ControllerInput controller = new ControllerInput();
+            /*ControllerInput controller = new ControllerInput();
+            controller.Gameplay.Enable();
 
-            controller.Gameplay.Left.IsPressed();
-            controller.Gameplay.Right.IsPressed();
+            Debug.Log("y");
+
+            if(controller.Gameplay.Up.WasPressedThisFrame()) return true;
+            if(controller.Gameplay.Down.WasPressedThisFrame()) return true;
+            if(controller.Gameplay.Left.WasPressedThisFrame()) return true;
+            if(controller.Gameplay.Right.WasPressedThisFrame()) return true;
+            if(controller.Gameplay.Jump.WasPressedThisFrame()) return true;
+            if(controller.Gameplay.Dodge.WasPressedThisFrame()) return true;
+            if(controller.Gameplay.Attack.WasPressedThisFrame()) return true;
+            if(controller.Gameplay.Heavy.WasPressedThisFrame()) return true;*/
         }
 
         return false;
     }
-
-    public bool doControllerInput;
 }
