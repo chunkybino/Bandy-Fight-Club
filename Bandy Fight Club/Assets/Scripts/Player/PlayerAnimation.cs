@@ -130,7 +130,7 @@ public class PlayerAnimation : MonoBehaviour
             }
         }
 
-        if (isStun && isBlocking) return "BlockStun";
+        //if (isStun && isBlocking) return "BlockStun";
         if (isStun) return "Stun";
         if (isBlocking) return blockAnimNames[blockAnimIndex];
         if (isDodging) {

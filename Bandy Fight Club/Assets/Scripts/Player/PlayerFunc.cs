@@ -280,7 +280,7 @@ public class PlayerFunc : MonoBehaviour
             canBlockOutOfStun = currentTimeStunned > stunTimeNeeded + (disadvantage*disadvantageStunMult*stunBlockDisadvantageMult) - stunBlockTimeOffest; //doesnt factor in disadvantage;
             currentTimeStunned += Time.deltaTime;
         }
-        stunBlocking = isStun && isBlocking;
+        //stunBlocking = isStun && isBlocking;
 
         //jumping
         UFunc.TickTimer(ref jumpBufferTimer);
