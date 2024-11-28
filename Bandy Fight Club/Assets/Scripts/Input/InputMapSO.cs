@@ -18,6 +18,8 @@ public class InputMapSO : ScriptableObject
     public string heavy = "4";
 
     public bool doControllerInput;
+
+    public Sprite icon;
     
     public bool AnyInputPressed()
     {

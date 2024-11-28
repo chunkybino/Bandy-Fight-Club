@@ -14,6 +14,7 @@ public class MenuManager : MonoBehaviour
     int characterCount;
 
     public TextMeshProUGUI[] characterSelectText;
+    public Image[] characterSelectControllerIcons;
     public TextMeshProUGUI characterSelectStartText;
     public float characterSelectNotReadyOpacity;
 
@@ -98,6 +99,7 @@ public class MenuManager : MonoBehaviour
         for (int i = 0; i < characterSelectText.Length; i++)
         {
             characterSelectText[i].color = gameManager.teamOutlineColors.colors[i];
+            characterSelectControllerIcons[i].color = gameManager.teamOutlineColors.colors[i];
         }
 
         controller.Gameplay.Enable();
@@ -198,10 +200,14 @@ public class MenuManager : MonoBehaviour
                 selectedCharacters[i] = num;
 
                 characterSelectText[i].text = characterNames[num];
+
+                characterSelectControllerIcons[i].gameObject.SetActive(true);
             }
             else // if player has not joined
             {
                 characterSelectText[i].text = ";)";
+
+                characterSelectControllerIcons[i].gameObject.SetActive(false);
             }
         }
 
@@ -209,25 +215,25 @@ public class MenuManager : MonoBehaviour
         {
             if (playerOrderedInputMaps.Contains(inputMaps[i])) continue;
 
-            /*if (inputMaps[i].AnyInputPressed()) 
-            {
-                //print(i);
-                playerOrderedInputMaps.Add(inputMaps[i]);
-            }*/
-            if (i == 3)//inputMaps[i].doControllerInput)
+            if (i == 3)
             {
                 if (CheckControllerInput())
                 {
-                    playerOrderedInputMaps.Add(inputMaps[i]);
+                    Add();
                 }
             }
             else
             {
                 if (inputMaps[i].AnyInputPressed()) 
                 {
-                    //print(i);
-                    playerOrderedInputMaps.Add(inputMaps[i]);
+                    Add();
                 }
+            }
+
+            void Add()
+            {
+                playerOrderedInputMaps.Add(inputMaps[i]);print(playerOrderedInputMaps.Count-1);
+                characterSelectControllerIcons[playerOrderedInputMaps.Count-1].sprite = inputMaps[i].icon;
             }
         }
 
