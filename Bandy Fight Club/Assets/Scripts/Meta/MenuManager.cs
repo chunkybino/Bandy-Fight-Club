@@ -232,7 +232,7 @@ public class MenuManager : MonoBehaviour
 
             void Add()
             {
-                playerOrderedInputMaps.Add(inputMaps[i]);print(playerOrderedInputMaps.Count-1);
+                playerOrderedInputMaps.Add(inputMaps[i]);
                 characterSelectControllerIcons[playerOrderedInputMaps.Count-1].sprite = inputMaps[i].icon;
             }
         }
