@@ -100,6 +100,7 @@ public class StatUI : MonoBehaviour
         if (!activate) 
         {
             isWin = false;
+            continueText.gameObject.SetActive(false);
             return;
         }
 

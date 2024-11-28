@@ -396,6 +396,7 @@ public class GameManager : MonoBehaviour
         menu.ToMainMenu();
 
         DoScreenTransition(true);
+        screenTransitions.Play("BottomOpened");
     }
 }
 
