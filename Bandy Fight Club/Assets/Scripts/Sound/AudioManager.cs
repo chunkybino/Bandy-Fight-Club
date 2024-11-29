@@ -16,7 +16,7 @@ public class AudioManager : MonoBehaviour
         if (play)
         {
             play = false;
-            PlaySound(playName);
+            Play(playName);
         }
     }
 
@@ -27,11 +27,12 @@ public class AudioManager : MonoBehaviour
         Sound s = g.AddComponent<Sound>();
         s.soundList = soundList;
         s.SO = so;
+        s.StartFunc();
         sounds.Add(s);
         return s;
     }
 
-    public void PlaySound(string name, float volume = 1, float pitch = 1)
+    public void Play(string name, float volume = 1, float pitch = 1)
     {
         Sound s = FindSoundByName(name);
 

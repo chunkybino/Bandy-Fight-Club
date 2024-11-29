@@ -25,6 +25,9 @@ public class PlayerStatus : MonoBehaviour
 
     [SerializeField] ParticleSystem hitParticles;
 
+    public AudioManager audio;
+    [SerializeField] string hurtSoundName;
+
     void Awake()
     {
         gameManager = GameManager.singleton;
@@ -52,6 +55,8 @@ public class PlayerStatus : MonoBehaviour
 
         ParticleSystem particle = Instantiate(hitParticles, transform.position, Quaternion.identity);
         particle.transform.eulerAngles = new Vector3(0,0,Random.Range(0,360));
+
+        audio.Play(hurtSoundName);
 
         playerAttack.OnHit();
     }

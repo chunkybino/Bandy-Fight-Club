@@ -15,6 +15,7 @@ public class PlayerFunc : MonoBehaviour
     public GroundChecker groundCheck;
     public KnockbackHandler knockbackHandler;
     public SquashStretcher squasher;
+    public AudioManager audio;
 
     public int team {get{return playerStatus.team.team;}}
 
@@ -202,6 +203,9 @@ public class PlayerFunc : MonoBehaviour
     [SerializeField] ParticleSystem blockCounterParticles;
 
     public float blockCounterHitStop = 0.5f;
+
+    [SerializeField] string blockSoundName;
+    [SerializeField] string perfblockSoundName;
 
     //hit stun
     [SerializeField] float stunTimeNeeded;
@@ -851,6 +855,9 @@ public class PlayerFunc : MonoBehaviour
         if (isPerfBlocking) //perfect
         {
             particle = perfBlockParticles;
+
+            audio.Play(perfblockSoundName, 1, 1);
+
         }
         else
         {
@@ -861,6 +868,8 @@ public class PlayerFunc : MonoBehaviour
             {
                 GetBlockBroken();
             }
+
+            audio.Play(blockSoundName, 1, 1);
         }
 
         Instantiate(particle, transform.position, Quaternion.identity);

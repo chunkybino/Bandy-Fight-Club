@@ -13,23 +13,36 @@ MonoBehaviour:
   m_Name: SoundListSO
   m_EditorClassIdentifier: Assembly-CSharp::SoundsListSO
   sounds:
-  - name: sound1
-    clip: {fileID: 8300000, guid: bfc27b0070b65ce428b3bd1bed017238, type: 3}
+  - name: sax_hurt
+    clip: {fileID: 0}
     volume: 0.5
     pitch: 1
-    doRandomSound: 0
-    clips: []
-    doRandomVolume: 0
-    randVolumeRange: {x: 0, y: 0}
+    doRandomSound: 1
+    clips:
+    - {fileID: 8300000, guid: 64917cf4505f2c445a263ae45f58dfe0, type: 3}
+    - {fileID: 8300000, guid: cadac40400b6ca04a9b0a381dee3bf3e, type: 3}
+    - {fileID: 8300000, guid: 403b24d5ab0cd264faef770fc4c313c6, type: 3}
+    - {fileID: 8300000, guid: ac4fc31173ccb844ebc17bb86fbe88d6, type: 3}
+    - {fileID: 8300000, guid: a6ec4d17224fda24293293239ecc5830, type: 3}
+    - {fileID: 8300000, guid: 5a02a9876cdb8f74b98cea80cf1f0e61, type: 3}
+    doRandomVolume: 1
+    randVolumeRange: {x: -0.15, y: 0.2}
     doRandomPitch: 0
     randPitchRange: {x: 0, y: 0}
-  - name: sound2
-    clip: {fileID: 8300000, guid: e39ffe9cf70ed404bb64649f2fcaba70, type: 3}
+  - name: sax_block
+    clip: {fileID: 0}
     volume: 0.5
     pitch: 1
-    doRandomSound: 0
-    clips: []
-    doRandomVolume: 0
-    randVolumeRange: {x: 0, y: 0}
+    doRandomSound: 1
+    clips:
+    - {fileID: 8300000, guid: 369a8d30366d61544bf1f73012914658, type: 3}
+    - {fileID: 8300000, guid: abff52240e8971d4bba11c62f1abee61, type: 3}
+    - {fileID: 8300000, guid: 620ec3d8fa3be494fa786b62bea2caa6, type: 3}
+    - {fileID: 8300000, guid: c517b34fafe21b84cbac72fe85522deb, type: 3}
+    - {fileID: 8300000, guid: 4c286fc60d760754580fda0a1eedfd2e, type: 3}
+    - {fileID: 8300000, guid: 663b14db7b137b84cb2eebe76365d99d, type: 3}
+    - {fileID: 8300000, guid: ad222c7da303d7e45b25839ca699d595, type: 3}
+    doRandomVolume: 1
+    randVolumeRange: {x: -0.15, y: 0.2}
     doRandomPitch: 0
     randPitchRange: {x: 0, y: 0}
