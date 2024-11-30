@@ -51,6 +51,10 @@ public class PlayerAnimation : MonoBehaviour
     [SerializeField] ParticleSystem dashParticles;
     [SerializeField] ParticleSystem dashParticlesPrefab;
 
+    [SerializeField] string landSoundName = "land";
+    [SerializeField] float landSoundVolume = 1;
+    [SerializeField] float landSoundPitch = 1;
+
     public int facing;
     public bool grounded;
     public bool isStun;
@@ -225,6 +229,8 @@ public class PlayerAnimation : MonoBehaviour
         {
             DoParticles("land");
         }
+        
+        audio.Play(landSoundName, landSoundVolume, landSoundPitch);
     }
 
     public void DoKnockbackBoost(float force)
