@@ -38,6 +38,8 @@ public class QSaxBulletFunc : BulletFunc
     [SerializeField] float saxClashCameraShake = 3f;
     [SerializeField] Knockback saxClashKnockback;
 
+    [SerializeField] string saxClashSoundName;
+
     void Start()
     {
         base.Start();
@@ -146,6 +148,8 @@ public class QSaxBulletFunc : BulletFunc
 
             attackInfo.damage = Mathf.FloorToInt(attackInfo.damage * saxClashDamageMult);
             attackInfo.knockbacks[0] = saxClashKnockback;
+
+            GameManager.singleton.audio.Play(saxClashSoundName);
 
             return null;
         }

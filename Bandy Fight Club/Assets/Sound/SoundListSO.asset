@@ -28,6 +28,19 @@ MonoBehaviour:
     randVolumeRange: {x: -0.15, y: 0.2}
     doRandomPitch: 1
     randPitchRange: {x: -0.2, y: 0.35}
+  - name: land
+    clip: {fileID: 0}
+    volume: 0.8
+    pitch: 1
+    doRandomSound: 1
+    clips:
+    - {fileID: 8300000, guid: 4b2446f51433a81499ebf956ed967196, type: 3}
+    - {fileID: 8300000, guid: 60355664aeaab674eb62a3ac843f4a63, type: 3}
+    - {fileID: 8300000, guid: 3a13131880ae94043a4a28658e8d402a, type: 3}
+    doRandomVolume: 1
+    randVolumeRange: {x: -0.15, y: 0.2}
+    doRandomPitch: 1
+    randPitchRange: {x: -0.2, y: 0.35}
   - name: hit
     clip: {fileID: 8300000, guid: 8da70d73673d61841a88c409ba057ab3, type: 3}
     volume: 0.15
@@ -91,13 +104,13 @@ MonoBehaviour:
   - name: spinWoosh
     clip: {fileID: 8300000, guid: 2e8b06153f49e344abaa57162ec8fdd4, type: 3}
     volume: 0.5
-    pitch: 1
+    pitch: 0.6
     doRandomSound: 0
     clips: []
     doRandomVolume: 1
     randVolumeRange: {x: -0.1, y: 0.15}
     doRandomPitch: 1
-    randPitchRange: {x: -0.15, y: 0.25}
+    randPitchRange: {x: 0, y: 0}
   - name: sax_hurt
     clip: {fileID: 0}
     volume: 0.75
@@ -143,6 +156,16 @@ MonoBehaviour:
     - {fileID: 8300000, guid: b417df6827c0ae441be4f50182363318, type: 3}
     - {fileID: 8300000, guid: 88be33c707c66e945bf6e5acb1a92bf0, type: 3}
     doRandomVolume: 1
+    randVolumeRange: {x: -0.15, y: 0.2}
+    doRandomPitch: 0
+    randPitchRange: {x: 0, y: 0}
+  - name: sax_clash
+    clip: {fileID: 8300000, guid: f30c3ba67ddb0274bb94cba960529309, type: 3}
+    volume: 0.5
+    pitch: 1
+    doRandomSound: 0
+    clips: []
+    doRandomVolume: 0
     randVolumeRange: {x: -0.15, y: 0.2}
     doRandomPitch: 0
     randPitchRange: {x: 0, y: 0}

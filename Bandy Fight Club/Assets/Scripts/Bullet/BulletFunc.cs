@@ -7,7 +7,6 @@ public class BulletFunc : MonoBehaviour, IDamageable
 {
     public BulletConfig config;
     public Rigidbody2D rb;
-    //[SerializeField] Collider2D collider;
 
     public CircleCollider2D circleCollider;
     [SerializeField] Collider2D bounding;
@@ -17,24 +16,14 @@ public class BulletFunc : MonoBehaviour, IDamageable
     [SerializeField] TeamHolder bulletTeam;
     public TeamHolder team {get{return bulletTeam;} set{}}
     public bool receiveHitFromAll {get {return true;}}
-
-    //bool hurtPlayer;
-    //bool hurtEnemy;
     public AttackInfo attackInfo;
-
-    //public bool doAttackDirectionOverride;
-    //public Vector2 attackDirectionOverride;
 
     public SpriteRenderer renderer;
     [SerializeField] bool rotateInMovementDirection;
     [SerializeField] float speedPerStrech = 30; //strech render in direction more the faster we go, speed needed to stech render scale by 1
     [SerializeField] Vector2 renderScale;
-    /*[SerializeField] TrailRenderer trailRenderer;
-    [SerializeField] float trailWidth = 0.4f;
-    [SerializeField] ParticleSystem hitParticles;
-    [SerializeField] float hitParticlesScale = 0.6f;
-    [SerializeField] ParticleSystem deathParticles;
-    [SerializeField] float deathParticlesScale = 0.6f;*/
+
+    public AudioManager audio;
 
     [SerializeField] ParticleSystem deathParticles;
     [SerializeField] float deathParticlesScale = 1;
@@ -60,21 +49,10 @@ public class BulletFunc : MonoBehaviour, IDamageable
     public bool disableHitbox;
     public bool hitPlayers = true;
 
-    //public UnityEvent<EnemyHitbox> onEnemyHit;
-
     [SerializeField] List<IDamageable> hitTargetsList = new List<IDamageable>();
     [Tooltip("basivacally rehit time but for the player")]
     [SerializeField] float reHitTime = 0.5f;
     IEnumerator hitListCoroutine;
-
-    /*bool isDead;
-
-    public UnityEvent onDeflect;
-    bool gotDeflectedThisHit; //when detecting hits, when we get deflected, set this to true so it doesnt ake bullet pierce
-
-    [SerializeField] float deflectHitStop = 0.15f;
-
-    [SerializeField] AttackTelegraph telegraph;*/
 
     Vector2 lastFramPos;
 
@@ -94,19 +72,6 @@ public class BulletFunc : MonoBehaviour, IDamageable
         DoLifetime(config.lifetime);
 
         lastFramPos = transform.position;
-
-        /*if (trailRenderer) trailRenderer.widthMultiplier = trailWidth;
-
-        hurtPlayer = config.hurtPlayer;
-        hurtEnemy = config.hurtEnemy;
-
-        if (telegraph)
-        {
-            telegraph.prediction = config.prediction;
-            telegraph.weight = config.predictionWeight;
-
-            telegraph.FindStuffInRange();
-        }*/
 
         CheckCollisionNow();
 
@@ -207,12 +172,6 @@ public class BulletFunc : MonoBehaviour, IDamageable
 
         if (foundHit)
         {
-            /*if (hitParticles)
-            {
-                ParticleSystem particle = Instantiate(hitParticles, transform.position, Quaternion.identity);
-                particle.transform.localScale = new Vector2(hitParticlesScale,hitParticlesScale);
-            }*/
-
             if (hitWall)
             {
                 HitWall(item);
@@ -244,7 +203,6 @@ public class BulletFunc : MonoBehaviour, IDamageable
     public virtual void HitDude(IDamageable damageable)
     {
         Vector2 attackDirection = direction;
-        //if (doAttackDirectionOverride) attackDirection = attackDirectionOverride;
 
         AttackHitReturnInfo hitInfo = damageable.GetHit(attackInfo, direction);
 
@@ -332,19 +290,6 @@ public class BulletFunc : MonoBehaviour, IDamageable
         team.team = num;
         DoTeamColor();
     }
-
-    /*public void ChangeDamage(float amount)
-    {
-        attackInfo.damage += amount;
-    }
-    public void ChangeGuardDamage(float amount)
-    {
-        attackInfo.guardDamage += amount;
-    }
-    public void ChangePierce(int amount)
-    {
-        currentPierce += amount;
-    }*/
 
     public void DoLifetime(float time)
     {

@@ -65,6 +65,8 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] float startMatchTransitionTime = 1f;
 
+    public AudioManager audio;
+
     void Awake()
     {
         CheckSingleton();
