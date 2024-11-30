@@ -13,6 +13,21 @@ MonoBehaviour:
   m_Name: SoundListSO
   m_EditorClassIdentifier: Assembly-CSharp::SoundsListSO
   sounds:
+  - name: step
+    clip: {fileID: 0}
+    volume: 0.3
+    pitch: 0.6
+    doRandomSound: 1
+    clips:
+    - {fileID: 8300000, guid: c689141f33138a844a0a4194fec48447, type: 3}
+    - {fileID: 8300000, guid: 14fe7e40da4dee94ab11548afb6f316d, type: 3}
+    - {fileID: 8300000, guid: 5bf0ebf1c785094488b3e00d7a4d2c92, type: 3}
+    - {fileID: 8300000, guid: cc0127c187d46504f8e146feb4b678fc, type: 3}
+    - {fileID: 8300000, guid: 9ecea2d635647294aad54760b0008d08, type: 3}
+    doRandomVolume: 1
+    randVolumeRange: {x: -0.15, y: 0.2}
+    doRandomPitch: 1
+    randPitchRange: {x: -0.2, y: 0.35}
   - name: hit
     clip: {fileID: 8300000, guid: 8da70d73673d61841a88c409ba057ab3, type: 3}
     volume: 0.15
