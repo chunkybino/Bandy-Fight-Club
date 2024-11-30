@@ -2968,6 +2968,10 @@ MonoBehaviour:
   onHit:
     m_PersistentCalls:
       m_Calls: []
+  audio: {fileID: 4047863282010078356}
+  hitSoundName: hit
+  hitSoundVolume: 1
+  hitSoundPitch: 1
 --- !u!1 &1048251299111642391
 GameObject:
   m_ObjectHideFlags: 0
@@ -4479,6 +4483,10 @@ MonoBehaviour:
   onHit:
     m_PersistentCalls:
       m_Calls: []
+  audio: {fileID: 4047863282010078356}
+  hitSoundName: hit
+  hitSoundVolume: 1
+  hitSoundPitch: 1
 --- !u!1 &1740585461790430401
 GameObject:
   m_ObjectHideFlags: 0
@@ -4834,6 +4842,10 @@ MonoBehaviour:
   onHit:
     m_PersistentCalls:
       m_Calls: []
+  audio: {fileID: 4047863282010078356}
+  hitSoundName: hit
+  hitSoundVolume: 1
+  hitSoundPitch: 1
 --- !u!1 &1807811363922389326
 GameObject:
   m_ObjectHideFlags: 0
@@ -6853,6 +6865,10 @@ MonoBehaviour:
   onHit:
     m_PersistentCalls:
       m_Calls: []
+  audio: {fileID: 4047863282010078356}
+  hitSoundName: hit
+  hitSoundVolume: 1
+  hitSoundPitch: 1
 --- !u!1 &2354978347514268902
 GameObject:
   m_ObjectHideFlags: 0
@@ -8279,6 +8295,10 @@ MonoBehaviour:
   onHit:
     m_PersistentCalls:
       m_Calls: []
+  audio: {fileID: 4047863282010078356}
+  hitSoundName: hit
+  hitSoundVolume: 1
+  hitSoundPitch: 1
 --- !u!1 &3105146183858177674
 GameObject:
   m_ObjectHideFlags: 0
@@ -10815,6 +10835,10 @@ MonoBehaviour:
   onHit:
     m_PersistentCalls:
       m_Calls: []
+  audio: {fileID: 4047863282010078356}
+  hitSoundName: hit
+  hitSoundVolume: 1
+  hitSoundPitch: 1
 --- !u!1 &3875489417325364167
 GameObject:
   m_ObjectHideFlags: 0
@@ -11402,6 +11426,10 @@ MonoBehaviour:
   onHit:
     m_PersistentCalls:
       m_Calls: []
+  audio: {fileID: 4047863282010078356}
+  hitSoundName: hit
+  hitSoundVolume: 1
+  hitSoundPitch: 1
 --- !u!1 &4192773235079304136
 GameObject:
   m_ObjectHideFlags: 0
@@ -13757,6 +13785,10 @@ MonoBehaviour:
   onHit:
     m_PersistentCalls:
       m_Calls: []
+  audio: {fileID: 4047863282010078356}
+  hitSoundName: hit
+  hitSoundVolume: 1
+  hitSoundPitch: 1
 --- !u!1 &4988464169874166954
 GameObject:
   m_ObjectHideFlags: 0
@@ -14068,6 +14100,10 @@ MonoBehaviour:
   onHit:
     m_PersistentCalls:
       m_Calls: []
+  audio: {fileID: 4047863282010078356}
+  hitSoundName: hit
+  hitSoundVolume: 1
+  hitSoundPitch: 1
 --- !u!1 &5133322244271699541
 GameObject:
   m_ObjectHideFlags: 0
@@ -14646,6 +14682,7 @@ MonoBehaviour:
   playerAttack: {fileID: 826615640914190225}
   playerFunc: {fileID: 3173985440313344023}
   rb: {fileID: 4633266257788118767}
+  audio: {fileID: 4047863282010078356}
   currentAnim: Idle
   animatorEvents:
   - name: ShootSax
@@ -22291,7 +22328,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4110637717697406780
 Transform:
   m_ObjectHideFlags: 0
@@ -23224,6 +23261,10 @@ MonoBehaviour:
   onHit:
     m_PersistentCalls:
       m_Calls: []
+  audio: {fileID: 4047863282010078356}
+  hitSoundName: hit
+  hitSoundVolume: 1
+  hitSoundPitch: 1
 --- !u!1 &8717194558293452352
 GameObject:
   m_ObjectHideFlags: 0

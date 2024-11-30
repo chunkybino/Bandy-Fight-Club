@@ -12,6 +12,7 @@ public class PlayerAnimation : MonoBehaviour
     public PlayerFunc playerFunc;
     public ICharacterFunc characterFunc;
     public Rigidbody2D rb;
+    public AudioManager audio;
 
     public string currentAnim = "Idle";
 
@@ -303,6 +304,11 @@ public class PlayerAnimation : MonoBehaviour
             ParticleSystem particle = Instantiate(prefab, pos, Quaternion.identity);
             particle.transform.eulerAngles = new Vector3(0,(facing*90)+90,0);
         }
+    }
+
+    public void PlaySound(string name)
+    {
+        audio.Play(name);
     }
 }
 

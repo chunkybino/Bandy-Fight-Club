@@ -22,6 +22,11 @@ public class AttackHitbox : MonoBehaviour
 
     public UnityEvent<AttackHitReturnInfo> onHit;
 
+    [SerializeField] AudioManager audio;
+    [SerializeField] string hitSoundName = "hit";
+    [SerializeField] float hitSoundVolume = 1;
+    [SerializeField] float hitSoundPitch = 1;
+
     void OnTriggerStay2D(Collider2D item)
     {
         IDamageable damageable = item.GetComponent<IDamageable>();
@@ -68,6 +73,8 @@ public class AttackHitbox : MonoBehaviour
             playerFunc.AddDisadvantage(info.returnDisadvantage);
             if (info.doReturnAttackStun) playerFunc.playerAttack.DoAttackStun(info.returnAttackStun);
         }
+
+        if (audio) audio.Play(hitSoundName, hitSoundVolume, hitSoundPitch);
     }
 
     IEnumerator removeFromHitListCorountine(Collider2D target)
