@@ -310,6 +310,20 @@ public class PlayerAnimation : MonoBehaviour
     {
         audio.Play(name);
     }
+    public void PlaySoundPitchVol(string name)
+    {
+        List<string> s = UFunc.SeperateStringByUnderscore(name);
+        
+        string n = name;
+        float vol = 1;
+        float pitch = 1;
+
+        if (s.Count >= 1) n = s[0];
+        if (s.Count >= 2) vol = float.Parse(s[1]);
+        if (s.Count >= 3) pitch = float.Parse(s[2]);
+
+        audio.Play(n, vol, pitch);
+    }
 }
 
 [System.Serializable]

@@ -13,9 +13,69 @@ MonoBehaviour:
   m_Name: SoundListSO
   m_EditorClassIdentifier: Assembly-CSharp::SoundsListSO
   sounds:
+  - name: hit
+    clip: {fileID: 8300000, guid: 8da70d73673d61841a88c409ba057ab3, type: 3}
+    volume: 0.15
+    pitch: 1
+    doRandomSound: 0
+    clips: []
+    doRandomVolume: 1
+    randVolumeRange: {x: -0.1, y: 0.15}
+    doRandomPitch: 1
+    randPitchRange: {x: 0, y: 0.3}
+  - name: woosh1
+    clip: {fileID: 8300000, guid: 6654d2941d10a4a45ada88286e8158a8, type: 3}
+    volume: 0.65
+    pitch: 0.8
+    doRandomSound: 0
+    clips: []
+    doRandomVolume: 1
+    randVolumeRange: {x: -0.1, y: 0.15}
+    doRandomPitch: 1
+    randPitchRange: {x: -0.2, y: 0.3}
+  - name: woosh2
+    clip: {fileID: 8300000, guid: aa939022cc53ca04baa31a212331a98d, type: 3}
+    volume: 0.5
+    pitch: 0.7
+    doRandomSound: 0
+    clips: []
+    doRandomVolume: 1
+    randVolumeRange: {x: -0.15, y: 0.2}
+    doRandomPitch: 1
+    randPitchRange: {x: 0, y: 0.12}
+  - name: woosh3
+    clip: {fileID: 8300000, guid: f1583eacf5ba7ce43b9e40a180ed4581, type: 3}
+    volume: 0.5
+    pitch: 1
+    doRandomSound: 0
+    clips: []
+    doRandomVolume: 1
+    randVolumeRange: {x: -0.15, y: 0.2}
+    doRandomPitch: 1
+    randPitchRange: {x: 0, y: 0.12}
+  - name: woosh4
+    clip: {fileID: 8300000, guid: 7781fb224cca551448bd7d7356c46522, type: 3}
+    volume: 0.5
+    pitch: 1
+    doRandomSound: 0
+    clips: []
+    doRandomVolume: 1
+    randVolumeRange: {x: -0.15, y: 0.2}
+    doRandomPitch: 1
+    randPitchRange: {x: 0, y: 0.12}
+  - name: wooshSlash
+    clip: {fileID: 8300000, guid: f49d25dada9df2b4192333c7825a0f80, type: 3}
+    volume: 0.5
+    pitch: 1
+    doRandomSound: 0
+    clips: []
+    doRandomVolume: 1
+    randVolumeRange: {x: -0.1, y: 0.15}
+    doRandomPitch: 1
+    randPitchRange: {x: -0.2, y: 0.3}
   - name: sax_hurt
     clip: {fileID: 0}
-    volume: 0.5
+    volume: 0.75
     pitch: 1
     doRandomSound: 1
     clips:
@@ -26,9 +86,9 @@ MonoBehaviour:
     - {fileID: 8300000, guid: a6ec4d17224fda24293293239ecc5830, type: 3}
     - {fileID: 8300000, guid: 5a02a9876cdb8f74b98cea80cf1f0e61, type: 3}
     doRandomVolume: 1
-    randVolumeRange: {x: -0.15, y: 0.2}
-    doRandomPitch: 0
-    randPitchRange: {x: 0, y: 0}
+    randVolumeRange: {x: 0, y: 0.2}
+    doRandomPitch: 1
+    randPitchRange: {x: -0.05, y: 0.075}
   - name: sax_block
     clip: {fileID: 0}
     volume: 0.5
@@ -41,7 +101,22 @@ MonoBehaviour:
     - {fileID: 8300000, guid: c517b34fafe21b84cbac72fe85522deb, type: 3}
     - {fileID: 8300000, guid: 4c286fc60d760754580fda0a1eedfd2e, type: 3}
     - {fileID: 8300000, guid: 663b14db7b137b84cb2eebe76365d99d, type: 3}
-    - {fileID: 8300000, guid: ad222c7da303d7e45b25839ca699d595, type: 3}
+    doRandomVolume: 1
+    randVolumeRange: {x: -0.15, y: 0.2}
+    doRandomPitch: 0
+    randPitchRange: {x: 0, y: 0}
+  - name: sax_perfblock
+    clip: {fileID: 0}
+    volume: 0.5
+    pitch: 1.15
+    doRandomSound: 1
+    clips:
+    - {fileID: 8300000, guid: ebcc95895b328244788f754cf768b3d0, type: 3}
+    - {fileID: 8300000, guid: 910019766265cd84096a5d85681863ef, type: 3}
+    - {fileID: 8300000, guid: 14cc879ef1783794d804a552aadea9ab, type: 3}
+    - {fileID: 8300000, guid: bab42e1bf9e05c94d91cd56a67b013ae, type: 3}
+    - {fileID: 8300000, guid: b417df6827c0ae441be4f50182363318, type: 3}
+    - {fileID: 8300000, guid: 88be33c707c66e945bf6e5acb1a92bf0, type: 3}
     doRandomVolume: 1
     randVolumeRange: {x: -0.15, y: 0.2}
     doRandomPitch: 0
