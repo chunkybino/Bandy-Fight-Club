@@ -159,10 +159,10 @@ MonoBehaviour:
     randVolumeRange: {x: -0.15, y: 0.2}
     doRandomPitch: 0
     randPitchRange: {x: 0, y: 0}
-  - name: sax_clash
+  - name: saxClash
     clip: {fileID: 8300000, guid: f30c3ba67ddb0274bb94cba960529309, type: 3}
-    volume: 0.5
-    pitch: 1
+    volume: 1
+    pitch: 0.8
     doRandomSound: 0
     clips: []
     doRandomVolume: 0

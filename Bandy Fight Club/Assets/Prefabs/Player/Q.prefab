@@ -14758,6 +14758,9 @@ MonoBehaviour:
   jumpParticles: {fileID: 731974835785230917}
   dashParticles: {fileID: 8404017375405738597}
   dashParticlesPrefab: {fileID: 7924371216980689347, guid: a360aeb906487cf4ea994d3151e25ce4, type: 3}
+  landSoundName: land
+  landSoundVolume: 1
+  landSoundPitch: 1
   facing: 0
   grounded: 0
   isStun: 0
@@ -22442,7 +22445,7 @@ MonoBehaviour:
   lastFrameVels: []
   lastFrameVelCount: 5
   lastFramePos: {x: 0, y: 0}
-  movementSpeed: 18
+  movementSpeed: 20
   sideInputDirection: 0
   verticalInputDirection: 0
   inputVector: {x: 0, y: 0}

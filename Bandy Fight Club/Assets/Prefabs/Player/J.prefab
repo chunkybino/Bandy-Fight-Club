@@ -133,6 +133,10 @@ MonoBehaviour:
   onHit:
     m_PersistentCalls:
       m_Calls: []
+  audio: {fileID: 0}
+  hitSoundName: hit
+  hitSoundVolume: 1
+  hitSoundPitch: 1
 --- !u!1 &1271091820997076774
 GameObject:
   m_ObjectHideFlags: 0
@@ -223,6 +227,7 @@ Transform:
   - {fileID: 5647498173138659669}
   - {fileID: 1238685956969982484}
   - {fileID: 651738455086092208}
+  - {fileID: 914618807828141574}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &5490017913412603456
@@ -290,6 +295,8 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   hitParticles: {fileID: 2653833485904765781, guid: b6307853dc53dd141951ad23156ca745, type: 3}
+  audio: {fileID: 7112663735537830072}
+  hurtSoundName: 
 --- !u!114 &9045482197941810018
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -312,6 +319,7 @@ MonoBehaviour:
   groundCheck: {fileID: 7707651264237173837}
   knockbackHandler: {fileID: 5166431708020599540}
   squasher: {fileID: 8778573409757513484}
+  audio: {fileID: 0}
   allowControl: 0
   lastFrameVels: []
   lastFrameVelCount: 5
@@ -476,6 +484,8 @@ MonoBehaviour:
   perfBlockParticles: {fileID: 1713865554369944223, guid: 01ce6fc26f37a134bb142ec271761b09, type: 3}
   blockCounterParticles: {fileID: 4512744190449187998, guid: f4f3ef347abed464f8e62387c48c69f3, type: 3}
   blockCounterHitStop: 0.35
+  blockSoundName: 
+  perfblockSoundName: 
   stunTimeNeeded: 0
   currentTimeStunned: 0
   isStun: 0
@@ -1165,6 +1175,10 @@ MonoBehaviour:
   onHit:
     m_PersistentCalls:
       m_Calls: []
+  audio: {fileID: 0}
+  hitSoundName: hit
+  hitSoundVolume: 1
+  hitSoundPitch: 1
 --- !u!1 &6102641872498510236
 GameObject:
   m_ObjectHideFlags: 0
@@ -1298,6 +1312,10 @@ MonoBehaviour:
   onHit:
     m_PersistentCalls:
       m_Calls: []
+  audio: {fileID: 0}
+  hitSoundName: hit
+  hitSoundVolume: 1
+  hitSoundPitch: 1
 --- !u!1 &6269144825492292235
 GameObject:
   m_ObjectHideFlags: 0
@@ -1704,6 +1722,54 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   attackTime: 0.6
+--- !u!1 &8864230585224970301
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 914618807828141574}
+  - component: {fileID: 7112663735537830072}
+  m_Layer: 7
+  m_Name: Audio
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &914618807828141574
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8864230585224970301}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7577120169397887839}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7112663735537830072
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8864230585224970301}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6dfec4b6e974591489ec01d0b40a8c65, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundList: {fileID: 11400000, guid: 79add24d7fd3c664f8f8cfd797f6236f, type: 2}
+  sounds: []
+  playName: 
+  play: 0
 --- !u!1001 &6095673352925186394
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2713,6 +2779,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 5490017913412603456}
     - target: {fileID: 2388454519947707244, guid: fe70ef1e12400454dab17dbd913906c3, type: 3}
+      propertyPath: audio
+      value: 
+      objectReference: {fileID: 7112663735537830072}
+    - target: {fileID: 2388454519947707244, guid: fe70ef1e12400454dab17dbd913906c3, type: 3}
       propertyPath: skidTime
       value: 0.1
       objectReference: {fileID: 0}
@@ -2731,6 +2801,14 @@ PrefabInstance:
     - target: {fileID: 2388454519947707244, guid: fe70ef1e12400454dab17dbd913906c3, type: 3}
       propertyPath: walkDashTime
       value: 0.16
+      objectReference: {fileID: 0}
+    - target: {fileID: 2388454519947707244, guid: fe70ef1e12400454dab17dbd913906c3, type: 3}
+      propertyPath: landSoundPitch
+      value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2388454519947707244, guid: fe70ef1e12400454dab17dbd913906c3, type: 3}
+      propertyPath: landSoundVolume
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 2388454519947707244, guid: fe70ef1e12400454dab17dbd913906c3, type: 3}
       propertyPath: blockAnimNames.Array.size
