@@ -73,6 +73,16 @@ MonoBehaviour:
     randVolumeRange: {x: -0.1, y: 0.15}
     doRandomPitch: 1
     randPitchRange: {x: -0.2, y: 0.3}
+  - name: spinWoosh
+    clip: {fileID: 8300000, guid: 2e8b06153f49e344abaa57162ec8fdd4, type: 3}
+    volume: 0.5
+    pitch: 1
+    doRandomSound: 0
+    clips: []
+    doRandomVolume: 1
+    randVolumeRange: {x: -0.1, y: 0.15}
+    doRandomPitch: 1
+    randPitchRange: {x: -0.15, y: 0.25}
   - name: sax_hurt
     clip: {fileID: 0}
     volume: 0.75

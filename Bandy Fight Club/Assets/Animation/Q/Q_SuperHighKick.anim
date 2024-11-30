@@ -19597,16 +19597,30 @@ AnimationClip:
     intParameter: 0
     messageOptions: 0
   - time: 0.12
+    functionName: DoSquash
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 2
+    messageOptions: 0
+  - time: 0.12
     functionName: DoVerticalBoost
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 24
     intParameter: 0
     messageOptions: 0
-  - time: 0.12
-    functionName: DoSquash
-    data: 
+  - time: 0.14
+    functionName: PlaySoundPitchVol
+    data: woosh3_1.3_0.6
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
-    intParameter: 2
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.16
+    functionName: PlaySoundPitchVol
+    data: woosh4_1.2_1.2
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
     messageOptions: 0

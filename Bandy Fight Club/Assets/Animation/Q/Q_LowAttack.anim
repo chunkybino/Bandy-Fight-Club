@@ -17838,6 +17838,13 @@ AnimationClip:
   m_HasMotionFloatCurves: 0
   m_Events:
   - time: 0
+    functionName: PlaySoundPitchVol
+    data: woosh3_0.15_0.5
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 0
     functionName: DoKnockbackBoost
     data: 
     objectReferenceParameter: {fileID: 0}
@@ -17856,5 +17863,12 @@ AnimationClip:
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 60
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.23333333
+    functionName: PlaySoundPitchVol
+    data: woosh4_0.7_0.4
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
     intParameter: 0
     messageOptions: 0

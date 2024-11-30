@@ -24794,6 +24794,13 @@ AnimationClip:
     floatParameter: 35
     intParameter: 0
     messageOptions: 0
+  - time: 0.12
+    functionName: PlaySoundPitchVol
+    data: woosh3_0.8_0.9
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
   - time: 0.14
     functionName: DoSquash
     data: 
@@ -24827,5 +24834,19 @@ AnimationClip:
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 45
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.52
+    functionName: PlaySoundPitchVol
+    data: woosh3_1.1_0.5
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.54
+    functionName: PlaySoundPitchVol
+    data: woosh4_1.7_0.8
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
     intParameter: 0
     messageOptions: 0
