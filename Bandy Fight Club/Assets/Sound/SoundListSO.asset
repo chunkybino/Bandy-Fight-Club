@@ -41,6 +41,16 @@ MonoBehaviour:
     randVolumeRange: {x: -0.15, y: 0.2}
     doRandomPitch: 1
     randPitchRange: {x: -0.2, y: 0.35}
+  - name: jump
+    clip: {fileID: 8300000, guid: 2fd43867c724f074d91f22b75282a258, type: 3}
+    volume: 0.35
+    pitch: 1
+    doRandomSound: 0
+    clips: []
+    doRandomVolume: 1
+    randVolumeRange: {x: -0.1, y: 0.15}
+    doRandomPitch: 1
+    randPitchRange: {x: -0.2, y: 0.35}
   - name: hit
     clip: {fileID: 8300000, guid: 8da70d73673d61841a88c409ba057ab3, type: 3}
     volume: 0.15

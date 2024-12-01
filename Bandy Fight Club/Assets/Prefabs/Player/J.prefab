@@ -319,7 +319,7 @@ MonoBehaviour:
   groundCheck: {fileID: 7707651264237173837}
   knockbackHandler: {fileID: 5166431708020599540}
   squasher: {fileID: 8778573409757513484}
-  audio: {fileID: 0}
+  audio: {fileID: 7112663735537830072}
   allowControl: 0
   lastFrameVels: []
   lastFrameVelCount: 5
@@ -391,6 +391,7 @@ MonoBehaviour:
     doPivot: 0
     perpAmp: 1
     doPivotOnGrounded: 0
+  jumpSoundName: jump
   isDodging: 0
   isDodgingBurst: 0
   doDodgeMovement: 0

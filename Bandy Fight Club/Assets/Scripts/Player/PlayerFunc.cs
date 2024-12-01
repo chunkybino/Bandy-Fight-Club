@@ -98,6 +98,8 @@ public class PlayerFunc : MonoBehaviour
 
     [SerializeField] SquashData jumpSquashData;
 
+    [SerializeField] string jumpSoundName = "jump";
+
     //dodge
     public bool isDodging;
     public bool isDodgingBurst;
@@ -623,6 +625,8 @@ public class PlayerFunc : MonoBehaviour
 
         squasher.DoSquash(jumpSquashData);
         playerAnimation.DoParticles("jump");
+
+        audio.Play(jumpSoundName);
     }
 
     void GroundLand()
