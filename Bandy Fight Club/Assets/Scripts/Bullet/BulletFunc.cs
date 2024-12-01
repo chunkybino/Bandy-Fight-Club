@@ -25,6 +25,10 @@ public class BulletFunc : MonoBehaviour, IDamageable
 
     public AudioManager audio;
 
+    [SerializeField] string hitSoundName = "hit";
+    [SerializeField] float hitSoundVolume = 1;
+    [SerializeField] float hitSoundPitch = 1;
+
     [SerializeField] ParticleSystem deathParticles;
     [SerializeField] float deathParticlesScale = 1;
 
@@ -207,6 +211,8 @@ public class BulletFunc : MonoBehaviour, IDamageable
         AttackHitReturnInfo hitInfo = damageable.GetHit(attackInfo, direction);
 
         DoHitStopCameraShake(hitInfo);
+
+        GameManager.singleton.audio.Play(hitSoundName, hitSoundVolume, hitSoundPitch);
 
         if (currentPierce == 0) Die();
         currentPierce -= 1;

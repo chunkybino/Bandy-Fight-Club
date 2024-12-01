@@ -9402,8 +9402,8 @@ MonoBehaviour:
   - {fileID: 1228158914771108052}
   - {fileID: 6428945389610884689}
   - {fileID: 7250455678024612078}
-  doSilhouette: 0
-  hideQWeap: 0
+  doSilhouette: 1
+  hideQWeap: 1
   hideJWeap: 0
   removeNull: 0
 --- !u!1 &308062698
@@ -15496,6 +15496,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 0.064159065
       objectReference: {fileID: 0}
+    - target: {fileID: 1663709583450352777, guid: 84f3f989133dc724681733bf06f534d8, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: ca73f2f9a2aa87e4eb2e8aca4166e3d2, type: 2}
     - target: {fileID: 1688312685288853089, guid: 84f3f989133dc724681733bf06f534d8, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -20036,6 +20040,10 @@ PrefabInstance:
       propertyPath: mesh
       value: 
       objectReference: {fileID: 2019158932}
+    - target: {fileID: 7708457346826277611, guid: 89a4bb26954076c4087def95df52bc91, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: ca73f2f9a2aa87e4eb2e8aca4166e3d2, type: 2}
     - target: {fileID: 8378978195631221851, guid: 89a4bb26954076c4087def95df52bc91, type: 3}
       propertyPath: m_Mesh
       value: 

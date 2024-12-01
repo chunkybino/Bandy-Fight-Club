@@ -40,6 +40,29 @@ public class QSaxBulletFunc : BulletFunc
 
     [SerializeField] string saxClashSoundName;
 
+    [SerializeField] List<string> hitSounds = new List<string>();
+    [SerializeField] float hitSoundVol = 1;
+    [SerializeField] float hitSoundPitch = 1;
+
+    [SerializeField] List<string> getParrySounds = new List<string>();
+    [SerializeField] float getParryVol = 1;
+    [SerializeField] float getParryPitch = 1;
+
+    [SerializeField] List<string> hitParrySounds = new List<string>();
+    [SerializeField] float hitParryVol = 1;
+    [SerializeField] float hitParryPitch = 1;
+
+    [SerializeField] string deflectSound;
+    [SerializeField] float deflectSoundVol = 1;
+    [SerializeField] float deflectSoundPitch = 1;
+
+    [SerializeField] string bounceSound;
+    [SerializeField] float bounceSoundVol = 1;
+    [SerializeField] float bounceSoundPitch = 1;
+    [SerializeField] string bounceSound2;
+    [SerializeField] float bounceSound2Vol = 1;
+    [SerializeField] float bounceSound2Pitch = 1;
+
     void Start()
     {
         base.Start();
@@ -75,7 +98,15 @@ public class QSaxBulletFunc : BulletFunc
     {
         base.HitDude(damageable);
 
-        if (isGrappleParried) Die();
+        if (isGrappleParried) 
+        {
+            GameManager.singleton.audio.PlayList(hitParrySounds, hitParryVol, hitParryPitch);
+            Die();
+        }
+        else
+        {
+            GameManager.singleton.audio.PlayList(hitSounds, hitSoundVol, hitSoundPitch);
+        }
 
         if (damageable.damageableTags.Contains(saxClashTag)) return;
 
@@ -104,6 +135,9 @@ public class QSaxBulletFunc : BulletFunc
         transform.position += new Vector3(translationVec.x,translationVec.y,0);
 
         direction = new Vector2(UFunc.Sign(rb.velocity.x),direction.y);
+
+        GameManager.singleton.audio.Play(bounceSound, bounceSoundVol, bounceSoundPitch);
+        GameManager.singleton.audio.Play(bounceSound2, bounceSound2Vol, bounceSound2Pitch);
     }
 
     public void GetGrappled()
@@ -128,6 +162,8 @@ public class QSaxBulletFunc : BulletFunc
         circleCollider.enabled = true;
 
         attackInfo.damage = Mathf.FloorToInt(attackInfo.damage * grappleParryDamageMult);
+
+        GameManager.singleton.audio.PlayList(getParrySounds, getParryVol, getParryPitch);
 
         ClearHitList(); 
     }
@@ -171,5 +207,7 @@ public class QSaxBulletFunc : BulletFunc
         {
             base.DoDeflectSpeed(dir);
         }
+
+        GameManager.singleton.audio.Play(deflectSound, deflectSoundVol, deflectSoundPitch);
     }
 }

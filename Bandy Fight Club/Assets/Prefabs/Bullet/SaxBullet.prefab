@@ -256,6 +256,9 @@ MonoBehaviour:
   speedPerStrech: 0
   renderScale: {x: 0, y: 0}
   audio: {fileID: 3192060229755283340}
+  hitSoundName: 
+  hitSoundVolume: 1
+  hitSoundPitch: 0.8
   deathParticles: {fileID: 8334959794579073723, guid: fc762d353cc8d8c4c87cd41dfd79d5e0, type: 3}
   deathParticlesScale: 1.5
   direction: {x: 1, y: 0}
@@ -307,6 +310,29 @@ MonoBehaviour:
     acceleration: 0.04
     accelerationTime: 0.8
   saxClashSoundName: saxClash
+  hitSounds:
+  - sax_block
+  - saxHit
+  hitSoundVol: 0.5
+  hitSoundPitch: 1
+  getParrySounds:
+  - sax_perfblock
+  getParryVol: 0.65
+  getParryPitch: 1
+  hitParrySounds:
+  - sax_block
+  - saxHit
+  hitParryVol: 0.7
+  hitParryPitch: 1.4
+  deflectSound: sax_perfblock
+  deflectSoundVol: 0.65
+  deflectSoundPitch: 1
+  bounceSound: sax_block
+  bounceSoundVol: 0.55
+  bounceSoundPitch: 0.65
+  bounceSound2: saxHit
+  bounceSound2Vol: 0.15
+  bounceSound2Pitch: 2
 --- !u!58 &8270670476711904369
 CircleCollider2D:
   m_ObjectHideFlags: 0

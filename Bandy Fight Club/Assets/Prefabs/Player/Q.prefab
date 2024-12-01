@@ -22512,6 +22512,7 @@ MonoBehaviour:
     doPivot: 0
     perpAmp: 1
     doPivotOnGrounded: 0
+  jumpSoundName: jump
   isDodging: 0
   isDodgingBurst: 0
   doDodgeMovement: 0
@@ -22651,6 +22652,9 @@ MonoBehaviour:
   attackChargeHeld: 0
   timeAttackCharging: 0
   attackChargeNeeded: 0.35
+  saxGrappleBoostSound: woosh1
+  saxGrappleBoostSoundVol: 0.65
+  saxGrappleBoostSoundPitch: 1.4
 --- !u!114 &6506595838519733651
 MonoBehaviour:
   m_ObjectHideFlags: 0

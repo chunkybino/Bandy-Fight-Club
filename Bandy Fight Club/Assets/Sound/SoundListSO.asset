@@ -179,3 +179,23 @@ MonoBehaviour:
     randVolumeRange: {x: -0.15, y: 0.2}
     doRandomPitch: 0
     randPitchRange: {x: 0, y: 0}
+  - name: saxHit
+    clip: {fileID: 8300000, guid: 0a7c2b470baf42a47b7852df050307d5, type: 3}
+    volume: 0.6
+    pitch: 1.2
+    doRandomSound: 0
+    clips: []
+    doRandomVolume: 1
+    randVolumeRange: {x: -0.075, y: 0.1}
+    doRandomPitch: 1
+    randPitchRange: {x: -0.06, y: 0.1}
+  - name: saxBounce
+    clip: {fileID: 8300000, guid: 0a7c2b470baf42a47b7852df050307d5, type: 3}
+    volume: 0.4
+    pitch: 1
+    doRandomSound: 0
+    clips: []
+    doRandomVolume: 1
+    randVolumeRange: {x: -0.1, y: 0.15}
+    doRandomPitch: 1
+    randPitchRange: {x: -0.15, y: 0.25}

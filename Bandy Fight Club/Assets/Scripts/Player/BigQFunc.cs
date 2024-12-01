@@ -43,6 +43,10 @@ public class BigQFunc : PlayerFunc, ICharacterFunc
     [SerializeField] float timeAttackCharging;
     [SerializeField] float attackChargeNeeded = 0.5f;
 
+    [SerializeField] string saxGrappleBoostSound;
+    [SerializeField] float saxGrappleBoostSoundVol = 1;
+    [SerializeField] float saxGrappleBoostSoundPitch = 1;
+
     void Awake()
     {
         if (characterFunc == null) characterFunc = this;
@@ -313,6 +317,8 @@ public class BigQFunc : PlayerFunc, ICharacterFunc
             maintainSpeed = boost.x;
 
             DoAccelerationMult(grappleSaxBoostAccelerationMult, grappleSaxBoostAccelerationTime);
+
+            audio.Play(saxGrappleBoostSound, saxGrappleBoostSoundVol, saxGrappleBoostSoundPitch);
         }
         void Parry()
         {

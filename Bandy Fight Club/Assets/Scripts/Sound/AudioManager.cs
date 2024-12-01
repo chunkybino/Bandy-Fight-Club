@@ -54,6 +54,14 @@ public class AudioManager : MonoBehaviour
         s.Play(volume, pitch);
     }
 
+    public void PlayList(List<string> names, float volume = 1, float pitch = 1)
+    {
+        for (int i = 0; i < names.Count; i++)
+        {
+            Play(names[i], volume, pitch);
+        }
+    }
+
     Sound FindSoundByName(string name)
     {
         foreach (Sound s in sounds)
