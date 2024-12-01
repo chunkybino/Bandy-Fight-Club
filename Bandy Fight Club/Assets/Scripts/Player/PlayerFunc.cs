@@ -209,6 +209,10 @@ public class PlayerFunc : MonoBehaviour
     [SerializeField] string blockSoundName;
     [SerializeField] string perfblockSoundName;
 
+    [SerializeField] string startBlockCounterSound;
+    [SerializeField] float startBlockCounterSoundVol = 1;
+    [SerializeField] float startBlockCounterSoundPitch = 1;
+
     //hit stun
     [SerializeField] float stunTimeNeeded;
     [SerializeField] float currentTimeStunned;
@@ -766,6 +770,8 @@ public class PlayerFunc : MonoBehaviour
 
         squasher.DoSquash(blockCounterStartSquash);
         blockCounterStartParticles.Play();
+
+        audio.Play(startBlockCounterSound, startBlockCounterSoundVol, startBlockCounterSoundPitch);
     }
     public void SuccessfulBlockCounter()
     {
