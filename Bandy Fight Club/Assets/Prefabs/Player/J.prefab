@@ -296,7 +296,7 @@ MonoBehaviour:
         m_CallState: 2
   hitParticles: {fileID: 2653833485904765781, guid: b6307853dc53dd141951ad23156ca745, type: 3}
   audio: {fileID: 7112663735537830072}
-  hurtSoundName: 
+  hurtSoundName: flute_hurt
 --- !u!114 &9045482197941810018
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -480,13 +480,16 @@ MonoBehaviour:
     doPivot: 0
     perpAmp: 1
     doPivotOnGrounded: 1
-  blockCounterStartParticles: {fileID: 1334576076071689388, guid: 00645ed37d8dfd246b6d18ea72f7d915, type: 3}
+  blockCounterStartParticles: {fileID: 7143950600737118986}
   blockParticles: {fileID: 1713865554369944223, guid: b005adbada3821247b0673ad5b8f75de, type: 3}
   perfBlockParticles: {fileID: 1713865554369944223, guid: 01ce6fc26f37a134bb142ec271761b09, type: 3}
   blockCounterParticles: {fileID: 4512744190449187998, guid: f4f3ef347abed464f8e62387c48c69f3, type: 3}
   blockCounterHitStop: 0.35
-  blockSoundName: 
-  perfblockSoundName: 
+  blockSoundName: flute_block
+  perfblockSoundName: flute_perfblock
+  startBlockCounterSound: flute_block
+  startBlockCounterSoundVol: 1
+  startBlockCounterSoundPitch: 0.8
   stunTimeNeeded: 0
   currentTimeStunned: 0
   isStun: 0
@@ -4349,6 +4352,11 @@ GameObject:
 --- !u!1 &6327729545796327246 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 236635660948381204, guid: fe70ef1e12400454dab17dbd913906c3, type: 3}
+  m_PrefabInstance: {fileID: 6095673352925186394}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &7143950600737118986 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 4016163749658645072, guid: fe70ef1e12400454dab17dbd913906c3, type: 3}
   m_PrefabInstance: {fileID: 6095673352925186394}
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &7976977333337049710 stripped

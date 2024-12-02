@@ -103,7 +103,7 @@ MonoBehaviour:
     randPitchRange: {x: 0, y: 0.12}
   - name: wooshSlash
     clip: {fileID: 8300000, guid: f49d25dada9df2b4192333c7825a0f80, type: 3}
-    volume: 0.5
+    volume: 0.8
     pitch: 1
     doRandomSound: 0
     clips: []
@@ -199,3 +199,47 @@ MonoBehaviour:
     randVolumeRange: {x: -0.1, y: 0.15}
     doRandomPitch: 1
     randPitchRange: {x: -0.15, y: 0.25}
+  - name: flute_hurt
+    clip: {fileID: 0}
+    volume: 0.45
+    pitch: 1
+    doRandomSound: 1
+    clips:
+    - {fileID: 8300000, guid: bce7dfd9f3f04a542b3de7670bb5b004, type: 3}
+    - {fileID: 8300000, guid: 715b3a9d88049214dab5e016975658f9, type: 3}
+    - {fileID: 8300000, guid: b2debbcf8828e8b458269a1271e9bbb0, type: 3}
+    - {fileID: 8300000, guid: 2fe4067cdcd4701428421d68f4186f82, type: 3}
+    doRandomVolume: 1
+    randVolumeRange: {x: -0.05, y: 0.15}
+    doRandomPitch: 1
+    randPitchRange: {x: -0.05, y: 0.075}
+  - name: flute_block
+    clip: {fileID: 0}
+    volume: 0.6
+    pitch: 1
+    doRandomSound: 1
+    clips:
+    - {fileID: 8300000, guid: 67c28892c458dc348aa2ff70efb16743, type: 3}
+    - {fileID: 8300000, guid: faafa44379e40624383e9e1592e4a699, type: 3}
+    - {fileID: 8300000, guid: 4474dd86215f0114aa193ebe1ccfca2e, type: 3}
+    - {fileID: 8300000, guid: 6d91a53fd9277984283833da78666bda, type: 3}
+    - {fileID: 8300000, guid: fedb6ea606602224ea6b5e64063961ab, type: 3}
+    - {fileID: 8300000, guid: b28131031050d8b458ff816eb46c9c39, type: 3}
+    doRandomVolume: 1
+    randVolumeRange: {x: -0.1, y: 0.15}
+    doRandomPitch: 0
+    randPitchRange: {x: 0, y: 0}
+  - name: flute_perfblock
+    clip: {fileID: 0}
+    volume: 0.7
+    pitch: 1.15
+    doRandomSound: 1
+    clips:
+    - {fileID: 8300000, guid: d6e4fa0ccb76ec140bdfb5f1d2b432c2, type: 3}
+    - {fileID: 8300000, guid: 75bca2a10aed1924396e918b95a4fbd6, type: 3}
+    - {fileID: 8300000, guid: 7ca07001c3488c244a46e1f842ecab6a, type: 3}
+    - {fileID: 8300000, guid: 04eecc7f1ebaf2b43a6254f1f459725e, type: 3}
+    doRandomVolume: 1
+    randVolumeRange: {x: -0.1, y: 0.15}
+    doRandomPitch: 0
+    randPitchRange: {x: 0, y: 0}

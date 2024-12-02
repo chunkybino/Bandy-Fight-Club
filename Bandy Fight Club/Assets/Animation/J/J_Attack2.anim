@@ -17150,6 +17150,13 @@ AnimationClip:
     floatParameter: 15
     intParameter: 0
     messageOptions: 0
+  - time: 0.08
+    functionName: PlaySoundPitchVol
+    data: woosh4_0.5_2
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
   - time: 0.14
     functionName: DoSquash
     data: 
@@ -17162,5 +17169,19 @@ AnimationClip:
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 35
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.2
+    functionName: PlaySoundPitchVol
+    data: woosh2_0.5_1.1
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.22
+    functionName: PlaySoundPitchVol
+    data: wooshSlash_0.75_1.6
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
     intParameter: 0
     messageOptions: 0
