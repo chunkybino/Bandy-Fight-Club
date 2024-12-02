@@ -1222,6 +1222,7 @@ MonoBehaviour:
   menuIndex: 0
   selectPos: 0
   mainMenu: {fileID: 3552081505956226937}
+  mainMenuTransform: {fileID: 0}
   mainMenuIndex: 0
   mainMenuSelectionOptions: 2
   mainMenuButtonPosSize:
@@ -1269,9 +1270,47 @@ MonoBehaviour:
   lastButtonPosSize: {x: 0, y: 0, z: 0, w: 0}
   targetButtonPosSize: {x: 0, y: 0, z: 0, w: 0}
   characterSelect: {fileID: 2484078853215590238}
+  characterSelectTransform: {fileID: 0}
   characterSelectMenuIndex: 1
   playerOrderedInputMaps: []
   exitToMainMenuEscapeHoldTime: 1.5
+  menuTransitionCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 6.1866674
+      outSlope: 6.1866674
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.14389934
+    - serializedVersion: 3
+      time: 0.23963109
+      value: 0.726591
+      inSlope: 1.162663
+      outSlope: 1.162663
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.14742465
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  menuTransitionPos: {x: 0, y: 650}
+  menuTransitionSpeed: 1.25
+  prevMenuTransform: {fileID: 0}
+  currentMenuTransform: {fileID: 0}
 --- !u!1 &4026940212159988840
 GameObject:
   m_ObjectHideFlags: 0
