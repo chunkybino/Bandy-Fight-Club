@@ -22546,7 +22546,7 @@ MonoBehaviour:
     perpAmp: 0.5
     doPivotOnGrounded: 1
   dashJumpHeight: 5
-  dashJumpSpeed: 28
+  dashJumpSpeed: 32
   dashJumpAccel: 0.35
   dashJumpAccelTime: 0.4
   dashJumpGrav: 0.8
@@ -22590,7 +22590,7 @@ MonoBehaviour:
   airBlockSpeedMult: 0.8
   groundBlockSpeedMult: 0
   blockSkidTime: 0.2
-  blockSkidMaxFallSpeed: 2
+  blockSkidMaxFallSpeed: 3
   blockCounterStartSquash:
     name: 
     speed: 3

@@ -26922,7 +26922,7 @@ MonoBehaviour:
     tags: []
   direction: 0
   directionReference: {fileID: 526461568902792042}
-  playerFunc: {fileID: 1432437725667054423}
+  playerFunc: {fileID: 0}
   knockbackHandler: {fileID: 3016236252682898113}
   onHit:
     m_PersistentCalls:
@@ -32034,13 +32034,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameManager: {fileID: 0}
-  playerFunc: {fileID: 1432437725667054423}
+  playerFunc: {fileID: 8911677187437037952}
   playerAttack: {fileID: 5022984665400623845}
   inputs: {fileID: 5368844436725115797}
   playerNumber: 0
   team: {fileID: 4635048364248160282}
   health: 0
-  maxHealth: 350
+  maxHealth: 450
   isDead: 0
   stunBlockDamageMult: 0.5
   onAwake:
@@ -32060,7 +32060,7 @@ MonoBehaviour:
         m_CallState: 2
   hitParticles: {fileID: 2653833485904765781, guid: b6307853dc53dd141951ad23156ca745, type: 3}
   audio: {fileID: 926696283970283661}
-  hurtSoundName: flute_hurt
+  hurtSoundName: 
 --- !u!4 &894846854957935751
 Transform:
   m_ObjectHideFlags: 0
@@ -43466,234 +43466,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 5046250484407359388}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1432437725667054423
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8911677187437037951}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a23be4d91fd703545b5867d180d55436, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gameManager: {fileID: 0}
-  rb: {fileID: 2475148642530193013}
-  playerStatus: {fileID: 874177367017154008}
-  playerAttack: {fileID: 5022984665400623845}
-  playerHitbox: {fileID: 5688206848712860864}
-  playerAnimation: {fileID: 2005325051929520643}
-  inputs: {fileID: 5368844436725115797}
-  groundCheck: {fileID: 332733500367199352}
-  knockbackHandler: {fileID: 3016236252682898113}
-  squasher: {fileID: 1709901826015979321}
-  audio: {fileID: 926696283970283661}
-  allowControl: 0
-  lastFrameVels: []
-  lastFrameVelCount: 5
-  lastFramePos: {x: 0, y: 0}
-  movementSpeed: 28
-  sideInputDirection: 0
-  verticalInputDirection: 0
-  inputVector: {x: 0, y: 0}
-  multAccleration: 0.5
-  flatAccleration: 0.3
-  currentMultAcceleration: 0
-  currentFlatAcceleration: 0
-  accelerationAnimator: {fileID: 4159519390127044475}
-  maintainSpeed: 0
-  reachMaxSpeedForTimeTimer: 0
-  targetSideSpeed: 0
-  grounded: 0
-  onGroundLand:
-    m_PersistentCalls:
-      m_Calls: []
-  groundLandSquashData:
-    name: groundland
-    speed: 4
-    amplitude: 0.1
-    freqency: 2
-    decayPower: 2
-    flipXY: 0
-    doPivot: 1
-    perpAmp: 1
-    doPivotOnGrounded: 0
-  groundLandSquashMinMaxVelAmp:
-    inputMin: 24
-    inputMax: 60
-    outputMin: 1
-    outputMax: 4
-    doLerpCurve: 0
-    lerpCurve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-  deadGroundLandSquashData:
-    name: groundland
-    speed: 3
-    amplitude: 0.4
-    freqency: 2
-    decayPower: 2
-    flipXY: 0
-    doPivot: 1
-    perpAmp: 0.75
-    doPivotOnGrounded: 0
-  groundedLeewayTime: 0.15
-  facing: 1
-  jumpHeight: 8
-  airJumpHeight: 5
-  totalAirJumps: 2
-  jumpReleaseFallFactor: 0.85
-  enableJumpReleaseFall: 0
-  jumpBufferTime: 0.1
-  canJumpAnimator: {fileID: 1505198674798370431}
-  jumpSquashData:
-    name: 
-    speed: 3
-    amplitude: 0.2
-    freqency: 2
-    decayPower: 2
-    flipXY: 0
-    doPivot: 0
-    perpAmp: 1
-    doPivotOnGrounded: 0
-  jumpSoundName: jump
-  isDodging: 0
-  isDodgingBurst: 0
-  doDodgeMovement: 0
-  dodgeBurstSpeed: 50
-  dodgeLowerSpeed: 20
-  dodgeBurstTime: 0.15
-  dodgeTime: 0.25
-  dodgeDirection: {x: 0, y: 0}
-  dodgeAcceleration: 0.3
-  dodgeBufferTime: 0.1
-  dodgeTapWindow: 0.2
-  dodgeCooldownTimer: 0
-  currentDodgeCooldownTime: 0
-  dodgeCooldownMinMaxTime: {x: 0.25, y: 0.6}
-  dodgeCooldownAddPerDodge: 0.2
-  dodgeCooldownDecaySpeed: 0.95
-  dodgeCooldownBar: {fileID: 6727789216690481612}
-  timeDodging: 0
-  timeSinceDodge: 0
-  dodgeIntangibilityTime: 0.15
-  canDodgeAnimator: {fileID: 4865105156956742528}
-  attackOutOfDodgeTime: 0.2
-  dodgeSquashData:
-    name: 
-    speed: 2
-    amplitude: 0.4
-    freqency: 2
-    decayPower: 2
-    flipXY: 0
-    doPivot: 0
-    perpAmp: 1
-    doPivotOnGrounded: 0
-  dashJumpHeight: 3.5
-  dashJumpSpeed: 36
-  dashJumpAccel: 0.35
-  dashJumpAccelTime: 0.4
-  dashJumpGrav: 0.65
-  dashJumpGravTime: 0.6
-  baseGravity: 115
-  currentGrav: 0
-  gravMultAnimator: {fileID: 2690260940279924048}
-  downPlatformBufferTime: 0.15
-  isBlocking: 0
-  timeBlocking: 0
-  perfBlockTime: 0.3
-  isPerfBlocking: 0
-  isLateBlocking: 0
-  lateBlockTime: 0.75
-  lateBlockDisadvantageMult: 1.5
-  blockStunTimer: 0
-  isBlockStun: 0
-  isBlockCounter: 0
-  blockCounterTimer: 0
-  blockCounterTime: 0.15
-  blockCounterLateTime: 0.25
-  blockCounterStunMult: 0.4
-  blockCounterDisadvantageHeal: 0.15
-  perfBlockDisadvantageReturn: 0.08
-  blockCounterDisadvantageReturn: 0.15
-  perfBlockAttackStun: 0.15
-  blockCounterAttackStun: 0.6
-  blockCounterReturnKnockback:
-    name: 
-    vel: {x: 10, y: 0}
-    fixedVel: {x: 0, y: 12}
-    xVelType: 3
-    yVelType: 3
-    normalizeVel: 0
-    dontDoAgainstGroundedTarget: 0
-    ignoreBaseKnockbackResistance: 0
-    acceleration: 0.05
-    accelerationTime: 0.4
-  blockKnockbackMult: {x: 0.9, y: 0.9}
-  blockCounterKnockbackMult: {x: 0.3, y: 0.5}
-  airBlockSpeedMult: 0.5
-  groundBlockSpeedMult: 0
-  blockSkidTime: 0.2
-  blockSkidMaxFallSpeed: 4
-  blockCounterStartSquash:
-    name: 
-    speed: 3
-    amplitude: 0.15
-    freqency: 2
-    decayPower: 2
-    flipXY: 0
-    doPivot: 0
-    perpAmp: 1
-    doPivotOnGrounded: 1
-  blockCounterStartParticles: {fileID: 958529633357134655}
-  blockParticles: {fileID: 1713865554369944223, guid: b005adbada3821247b0673ad5b8f75de, type: 3}
-  perfBlockParticles: {fileID: 1713865554369944223, guid: 01ce6fc26f37a134bb142ec271761b09, type: 3}
-  blockCounterParticles: {fileID: 4512744190449187998, guid: f4f3ef347abed464f8e62387c48c69f3, type: 3}
-  blockCounterHitStop: 0.35
-  blockSoundName: flute_block
-  perfblockSoundName: flute_perfblock
-  startBlockCounterSound: flute_block
-  startBlockCounterSoundVol: 1
-  startBlockCounterSoundPitch: 0.8
-  stunTimeNeeded: 0
-  currentTimeStunned: 0
-  isStun: 0
-  stunSpeedMult: 0.3
-  stunAccelerationMult: 0.1
-  canBlockOutOfStun: 0
-  stunBlockTimeOffest: 0.15
-  stunBlockDisadvantageMult: 0
-  stunBlocking: 0
-  blockBreakStunTime: 1
-  disadvantage: 0
-  disadvantageHealRate: 0.05
-  maxDisavantage: 0.3
-  disadvantageStunMult: 1.9
-  disadvantageHealDelay: 1.5
-  playerMesh: {fileID: 7773265053147899197}
-  timeSinceSlash1: 0
-  slash2ComboTime: 0.9
-  timeSinceSlash2: 0
-  slash3ComboTime: 1
-  piccoloBulletConfig: {fileID: 11400000, guid: a86ca759d4df37642b11c441a1034f27, type: 2}
-  piccoloSideThrowDirection: {x: 1, y: 1.2}
-  piccoloUpThrowDirection: {x: 0.2, y: 1.8}
-  piccoloDownThrowDirection: {x: 0.8, y: -0.3}
-  piccoloSideThrowInheritanceMult: {x: 0.6, y: 0.6}
-  piccoloUpThrowInheritanceMult: {x: 0.15, y: 0.7}
-  piccoloDownThrowInheritanceMult: {x: 0.6, y: 0.8}
-  piccoloVerticalVelInheritenceDegree: 0.8
-  currentPiccoloBullet: {fileID: 0}
-  currentClone: {fileID: 0}
-  clonePrefab: {fileID: 4950847131231921027, guid: 5d86985bd37d4b141a0c24cdeffa1e01, type: 3}
-  cloneTeleportAccelMult: 0.15
-  cloneTeleportAccelTime: 0.5
-  cloneTeleportAttackStun: 0.2
-  upDownAttackCooldown: 0.25
 --- !u!1 &1445571391983770521
 GameObject:
   m_ObjectHideFlags: 0
@@ -44619,7 +44391,7 @@ MonoBehaviour:
     tags: []
   direction: 0
   directionReference: {fileID: 526461568902792042}
-  playerFunc: {fileID: 1432437725667054423}
+  playerFunc: {fileID: 0}
   knockbackHandler: {fileID: 3016236252682898113}
   onHit:
     m_PersistentCalls:
@@ -44705,7 +44477,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerReference: {fileID: 526461568902792042}
   renderReference: {fileID: 524970404689570889}
-  playerFunc: {fileID: 1432437725667054423}
+  playerFunc: {fileID: 0}
   trail: {fileID: 6591471054954953345}
   constraintIndex: 1
   constraintTransforms:
@@ -44922,7 +44694,7 @@ MonoBehaviour:
     tags: []
   direction: 0
   directionReference: {fileID: 526461568902792042}
-  playerFunc: {fileID: 1432437725667054423}
+  playerFunc: {fileID: 0}
   knockbackHandler: {fileID: 3016236252682898113}
   onHit:
     m_PersistentCalls:
@@ -45165,7 +44937,7 @@ MonoBehaviour:
   anim: {fileID: 502107404627511977}
   playerStatus: {fileID: 874177367017154008}
   playerAttack: {fileID: 5022984665400623845}
-  playerFunc: {fileID: 1432437725667054423}
+  playerFunc: {fileID: 0}
   rb: {fileID: 2475148642530193013}
   audio: {fileID: 926696283970283661}
   currentAnim: Idle
@@ -48364,7 +48136,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 2475148642530193013}
-  playerFunc: {fileID: 1432437725667054423}
+  playerFunc: {fileID: 0}
   groundCheck: {fileID: 332733500367199352}
   baseKnockbackResistance: {x: 1.1, y: 1.45}
   knockbackResistanceMult: {x: 1, y: 1}
@@ -54999,7 +54771,7 @@ MonoBehaviour:
     tags: []
   direction: 0
   directionReference: {fileID: 526461568902792042}
-  playerFunc: {fileID: 1432437725667054423}
+  playerFunc: {fileID: 0}
   knockbackHandler: {fileID: 3016236252682898113}
   onHit:
     m_PersistentCalls:
@@ -56200,7 +55972,7 @@ MonoBehaviour:
   onAttackStart:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1432437725667054423}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: BigJFunc, Assembly-CSharp
         m_MethodName: PiccoloThrowAttack
         m_Mode: 1
@@ -61797,7 +61569,7 @@ MonoBehaviour:
     tags: []
   direction: 0
   directionReference: {fileID: 526461568902792042}
-  playerFunc: {fileID: 1432437725667054423}
+  playerFunc: {fileID: 0}
   knockbackHandler: {fileID: 3016236252682898113}
   onHit:
     m_PersistentCalls:
@@ -68453,7 +68225,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerStatus: {fileID: 874177367017154008}
-  playerFunc: {fileID: 1432437725667054423}
+  playerFunc: {fileID: 0}
   inputs: {fileID: 5368844436725115797}
   playerAnim: {fileID: 2005325051929520643}
   isAttacking: 0
@@ -69908,7 +69680,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 2475148642530193013}
   playerStatus: {fileID: 874177367017154008}
-  playerFunc: {fileID: 1432437725667054423}
+  playerFunc: {fileID: 0}
   groundCheck: {fileID: 332733500367199352}
   knockbackHandler: {fileID: 3016236252682898113}
   teamHolder: {fileID: 0}
@@ -80779,7 +80551,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc8bd33efe87cd3498b951ed2f0551c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerFunc: {fileID: 1432437725667054423}
+  playerFunc: {fileID: 0}
   facing: 1
   anchor: {fileID: 526461568902792042}
   team: 3
@@ -85871,7 +85643,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerReference: {fileID: 526461568902792042}
   renderReference: {fileID: 524970404689570889}
-  playerFunc: {fileID: 1432437725667054423}
+  playerFunc: {fileID: 0}
   trail: {fileID: 6210826129901939127}
   constraintIndex: 0
   constraintTransforms:
@@ -88183,7 +87955,7 @@ MonoBehaviour:
     tags: []
   direction: 0
   directionReference: {fileID: 526461568902792042}
-  playerFunc: {fileID: 1432437725667054423}
+  playerFunc: {fileID: 0}
   knockbackHandler: {fileID: 3016236252682898113}
   onHit:
     m_PersistentCalls:
@@ -89475,7 +89247,7 @@ GameObject:
   - component: {fileID: 526461568902792042}
   - component: {fileID: 2475148642530193013}
   - component: {fileID: 874177367017154008}
-  - component: {fileID: 1432437725667054423}
+  - component: {fileID: 8911677187437037952}
   - component: {fileID: 5368844436725115797}
   - component: {fileID: 4635048364248160282}
   - component: {fileID: 3016236252682898113}
@@ -89486,6 +89258,215 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &8911677187437037952
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8911677187437037951}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1d70c5b938d2944d8f3fe323bf3cc23, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameManager: {fileID: 0}
+  rb: {fileID: 2475148642530193013}
+  playerStatus: {fileID: 874177367017154008}
+  playerAttack: {fileID: 5022984665400623845}
+  playerHitbox: {fileID: 5688206848712860864}
+  playerAnimation: {fileID: 2005325051929520643}
+  inputs: {fileID: 5368844436725115797}
+  groundCheck: {fileID: 332733500367199352}
+  knockbackHandler: {fileID: 3016236252682898113}
+  squasher: {fileID: 1709901826015979321}
+  audio: {fileID: 926696283970283661}
+  allowControl: 0
+  lastFrameVels: []
+  lastFrameVelCount: 5
+  lastFramePos: {x: 0, y: 0}
+  movementSpeed: 16
+  sideInputDirection: 0
+  verticalInputDirection: 0
+  inputVector: {x: 0, y: 0}
+  multAccleration: 0.5
+  flatAccleration: 0.3
+  currentMultAcceleration: 0
+  currentFlatAcceleration: 0
+  accelerationAnimator: {fileID: 4159519390127044475}
+  maintainSpeed: 0
+  reachMaxSpeedForTimeTimer: 0
+  targetSideSpeed: 0
+  grounded: 0
+  onGroundLand:
+    m_PersistentCalls:
+      m_Calls: []
+  groundLandSquashData:
+    name: groundland
+    speed: 4
+    amplitude: 0.1
+    freqency: 2
+    decayPower: 2
+    flipXY: 0
+    doPivot: 1
+    perpAmp: 1
+    doPivotOnGrounded: 0
+  groundLandSquashMinMaxVelAmp:
+    inputMin: 24
+    inputMax: 60
+    outputMin: 1
+    outputMax: 4
+    doLerpCurve: 0
+    lerpCurve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+  deadGroundLandSquashData:
+    name: groundland
+    speed: 3
+    amplitude: 0.4
+    freqency: 2
+    decayPower: 2
+    flipXY: 0
+    doPivot: 1
+    perpAmp: 0.75
+    doPivotOnGrounded: 0
+  groundedLeewayTime: 0.15
+  facing: 1
+  jumpHeight: 8
+  airJumpHeight: 7
+  totalAirJumps: 1
+  jumpReleaseFallFactor: 0.85
+  enableJumpReleaseFall: 0
+  jumpBufferTime: 0.1
+  canJumpAnimator: {fileID: 1505198674798370431}
+  jumpSquashData:
+    name: 
+    speed: 3
+    amplitude: 0.2
+    freqency: 2
+    decayPower: 2
+    flipXY: 0
+    doPivot: 0
+    perpAmp: 1
+    doPivotOnGrounded: 0
+  jumpSoundName: jump
+  isDodging: 0
+  isDodgingBurst: 0
+  doDodgeMovement: 0
+  dodgeBurstSpeed: 38
+  dodgeLowerSpeed: 14
+  dodgeBurstTime: 0.15
+  dodgeTime: 0.35
+  dodgeDirection: {x: 0, y: 0}
+  dodgeAcceleration: 0.3
+  dodgeBufferTime: 0.1
+  dodgeTapWindow: 0.2
+  dodgeCooldownTimer: 0
+  currentDodgeCooldownTime: 0
+  dodgeCooldownMinMaxTime: {x: 0.25, y: 0.6}
+  dodgeCooldownAddPerDodge: 0.2
+  dodgeCooldownDecaySpeed: 0.95
+  dodgeCooldownBar: {fileID: 6727789216690481612}
+  timeDodging: 0
+  timeSinceDodge: 0
+  dodgeIntangibilityTime: 0.15
+  canDodgeAnimator: {fileID: 4865105156956742528}
+  attackOutOfDodgeTime: 0.25
+  dodgeSquashData:
+    name: 
+    speed: 2
+    amplitude: 0.4
+    freqency: 2
+    decayPower: 2
+    flipXY: 0
+    doPivot: 0
+    perpAmp: 1
+    doPivotOnGrounded: 0
+  dashJumpHeight: 6
+  dashJumpSpeed: 26
+  dashJumpAccel: 0.35
+  dashJumpAccelTime: 0.4
+  dashJumpGrav: 0.8
+  dashJumpGravTime: 0.6
+  baseGravity: 70
+  currentGrav: 0
+  gravMultAnimator: {fileID: 2690260940279924048}
+  downPlatformBufferTime: 0.1
+  isBlocking: 0
+  timeBlocking: 0
+  perfBlockTime: 0.3
+  isPerfBlocking: 0
+  isLateBlocking: 0
+  lateBlockTime: 0.75
+  lateBlockDisadvantageMult: 1.5
+  blockStunTimer: 0
+  isBlockStun: 0
+  isBlockCounter: 0
+  blockCounterTimer: 0
+  blockCounterTime: 0.15
+  blockCounterLateTime: 0.25
+  blockCounterStunMult: 0.4
+  blockCounterDisadvantageHeal: 0.15
+  perfBlockDisadvantageReturn: 0.08
+  blockCounterDisadvantageReturn: 0.15
+  perfBlockAttackStun: 0.15
+  blockCounterAttackStun: 0.7
+  blockCounterReturnKnockback:
+    name: 
+    vel: {x: 0, y: 0}
+    fixedVel: {x: 0, y: 0}
+    xVelType: 0
+    yVelType: 0
+    normalizeVel: 0
+    dontDoAgainstGroundedTarget: 0
+    ignoreBaseKnockbackResistance: 0
+    acceleration: 0
+    accelerationTime: 0
+  blockKnockbackMult: {x: 0.9, y: 0.9}
+  blockCounterKnockbackMult: {x: 0.3, y: 0.5}
+  airBlockSpeedMult: 0.5
+  groundBlockSpeedMult: 0
+  blockSkidTime: 0.2
+  blockSkidMaxFallSpeed: 3
+  blockCounterStartSquash:
+    name: 
+    speed: 3
+    amplitude: 0.15
+    freqency: 2
+    decayPower: 2
+    flipXY: 0
+    doPivot: 0
+    perpAmp: 1
+    doPivotOnGrounded: 1
+  blockCounterStartParticles: {fileID: 958529633357134655}
+  blockParticles: {fileID: 1713865554369944223, guid: b005adbada3821247b0673ad5b8f75de, type: 3}
+  perfBlockParticles: {fileID: 1713865554369944223, guid: 01ce6fc26f37a134bb142ec271761b09, type: 3}
+  blockCounterParticles: {fileID: 4512744190449187998, guid: f4f3ef347abed464f8e62387c48c69f3, type: 3}
+  blockCounterHitStop: 0.5
+  blockSoundName: 
+  perfblockSoundName: 
+  startBlockCounterSound: 
+  startBlockCounterSoundVol: 1
+  startBlockCounterSoundPitch: 1
+  stunTimeNeeded: 0
+  currentTimeStunned: 0
+  isStun: 0
+  stunSpeedMult: 0.4
+  stunAccelerationMult: 0.3
+  canBlockOutOfStun: 0
+  stunBlockTimeOffest: 0.15
+  stunBlockDisadvantageMult: 0
+  stunBlocking: 0
+  blockBreakStunTime: 1
+  disadvantage: 0
+  disadvantageHealRate: 0.05
+  maxDisavantage: 0.4
+  disadvantageStunMult: 1.65
+  disadvantageHealDelay: 1.75
+  playerMesh: {fileID: 7773265053147899197}
 --- !u!1 &8922326563604886340
 GameObject:
   m_ObjectHideFlags: 0
