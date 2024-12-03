@@ -278,15 +278,15 @@ MonoBehaviour:
   canDodgeAnimator: {fileID: 3309402433782006709}
   attackOutOfDodgeTime: 0.2
   dodgeSquashData:
-    name: 
-    speed: 2
-    amplitude: 0.4
-    freqency: 2
+    name: dodge
+    speed: 3.5
+    amplitude: -0.6
+    freqency: 1
     decayPower: 2
-    flipXY: 0
+    flipXY: 1
     doPivot: 0
-    perpAmp: 1
-    doPivotOnGrounded: 0
+    perpAmp: 0.5
+    doPivotOnGrounded: 1
   dashJumpHeight: 3.5
   dashJumpSpeed: 36
   dashJumpAccel: 0.35
