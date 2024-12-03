@@ -7525,7 +7525,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7345804932902525444
 Transform:
   m_ObjectHideFlags: 0
@@ -7639,7 +7639,7 @@ MonoBehaviour:
   lastFrameVels: []
   lastFrameVelCount: 5
   lastFramePos: {x: 0, y: 0}
-  movementSpeed: 16
+  movementSpeed: 17
   sideInputDirection: 0
   verticalInputDirection: 0
   inputVector: {x: 0, y: 0}
@@ -7689,7 +7689,7 @@ MonoBehaviour:
     doPivotOnGrounded: 0
   groundedLeewayTime: 0.15
   facing: 1
-  jumpHeight: 8
+  jumpHeight: 8.5
   airJumpHeight: 7
   totalAirJumps: 1
   jumpReleaseFallFactor: 0.85
@@ -7710,8 +7710,8 @@ MonoBehaviour:
   isDodging: 0
   isDodgingBurst: 0
   doDodgeMovement: 0
-  dodgeBurstSpeed: 38
-  dodgeLowerSpeed: 14
+  dodgeBurstSpeed: 36
+  dodgeLowerSpeed: 16
   dodgeBurstTime: 0.15
   dodgeTime: 0.35
   dodgeDirection: {x: 0, y: 0}
@@ -7745,7 +7745,7 @@ MonoBehaviour:
   dashJumpAccelTime: 0.4
   dashJumpGrav: 0.8
   dashJumpGravTime: 0.6
-  baseGravity: 70
+  baseGravity: 80
   currentGrav: 0
   gravMultAnimator: {fileID: 4237967890203856220}
   downPlatformBufferTime: 0.1
@@ -58569,7 +58569,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 5519420579977483789}
   playerStatus: {fileID: 8099875870591698466}
-  playerFunc: {fileID: 0}
+  playerFunc: {fileID: 6042440966834430578}
   groundCheck: {fileID: 3684413564906082444}
   knockbackHandler: {fileID: 3026256772149845289}
   teamHolder: {fileID: 1119148463376745336}
@@ -63107,7 +63107,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerStatus: {fileID: 8099875870591698466}
-  playerFunc: {fileID: 0}
+  playerFunc: {fileID: 6042440966834430578}
   inputs: {fileID: 2187926393758900239}
   playerAnim: {fileID: 4041678827656812980}
   isAttacking: 0
