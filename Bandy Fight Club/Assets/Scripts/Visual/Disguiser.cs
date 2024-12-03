@@ -10,6 +10,7 @@ public class Disguiser : MonoBehaviour
     public bool disguiseOnSilhouette;
     public bool disguiseOnQWeap;
     public bool disguiseOnJWeap;
+    public bool disguiseOnMWeap;
     public bool inverse;
 
     public GameObject targetObject; //if null do self
@@ -40,6 +41,7 @@ public class Disguiser : MonoBehaviour
         if (disguiseOnSilhouette && DisguiserParent.doSilhouetteStatic) activate = false;
         if (disguiseOnQWeap && DisguiserParent.hideQWeapStatic) activate = false;
         if (disguiseOnJWeap && DisguiserParent.hideJWeapStatic) activate = false;
+        if (disguiseOnMWeap && DisguiserParent.hideMWeapStatic) activate = false;
         targetObject.SetActive(activate);
         if (inverseObject) inverseObject.SetActive(!activate);
 

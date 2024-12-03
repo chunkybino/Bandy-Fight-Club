@@ -98,8 +98,6 @@ public class GameManager : MonoBehaviour
     {
         DoScreenTransition(true);
         isMenu = true;
-
-        //StartCoroutine("StartGameCoroutine");
     }
 
     public void StartMatchTransition()

@@ -9392,6 +9392,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   disguiseLevel: 1
   disguiserList:
+  - {fileID: 1629520004}
   - {fileID: 561051449}
   - {fileID: 784350243}
   - {fileID: 857232705}
@@ -9409,9 +9410,10 @@ MonoBehaviour:
   - {fileID: 6428945389610884689}
   - {fileID: 7250455678024612078}
   - {fileID: 8277005772173904296}
-  doSilhouette: 1
+  doSilhouette: 0
   hideQWeap: 1
   hideJWeap: 0
+  hideMWeap: 1
   removeNull: 0
 --- !u!1 &308062698
 GameObject:
@@ -15506,7 +15508,7 @@ PrefabInstance:
     - target: {fileID: 1663709583450352777, guid: 84f3f989133dc724681733bf06f534d8, type: 3}
       propertyPath: m_Materials.Array.data[1]
       value: 
-      objectReference: {fileID: 2100000, guid: ca73f2f9a2aa87e4eb2e8aca4166e3d2, type: 2}
+      objectReference: {fileID: 2100000, guid: 5dc7b63aedd576c43a58da879aac0af1, type: 2}
     - target: {fileID: 1688312685288853089, guid: 84f3f989133dc724681733bf06f534d8, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -18038,6 +18040,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1629520004 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 836702750552885304, guid: fadedae2ec4e81c49b649931f75292ff, type: 3}
+  m_PrefabInstance: {fileID: 4629448671078854300}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a931dcca37932de41b0c4db7374c1393, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1668542122
 GameObject:
   m_ObjectHideFlags: 0
@@ -20325,7 +20338,7 @@ PrefabInstance:
     - target: {fileID: 7708457346826277611, guid: 89a4bb26954076c4087def95df52bc91, type: 3}
       propertyPath: m_Materials.Array.data[1]
       value: 
-      objectReference: {fileID: 2100000, guid: ca73f2f9a2aa87e4eb2e8aca4166e3d2, type: 2}
+      objectReference: {fileID: 2100000, guid: 5dc7b63aedd576c43a58da879aac0af1, type: 2}
     - target: {fileID: 7958935236926722915, guid: 89a4bb26954076c4087def95df52bc91, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.42910194
