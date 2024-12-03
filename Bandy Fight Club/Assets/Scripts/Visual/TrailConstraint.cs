@@ -12,11 +12,14 @@ public class TrailConstraint : MonoBehaviour
 
     [SerializeField] TrailRenderer trail;
 
-    public int constraintIndex = -1; //which transfrom to follow
+    public int constraintIndex = -1; //which transform to follow
     [SerializeField] List<Transform> constraintTransforms = new List<Transform>();
 
     float trailNormalTime;
     public float trailTimeMult = 1;
+
+    public bool doZOverride;
+    public float zOverride = -1;
 
     void Start()
     {
@@ -34,6 +37,7 @@ public class TrailConstraint : MonoBehaviour
             Vector3 dif = constraintTransforms[constraintIndex].position - renderReference.position;
             dif.x *= facing;
             transform.position = dif + playerReference.position;
+            if (doZOverride) transform.position = new Vector3(transform.position.x,transform.position.y,zOverride);
         }
 
         trail.time = trailNormalTime * trailTimeMult;
