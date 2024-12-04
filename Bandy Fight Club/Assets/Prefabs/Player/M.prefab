@@ -138,7 +138,7 @@ Transform:
   m_GameObject: {fileID: 14135144355403023}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: 0.5656272, w: 0.82466114}
-  m_LocalPosition: {x: 0.04373105, y: -0.4478792, z: 0}
+  m_LocalPosition: {x: -0.059396952, y: -0.08093196, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -700,7 +700,7 @@ Transform:
   m_GameObject: {fileID: 156347511152480509}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: 0.5656272, w: 0.82466114}
-  m_LocalPosition: {x: -0.13748968, y: 0.07331288, z: 0}
+  m_LocalPosition: {x: -0.00006240606, y: -0.25705433, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -7038,7 +7038,7 @@ Transform:
   m_GameObject: {fileID: 760485421070494430}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.078282624, y: 0.69099355, z: -0}
+  m_LocalPosition: {x: 0.038960576, y: 0.7297441, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -14434,7 +14434,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.5}
+  m_Offset: {x: 0, y: -0.25}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -14445,7 +14445,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.2, y: 5}
+  m_Size: {x: 2.2, y: 5.5}
   m_EdgeRadius: 0
 --- !u!1 &1939414374939467369
 GameObject:
@@ -17160,7 +17160,7 @@ Transform:
   m_Children:
   - {fileID: 4085559385019211942}
   m_Father: {fileID: 3496919233474592712}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -0.233}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -1.521}
 --- !u!1773428102 &8155683722433758117
 ParentConstraint:
   m_ObjectHideFlags: 0
@@ -45575,7 +45575,7 @@ Transform:
   m_GameObject: {fileID: 5419305463356415551}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.015820831, y: 0.3825531, z: 0}
+  m_LocalPosition: {x: 0.05559662, y: 1.5318538, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -52212,7 +52212,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.5}
+  m_Offset: {x: 0, y: -0.25}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -52223,7 +52223,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.2, y: 5}
+  m_Size: {x: 2.2, y: 5.5}
   m_EdgeRadius: 0
 --- !u!1 &6005274988774337082
 GameObject:
@@ -58246,7 +58246,7 @@ Transform:
   m_Children:
   - {fileID: 1478022926629434989}
   m_Father: {fileID: 3496919233474592712}
-  m_LocalEulerAnglesHint: {x: 34.223, y: 42.135, z: 63.335}
+  m_LocalEulerAnglesHint: {x: 3.72, y: 0.183, z: 8.784}
 --- !u!1773428102 &1853138888198873195
 ParentConstraint:
   m_ObjectHideFlags: 0
@@ -58703,7 +58703,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.5}
+  m_Offset: {x: 0, y: -0.25}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -58714,7 +58714,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.2, y: 5}
+  m_Size: {x: 2.2, y: 5.5}
   m_EdgeRadius: 0
 --- !u!114 &902680199533671872
 MonoBehaviour:
@@ -59768,7 +59768,7 @@ Transform:
   m_GameObject: {fileID: 6847843464433933857}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.4500122, y: -2.5166016, z: 6.876997}
+  m_LocalPosition: {x: -0.4500122, y: -2.5166016, z: 6.876992}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -61161,7 +61161,7 @@ Transform:
   m_Children:
   - {fileID: 5445735482490895948}
   m_Father: {fileID: 2066303199914852555}
-  m_LocalEulerAnglesHint: {x: 1.754, y: -5.158, z: 13.154}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 2.223}
 --- !u!1773428102 &5140346833871165140
 ParentConstraint:
   m_ObjectHideFlags: 0
