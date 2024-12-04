@@ -27,6 +27,7 @@ public class MenuManager : MonoBehaviour
     [SerializeField] RectTransform mainMenuTransform;
     [SerializeField] int mainMenuIndex = 0;
     [SerializeField] int mainMenuSelectionOptions = 2;
+    public bool reverseSelectionOrder;
 
     [SerializeField] Vector4[] mainMenuButtonPosSize;
     [SerializeField] RectTransform[] mainMenuButtons;
@@ -42,7 +43,7 @@ public class MenuManager : MonoBehaviour
     [SerializeField] int characterSelectMenuIndex = 1;
 
     public List<InputMapSO> playerOrderedInputMaps = new List<InputMapSO>(); //press a button to join
-    
+
     [SerializeField] float exitMatchDoublePressTime = 1;
     float exitMatchDoublePressTimer = 1;
     [SerializeField] GameObject exitMatchEscIcon;
@@ -169,7 +170,14 @@ public class MenuManager : MonoBehaviour
 
         if (add != 0)
         {
-            selectPos += add;
+            if(!reverseSelectionOrder)
+            {
+                selectPos += add;
+            }
+            else
+            {
+                selectPos -= add;
+            }
             timeSinceSinceButtonSelect = 0;
             lastButtonPosSize = new Vector4( 
                 buttonSelectionObject.anchoredPosition.x,
@@ -184,7 +192,17 @@ public class MenuManager : MonoBehaviour
 
         if (add != 0) targetButtonPosSize = mainMenuButtonPosSize[selectPos]; //do after we've looped select pos
 
-        if (GetStartInput()) SelectPlayerAmount(selectPos == 1); //do 3 player if we selected 1
+        if (GetStartInput()) 
+        {
+            if (selectPos == 0 || selectPos == 1)
+            {
+                SelectPlayerAmount(selectPos == 1); //do 3 player if we selected 1
+            }
+            else if (selectPos == 2)
+            {
+                QuitGame();
+            }
+        }
     }
     void CharacterSelectFunc()
     {
@@ -329,6 +347,12 @@ public class MenuManager : MonoBehaviour
         currentMenuTransform = mainMenuTransform;
         currentMenuTransform.anchoredPosition = new Vector2(0,0);
         //buttonSelectionObject.gameObject.SetActive(true);
+    }
+
+    public void QuitGame()
+    {
+        print("ya done did an exit");
+        Application.Quit();
     }
 
     bool GetUpInput(InputMapSO map)
