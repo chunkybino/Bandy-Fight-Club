@@ -13,6 +13,8 @@ public class BigMFunc : PlayerFunc, ICharacterFunc
     {
         string attackName = "nope";
 
+        attackName = "slash1";
+
         return attackName;
     }
 }
