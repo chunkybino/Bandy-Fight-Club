@@ -297,7 +297,6 @@ public class MenuManager : MonoBehaviour
         menuTransitionTimer = 0;
 
         mainMenu.SetActive(true);
-        //buttonSelectionObject.gameObject.SetActive(true);
         characterSelect.SetActive(true);
     }
     public void MenuTransitionFunc()
@@ -321,6 +320,8 @@ public class MenuManager : MonoBehaviour
     {
         menuIndex = mainMenuIndex;
         mainMenu.SetActive(true);
+        currentMenuTransform = mainMenuTransform;
+        currentMenuTransform.anchoredPosition = new Vector2(0,0);
         //buttonSelectionObject.gameObject.SetActive(true);
     }
 
