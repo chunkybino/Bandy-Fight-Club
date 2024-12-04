@@ -42,9 +42,10 @@ public class MenuManager : MonoBehaviour
     [SerializeField] int characterSelectMenuIndex = 1;
 
     public List<InputMapSO> playerOrderedInputMaps = new List<InputMapSO>(); //press a button to join
-
-    float timeEscapeHeld;
-    [SerializeField] float exitToMainMenuEscapeHoldTime = 1.5f;
+    
+    [SerializeField] float exitMatchDoublePressTime = 1;
+    float exitMatchDoublePressTimer = 1;
+    [SerializeField] GameObject exitMatchEscIcon;
 
     ControllerInput controller;
 
@@ -108,17 +109,22 @@ public class MenuManager : MonoBehaviour
         }  
 
         if (!gameManager.isMenu) //in game
-        {
-            if (GetBackInputHold()) {
-                timeEscapeHeld += Time.deltaTime;
-            } else {
-                timeEscapeHeld = 0;
-            }
+        {   
+            exitMatchEscIcon.SetActive(exitMatchDoublePressTimer > 0);
 
-            if (timeEscapeHeld >= exitToMainMenuEscapeHoldTime)
+            UFunc.TickTimer(ref exitMatchDoublePressTimer);
+            if (GetBackInputPress())
             {
-                timeEscapeHeld = 0;
-                gameManager.ExitMatch();
+                if (exitMatchDoublePressTimer == 0)
+                {
+                    exitMatchDoublePressTimer = exitMatchDoublePressTime;
+                }
+                else
+                {
+                    exitMatchDoublePressTimer = 0;
+                    exitMatchEscIcon.SetActive(false);
+                    gameManager.ExitMatch();
+                }
             }
         }
         else
@@ -363,6 +369,12 @@ public class MenuManager : MonoBehaviour
     {
         if (Input.GetKey("escape")) return true;
         if (controller.Gameplay.Back.IsPressed()) return true;
+        return false;
+    }
+    bool GetBackInputPress()
+    {
+        if (Input.GetKeyDown("escape")) return true;
+        if (controller.Gameplay.Back.WasPressedThisFrame()) return true;
         return false;
     }
 }
