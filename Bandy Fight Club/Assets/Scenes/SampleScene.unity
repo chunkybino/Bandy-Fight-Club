@@ -9390,7 +9390,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ece65d59b752bec46a29b6da2c5a87c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  disguiseLevel: 1
+  disguiseLevel: 0
   disguiserList:
   - {fileID: 561051449}
   - {fileID: 784350243}
@@ -15283,7 +15283,7 @@ PrefabInstance:
       objectReference: {fileID: 1700605573}
     - target: {fileID: 865003778337878882, guid: 84f3f989133dc724681733bf06f534d8, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1147119273630492370, guid: 84f3f989133dc724681733bf06f534d8, type: 3}
       propertyPath: m_Mesh
@@ -15295,7 +15295,7 @@ PrefabInstance:
       objectReference: {fileID: 1389799654}
     - target: {fileID: 1626537394165745460, guid: 84f3f989133dc724681733bf06f534d8, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1663709583450352777, guid: 84f3f989133dc724681733bf06f534d8, type: 3}
       propertyPath: m_Materials.Array.data[1]
@@ -15383,15 +15383,15 @@ PrefabInstance:
       objectReference: {fileID: 715132105}
     - target: {fileID: 5283389835952355606, guid: 84f3f989133dc724681733bf06f534d8, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5399609387554739747, guid: 84f3f989133dc724681733bf06f534d8, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5407984899218119566, guid: 84f3f989133dc724681733bf06f534d8, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5704233933600597612, guid: 84f3f989133dc724681733bf06f534d8, type: 3}
       propertyPath: m_Mesh
@@ -18761,7 +18761,7 @@ PrefabInstance:
       objectReference: {fileID: 537381038}
     - target: {fileID: 1235701688357420077, guid: 89a4bb26954076c4087def95df52bc91, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1463028093272914986, guid: 89a4bb26954076c4087def95df52bc91, type: 3}
       propertyPath: m_LocalPosition.x
@@ -18809,7 +18809,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2075039079137242895, guid: 89a4bb26954076c4087def95df52bc91, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2082803097567262916, guid: 89a4bb26954076c4087def95df52bc91, type: 3}
       propertyPath: mesh
@@ -19117,7 +19117,7 @@ PrefabInstance:
       objectReference: {fileID: 1831999241}
     - target: {fileID: 8772268957756832795, guid: 89a4bb26954076c4087def95df52bc91, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8920946396123657878, guid: 89a4bb26954076c4087def95df52bc91, type: 3}
       propertyPath: mesh
@@ -19519,10 +19519,6 @@ PrefabInstance:
     - target: {fileID: 1157432319986694374, guid: fadedae2ec4e81c49b649931f75292ff, type: 3}
       propertyPath: m_Name
       value: M
-      objectReference: {fileID: 0}
-    - target: {fileID: 1157432319986694374, guid: fadedae2ec4e81c49b649931f75292ff, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1282573661016434329, guid: fadedae2ec4e81c49b649931f75292ff, type: 3}
       propertyPath: mesh
