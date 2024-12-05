@@ -22,6 +22,12 @@ public class BigMFunc : PlayerFunc, ICharacterFunc
         if (isGroundSlam)
         {
             rb.velocity = new Vector2(0, -groundSlamSpeed);
+
+            if (grounded)
+            {
+                isGroundSlam = false;
+                playerAttack.CancelAttack();
+            }
         }
     }
 
@@ -76,6 +82,7 @@ public class BigMFunc : PlayerFunc, ICharacterFunc
 
     public override bool GetDisableEntityCollision()
     {
+        if (base.GetDisableEntityCollision()) return true;
         return isGroundSlam;
     }
     public override bool GetFallThroughPlatform()
