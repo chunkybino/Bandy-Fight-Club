@@ -613,7 +613,7 @@ public class PlayerFunc : MonoBehaviour
         }
     }
 
-    void JumpToHeight(float height)
+    public void JumpToHeight(float height)
     {
         Jump(Mathf.Sqrt(2*baseGravity*height) + (baseGravity*0.5f*Time.fixedDeltaTime));
     }
@@ -848,7 +848,7 @@ public class PlayerFunc : MonoBehaviour
 
         UpdateFacing();
     }
-    public void OnAttackEnd()
+    public virtual void OnAttackEnd()
     {
         facing = facingBuffer;
     }

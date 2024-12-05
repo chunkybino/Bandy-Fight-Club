@@ -22,24 +22,9 @@ public class KnockbackHandler : MonoBehaviour
     [SerializeField] bool doKnock;
     [SerializeField] Vector2 knockDirection = new Vector2(1,0);
 
-    //[SerializeField] List<SpeedMult> speedMults = new List<SpeedMult>();
-    //[SerializeField] List<GravMult> gravMult = new List<GravMult>();
-
-    //public float totalSpeedMult;
-    //public float totalGravMult;
-
-    //IEnumerator speedCorountine;
-    //IEnumerator gravCorountine;
-
-    //[SerializeField] Transform knockbackResistanceController;
-
     void Start()
     {
         if (!rb) rb = GetComponent<Rigidbody2D>();
-        /*if (!playerStatus) playerStatus = GetComponent<PlayerStatus>();
-        if (!playerMovement && playerStatus) playerMovement = playerStatus.playerMovement;
-        if (!enemyStatus) enemyStatus = GetComponent<EnemyStatus>();
-        if (enemyStatus && !enemyFunc) enemyFunc = enemyStatus.enemyFunc;*/
     }
 
     void LateUpdate()
@@ -50,20 +35,6 @@ public class KnockbackHandler : MonoBehaviour
             GetKnockbacked(doKnockbackToDo,knockDirection);
         }
     }
-    /*void Update()
-    {
-        totalSpeedMult = 1;
-        foreach (SpeedMult mult in speedMults)
-        {
-            totalSpeedMult *= mult.speedMult;
-        }
-
-        totalGravMult = 1;
-        foreach (GravMult mult in gravMult)
-        {
-            totalGravMult *= mult.gravMult;
-        }
-    }*/
 
     public void GetKnockbacked(Knockback knockback)
     {
@@ -130,12 +101,7 @@ public class KnockbackHandler : MonoBehaviour
 
         rb.velocity = newVel;
 
-        //if (playerStatus) playerMovement.SetAccelerationMult(knockback.acceleration, knockback.acceleration, knockback.accelerationTime);
         if (playerFunc) playerFunc.DoAccelerationMult(knockback.acceleration, knockback.accelerationTime);
-        //if (enemyFunc) enemyFunc.SetAccelerationMult(knockback.acceleration, knockback.accelerationTime);
-
-        //if (knockback.speed.speedMultTime > 0) GetSpeedMulted(knockback.speed);
-        //if (knockback.grav.gravMultTime > 0) GetGravMulted(knockback.grav);
 
         float VelCalc(Knockback.KnockbackType knockbackType, float currentVel, float knockbackVel)
         {
@@ -171,29 +137,6 @@ public class KnockbackHandler : MonoBehaviour
             }
         }
     }
-    /*public void GetSpeedMulted(SpeedMult mult)
-    {
-        speedCorountine = AddSpeedMult(mult);
-        StartCoroutine(speedCorountine);
-    }
-    public void GetGravMulted(GravMult mult)
-    {
-        gravCorountine = AddGravMult(mult);
-        StartCoroutine(gravCorountine);
-    }
-
-    IEnumerator AddSpeedMult(SpeedMult mult)
-    {
-        speedMults.Add(mult);
-        yield return new WaitForSeconds(mult.speedMultTime);
-        speedMults.Remove(mult);
-    }
-    IEnumerator AddGravMult(GravMult mult)
-    {
-        gravMult.Add(mult);
-        yield return new WaitForSeconds(mult.gravMultTime);
-        gravMult.Remove(mult);
-    }*/
 }
 
 [System.Serializable]
@@ -217,31 +160,6 @@ public struct Knockback
     public float acceleration;
     public float accelerationTime;
 
-    //public SpeedMult speed;
-    //public GravMult grav;
-
     public enum KnockbackType {None, Set, Add, Min, Max, Lo, Hi}
     public enum GroundedKnockback {None, X, Y, Both}
 }
-/*[System.Serializable]
-public struct SpeedMult
-{
-    public string name;
-    public float speedMult;
-    public float speedMultTime;
-}
-[System.Serializable]
-public struct GravMult
-{
-    public string name;
-    public float gravMult;
-    public float gravMultTime;
-}
-
-[System.Serializable]
-public struct KnockbackCombo
-{
-    public Knockback knockback;
-    public SpeedMult speed;
-    public GravMult grav;
-}*/
