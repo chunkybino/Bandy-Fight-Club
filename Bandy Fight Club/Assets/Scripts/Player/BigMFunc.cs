@@ -36,7 +36,6 @@ public class BigMFunc : PlayerFunc, ICharacterFunc
         if (!playerAttack.isAttacking) 
         {
             chargingThrust = false;
-            isThrusting = false;
         }
 
         if (chargingThrust)
@@ -65,6 +64,11 @@ public class BigMFunc : PlayerFunc, ICharacterFunc
                 isGroundSlam = false;
                 playerAttack.CancelAttack();
             }
+        }
+
+        if (!playerAttack.isAttacking) 
+        {
+            isThrusting = false;
         }
 
         if (isThrusting)
@@ -97,6 +101,11 @@ public class BigMFunc : PlayerFunc, ICharacterFunc
         return attackName;
     }
 
+    public void StartStartThrustCharge()
+    {
+        rb.velocity = new Vector2(rb.velocity.x, Mathf.Max(rb.velocity.y * 0.5f,0));
+        enableJumpReleaseFall = false;
+    }
     public void StartThrustCharge()
     {
         chargingThrust = true;
