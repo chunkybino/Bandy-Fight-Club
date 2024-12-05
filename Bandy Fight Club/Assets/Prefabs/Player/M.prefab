@@ -700,7 +700,7 @@ Transform:
   m_GameObject: {fileID: 156347511152480509}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: 0.5656272, w: 0.82466114}
-  m_LocalPosition: {x: 0.19014147, y: 0.36854386, z: 0}
+  m_LocalPosition: {x: 0.18954496, y: 0.36885625, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -7165,7 +7165,7 @@ Transform:
   m_GameObject: {fileID: 760485421070494430}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.055324465, y: 0.4065386, z: 0}
+  m_LocalPosition: {x: -0.0113069415, y: 0.5711161, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -7967,6 +7967,74 @@ MonoBehaviour:
   - 1
   - 1.5
   - 2
+  thrustLevelSAttackInfo:
+  - damage: 55
+    knockbacks:
+    - name: thrust
+      vel: {x: 28, y: 0}
+      fixedVel: {x: 0, y: 18}
+      xVelType: 3
+      yVelType: 3
+      normalizeVel: 0
+      dontDoAgainstGroundedTarget: 0
+      ignoreBaseKnockbackResistance: 0
+      acceleration: 0.2
+      accelerationTime: 0.5
+    blockStun: 0.2
+    stunTime: 0.4
+    advantageDamage: 0.12
+    onlyPerfBlock: 0
+    unblockable: 0
+    hitStopTime: 0.1
+    cameraShake: 0.6
+    doDeflect: 0
+    deflectForce: {x: 0, y: 0}
+    tags: []
+  - damage: 80
+    knockbacks:
+    - name: thrust
+      vel: {x: 32, y: 0}
+      fixedVel: {x: 0, y: 22}
+      xVelType: 3
+      yVelType: 3
+      normalizeVel: 0
+      dontDoAgainstGroundedTarget: 0
+      ignoreBaseKnockbackResistance: 0
+      acceleration: 0.2
+      accelerationTime: 0.55
+    blockStun: 0.2
+    stunTime: 0.5
+    advantageDamage: 0.14
+    onlyPerfBlock: 0
+    unblockable: 0
+    hitStopTime: 0.12
+    cameraShake: 0.7
+    doDeflect: 0
+    deflectForce: {x: 0, y: 0}
+    tags: []
+  - damage: 110
+    knockbacks:
+    - name: thrust
+      vel: {x: 40, y: 0}
+      fixedVel: {x: 0, y: 24}
+      xVelType: 3
+      yVelType: 3
+      normalizeVel: 0
+      dontDoAgainstGroundedTarget: 0
+      ignoreBaseKnockbackResistance: 0
+      acceleration: 0.08
+      accelerationTime: 0.6
+    blockStun: 0.3
+    stunTime: 0.65
+    advantageDamage: 0.18
+    onlyPerfBlock: 0
+    unblockable: 0
+    hitStopTime: 0.2
+    cameraShake: 0.9
+    doDeflect: 0
+    deflectForce: {x: 0, y: 0}
+    tags: []
+  thrustHitbox: {fileID: 5784430466614067930}
   groundSlamSpeed: 120
   isGroundSlam: 0
   groundedGroundSlamJumpHeight: 64
@@ -18916,6 +18984,7 @@ Transform:
   m_Children:
   - {fileID: 9024255350643362224}
   - {fileID: 221726169639281421}
+  - {fileID: 2245145208992804512}
   m_Father: {fileID: 8897811586486763924}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3331918838031775619
@@ -38454,6 +38523,133 @@ MonoBehaviour:
   - {fileID: 3228329377923873189}
   - {fileID: 1790924097821412220}
   flipPointOrder: 0
+--- !u!1 &4763554907129279015
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2245145208992804512}
+  - component: {fileID: 429524378685715446}
+  - component: {fileID: 5784430466614067930}
+  m_Layer: 8
+  m_Name: Thrust
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2245145208992804512
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4763554907129279015}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 965438098519737015}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &429524378685715446
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4763554907129279015}
+  m_Enabled: 0
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 3.5511374, y: 0.45767975}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 5.179226, y: 1.9492016}
+  m_EdgeRadius: 0
+--- !u!114 &5784430466614067930
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4763554907129279015}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15bd414acfc493f4a9f14987b0906063, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  teamHolder: {fileID: 1119148463376745336}
+  team: 0
+  rehitTime: 0.5
+  attackInfo:
+    damage: 60
+    knockbacks:
+    - name: thrust
+      vel: {x: 28, y: 0}
+      fixedVel: {x: 0, y: 18}
+      xVelType: 3
+      yVelType: 3
+      normalizeVel: 0
+      dontDoAgainstGroundedTarget: 0
+      ignoreBaseKnockbackResistance: 0
+      acceleration: 0.2
+      accelerationTime: 0.55
+    blockStun: 0.2
+    stunTime: 0.4
+    advantageDamage: 0.12
+    onlyPerfBlock: 0
+    unblockable: 0
+    hitStopTime: 0.1
+    cameraShake: 0.6
+    doDeflect: 0
+    deflectForce: {x: 0, y: 0}
+    tags: []
+  direction: 0
+  directionReference: {fileID: 7345804932902525444}
+  playerFunc: {fileID: 6042440966834430578}
+  knockbackHandler: {fileID: 3026256772149845289}
+  onHit:
+    m_PersistentCalls:
+      m_Calls: []
+  audio: {fileID: 0}
+  hitSoundName: hit
+  hitSoundVolume: 1
+  hitSoundPitch: 1
 --- !u!1 &4773496286399051144
 GameObject:
   m_ObjectHideFlags: 0
@@ -45262,7 +45458,7 @@ Transform:
   m_GameObject: {fileID: 5419305463356415551}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.25939152, y: 0.5239364, z: 0}
+  m_LocalPosition: {x: -0.25375152, y: 0.46077952, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

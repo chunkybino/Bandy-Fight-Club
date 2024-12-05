@@ -17,6 +17,8 @@ public class BigMFunc : PlayerFunc, ICharacterFunc
     [SerializeField] int thrustChargeLevel;
     [SerializeField] float[] thrustLevelChargeThresholds = new float[3];
     [SerializeField] float[] thrustLevelSpeedMults = new float[3];
+    [SerializeField] AttackInfo[] thrustLevelSAttackInfo = new AttackInfo[3];
+    [SerializeField] AttackHitbox thrustHitbox;
 
     [SerializeField] float groundSlamSpeed;
     [SerializeField] bool isGroundSlam;
@@ -127,6 +129,7 @@ public class BigMFunc : PlayerFunc, ICharacterFunc
         }
         timeChargingThrust = 0;
         thrustSpeedMult = thrustLevelSpeedMults[thrustChargeLevel];
+        thrustHitbox.attackInfo = thrustLevelSAttackInfo[thrustChargeLevel];
 
         playerAttack.AttackByName(thrustAttackName);
     }
