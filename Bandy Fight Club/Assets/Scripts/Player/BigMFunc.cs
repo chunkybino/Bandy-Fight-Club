@@ -4,6 +4,20 @@ using UnityEngine;
 
 public class BigMFunc : PlayerFunc, ICharacterFunc
 {
+    [SerializeField] bool chargingThrust;
+    [SerializeField] float timeChargingThrust;
+    [SerializeField] string thrustAttackName = "Thrust";
+
+    [SerializeField] bool isThrusting;
+    [SerializeField] float baseThrustSpeed;
+    [SerializeField] float baseThrustVerticalSpeed;
+    [SerializeField] float thrustSpeedMult;
+    [SerializeField] Transform thrustSpeedAnimMult;
+
+    [SerializeField] int thrustChargeLevel;
+    [SerializeField] float[] thrustLevelChargeThresholds = new float[3];
+    [SerializeField] float[] thrustLevelSpeedMults = new float[3];
+
     [SerializeField] float groundSlamSpeed;
     [SerializeField] bool isGroundSlam;
     [SerializeField] float groundedGroundSlamJumpHeight;
@@ -13,6 +27,29 @@ public class BigMFunc : PlayerFunc, ICharacterFunc
     void Awake()
     {
         if (characterFunc == null) characterFunc = this;
+    }
+
+    void Update()
+    {
+        base.Update();
+
+        if (!playerAttack.isAttacking) 
+        {
+            chargingThrust = false;
+            isThrusting = false;
+        }
+
+        if (chargingThrust)
+        {
+            timeChargingThrust += Time.deltaTime;
+        } else {
+            timeChargingThrust = 0;
+        }
+
+        if (chargingThrust && !inputs.attackHeld)
+        {
+            DoThrust();
+        }
     }
 
     void FixedUpdate()
@@ -29,6 +66,15 @@ public class BigMFunc : PlayerFunc, ICharacterFunc
                 playerAttack.CancelAttack();
             }
         }
+
+        if (isThrusting)
+        {
+            float vertical = 0;
+            if (inputs.upHeld) vertical++;
+            if (inputs.downHeld) vertical--;
+            float mult = thrustSpeedMult * thrustSpeedAnimMult.localPosition.x;
+            rb.velocity = new Vector2(baseThrustSpeed * facing, baseThrustVerticalSpeed * vertical) * mult;
+        }
     }
 
     public string FindAttackName()
@@ -39,12 +85,41 @@ public class BigMFunc : PlayerFunc, ICharacterFunc
         {
             attackName = "downAttack";
         }
-        else
+        else if (inputs.leftHeld || inputs.rightHeld)
         {
             attackName = "slash1";
         }
+        else
+        {
+            attackName = "thrustCharge";
+        }
 
         return attackName;
+    }
+
+    public void StartThrustCharge()
+    {
+        chargingThrust = true;
+        timeChargingThrust = 0;
+    }
+    public void DoThrust()
+    {
+        chargingThrust = false;
+        isThrusting = true;
+
+        for (int i = 0; i < thrustLevelChargeThresholds.Length; i++)
+        {
+            if (timeChargingThrust > thrustLevelChargeThresholds[i]) 
+            {
+                thrustChargeLevel = i;
+            } else {
+                break;
+            }
+        }
+        timeChargingThrust = 0;
+        thrustSpeedMult = thrustLevelSpeedMults[thrustChargeLevel];
+
+        playerAttack.AttackByName(thrustAttackName);
     }
 
     public void GroundSlamStart()
