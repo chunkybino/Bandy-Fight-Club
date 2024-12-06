@@ -89,7 +89,11 @@ public class BigMFunc : PlayerFunc, ICharacterFunc
         
         attackName = "slash1";
 
-        if (inputs.downHeld)
+        if (inputs.upHeld)
+        {
+            attackName = "upAttack";
+        }
+        else if (inputs.downHeld)
         {
             attackName = "downAttack";
         }
