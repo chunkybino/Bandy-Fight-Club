@@ -89,17 +89,16 @@ public class BigMFunc : PlayerFunc, ICharacterFunc
         
         attackName = "slash1";
 
+        if (inputs.downHeld)
+        {
+            attackName = "downAttack";
+        }
 
         return attackName;
     }
     public string FindAttackHeavyName()
     {
         string attackName = "thrustCharge";
-
-        if (inputs.downHeld)
-        {
-            attackName = "downAttack";
-        }
 
         return attackName;
     }

@@ -8,24 +8,24 @@ public class AttackHitbox : MonoBehaviour
     [SerializeField] TeamHolder teamHolder;
     public int team;
 
-    [SerializeField] float rehitTime = 0.5f;
+    public float rehitTime = 0.5f;
     List<Collider2D> rehitList = new List<Collider2D>();
-    IEnumerator rehitCorountine;
+    public IEnumerator rehitCorountine;
 
     public AttackInfo attackInfo;
 
-    [SerializeField] int direction;
+    public int direction;
     [SerializeField] Transform directionReference;
 
-    [SerializeField] PlayerFunc playerFunc;
-    [SerializeField] KnockbackHandler knockbackHandler;
+    public PlayerFunc playerFunc;
+    public KnockbackHandler knockbackHandler;
 
     public UnityEvent<AttackHitReturnInfo> onHit;
 
-    [SerializeField] AudioManager audio;
-    [SerializeField] string hitSoundName = "hit";
-    [SerializeField] float hitSoundVolume = 1;
-    [SerializeField] float hitSoundPitch = 1;
+    public AudioManager audio;
+    public string hitSoundName = "hit";
+    public float hitSoundVolume = 1;
+    public float hitSoundPitch = 1;
 
     void OnTriggerStay2D(Collider2D item)
     {
@@ -43,6 +43,11 @@ public class AttackHitbox : MonoBehaviour
 
         direction = UFunc.Sign(directionReference.localScale.x);
 
+        HitVaild(item, damageable);
+    }
+
+    public virtual void HitVaild(Collider2D item, IDamageable damageable)
+    {
         FullAttackInfo fullInfo = new FullAttackInfo() {info = attackInfo, direction = new Vector2(direction,1), team = team};
         AttackHitReturnInfo hitInfo = damageable.GetHit(fullInfo);
 
@@ -57,7 +62,7 @@ public class AttackHitbox : MonoBehaviour
         }
     }
 
-    void HitDude(AttackHitReturnInfo info)
+    public virtual void HitDude(AttackHitReturnInfo info)
     {
         float hitStop = attackInfo.hitStopTime;
         if (info.doHitStopOverride) hitStop = info.hitStopOverride;
@@ -77,7 +82,7 @@ public class AttackHitbox : MonoBehaviour
         if (audio) audio.Play(hitSoundName, hitSoundVolume, hitSoundPitch);
     }
 
-    IEnumerator removeFromHitListCorountine(Collider2D target)
+    public IEnumerator removeFromHitListCorountine(Collider2D target)
     {
         rehitList.Add(target);
         yield return new WaitForSeconds(rehitTime);
