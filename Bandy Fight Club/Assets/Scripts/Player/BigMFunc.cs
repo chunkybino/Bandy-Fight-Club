@@ -47,7 +47,7 @@ public class BigMFunc : PlayerFunc, ICharacterFunc
             timeChargingThrust = 0;
         }
 
-        if (chargingThrust && !inputs.attackHeld)
+        if (chargingThrust && !inputs.heavyHeld)
         {
             DoThrust();
         }
