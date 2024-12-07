@@ -175,7 +175,6 @@ public class BigMFunc : PlayerFunc, ICharacterFunc
 
     public void DoDownShoot()
     {
-        print("yes") ;
         BulletHandler.ShootBulletStatic(shootBulletConfig, shootFirePos.position, new Vector2(facing, -1), team);
     }
 
