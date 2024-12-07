@@ -26,6 +26,9 @@ public class BigMFunc : PlayerFunc, ICharacterFunc
     [SerializeField] float airGroundSlamJumpHeight;
     [SerializeField] float groundSlamForwardBoost;
 
+    public BulletConfig shootBulletConfig;
+    public Transform shootFirePos;
+
     void Awake()
     {
         if (characterFunc == null) characterFunc = this;
@@ -104,6 +107,11 @@ public class BigMFunc : PlayerFunc, ICharacterFunc
     {
         string attackName = "thrustCharge";
 
+        if (inputs.downHeld)
+        {
+            attackName = "DownShoot";
+        }
+
         return attackName;
     }
 
@@ -163,6 +171,12 @@ public class BigMFunc : PlayerFunc, ICharacterFunc
             isGroundSlam = false;
             playerAttack.CancelAttack();
         }
+    }
+
+    public void DoDownShoot()
+    {
+        print("yes") ;
+        BulletHandler.ShootBulletStatic(shootBulletConfig, shootFirePos.position, new Vector2(facing, -1), team);
     }
 
     public override void OnAttackEnd()

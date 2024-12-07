@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 0}
+  m_Name: M_Bullet
+  m_EditorClassIdentifier: Assembly-CSharp::BulletConfig
+  bulletObject: {fileID: 5072070672331484645, guid: 9eee77652c5f1e54eb07253d2e6a1ef1, type: 3}
+  enemyAttackInfo:
+    damage: 50
+    knockbacks:
+    - name: min
+      vel: {x: 24, y: 8}
+      fixedVel: {x: 0, y: 16}
+      xVelType: 3
+      yVelType: 3
+      normalizeVel: 0
+      dontDoAgainstGroundedTarget: 0
+      ignoreBaseKnockbackResistance: 0
+      acceleration: 0.15
+      accelerationTime: 0.4
+    blockStun: 0.15
+    stunTime: 0.3
+    advantageDamage: 0.1
+    onlyPerfBlock: 0
+    unblockable: 0
+    hitStopTime: 0.16
+    cameraShake: 0.5
+    doDeflect: 0
+    deflectForce: {x: 0, y: 0}
+    tags: []
+  speed: 80
+  pierce: -1
+  size: 1
+  lifetime: 0.3

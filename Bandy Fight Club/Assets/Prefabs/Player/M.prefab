@@ -138,7 +138,7 @@ Transform:
   m_GameObject: {fileID: 14135144355403023}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: 0.5656272, w: 0.82466114}
-  m_LocalPosition: {x: -0.016941398, y: -0.36705405, z: 0}
+  m_LocalPosition: {x: 0.08803713, y: -0.3767672, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -700,7 +700,7 @@ Transform:
   m_GameObject: {fileID: 156347511152480509}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: 0.5656272, w: 0.82466114}
-  m_LocalPosition: {x: 0.0067303777, y: -0.26422215, z: 0}
+  m_LocalPosition: {x: -0.0013546646, y: -0.24142739, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -7196,7 +7196,7 @@ Transform:
   m_GameObject: {fileID: 760485421070494430}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.20741227, y: 0.51171017, z: -0}
+  m_LocalPosition: {x: -0.008017659, y: 0.70529526, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -8102,6 +8102,8 @@ MonoBehaviour:
   groundedGroundSlamJumpHeight: 64
   airGroundSlamJumpHeight: 12
   groundSlamForwardBoost: 12
+  shootBulletConfig: {fileID: 11400000, guid: bb8c2ff14a4bdd7478bc7a3c8abc298a, type: 2}
+  shootFirePos: {fileID: 3695313624840317084}
 --- !u!114 &2187926393758900239
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15400,8 +15402,18 @@ MonoBehaviour:
     damage: 40
     knockbacks:
     - name: slash
-      vel: {x: 28, y: 0}
-      fixedVel: {x: 0, y: 18}
+      vel: {x: 22, y: 0}
+      fixedVel: {x: 0, y: 14}
+      xVelType: 3
+      yVelType: 3
+      normalizeVel: 0
+      dontDoAgainstGroundedTarget: 0
+      ignoreBaseKnockbackResistance: 0
+      acceleration: 0.18
+      accelerationTime: 0.4
+    - name: slashadd
+      vel: {x: 6, y: 0}
+      fixedVel: {x: 0, y: 6}
       xVelType: 3
       yVelType: 3
       normalizeVel: 0
@@ -15434,10 +15446,20 @@ MonoBehaviour:
     damage: 65
     knockbacks:
     - name: slash
-      vel: {x: 36, y: 0}
-      fixedVel: {x: 0, y: 24}
+      vel: {x: 26, y: 0}
+      fixedVel: {x: 0, y: 18}
       xVelType: 3
       yVelType: 3
+      normalizeVel: 0
+      dontDoAgainstGroundedTarget: 0
+      ignoreBaseKnockbackResistance: 0
+      acceleration: 0.12
+      accelerationTime: 0.55
+    - name: slashadd
+      vel: {x: 12, y: 0}
+      fixedVel: {x: 0, y: 8}
+      xVelType: 2
+      yVelType: 2
       normalizeVel: 0
       dontDoAgainstGroundedTarget: 0
       ignoreBaseKnockbackResistance: 0
@@ -15581,6 +15603,58 @@ Transform:
   - {fileID: 5937146370800568051}
   m_Father: {fileID: 840568511910079094}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2111630595266414169
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7371675230195480274}
+  - component: {fileID: 5358507696262211591}
+  m_Layer: 7
+  m_Name: DownShoot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7371675230195480274
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2111630595266414169}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3672618318496592352}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5358507696262211591
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2111630595266414169}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6328962f40e72f4c99bab6fffcac689, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animationName: DownShoot
+  cancelOnGroundLand: 0
+  speedMult: 0
+  lockFacing: 1
+  onAttackStart:
+    m_PersistentCalls:
+      m_Calls: []
+  attackTime: 1
 --- !u!1 &2120817736143029003
 GameObject:
   m_ObjectHideFlags: 0
@@ -16885,7 +16959,7 @@ Transform:
   m_Children:
   - {fileID: 3608451874141591998}
   m_Father: {fileID: 3432397626589382938}
-  m_LocalEulerAnglesHint: {x: -4.654, y: -27.617, z: -94.953}
+  m_LocalEulerAnglesHint: {x: -19.227, y: -36, z: -94.966}
 --- !u!1773428102 &8597719594554799138
 ParentConstraint:
   m_ObjectHideFlags: 0
@@ -24730,6 +24804,22 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+  - name: DownAttack
+    theEvent:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 6042440966834430578}
+          m_TargetAssemblyTypeName: BigMFunc, Assembly-CSharp
+          m_MethodName: DoDownShoot
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
   squasher: {fileID: 2265538836242849163}
   squashDatas:
   - name: block
@@ -31106,7 +31196,7 @@ Transform:
   m_GameObject: {fileID: 3889175670771122163}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: 0.0043122475, w: 0.9999907}
-  m_LocalPosition: {x: 0.6719055, y: -0.032104492, z: 3.1616287}
+  m_LocalPosition: {x: 0.6719055, y: -0.032104492, z: 3.1616268}
   m_LocalScale: {x: 0.75, y: 0.75, z: 0.75}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -37863,58 +37953,6 @@ MonoBehaviour:
   doMeshPoints: 0
   meshPoints: []
   flipPointOrder: 0
---- !u!1 &4506561315444050572
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 4639002542592386849}
-  - component: {fileID: 8032227260505283697}
-  m_Layer: 7
-  m_Name: downslash
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &4639002542592386849
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4506561315444050572}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 3672618318496592352}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8032227260505283697
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4506561315444050572}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b6328962f40e72f4c99bab6fffcac689, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  animationName: DownAttack
-  cancelOnGroundLand: 0
-  speedMult: 0.25
-  lockFacing: 1
-  onAttackStart:
-    m_PersistentCalls:
-      m_Calls: []
-  attackTime: 0.8
 --- !u!1 &4508670321641470477
 GameObject:
   m_ObjectHideFlags: 0
@@ -38403,6 +38441,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1047308628398721368}
+  - {fileID: 3695313624840317084}
   m_Father: {fileID: 6519153219059480010}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -23.946}
 --- !u!1 &4654597704202178906
@@ -45801,7 +45840,7 @@ Transform:
   m_GameObject: {fileID: 5419305463356415551}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.033962786, y: 0.24218792, z: 0}
+  m_LocalPosition: {x: -0.06273833, y: 0.5998595, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -58450,6 +58489,37 @@ ParentConstraint:
   m_Sources:
   - sourceTransform: {fileID: 1464700770814100173}
     weight: 1
+--- !u!1 &6426524204167362416
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3695313624840317084}
+  m_Layer: 7
+  m_Name: firePoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3695313624840317084
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6426524204167362416}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.9542702, y: -0.13640666, z: 0.44244987}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3994099565073748910}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6439841855551668220
 GameObject:
   m_ObjectHideFlags: 0
@@ -58924,70 +58994,6 @@ LineRenderer:
   m_UseWorldSpace: 1
   m_Loop: 0
   m_ApplyActiveColorSpace: 1
---- !u!1 &6526417620134066992
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 3888529701461962544}
-  - component: {fileID: 2871169358000862000}
-  m_Layer: 7
-  m_Name: PiccoloThrow
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &3888529701461962544
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6526417620134066992}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 3672618318496592352}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2871169358000862000
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6526417620134066992}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b6328962f40e72f4c99bab6fffcac689, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  animationName: 
-  cancelOnGroundLand: 0
-  speedMult: 1
-  lockFacing: 0
-  onAttackStart:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: BigJFunc, Assembly-CSharp
-        m_MethodName: PiccoloThrowAttack
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  attackTime: 0
 --- !u!1 &6529801432927222606
 GameObject:
   m_ObjectHideFlags: 0
@@ -60116,7 +60122,7 @@ Transform:
   m_GameObject: {fileID: 6847843464433933857}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.3400116, y: -2.5166016, z: 6.8769474}
+  m_LocalPosition: {x: -0.3400116, y: -2.5166016, z: 6.8769836}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -63496,8 +63502,7 @@ Transform:
   - {fileID: 8150214985686910818}
   - {fileID: 8264157537887997673}
   - {fileID: 7389948860932298262}
-  - {fileID: 4639002542592386849}
-  - {fileID: 3888529701461962544}
+  - {fileID: 7371675230195480274}
   m_Father: {fileID: 7345804932902525444}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &7723609371287580397
@@ -63528,6 +63533,7 @@ MonoBehaviour:
   - {fileID: 2892133319423185920}
   - {fileID: 6108750302793942327}
   - {fileID: 8313007928046132631}
+  - {fileID: 5358507696262211591}
   canAttack: 0
   attackIndex: 0
   attackIndexResetTime: 0.4
@@ -63656,7 +63662,7 @@ Transform:
   m_Children:
   - {fileID: 1841877867949591729}
   m_Father: {fileID: 3496919233474592712}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 10.462, y: 5.782, z: -60.853}
 --- !u!1773428102 &5858241553524577143
 ParentConstraint:
   m_ObjectHideFlags: 0
