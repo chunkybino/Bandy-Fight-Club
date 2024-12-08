@@ -11349,6 +11349,13 @@ AnimationClip:
   m_HasMotionFloatCurves: 0
   m_Events:
   - time: 0
+    functionName: PlaySoundPitchVol
+    data: clariGuncocking1_1_1
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 0
     functionName: DoVerticalBoost
     data: 
     objectReferenceParameter: {fileID: 0}
@@ -11361,6 +11368,13 @@ AnimationClip:
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 1
+    messageOptions: 0
+  - time: 0.08
+    functionName: PlaySoundPitchVol
+    data: clariGuncocking2_1_1
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
     messageOptions: 0
   - time: 0.24
     functionName: DoAnimatorEvent
@@ -11375,6 +11389,20 @@ AnimationClip:
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 2
+    messageOptions: 0
+  - time: 0.24
+    functionName: PlaySoundPitchVol
+    data: clariFire_1_1
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.26
+    functionName: PlaySoundPitchVol
+    data: clariBulletBounce_1_1
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
     messageOptions: 0
   - time: 0.26
     functionName: DoVerticalBoost

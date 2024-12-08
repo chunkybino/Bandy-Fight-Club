@@ -289,10 +289,51 @@ MonoBehaviour:
     randVolumeRange: {x: -0.1, y: 0.15}
     doRandomPitch: 0
     randPitchRange: {x: 0, y: 0}
-  - name: clari_bulletBounce
+  - name: clariGuncocking1
+    clip: {fileID: 8300000, guid: 366dfd1bfc8164f43a670e71ef6ac7c4, type: 3}
+    volume: 0.25
+    pitch: 1.4
+    doRandomSound: 0
+    clips: []
+    doRandomVolume: 0
+    randVolumeRange: {x: -0.05, y: 0.05}
+    doRandomPitch: 0
+    randPitchRange: {x: -0.1, y: 0.2}
+  - name: clariGuncocking2
+    clip: {fileID: 8300000, guid: 182010c77b007ea439dc93dfc5eeb7c0, type: 3}
+    volume: 0.45
+    pitch: 1
+    doRandomSound: 0
+    clips: []
+    doRandomVolume: 0
+    randVolumeRange: {x: -0.05, y: 0.05}
+    doRandomPitch: 0
+    randPitchRange: {x: -0.1, y: 0.2}
+  - name: clariFire
+    clip: {fileID: 8300000, guid: d011bb1ba9334ce49882518e1cf3762d, type: 3}
+    volume: 0.45
+    pitch: 1.5
+    doRandomSound: 1
+    clips: []
+    doRandomVolume: 1
+    randVolumeRange: {x: -0.05, y: 0.05}
+    doRandomPitch: 1
+    randPitchRange: {x: -0.1, y: 0.1}
+  - name: clariBulletShoot
     clip: {fileID: 0}
     volume: 0.25
-    pitch: 1.2
+    pitch: 1
+    doRandomSound: 1
+    clips:
+    - {fileID: 8300000, guid: 548c813746bfedb4c84a0dbf8f7b3d2f, type: 3}
+    doRandomVolume: 1
+    randVolumeRange: {x: -0.1, y: 0.15}
+    doRandomPitch: 1
+    randPitchRange: {x: -0.15, y: 0.3}
+  - name: clariBulletBounce
+    clip: {fileID: 0}
+    volume: 0.2
+    pitch: 1.4
     doRandomSound: 1
     clips:
     - {fileID: 8300000, guid: 548c813746bfedb4c84a0dbf8f7b3d2f, type: 3}

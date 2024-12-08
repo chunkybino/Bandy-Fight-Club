@@ -11355,12 +11355,33 @@ AnimationClip:
     floatParameter: 16
     intParameter: 0
     messageOptions: 0
+  - time: 0
+    functionName: PlaySoundPitchVol
+    data: clariGuncocking1_1_1
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
   - time: 0.02
     functionName: DoSquash
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 1
+    messageOptions: 0
+  - time: 0.08
+    functionName: PlaySoundPitchVol
+    data: clariGuncocking2_1_1
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.24
+    functionName: PlaySoundPitchVol
+    data: clariFire_1_1
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
     messageOptions: 0
   - time: 0.24
     functionName: DoSquash
@@ -11388,5 +11409,12 @@ AnimationClip:
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: -30
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.26
+    functionName: PlaySoundPitchVol
+    data: clariBulletBounce_1_1
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
     intParameter: 0
     messageOptions: 0
