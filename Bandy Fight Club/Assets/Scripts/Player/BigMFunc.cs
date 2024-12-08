@@ -196,10 +196,14 @@ public class BigMFunc : PlayerFunc, ICharacterFunc
     public override bool GetDisableEntityCollision()
     {
         if (base.GetDisableEntityCollision()) return true;
-        return isGroundSlam;
+        if (isGroundSlam) return true;
+        if (isThrusting) return true;
+        return false;
     }
     public override bool GetFallThroughPlatform()
     {
-        return isGroundSlam;
+        if (isGroundSlam) return true;
+        if (isThrusting) return true;
+        return false;
     }
 }

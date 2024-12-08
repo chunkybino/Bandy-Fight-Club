@@ -7718,7 +7718,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7345804932902525444
 Transform:
   m_ObjectHideFlags: 0
@@ -7804,7 +7804,7 @@ MonoBehaviour:
         m_CallState: 2
   hitParticles: {fileID: 2653833485904765781, guid: b6307853dc53dd141951ad23156ca745, type: 3}
   audio: {fileID: 8239290809687769133}
-  hurtSoundName: 
+  hurtSoundName: clari_hurt
 --- !u!114 &6042440966834430578
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7993,11 +7993,11 @@ MonoBehaviour:
   perfBlockParticles: {fileID: 1713865554369944223, guid: 01ce6fc26f37a134bb142ec271761b09, type: 3}
   blockCounterParticles: {fileID: 4512744190449187998, guid: f4f3ef347abed464f8e62387c48c69f3, type: 3}
   blockCounterHitStop: 0.5
-  blockSoundName: 
-  perfblockSoundName: 
-  startBlockCounterSound: 
+  blockSoundName: clari_block
+  perfblockSoundName: clari_perfblock
+  startBlockCounterSound: clari_block
   startBlockCounterSoundVol: 1
-  startBlockCounterSoundPitch: 1
+  startBlockCounterSoundPitch: 0.8
   stunTimeNeeded: 0
   currentTimeStunned: 0
   isStun: 0

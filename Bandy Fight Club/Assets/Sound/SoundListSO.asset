@@ -243,9 +243,55 @@ MonoBehaviour:
     randVolumeRange: {x: -0.1, y: 0.15}
     doRandomPitch: 0
     randPitchRange: {x: 0, y: 0}
-  - name: clari_bulletBounce
+  - name: clari_hurt
     clip: {fileID: 0}
     volume: 0.5
+    pitch: 0.9
+    doRandomSound: 1
+    clips:
+    - {fileID: 8300000, guid: d82a790441fcd2f448fc14ce6fa23dee, type: 3}
+    - {fileID: 8300000, guid: 2c90c501dfc4c994486e299b3d914f3e, type: 3}
+    - {fileID: 8300000, guid: 6d08868f4a0c0a34aad2426ec373827b, type: 3}
+    - {fileID: 8300000, guid: 695e699c07e469c44aa6b214628b6be4, type: 3}
+    - {fileID: 8300000, guid: 6e04f9f3a4f9e81489374448d88a3b77, type: 3}
+    - {fileID: 8300000, guid: 7be100a1df486b1469f2ed5d32c0df0f, type: 3}
+    doRandomVolume: 1
+    randVolumeRange: {x: -0.05, y: 0.15}
+    doRandomPitch: 1
+    randPitchRange: {x: -0.05, y: 0.075}
+  - name: clari_block
+    clip: {fileID: 0}
+    volume: 0.6
+    pitch: 1
+    doRandomSound: 1
+    clips:
+    - {fileID: 8300000, guid: 85119d49152e66d42bd7cb84e31c8292, type: 3}
+    - {fileID: 8300000, guid: 87e012097c8d43b4dbe70c77919e37a6, type: 3}
+    - {fileID: 8300000, guid: 29195fceaac617c4b8ccb5edc89fd648, type: 3}
+    - {fileID: 8300000, guid: be1d989403bdae2459b3a674c6f927b3, type: 3}
+    - {fileID: 8300000, guid: 264aa6761ba35e6448368f3197888b1a, type: 3}
+    - {fileID: 8300000, guid: d500c2a28164a47499529efaf130640e, type: 3}
+    doRandomVolume: 1
+    randVolumeRange: {x: -0.1, y: 0.15}
+    doRandomPitch: 0
+    randPitchRange: {x: 0, y: 0}
+  - name: clari_perfblock
+    clip: {fileID: 0}
+    volume: 0.7
+    pitch: 1
+    doRandomSound: 1
+    clips:
+    - {fileID: 8300000, guid: 3e67623aafffb9b4fb291837754e91bf, type: 3}
+    - {fileID: 8300000, guid: 0684fcab546db9d4fb296ce1950f96e7, type: 3}
+    - {fileID: 8300000, guid: 0262a4afc49b8824294cff68ad3e348d, type: 3}
+    - {fileID: 8300000, guid: 08482b4cf9ac4cd4d9fa0dd2afcd1a27, type: 3}
+    doRandomVolume: 1
+    randVolumeRange: {x: -0.1, y: 0.15}
+    doRandomPitch: 0
+    randPitchRange: {x: 0, y: 0}
+  - name: clari_bulletBounce
+    clip: {fileID: 0}
+    volume: 0.25
     pitch: 1.2
     doRandomSound: 1
     clips:
