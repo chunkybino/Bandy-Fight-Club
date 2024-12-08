@@ -243,3 +243,15 @@ MonoBehaviour:
     randVolumeRange: {x: -0.1, y: 0.15}
     doRandomPitch: 0
     randPitchRange: {x: 0, y: 0}
+  - name: clari_bulletBounce
+    clip: {fileID: 0}
+    volume: 0.5
+    pitch: 1.2
+    doRandomSound: 1
+    clips:
+    - {fileID: 8300000, guid: 548c813746bfedb4c84a0dbf8f7b3d2f, type: 3}
+    - {fileID: 8300000, guid: d7ec76643e407414f935d6b1caddd8e5, type: 3}
+    doRandomVolume: 1
+    randVolumeRange: {x: -0.1, y: 0.15}
+    doRandomPitch: 1
+    randPitchRange: {x: -0.15, y: 0.3}

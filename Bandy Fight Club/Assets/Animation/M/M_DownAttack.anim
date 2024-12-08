@@ -7842,6 +7842,20 @@ AnimationClip:
     floatParameter: 0
     intParameter: 2
     messageOptions: 0
+  - time: 0.23333333
+    functionName: PlaySoundPitchVol
+    data: woosh3_0.5_1
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.23333333
+    functionName: PlaySoundPitchVol
+    data: wooshSlash_0.6_1.8
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
   - time: 0.25
     functionName: DoAnimatorEvent
     data: GroundSlam

@@ -275,6 +275,11 @@ MonoBehaviour:
   outlineRender: {fileID: 0}
   disguiseOutlineRender: {fileID: 0}
   hitboxTags: []
+  hasBounced: 0
+  bounceDamageMult: 1.5
+  bounceSound: clari_bulletBounce
+  bounceSoundVol: 1
+  bounceSoundPitch: 1
 --- !u!58 &8270670476711904369
 CircleCollider2D:
   m_ObjectHideFlags: 0
