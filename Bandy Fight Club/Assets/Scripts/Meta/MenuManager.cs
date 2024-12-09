@@ -42,6 +42,10 @@ public class MenuManager : MonoBehaviour
     [SerializeField] RectTransform characterSelectTransform;
     [SerializeField] int characterSelectMenuIndex = 1;
 
+    [SerializeField] GameObject tutorialMenu;
+    [SerializeField] RectTransform tutorialTransform;
+    [SerializeField] int tutorialMenuIndex = 2;
+
     public List<InputMapSO> playerOrderedInputMaps = new List<InputMapSO>(); //press a button to join
 
     [SerializeField] float exitMatchDoublePressTime = 1;
@@ -65,6 +69,7 @@ public class MenuManager : MonoBehaviour
 
         mainMenuTransform = mainMenu.GetComponent<RectTransform>();
         characterSelectTransform = characterSelect.GetComponent<RectTransform>();
+        tutorialTransform = tutorialMenu.GetComponent<RectTransform>();
 
         mainMenuButtonPosSize = new Vector4[mainMenuButtons.Length];
         for (int i = 0; i < mainMenuButtons.Length; i++)
@@ -143,6 +148,10 @@ public class MenuManager : MonoBehaviour
             {
                 CharacterSelectFunc();
             }
+            else if (menuIndex == tutorialMenuIndex)
+            {
+                TutorialFunc();
+            }
         }
     }
 
@@ -198,7 +207,11 @@ public class MenuManager : MonoBehaviour
             {
                 SelectPlayerAmount(selectPos == 1); //do 3 player if we selected 1
             }
-            else if (selectPos == 2)
+            if (selectPos == 2)
+            {
+                GoTutorial();
+            }
+            else if (selectPos == 3)
             {
                 QuitGame();
             }
@@ -297,6 +310,18 @@ public class MenuManager : MonoBehaviour
         }
     }
 
+    void TutorialFunc()
+    {
+        if (GetBackInput()) 
+        {
+            ToMainMenu(); 
+            prevMenuTransform = tutorialTransform;
+            currentMenuTransform = mainMenuTransform;
+            menuTransitionDirection = -1;
+            DoMenuTransition();
+        }
+    }
+
     void SelectPlayerAmount(bool do3Player)
     {
         int num = 2;
@@ -309,19 +334,28 @@ public class MenuManager : MonoBehaviour
 
         gameManager.DoPlayerInfo();
 
-        DoMenuTransition();
         prevMenuTransform = mainMenuTransform;
         currentMenuTransform = characterSelectTransform;
         menuTransitionDirection = 1;
         menuIndex = characterSelectMenuIndex;
+        DoMenuTransition();
+    }
+
+    public void GoTutorial()
+    {
+        prevMenuTransform = mainMenuTransform;
+        currentMenuTransform = tutorialTransform;
+        menuTransitionDirection = 1;
+        menuIndex = tutorialMenuIndex;
+        DoMenuTransition();
     }
 
     public void DoMenuTransition()
     {
         menuTransitionTimer = 0;
 
-        mainMenu.SetActive(true);
-        characterSelect.SetActive(true);
+        mainMenu.SetActive(prevMenuTransform.gameObject);
+        characterSelect.SetActive(currentMenuTransform.gameObject);
     }
     public void MenuTransitionFunc()
     {
