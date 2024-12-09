@@ -29,8 +29,6 @@ public class PlayerMeshParent : MonoBehaviour
     public RenderTexture renderTex;
     public int renderTexSize = 1024;
     public MeshRenderer meshRenderer;
-    //public Material textureMaterial;
-    //public Material referenceMaterial;
 
     public bool doIt;
 
@@ -58,7 +56,7 @@ public class PlayerMeshParent : MonoBehaviour
             players++;
         }
 
-        pos += new Vector2(num*10, 0);
+        pos += new Vector2(num*20, 0);
 
         if (playerFunc) team = playerFunc.playerStatus.team.team;
 
