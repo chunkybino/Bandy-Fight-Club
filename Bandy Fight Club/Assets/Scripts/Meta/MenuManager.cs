@@ -110,8 +110,8 @@ public class MenuManager : MonoBehaviour
         if (menuTransitionTimer > 1)
         {
             mainMenu.SetActive(menuIndex == mainMenuIndex);
-            //buttonSelectionObject.gameObject.SetActive(menuIndex == mainMenuIndex);
             characterSelect.SetActive(menuIndex == characterSelectMenuIndex);
+            tutorialMenu.SetActive(menuIndex == tutorialMenuIndex);
         }  
 
         if (!gameManager.isMenu) //in game
@@ -354,8 +354,8 @@ public class MenuManager : MonoBehaviour
     {
         menuTransitionTimer = 0;
 
-        mainMenu.SetActive(prevMenuTransform.gameObject);
-        characterSelect.SetActive(currentMenuTransform.gameObject);
+        prevMenuTransform.gameObject.SetActive(true);
+        currentMenuTransform.gameObject.SetActive(true);
     }
     public void MenuTransitionFunc()
     {
