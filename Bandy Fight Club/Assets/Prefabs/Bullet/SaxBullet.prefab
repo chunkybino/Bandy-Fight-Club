@@ -184,7 +184,6 @@ Transform:
   m_LocalScale: {x: 4, y: 4, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 5929871953935786429}
   - {fileID: 2012304005378812289}
   - {fileID: 9203652275486146589}
   - {fileID: 4709917454188806377}
@@ -597,11 +596,11 @@ Transform:
   m_GameObject: {fileID: 6378703620678700521}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.28750002, y: 0, z: 0}
+  m_LocalPosition: {x: 0.22500002, y: 0, z: 0}
   m_LocalScale: {x: 0.25, y: 0.25, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 939267702126968232}
+  m_Father: {fileID: 9203652275486146589}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!96 &2647353766249707842
 TrailRenderer:
@@ -649,31 +648,31 @@ TrailRenderer:
   m_PreviewTimeScale: 1
   m_Parameters:
     serializedVersion: 3
-    widthMultiplier: 0.8
+    widthMultiplier: 0.7
     widthCurve:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
         time: 0
         value: 0
-        inSlope: 17.1106
-        outSlope: 17.1106
+        inSlope: 12.045019
+        outSlope: 12.045019
         tangentMode: 0
         weightedMode: 0
         inWeight: 0.33333334
-        outWeight: 0.15848294
+        outWeight: 0.11225411
       - serializedVersion: 3
-        time: 0.07987124
-        value: 0.89993125
-        inSlope: -0.43028486
-        outSlope: -0.43028486
+        time: 0.1593941
+        value: 0.75337946
+        inSlope: -0.3721612
+        outSlope: -0.3721612
         tangentMode: 0
         weightedMode: 0
         inWeight: 0.33333334
-        outWeight: 0.33333334
+        outWeight: 0.16045555
       - serializedVersion: 3
-        time: 0.95569617
-        value: 0.6267281
+        time: 0.95967233
+        value: 0.3767281
         inSlope: -0.60148287
         outSlope: -0.60148287
         tangentMode: 0
@@ -766,6 +765,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6150158439018585108}
+  - {fileID: 5929871953935786429}
   m_Father: {fileID: 939267702126968232}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1475633148454669172
