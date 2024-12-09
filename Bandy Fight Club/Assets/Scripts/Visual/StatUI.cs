@@ -11,7 +11,13 @@ public class StatUI : MonoBehaviour
     public List<PlayerStatus> players = new List<PlayerStatus>();
 
     public Slider[] healthBars;
+    public Slider[] whiteBars;
     public Slider[] disadvantageBars;
+    public float[] hitTimers;
+    public float[] whitePreHitValues;
+
+    [SerializeField] AnimationCurve hitWhiteCurve;
+    [SerializeField] float hitWhiteSpeed = 1;
 
     public TextMeshProUGUI[] scoreText;
 
@@ -40,9 +46,25 @@ public class StatUI : MonoBehaviour
         {
             if (players[i] == null) continue;
 
+            if (players[i].hit)
+            {
+                players[i].hit = false;
+                whitePreHitValues[i] = whiteBars[i].value;
+                hitTimers[i] = 0;
+            }
+            else
+            {
+                hitTimers[i] += Time.deltaTime * hitWhiteSpeed;
+            }
+
             if (i < healthBars.Length)
             {
                 healthBars[i].value = Mathf.Round(players[i].health) / Mathf.Round(players[i].maxHealth); //round so it becomes a float, i think
+            }
+            if (i < whiteBars.Length)
+            {
+                float t = hitWhiteCurve.Evaluate(hitTimers[i]);
+                whiteBars[i].value = Mathf.Lerp(whitePreHitValues[i], healthBars[i].value, t);
             }
             if (i < disadvantageBars.Length)
             {

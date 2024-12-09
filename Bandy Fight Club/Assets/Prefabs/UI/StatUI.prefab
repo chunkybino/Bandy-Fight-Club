@@ -574,10 +574,74 @@ MonoBehaviour:
   - {fileID: 662243690304413180}
   - {fileID: 8417046328381777751}
   - {fileID: 4101178731233765092}
+  whiteBars:
+  - {fileID: 427870082799905677}
+  - {fileID: 8651276037032448294}
+  - {fileID: 3758969541582639253}
   disadvantageBars:
   - {fileID: 2994472359270639145}
   - {fileID: 2100834172606574587}
   - {fileID: 4396769161342195838}
+  hitTimers:
+  - 0
+  - 0
+  - 0
+  whitePreHitValues:
+  - 0
+  - 0
+  - 0
+  hitWhiteCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: -0.04461539
+      outSlope: -0.04461539
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.19923373
+    - serializedVersion: 3
+      time: 0.49999994
+      value: 0.010498071
+      inSlope: 0.0607691
+      outSlope: 0.0607691
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.19923374
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.51765436
+      value: 0.26517597
+      inSlope: 10.767664
+      outSlope: 10.767664
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 1
+      outWeight: 0.26360753
+    - serializedVersion: 3
+      time: 0.6239721
+      value: 0.75950235
+      inSlope: 1.8170941
+      outSlope: 1.8170941
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.73360443
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0.12210536
+      outSlope: 0.12210536
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.3871892
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  hitWhiteSpeed: 1
   scoreText:
   - {fileID: 4565828525071092542}
   - {fileID: 5794835519129468574}
@@ -1200,6 +1264,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cc3fc7da851968246b5599a0c1087cb0, type: 3}
+--- !u!114 &427870082799905677 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2092547566396614981, guid: cc3fc7da851968246b5599a0c1087cb0, type: 3}
+  m_PrefabInstance: {fileID: 1799787826236326600}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &662243690304413180 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1282085940226236212, guid: cc3fc7da851968246b5599a0c1087cb0, type: 3}
@@ -1342,6 +1417,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 995508298589267794, guid: cc3fc7da851968246b5599a0c1087cb0, type: 3}
   m_PrefabInstance: {fileID: 2963564324068948432}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &3758969541582639253 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2092547566396614981, guid: cc3fc7da851968246b5599a0c1087cb0, type: 3}
+  m_PrefabInstance: {fileID: 2963564324068948432}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &4101178731233765092 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1282085940226236212, guid: cc3fc7da851968246b5599a0c1087cb0, type: 3}
@@ -1595,6 +1681,17 @@ RectTransform:
 --- !u!114 &8417046328381777751 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1282085940226236212, guid: cc3fc7da851968246b5599a0c1087cb0, type: 3}
+  m_PrefabInstance: {fileID: 7279428146959923299}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8651276037032448294 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2092547566396614981, guid: cc3fc7da851968246b5599a0c1087cb0, type: 3}
   m_PrefabInstance: {fileID: 7279428146959923299}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}

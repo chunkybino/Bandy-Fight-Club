@@ -28,6 +28,8 @@ public class PlayerStatus : MonoBehaviour
     public AudioManager audio;
     [SerializeField] string hurtSoundName;
 
+    public bool hit;
+
     void Awake()
     {
         gameManager = GameManager.singleton;
@@ -59,6 +61,8 @@ public class PlayerStatus : MonoBehaviour
         audio.Play(hurtSoundName);
 
         playerAttack.OnHit();
+
+        hit = true;
     }
 
     public void Spawn(int playerNum)
