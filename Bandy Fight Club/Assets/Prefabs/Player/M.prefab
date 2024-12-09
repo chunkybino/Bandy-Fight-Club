@@ -24910,6 +24910,15 @@ MonoBehaviour:
     doPivot: 0
     perpAmp: 1.5
     doPivotOnGrounded: 1
+  - name: idle
+    speed: 3
+    amplitude: 0.1
+    freqency: 1
+    decayPower: 2
+    flipXY: 0
+    doPivot: 0
+    perpAmp: 1.5
+    doPivotOnGrounded: 1
   blockAnimIndex: 0
   blockAnimNames:
   - Block1

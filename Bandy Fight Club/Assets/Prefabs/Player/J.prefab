@@ -1331,6 +1331,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: -1.7811911
       objectReference: {fileID: 0}
+    - target: {fileID: 1085727441473210169, guid: fe70ef1e12400454dab17dbd913906c3, type: 3}
+      propertyPath: matList.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: ca73f2f9a2aa87e4eb2e8aca4166e3d2, type: 2}
     - target: {fileID: 1303233468433770994, guid: fe70ef1e12400454dab17dbd913906c3, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.87100077
@@ -1423,6 +1427,38 @@ PrefabInstance:
       propertyPath: playerStatus
       value: 
       objectReference: {fileID: 7082116060841657837}
+    - target: {fileID: 2388454519947707244, guid: fe70ef1e12400454dab17dbd913906c3, type: 3}
+      propertyPath: squashDatas.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2388454519947707244, guid: fe70ef1e12400454dab17dbd913906c3, type: 3}
+      propertyPath: squashDatas.Array.data[4].name
+      value: idle
+      objectReference: {fileID: 0}
+    - target: {fileID: 2388454519947707244, guid: fe70ef1e12400454dab17dbd913906c3, type: 3}
+      propertyPath: squashDatas.Array.data[4].speed
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2388454519947707244, guid: fe70ef1e12400454dab17dbd913906c3, type: 3}
+      propertyPath: squashDatas.Array.data[4].perpAmp
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2388454519947707244, guid: fe70ef1e12400454dab17dbd913906c3, type: 3}
+      propertyPath: squashDatas.Array.data[4].freqency
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2388454519947707244, guid: fe70ef1e12400454dab17dbd913906c3, type: 3}
+      propertyPath: squashDatas.Array.data[4].amplitude
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2388454519947707244, guid: fe70ef1e12400454dab17dbd913906c3, type: 3}
+      propertyPath: squashDatas.Array.data[4].decayPower
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2388454519947707244, guid: fe70ef1e12400454dab17dbd913906c3, type: 3}
+      propertyPath: squashDatas.Array.data[4].doPivotOnGrounded
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2532865700884332015, guid: fe70ef1e12400454dab17dbd913906c3, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.07794991
@@ -1458,6 +1494,10 @@ PrefabInstance:
     - target: {fileID: 3083367579406499269, guid: fe70ef1e12400454dab17dbd913906c3, type: 3}
       propertyPath: m_LocalPosition.y
       value: -0.24551259
+      objectReference: {fileID: 0}
+    - target: {fileID: 3253132466191578433, guid: fe70ef1e12400454dab17dbd913906c3, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3263962523017334358, guid: fe70ef1e12400454dab17dbd913906c3, type: 3}
       propertyPath: groundCheck
@@ -1495,6 +1535,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.x
       value: 192
       objectReference: {fileID: 0}
+    - target: {fileID: 4495119660588407729, guid: fe70ef1e12400454dab17dbd913906c3, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: ca73f2f9a2aa87e4eb2e8aca4166e3d2, type: 2}
     - target: {fileID: 4671806020913821040, guid: fe70ef1e12400454dab17dbd913906c3, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.6519536
@@ -1507,9 +1551,17 @@ PrefabInstance:
       propertyPath: m_LocalPosition.x
       value: -0.86053514
       objectReference: {fileID: 0}
+    - target: {fileID: 5025514420458976631, guid: fe70ef1e12400454dab17dbd913906c3, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5195405121069291475, guid: fe70ef1e12400454dab17dbd913906c3, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.07794991
+      objectReference: {fileID: 0}
+    - target: {fileID: 5211838575459231317, guid: fe70ef1e12400454dab17dbd913906c3, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5514850836187110592, guid: fe70ef1e12400454dab17dbd913906c3, type: 3}
       propertyPath: m_LocalPosition.x
