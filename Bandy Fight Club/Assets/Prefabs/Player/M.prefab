@@ -138,7 +138,7 @@ Transform:
   m_GameObject: {fileID: 14135144355403023}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: 0.5656272, w: 0.82466114}
-  m_LocalPosition: {x: 0.08613442, y: -0.31487465, z: 0}
+  m_LocalPosition: {x: -0.05495414, y: 0.039534733, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -7196,7 +7196,7 @@ Transform:
   m_GameObject: {fileID: 760485421070494430}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.032426536, y: 0.6222253, z: -0}
+  m_LocalPosition: {x: -0.1294398, y: 0.4121577, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -7718,7 +7718,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7345804932902525444
 Transform:
   m_ObjectHideFlags: 0
@@ -24924,7 +24924,7 @@ MonoBehaviour:
   blockAnimNames:
   - Block1
   - Block2
-  skidTime: 0
+  skidTime: 0.1
   walkDashTime: 0.2
   riseToFallTime: 0.1
   groundDeathAnimDelay: 0.1
@@ -45797,7 +45797,7 @@ Transform:
   m_Children:
   - {fileID: 3539784616095306768}
   m_Father: {fileID: 3432397626589382938}
-  m_LocalEulerAnglesHint: {x: -24.793, y: 6.809, z: 0.42}
+  m_LocalEulerAnglesHint: {x: -39.225, y: 27.169, z: 4.039}
 --- !u!1773428102 &3548445182439513963
 ParentConstraint:
   m_ObjectHideFlags: 0
@@ -45984,7 +45984,7 @@ Transform:
   m_GameObject: {fileID: 5419305463356415551}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.052076876, y: 0.67911017, z: 0}
+  m_LocalPosition: {x: -0.050610587, y: 0.4412213, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
