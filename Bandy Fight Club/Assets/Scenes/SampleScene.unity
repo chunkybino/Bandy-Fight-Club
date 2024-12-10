@@ -16345,7 +16345,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 865003778337878882, guid: 84f3f989133dc724681733bf06f534d8, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 874857956060216135, guid: 84f3f989133dc724681733bf06f534d8, type: 3}
       propertyPath: m_LocalPosition.x
@@ -16629,7 +16629,7 @@ PrefabInstance:
       objectReference: {fileID: 1389799654}
     - target: {fileID: 1626537394165745460, guid: 84f3f989133dc724681733bf06f534d8, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1640808302284277992, guid: 84f3f989133dc724681733bf06f534d8, type: 3}
       propertyPath: m_LocalPosition.x
@@ -22397,6 +22397,10 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 2019158932}
+    - target: {fileID: 2037778598914027996, guid: 89a4bb26954076c4087def95df52bc91, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2075039079137242895, guid: 89a4bb26954076c4087def95df52bc91, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -23014,10 +23018,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 55706118241902123, guid: fadedae2ec4e81c49b649931f75292ff, type: 3}
-      propertyPath: m_Materials.Array.data[1]
-      value: 
-      objectReference: {fileID: 2100000, guid: ca73f2f9a2aa87e4eb2e8aca4166e3d2, type: 2}
     - target: {fileID: 145897915573246633, guid: fadedae2ec4e81c49b649931f75292ff, type: 3}
       propertyPath: m_Mesh
       value: 
