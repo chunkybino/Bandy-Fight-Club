@@ -138,7 +138,7 @@ Transform:
   m_GameObject: {fileID: 14135144355403023}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: 0.5656272, w: 0.82466114}
-  m_LocalPosition: {x: 0.06626864, y: -0.3435263, z: 0}
+  m_LocalPosition: {x: 0.08613442, y: -0.31487465, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -700,7 +700,7 @@ Transform:
   m_GameObject: {fileID: 156347511152480509}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: 0.5656272, w: 0.82466114}
-  m_LocalPosition: {x: 0.18557023, y: 0.36813092, z: 0}
+  m_LocalPosition: {x: 0.109577835, y: 0.09453583, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -7059,7 +7059,7 @@ Transform:
   m_Children:
   - {fileID: 2412918754932124941}
   m_Father: {fileID: 3432397626589382938}
-  m_LocalEulerAnglesHint: {x: -15.539, y: -1.897, z: -84.813}
+  m_LocalEulerAnglesHint: {x: -13.944, y: -7.99, z: -58.332}
 --- !u!1773428102 &421996884268410561
 ParentConstraint:
   m_ObjectHideFlags: 0
@@ -7196,7 +7196,7 @@ Transform:
   m_GameObject: {fileID: 760485421070494430}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.012944132, y: 0.28264642, z: -0}
+  m_LocalPosition: {x: -0.032426536, y: 0.6222253, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -24925,7 +24925,7 @@ MonoBehaviour:
   - Block1
   - Block2
   skidTime: 0
-  walkDashTime: 0
+  walkDashTime: 0.2
   riseToFallTime: 0.1
   groundDeathAnimDelay: 0.1
   walkParticles: {fileID: 801184227894054205}
@@ -45984,7 +45984,7 @@ Transform:
   m_GameObject: {fileID: 5419305463356415551}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.018033057, y: 0.48594588, z: 0}
+  m_LocalPosition: {x: 0.052076876, y: 0.67911017, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -61522,7 +61522,7 @@ Transform:
   m_Children:
   - {fileID: 5445735482490895948}
   m_Father: {fileID: 2066303199914852555}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 1.785}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 2.035}
 --- !u!1773428102 &5140346833871165140
 ParentConstraint:
   m_ObjectHideFlags: 0
