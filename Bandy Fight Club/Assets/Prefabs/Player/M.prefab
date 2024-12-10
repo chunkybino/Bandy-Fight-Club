@@ -138,7 +138,7 @@ Transform:
   m_GameObject: {fileID: 14135144355403023}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: 0.5656272, w: 0.82466114}
-  m_LocalPosition: {x: 0.0908103, y: -0.28203297, z: 0}
+  m_LocalPosition: {x: 0.074979305, y: -0.34032547, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -7196,7 +7196,7 @@ Transform:
   m_GameObject: {fileID: 760485421070494430}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.09960085, y: 0.41525024, z: -0}
+  m_LocalPosition: {x: 0.040598452, y: 0.4607291, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -7718,7 +7718,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &7345804932902525444
 Transform:
   m_ObjectHideFlags: 0
@@ -24903,10 +24903,10 @@ MonoBehaviour:
     perpAmp: 1
     doPivotOnGrounded: 1
   - name: run
-    speed: 2.5
-    amplitude: 0.15
+    speed: 2
+    amplitude: 0.2
     freqency: 1.25
-    decayPower: 3
+    decayPower: 2
     flipXY: 0
     doPivot: 0
     perpAmp: 1.5
