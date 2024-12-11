@@ -1064,7 +1064,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4819398962081511147
 Transform:
   m_ObjectHideFlags: 0
@@ -1318,7 +1318,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -2.474149}
+  m_Offset: {x: 0, y: -3.4435089}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -1329,7 +1329,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 3.5, y: 4.521404}
+  m_Size: {x: 5, y: 6.4601235}
   m_EdgeRadius: 0
 --- !u!114 &7782630508698872368
 MonoBehaviour:
@@ -7833,7 +7833,7 @@ MonoBehaviour:
   lastFrameVels: []
   lastFrameVelCount: 5
   lastFramePos: {x: 0, y: 0}
-  movementSpeed: 17
+  movementSpeed: 18
   sideInputDirection: 0
   verticalInputDirection: 0
   inputVector: {x: 0, y: 0}
@@ -19132,7 +19132,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animationName: DownAttack
   cancelOnGroundLand: 0
-  speedMult: 0
+  speedMult: 0.2
   lockFacing: 1
   onAttackStart:
     m_PersistentCalls:
@@ -24903,8 +24903,8 @@ MonoBehaviour:
     perpAmp: 1
     doPivotOnGrounded: 1
   - name: run
-    speed: 2
-    amplitude: 0.2
+    speed: 2.5
+    amplitude: 0.15
     freqency: 1.25
     decayPower: 2
     flipXY: 0
@@ -32139,7 +32139,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &5352229651196760658
 Transform:
   m_ObjectHideFlags: 0
@@ -37500,7 +37500,7 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 7010daeb2f6b3154eb20694ae282768d, type: 2}
-  - {fileID: 2100000, guid: 5dc7b63aedd576c43a58da879aac0af1, type: 2}
+  - {fileID: 2100000, guid: ca73f2f9a2aa87e4eb2e8aca4166e3d2, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -39311,7 +39311,7 @@ MonoBehaviour:
   matIndex: 1
   matList:
   - {fileID: 2100000, guid: 7010daeb2f6b3154eb20694ae282768d, type: 2}
-  - {fileID: 2100000, guid: 5dc7b63aedd576c43a58da879aac0af1, type: 2}
+  - {fileID: 2100000, guid: ca73f2f9a2aa87e4eb2e8aca4166e3d2, type: 2}
 --- !u!1 &4850601721930291891
 GameObject:
   m_ObjectHideFlags: 0
@@ -44476,7 +44476,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7221455671337490899
 Transform:
   m_ObjectHideFlags: 0
@@ -45393,7 +45393,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animationName: UpAttack
   cancelOnGroundLand: 0
-  speedMult: 0.1
+  speedMult: 0.4
   lockFacing: 1
   onAttackStart:
     m_PersistentCalls:
@@ -61105,7 +61105,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animationName: Attack1
   cancelOnGroundLand: 0
-  speedMult: 0.1
+  speedMult: 0.3
   lockFacing: 1
   onAttackStart:
     m_PersistentCalls:
@@ -64195,7 +64195,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &6770952830286235009
 Transform:
   m_ObjectHideFlags: 0

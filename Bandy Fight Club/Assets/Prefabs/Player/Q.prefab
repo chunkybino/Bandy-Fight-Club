@@ -1853,7 +1853,7 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 7010daeb2f6b3154eb20694ae282768d, type: 2}
-  - {fileID: 2100000, guid: 5dc7b63aedd576c43a58da879aac0af1, type: 2}
+  - {fileID: 2100000, guid: ca73f2f9a2aa87e4eb2e8aca4166e3d2, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2270,7 +2270,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &3738114251711204351
 Transform:
   m_ObjectHideFlags: 0
@@ -4219,7 +4219,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &3212526247361860931
 Transform:
   m_ObjectHideFlags: 0
@@ -14839,7 +14839,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &492184165980955251
 Transform:
   m_ObjectHideFlags: 0
@@ -15386,7 +15386,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2902138218111473604
 Transform:
   m_ObjectHideFlags: 0
@@ -15470,7 +15470,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1112335275081904152
 Transform:
   m_ObjectHideFlags: 0
@@ -21509,7 +21509,7 @@ Transform:
   m_GameObject: {fileID: 7938889876430366004}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.0029227138, y: 0.4008606, z: -0}
+  m_LocalPosition: {x: 0.027517736, y: 0.32176933, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -22644,6 +22644,7 @@ MonoBehaviour:
   hitParticles: {fileID: 2653833485904765781, guid: b6307853dc53dd141951ad23156ca745, type: 3}
   audio: {fileID: 4047863282010078356}
   hurtSoundName: sax_hurt
+  hit: 0
 --- !u!114 &3173985440313344023
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22880,7 +22881,7 @@ MonoBehaviour:
   renderToRotate: {fileID: 7964651198177828865}
   attackChargeHeld: 0
   timeAttackCharging: 0
-  attackChargeNeeded: 0.35
+  attackChargeNeeded: 0.25
   saxGrappleBoostSound: woosh1
   saxGrappleBoostSoundVol: 0.65
   saxGrappleBoostSoundPitch: 1.4
