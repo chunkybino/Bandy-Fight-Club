@@ -26,7 +26,6 @@ public class MenuManager : MonoBehaviour
     [SerializeField] GameObject mainMenu;
     [SerializeField] RectTransform mainMenuTransform;
     [SerializeField] int mainMenuIndex = 0;
-    [SerializeField] int mainMenuSelectionOptions = 2;
     public bool reverseSelectionOrder;
 
     [SerializeField] Vector4[] mainMenuButtonPosSize;
@@ -38,6 +37,8 @@ public class MenuManager : MonoBehaviour
     [SerializeField] Vector4 lastButtonPosSize;
     [SerializeField] Vector4 targetButtonPosSize;
 
+    [SerializeField] int[] buttonSelectActiveIndexs; //menus where its active
+
     [SerializeField] GameObject characterSelect;
     [SerializeField] RectTransform characterSelectTransform;
     [SerializeField] int characterSelectMenuIndex = 1;
@@ -45,6 +46,9 @@ public class MenuManager : MonoBehaviour
     [SerializeField] GameObject tutorialMenu;
     [SerializeField] RectTransform tutorialTransform;
     [SerializeField] int tutorialMenuIndex = 2;
+
+    [SerializeField] Vector4[] tutorialButtonPosSize;
+    [SerializeField] RectTransform[] tutorialButtons;
 
     public List<InputMapSO> playerOrderedInputMaps = new List<InputMapSO>(); //press a button to join
 
@@ -61,7 +65,6 @@ public class MenuManager : MonoBehaviour
     [SerializeField] RectTransform prevMenuTransform;
     [SerializeField] RectTransform currentMenuTransform;
     int menuTransitionDirection;
-    
 
     void Awake()
     {
@@ -79,6 +82,17 @@ public class MenuManager : MonoBehaviour
                 mainMenuButtons[i].anchoredPosition.y,
                 mainMenuButtons[i].sizeDelta.x,
                 mainMenuButtons[i].sizeDelta.y
+            );
+        }
+
+        tutorialButtonPosSize = new Vector4[tutorialButtons.Length];
+        for (int i = 0; i < tutorialButtons.Length; i++)
+        {
+            tutorialButtonPosSize[i] = new Vector4(
+                tutorialButtons[i].anchoredPosition.x,
+                tutorialButtons[i].anchoredPosition.y,
+                tutorialButtons[i].sizeDelta.x,
+                tutorialButtons[i].sizeDelta.y
             );
         }
 
@@ -112,7 +126,22 @@ public class MenuManager : MonoBehaviour
             mainMenu.SetActive(menuIndex == mainMenuIndex);
             characterSelect.SetActive(menuIndex == characterSelectMenuIndex);
             tutorialMenu.SetActive(menuIndex == tutorialMenuIndex);
-        }  
+
+            /*buttonSelectionObject.gameObject.SetActive(false);
+            for (int i = 0; i < buttonSelectActiveIndexs.Length; i++)
+            {
+                buttonSelectionObject.gameObject.SetActive(true);
+            }*/
+        }
+        buttonSelectionObject.gameObject.SetActive(false);
+        for (int i = 0; i < buttonSelectActiveIndexs.Length; i++)
+        {
+            if (buttonSelectActiveIndexs[i] == menuIndex) 
+            {
+                buttonSelectionObject.gameObject.SetActive(true);
+                break;
+            }
+        } 
 
         if (!gameManager.isMenu) //in game
         {   
@@ -157,17 +186,37 @@ public class MenuManager : MonoBehaviour
 
     void MainMenuFunc()
     {
+        ButtonSelectFunc(mainMenuButtonPosSize);
+
+        if (GetStartInput()) 
+        {
+            if (selectPos == 0 || selectPos == 1)
+            {
+                SelectPlayerAmount(selectPos == 1); //do 3 player if we selected 1
+            }
+            if (selectPos == 2)
+            {
+                GoTutorial();
+            }
+            else if (selectPos == 3)
+            {
+                QuitGame();
+            }
+        }
+    }
+    void ButtonSelectFunc(Vector4[] posSize)
+    {
         timeSinceSinceButtonSelect += Time.deltaTime * buttonSelectAnimSpeed;
 
         float t = buttonSelectAnimCurve.Evaluate(timeSinceSinceButtonSelect);
 
         buttonSelectionObject.anchoredPosition = new Vector2(
-            Mathf.Lerp(lastButtonPosSize.x, mainMenuButtonPosSize[selectPos].x, t),
-            Mathf.Lerp(lastButtonPosSize.y, mainMenuButtonPosSize[selectPos].y, t)
+            Mathf.Lerp(lastButtonPosSize.x, posSize[selectPos].x, t),
+            Mathf.Lerp(lastButtonPosSize.y, posSize[selectPos].y, t)
         );
         buttonSelectionObject.sizeDelta = new Vector2(
-            Mathf.Lerp(lastButtonPosSize.z, mainMenuButtonPosSize[selectPos].z, t),
-            Mathf.Lerp(lastButtonPosSize.w, mainMenuButtonPosSize[selectPos].w, t)
+            Mathf.Lerp(lastButtonPosSize.z, posSize[selectPos].z, t),
+            Mathf.Lerp(lastButtonPosSize.w, posSize[selectPos].w, t)
         );
 
         int add = 0;
@@ -196,27 +245,19 @@ public class MenuManager : MonoBehaviour
             );
         }
 
-        if (selectPos < 0) selectPos = mainMenuSelectionOptions-1;
-        if (selectPos >= mainMenuSelectionOptions) selectPos = 0;
+        if (selectPos < 0) selectPos = posSize.Length-1;
+        if (selectPos >= posSize.Length) selectPos = 0;
 
-        if (add != 0) targetButtonPosSize = mainMenuButtonPosSize[selectPos]; //do after we've looped select pos
-
-        if (GetStartInput()) 
-        {
-            if (selectPos == 0 || selectPos == 1)
-            {
-                SelectPlayerAmount(selectPos == 1); //do 3 player if we selected 1
-            }
-            if (selectPos == 2)
-            {
-                GoTutorial();
-            }
-            else if (selectPos == 3)
-            {
-                QuitGame();
-            }
-        }
+        if (add != 0) targetButtonPosSize = posSize[selectPos]; //do after we've looped select pos
     }
+    void GoInstantButtonSelect(Vector4 posSize)
+    {
+        timeSinceSinceButtonSelect = 1;
+
+        buttonSelectionObject.anchoredPosition = new Vector2(posSize.x, posSize.y);
+        buttonSelectionObject.sizeDelta = new Vector2(posSize.z, posSize.w);
+    }
+
     void CharacterSelectFunc()
     {
         characterSelectText[2].gameObject.SetActive(gameManager.do3Player);
@@ -312,6 +353,8 @@ public class MenuManager : MonoBehaviour
 
     void TutorialFunc()
     {
+        ButtonSelectFunc(tutorialButtonPosSize);
+
         if (GetBackInput()) 
         {
             ToMainMenu(); 
@@ -343,6 +386,9 @@ public class MenuManager : MonoBehaviour
 
     public void GoTutorial()
     {
+        selectPos = 0;
+        GoInstantButtonSelect(tutorialButtonPosSize[0]);
+
         prevMenuTransform = mainMenuTransform;
         currentMenuTransform = tutorialTransform;
         menuTransitionDirection = 1;
@@ -376,11 +422,13 @@ public class MenuManager : MonoBehaviour
     }
     public void ToMainMenu()
     {
+        selectPos = 0;
+        GoInstantButtonSelect(mainMenuButtonPosSize[0]);
+
         menuIndex = mainMenuIndex;
         mainMenu.SetActive(true);
         currentMenuTransform = mainMenuTransform;
         currentMenuTransform.anchoredPosition = new Vector2(0,0);
-        //buttonSelectionObject.gameObject.SetActive(true);
     }
 
     public void QuitGame()
