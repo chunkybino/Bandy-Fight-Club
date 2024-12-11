@@ -243,6 +243,16 @@ MonoBehaviour:
     randVolumeRange: {x: -0.1, y: 0.15}
     doRandomPitch: 0
     randPitchRange: {x: 0, y: 0}
+  - name: teleport
+    clip: {fileID: 8300000, guid: a577d3050ae32c04ca56c667a66faeac, type: 3}
+    volume: 0.7
+    pitch: 1
+    doRandomSound: 1
+    clips: []
+    doRandomVolume: 0
+    randVolumeRange: {x: -0.1, y: 0.15}
+    doRandomPitch: 0
+    randPitchRange: {x: 0, y: 0}
   - name: clari_hurt
     clip: {fileID: 0}
     volume: 0.5
