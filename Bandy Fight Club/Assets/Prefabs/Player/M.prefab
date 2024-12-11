@@ -138,7 +138,7 @@ Transform:
   m_GameObject: {fileID: 14135144355403023}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: 0.5656272, w: 0.82466114}
-  m_LocalPosition: {x: 0.088616446, y: -0.35827225, z: 0}
+  m_LocalPosition: {x: -0.008366376, y: -0.23122193, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -14438,7 +14438,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &7013597616700356713
 Transform:
   m_ObjectHideFlags: 0
@@ -14538,7 +14538,7 @@ Transform:
   m_Children:
   - {fileID: 6287676264535759584}
   m_Father: {fileID: 3432397626589382938}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 26.285, y: 34.726, z: 57.656}
 --- !u!1773428102 &9011234318274543214
 ParentConstraint:
   m_ObjectHideFlags: 0
@@ -24923,6 +24923,7 @@ MonoBehaviour:
   blockAnimIndex: 0
   blockAnimNames:
   - Block1
+  - Block2
   skidTime: 0.1
   walkDashTime: 0.2
   riseToFallTime: 0.1
@@ -32441,7 +32442,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &3610980011427268194
 Transform:
   m_ObjectHideFlags: 0
@@ -38824,7 +38825,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5826143062103385731
 Transform:
   m_ObjectHideFlags: 0
@@ -45983,7 +45984,7 @@ Transform:
   m_GameObject: {fileID: 5419305463356415551}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.0044933558, y: 0.47661003, z: 0}
+  m_LocalPosition: {x: -0.047855616, y: 0.19909483, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
