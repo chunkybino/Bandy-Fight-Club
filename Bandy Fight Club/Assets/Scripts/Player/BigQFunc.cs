@@ -87,8 +87,6 @@ public class BigQFunc : PlayerFunc, ICharacterFunc
         if (!inputs.attackHeld || !GetIsActionable())
         {
             attackChargeHeld = false;
-
-            if (chargeParticles.isPlaying) chargeParticles.Stop();
         }
         if (attackChargeHeld)
         {
@@ -100,17 +98,18 @@ public class BigQFunc : PlayerFunc, ICharacterFunc
                 attackChargeHeld = false;
                 timeAttackCharging = 0;
             }
-
-            if (!chargeParticles.isPlaying) chargeParticles.Play();
         }
 
+        //print(attackChargeNeeded-timeAttackCharging);
+        //print(playerAttack.canAttack);
+        print(attackChargeNeeded-timeAttackCharging < chargeParticleTime && playerAttack.canAttack && attackChargeHeld);
         if (attackChargeNeeded-timeAttackCharging < chargeParticleTime && playerAttack.canAttack && attackChargeHeld)
         {
             if (!chargeParticles.isPlaying) chargeParticles.Play();
         }
         else
         {
-            if (chargeParticles.isPlaying) chargeParticles.Stop();
+            chargeParticles.Stop();
         }
     }
     void FixedUpdate()
