@@ -100,9 +100,6 @@ public class BigQFunc : PlayerFunc, ICharacterFunc
             }
         }
 
-        //print(attackChargeNeeded-timeAttackCharging);
-        //print(playerAttack.canAttack);
-        print(attackChargeNeeded-timeAttackCharging < chargeParticleTime && playerAttack.canAttack && attackChargeHeld);
         if (attackChargeNeeded-timeAttackCharging < chargeParticleTime && playerAttack.canAttack && attackChargeHeld)
         {
             if (!chargeParticles.isPlaying) chargeParticles.Play();
