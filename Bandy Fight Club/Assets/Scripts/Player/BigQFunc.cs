@@ -43,6 +43,9 @@ public class BigQFunc : PlayerFunc, ICharacterFunc
     [SerializeField] float timeAttackCharging;
     [SerializeField] float attackChargeNeeded = 0.5f;
 
+    [SerializeField] ParticleSystem chargeParticles;
+    [SerializeField] float chargeParticleTime = 0.35f;
+
     [SerializeField] string saxGrappleBoostSound;
     [SerializeField] float saxGrappleBoostSoundVol = 1;
     [SerializeField] float saxGrappleBoostSoundPitch = 1;
@@ -84,6 +87,8 @@ public class BigQFunc : PlayerFunc, ICharacterFunc
         if (!inputs.attackHeld || !GetIsActionable())
         {
             attackChargeHeld = false;
+
+            if (chargeParticles.isPlaying) chargeParticles.Stop();
         }
         if (attackChargeHeld)
         {
@@ -95,6 +100,17 @@ public class BigQFunc : PlayerFunc, ICharacterFunc
                 attackChargeHeld = false;
                 timeAttackCharging = 0;
             }
+
+            if (!chargeParticles.isPlaying) chargeParticles.Play();
+        }
+
+        if (attackChargeNeeded-timeAttackCharging < chargeParticleTime && playerAttack.canAttack && attackChargeHeld)
+        {
+            if (!chargeParticles.isPlaying) chargeParticles.Play();
+        }
+        else
+        {
+            if (chargeParticles.isPlaying) chargeParticles.Stop();
         }
     }
     void FixedUpdate()
