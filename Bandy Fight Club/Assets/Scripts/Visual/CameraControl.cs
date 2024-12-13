@@ -56,6 +56,12 @@ public class CameraControl : MonoBehaviour
     public bool doFocusTarget = false;
     public int targetFocusIndex;
 
+    [SerializeField] GameObject spotlightPrefab;
+    [SerializeField] List<GameObject> spotlights = new List<GameObject>();
+    [SerializeField] Transform spotlightParent;
+    [SerializeField] float spotlightLerpFactor = 0.1f;
+    [SerializeField] float spotlightLinearSpeed = 4f;
+
     void Start()
     {
         cameraEdges = sideEdgeBounds;
@@ -68,6 +74,8 @@ public class CameraControl : MonoBehaviour
         edgeDistance = sideEdgeBounds.y - sideEdgeBounds.x;
 
         CalculateCameraEffectors();
+
+        DoSpotlights();
 
         playerToBoundLerp = playerDistanceToBoundLerpCurve.Evaluate(playerEdgeDistanceRatio);
         if (doZoomMult) playerToBoundLerp = 1-((1-playerToBoundLerp)/zoomMult);
@@ -138,6 +146,38 @@ public class CameraControl : MonoBehaviour
 
         playerDistance = rightPlayerBound - leftPlayerBound;
         averagePlayerPos = averagePlayerPos/playerEffectors.Count;
+    }
+
+    void DoSpotlights()
+    {
+        for (int i = 0; i < playerEffectors.Count || i < spotlights.Count; i++)
+        {
+            if (i >= playerEffectors.Count)
+            {
+                spotlights[i].SetActive(false);
+                continue;
+            }
+            if (i >= spotlights.Count)
+            {
+                spotlights.Add(Instantiate(spotlightPrefab, new Vector3(0,0,0), Quaternion.identity, spotlightParent));
+            }
+
+            Vector2 p = spotlights[i].transform.position;
+            //float x = spotlights[i].transform.position.x;
+            p.x = Mathf.Lerp(p.x, playerEffectors[i].target.position.x, 1-Mathf.Pow(spotlightLerpFactor, Time.deltaTime));
+            //float y = spotlights[i].transform.position.y;
+            p.y = Mathf.Lerp(p.y, playerEffectors[i].target.position.y, 1-Mathf.Pow(spotlightLerpFactor, Time.deltaTime));
+
+            Vector2 dis = playerEffectors[i].target.position - spotlights[i].transform.position;
+            Vector2 normalDis = dis.normalized * spotlightLinearSpeed;
+
+            if (p.x < playerEffectors[i].target.position.x)
+            {
+                //Mathf.
+            }
+
+            spotlights[i].transform.position = p;
+        }
     }
 
     void SetHorizontalSize(float size)
