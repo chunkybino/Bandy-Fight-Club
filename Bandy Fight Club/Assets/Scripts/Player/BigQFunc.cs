@@ -310,7 +310,7 @@ public class BigQFunc : PlayerFunc, ICharacterFunc
         enableJumpReleaseFall = false;
         playerAttack.SetAttackingSpeedMult(1);
 
-        if (inputs.attackHeld)
+        if (inputs.attackHeld || inputs.heavyHeld)
         {
             Parry();
             playerAttack.attackBufferTimer = 0;
