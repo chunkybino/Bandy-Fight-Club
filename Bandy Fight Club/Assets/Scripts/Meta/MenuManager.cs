@@ -66,6 +66,9 @@ public class MenuManager : MonoBehaviour
     [SerializeField] RectTransform currentMenuTransform;
     int menuTransitionDirection;
 
+    [SerializeField] GameObject menuSpotlights; //enalbe in menu
+    [SerializeField] GameObject platforms; //disable in menu
+
     void Awake()
     {
         gameManager = GameManager.singleton;
@@ -115,6 +118,9 @@ public class MenuManager : MonoBehaviour
         }
 
         controller.Gameplay.Enable();
+
+        menuSpotlights.SetActive(true);
+        platforms.SetActive(false);
     }
 
     void Update()
@@ -419,6 +425,9 @@ public class MenuManager : MonoBehaviour
     public void ToGame()
     {
         menuIndex = -1;
+
+        menuSpotlights.SetActive(false);
+        platforms.SetActive(true);
     }
     public void ToMainMenu()
     {
@@ -429,6 +438,9 @@ public class MenuManager : MonoBehaviour
         mainMenu.SetActive(true);
         currentMenuTransform = mainMenuTransform;
         currentMenuTransform.anchoredPosition = new Vector2(0,0);
+
+        menuSpotlights.SetActive(true);
+        platforms.SetActive(false);
     }
 
     public void QuitGame()

@@ -162,6 +162,8 @@ public class CameraControl : MonoBehaviour
                 spotlights.Add(Instantiate(spotlightPrefab, new Vector3(0,0,0), Quaternion.identity, spotlightParent));
             }
 
+            spotlights[i].SetActive(true);
+            
             Vector2 p = spotlights[i].transform.position;
             //float x = spotlights[i].transform.position.x;
             p.x = Mathf.Lerp(p.x, playerEffectors[i].target.position.x, 1-Mathf.Pow(spotlightLerpFactor, Time.deltaTime));
