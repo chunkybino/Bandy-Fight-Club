@@ -168,12 +168,25 @@ public class CameraControl : MonoBehaviour
             //float y = spotlights[i].transform.position.y;
             p.y = Mathf.Lerp(p.y, playerEffectors[i].target.position.y, 1-Mathf.Pow(spotlightLerpFactor, Time.deltaTime));
 
-            Vector2 dis = playerEffectors[i].target.position - spotlights[i].transform.position;
-            Vector2 normalDis = dis.normalized * spotlightLinearSpeed;
+            Vector2 dis = p - new Vector2(spotlights[i].transform.position.x, spotlights[i].transform.position.y);
+            Vector2 normalDis = dis.normalized;
 
-            if (p.x < playerEffectors[i].target.position.x)
+            if (normalDis.x > 0)
             {
-                //Mathf.
+                p.x = Mathf.Min(p.x + normalDis.x*spotlightLinearSpeed, playerEffectors[i].target.position.x);
+            }
+            else if (normalDis.x < 0)
+            {
+                p.x = Mathf.Max(p.x + normalDis.x*spotlightLinearSpeed, playerEffectors[i].target.position.x);
+            }
+
+            if (p.y < playerEffectors[i].target.position.y)
+            {
+                p.y = Mathf.Min(p.y + normalDis.y*spotlightLinearSpeed, playerEffectors[i].target.position.y);
+            }
+            else if (p.y > playerEffectors[i].target.position.y)
+            {
+                p.y = Mathf.Max(p.y + normalDis.y*spotlightLinearSpeed, playerEffectors[i].target.position.y);
             }
 
             spotlights[i].transform.position = p;

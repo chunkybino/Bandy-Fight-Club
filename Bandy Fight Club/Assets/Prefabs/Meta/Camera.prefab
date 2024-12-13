@@ -129,7 +129,8 @@ MonoBehaviour:
   spotlightPrefab: {fileID: 7738646923897520363, guid: b43041ada420ea14594d91d9289decdc, type: 3}
   spotlights: []
   spotlightParent: {fileID: 0}
-  spotlightLerpFactor: 0.1
+  spotlightLerpFactor: 0.05
+  spotlightLinearSpeed: 0.5
 --- !u!1 &5021844562765222903
 GameObject:
   m_ObjectHideFlags: 0
