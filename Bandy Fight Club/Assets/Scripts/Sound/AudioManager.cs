@@ -43,7 +43,7 @@ public class AudioManager : MonoBehaviour
             UFunc.TickTimer(ref fadeOutMusicTimer);
 
             float t = fadeOutMusicTimer / fadeOutMusicTime;
-            Mathf.Lerp(musicVolume, 0, t);
+            musicSource.volume = Mathf.Lerp(0, musicVolume, t);
         }
         else if (fadeOutMusicTimer == 0)
         {

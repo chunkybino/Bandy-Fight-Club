@@ -384,6 +384,8 @@ public class GameManager : MonoBehaviour
         DoScreenTransition(false);
 
         Invoke("ToMainMenu", startMatchTransitionTime);
+
+        audio.FadeOutMusic();
     }
     void ToMainMenu()
     {
