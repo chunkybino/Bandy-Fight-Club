@@ -11,12 +11,45 @@ public class AudioManager : MonoBehaviour
     public string playName;
     public bool play;
 
+    [SerializeField] AudioSource musicSource;
+    [SerializeField] float musicVolume = 1;
+
+    [SerializeField] float fadeOutMusicTime = 1;
+    float fadeOutMusicTimer = -1;
+
+    public bool musicPlaying;
+
+    void Start()
+    {
+        if (musicSource)
+        {
+            musicSource.volume = 0;
+            musicSource.Play();
+        }
+    }
+
     void Update()
     {
-        if (play)
+        if (play) 
         {
             play = false;
             Play(playName);
+        }
+
+        if (!musicSource) return;
+
+        if (fadeOutMusicTimer > 0)
+        {
+            UFunc.TickTimer(ref fadeOutMusicTimer);
+
+            float t = fadeOutMusicTimer / fadeOutMusicTime;
+            Mathf.Lerp(musicVolume, 0, t);
+        }
+        else if (fadeOutMusicTimer == 0)
+        {
+            musicSource.Stop();
+            fadeOutMusicTimer = -1;
+            musicPlaying = false;
         }
     }
 
@@ -69,5 +102,27 @@ public class AudioManager : MonoBehaviour
             if (s.SO.name == name) return s;
         }
         return null;
+    }
+
+    public void StartMusic()
+    {
+        musicSource.volume = musicVolume;
+        if (musicSource.isPlaying) musicSource.Stop();
+        musicSource.Play();
+        fadeOutMusicTimer = -1;
+
+        musicPlaying = true;
+    }
+    public void StopMusic()
+    {
+        musicSource.Stop();
+
+        musicPlaying = false;
+    }
+    public void FadeOutMusic()
+    {
+        fadeOutMusicTimer = fadeOutMusicTime;
+
+        musicPlaying = false;
     }
 }

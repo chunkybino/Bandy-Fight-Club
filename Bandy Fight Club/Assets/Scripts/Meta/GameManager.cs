@@ -201,6 +201,11 @@ public class GameManager : MonoBehaviour
     public void StartGame()
     {
         gameStarted = true;
+
+        if (!audio.musicPlaying)
+        {
+            audio.StartMusic();
+        }
     }
 
     public void DoRespawn()
