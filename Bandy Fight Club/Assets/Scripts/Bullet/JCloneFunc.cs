@@ -57,6 +57,10 @@ public class JCloneFunc : MonoBehaviour
     [SerializeField] Knockback diagAttackKnockback;
     [SerializeField] Knockback upAttackKnockback;
 
+    [SerializeField] string teleportSoundName = "teleport";
+    [SerializeField] float teleportVol = 1;
+    [SerializeField] float teleportPitch = 1;
+
     void Start()
     {
         cloneAttackHitbox.onHit.AddListener(OnAttackHit);
@@ -139,6 +143,8 @@ public class JCloneFunc : MonoBehaviour
         DoAttack();
 
         attackParticles.Play();
+
+        GameManager.singleton.audio.Play(teleportSoundName, teleportVol, teleportPitch);
 
         CancelInvoke("Deactivate");
         Invoke("Deactivate", deactivateTime);
