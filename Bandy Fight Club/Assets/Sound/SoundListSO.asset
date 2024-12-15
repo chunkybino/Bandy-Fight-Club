@@ -352,3 +352,55 @@ MonoBehaviour:
     randVolumeRange: {x: -0.1, y: 0.15}
     doRandomPitch: 1
     randPitchRange: {x: -0.15, y: 0.3}
+  - name: menuPress
+    clip: {fileID: 8300000, guid: 67c28892c458dc348aa2ff70efb16743, type: 3}
+    volume: 0.2
+    pitch: 1.2
+    doRandomSound: 1
+    clips:
+    - {fileID: 8300000, guid: 6d91a53fd9277984283833da78666bda, type: 3}
+    - {fileID: 8300000, guid: fedb6ea606602224ea6b5e64063961ab, type: 3}
+    - {fileID: 8300000, guid: b28131031050d8b458ff816eb46c9c39, type: 3}
+    doRandomVolume: 1
+    randVolumeRange: {x: 0, y: 0.1}
+    doRandomPitch: 1
+    randPitchRange: {x: 0, y: 0}
+  - name: menuMove1
+    clip: {fileID: 8300000, guid: 67c28892c458dc348aa2ff70efb16743, type: 3}
+    volume: 0.12
+    pitch: 1
+    doRandomSound: 1
+    clips:
+    - {fileID: 8300000, guid: 67c28892c458dc348aa2ff70efb16743, type: 3}
+    - {fileID: 8300000, guid: faafa44379e40624383e9e1592e4a699, type: 3}
+    - {fileID: 8300000, guid: 4474dd86215f0114aa193ebe1ccfca2e, type: 3}
+    doRandomVolume: 1
+    randVolumeRange: {x: 0, y: 0.05}
+    doRandomPitch: 1
+    randPitchRange: {x: -0.05, y: 0.1}
+  - name: menuMove2
+    clip: {fileID: 8300000, guid: 67c28892c458dc348aa2ff70efb16743, type: 3}
+    volume: 0.12
+    pitch: 1
+    doRandomSound: 1
+    clips:
+    - {fileID: 8300000, guid: 67c28892c458dc348aa2ff70efb16743, type: 3}
+    - {fileID: 8300000, guid: faafa44379e40624383e9e1592e4a699, type: 3}
+    - {fileID: 8300000, guid: 4474dd86215f0114aa193ebe1ccfca2e, type: 3}
+    doRandomVolume: 1
+    randVolumeRange: {x: 0, y: 0.05}
+    doRandomPitch: 1
+    randPitchRange: {x: -0.05, y: 0.1}
+  - name: menuMove3
+    clip: {fileID: 8300000, guid: 67c28892c458dc348aa2ff70efb16743, type: 3}
+    volume: 0.12
+    pitch: 1
+    doRandomSound: 1
+    clips:
+    - {fileID: 8300000, guid: 67c28892c458dc348aa2ff70efb16743, type: 3}
+    - {fileID: 8300000, guid: faafa44379e40624383e9e1592e4a699, type: 3}
+    - {fileID: 8300000, guid: 4474dd86215f0114aa193ebe1ccfca2e, type: 3}
+    doRandomVolume: 1
+    randVolumeRange: {x: 0, y: 0.05}
+    doRandomPitch: 1
+    randPitchRange: {x: -0.05, y: 0.1}

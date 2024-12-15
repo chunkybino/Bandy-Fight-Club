@@ -69,6 +69,12 @@ public class MenuManager : MonoBehaviour
     [SerializeField] GameObject menuSpotlights; //enalbe in menu
     [SerializeField] GameObject platforms; //disable in menu
 
+    [SerializeField] AudioManager audio;
+
+    [SerializeField] string menuButtonSoundName = "menuPress";
+    [SerializeField] string[] menuMoveSoundName;
+    int menuMoveSoundIndex;
+
     void Awake()
     {
         gameManager = GameManager.singleton;
@@ -199,10 +205,14 @@ public class MenuManager : MonoBehaviour
             if (selectPos == 0 || selectPos == 1)
             {
                 SelectPlayerAmount(selectPos == 1); //do 3 player if we selected 1
+
+                MenuPressSound();
             }
             if (selectPos == 2)
             {
                 GoTutorial();
+
+                MenuPressSound();
             }
             else if (selectPos == 3)
             {
@@ -249,6 +259,8 @@ public class MenuManager : MonoBehaviour
                 buttonSelectionObject.sizeDelta.x,
                 buttonSelectionObject.sizeDelta.y
             );
+
+            MenuMoveSound();
         }
 
         if (selectPos < 0) selectPos = posSize.Length-1;
@@ -346,6 +358,8 @@ public class MenuManager : MonoBehaviour
         if (GetStartInput() && canStart)
         {
             gameManager.StartMatchTransition();
+
+            MenuPressSound();
         }
         if (GetBackInput()) 
         {
@@ -354,6 +368,8 @@ public class MenuManager : MonoBehaviour
             currentMenuTransform = mainMenuTransform;
             menuTransitionDirection = -1;
             DoMenuTransition();
+
+            MenuPressSound();
         }
     }
 
@@ -368,6 +384,8 @@ public class MenuManager : MonoBehaviour
             currentMenuTransform = mainMenuTransform;
             menuTransitionDirection = -1;
             DoMenuTransition();
+
+            MenuPressSound();
         }
     }
 
@@ -447,6 +465,18 @@ public class MenuManager : MonoBehaviour
     {
         print("ya done did an exit");
         Application.Quit();
+    }
+
+    void MenuPressSound()
+    {
+        audio.Play(menuButtonSoundName, 1, 1);
+    }
+    void MenuMoveSound()
+    {
+        audio.Play(menuMoveSoundName[menuMoveSoundIndex], 1, 1);
+
+        menuMoveSoundIndex++;
+        if (menuMoveSoundIndex >= menuMoveSoundName.Length) menuMoveSoundIndex = 0;
     }
 
     bool GetUpInput(InputMapSO map)

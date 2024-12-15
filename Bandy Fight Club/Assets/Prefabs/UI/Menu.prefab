@@ -1941,6 +1941,14 @@ MonoBehaviour:
   menuTransitionSpeed: 1.25
   prevMenuTransform: {fileID: 0}
   currentMenuTransform: {fileID: 0}
+  menuSpotlights: {fileID: 0}
+  platforms: {fileID: 0}
+  audio: {fileID: 0}
+  menuButtonSoundName: menuPress
+  menuMoveSoundName:
+  - menuMove1
+  - menuMove2
+  - menuMove3
 --- !u!1 &4026940212159988840
 GameObject:
   m_ObjectHideFlags: 0
