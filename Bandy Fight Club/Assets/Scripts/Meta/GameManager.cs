@@ -194,6 +194,8 @@ public class GameManager : MonoBehaviour
 
         yield return new WaitForSeconds(startDelay);
 
+        if (isMenu) yield break;
+
         screenTransitions.Play("BottomOpen");
 
         StartGame();
@@ -404,6 +406,8 @@ public class GameManager : MonoBehaviour
 
         DoScreenTransition(true);
         screenTransitions.Play("BottomOpened");
+
+        audio.StopMusic();
     }
 }
 
