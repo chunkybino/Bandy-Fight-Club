@@ -75,6 +75,8 @@ public class MenuManager : MonoBehaviour
     [SerializeField] string[] menuMoveSoundName;
     int menuMoveSoundIndex;
 
+    [SerializeField] GameObject[] tutorialSlides;
+
     void Awake()
     {
         gameManager = GameManager.singleton;
@@ -386,6 +388,11 @@ public class MenuManager : MonoBehaviour
             DoMenuTransition();
 
             MenuPressSound();
+        }
+
+        for (int i = 0; i < tutorialSlides.Length; i++)
+        {
+            tutorialSlides[i].SetActive(i == selectPos);
         }
     }
 
