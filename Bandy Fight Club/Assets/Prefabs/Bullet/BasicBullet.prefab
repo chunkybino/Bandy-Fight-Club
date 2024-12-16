@@ -227,7 +227,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f0fed6309e8de14d830cbeb8e2e3084, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  config: {fileID: 11400000, guid: 911e078c33d4fc44987299a69b49e1c5, type: 2}
+  config: {fileID: 11400000, guid: 7337dff4f89ec374f8a169baaab44029, type: 2}
   rb: {fileID: 2602979910675424767}
   circleCollider: {fileID: 4091999052722105223}
   bounding: {fileID: 4990663467518539184}
@@ -262,6 +262,10 @@ MonoBehaviour:
   rotateInMovementDirection: 1
   speedPerStrech: 30
   renderScale: {x: 0, y: 0}
+  audio: {fileID: 0}
+  hitSoundName: hit
+  hitSoundVolume: 1
+  hitSoundPitch: 1
   deathParticles: {fileID: 0}
   deathParticlesScale: 1
   direction: {x: 1, y: 0}

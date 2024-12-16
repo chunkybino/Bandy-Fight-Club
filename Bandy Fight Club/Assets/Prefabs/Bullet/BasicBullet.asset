@@ -9,15 +9,23 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
+  m_Script: {fileID: 11500000, guid: 213f3ca6ee57c814591c3aa908cbff60, type: 3}
   m_Name: BasicBullet
-  m_EditorClassIdentifier: Assembly-CSharp::BulletConfig
+  m_EditorClassIdentifier: 
   bulletObject: {fileID: 2248519488616613682, guid: 178ff2c9a5f5d1e428c410d366e1e69d, type: 3}
   enemyAttackInfo:
     damage: 1
     knockbacks: []
+    blockStun: 0.4
+    stunTime: 0
+    advantageDamage: 0
+    onlyPerfBlock: 0
+    unblockable: 0
     hitStopTime: 0
     cameraShake: 0
+    doDeflect: 0
+    deflectForce: {x: 0, y: 0}
+    tags: []
   speed: 25
   pierce: 0
   size: 1

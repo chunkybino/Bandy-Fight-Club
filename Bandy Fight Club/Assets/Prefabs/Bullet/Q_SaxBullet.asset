@@ -9,9 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
+  m_Script: {fileID: 11500000, guid: 213f3ca6ee57c814591c3aa908cbff60, type: 3}
   m_Name: Q_SaxBullet
-  m_EditorClassIdentifier: Assembly-CSharp::BulletConfig
+  m_EditorClassIdentifier: 
   bulletObject: {fileID: 6796440636369131326, guid: 85e64e33079e0ab478c8226b5760eb75, type: 3}
   enemyAttackInfo:
     damage: 55

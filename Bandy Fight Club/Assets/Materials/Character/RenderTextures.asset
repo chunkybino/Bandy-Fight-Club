@@ -9,9 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
+  m_Script: {fileID: 11500000, guid: 9129edc022bf56e46afd093eaeb901fb, type: 3}
   m_Name: RenderTextures
-  m_EditorClassIdentifier: Assembly-CSharp::RenderTextureMaterials
+  m_EditorClassIdentifier: 
   renderTexQueue:
   - {fileID: 8400000, guid: 02797a51b06c7a845b384228e1e012dd, type: 2}
   - {fileID: 8400000, guid: dc8143f558bed254c897b1966e8d202f, type: 2}

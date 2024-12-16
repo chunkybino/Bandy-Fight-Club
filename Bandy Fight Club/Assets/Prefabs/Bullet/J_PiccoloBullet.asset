@@ -9,9 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
+  m_Script: {fileID: 11500000, guid: 213f3ca6ee57c814591c3aa908cbff60, type: 3}
   m_Name: J_PiccoloBullet
-  m_EditorClassIdentifier: Assembly-CSharp::BulletConfig
+  m_EditorClassIdentifier: 
   bulletObject: {fileID: 18477152857196661, guid: 74017630e4cc912439ee76c263b45dd9, type: 3}
   enemyAttackInfo:
     damage: 55

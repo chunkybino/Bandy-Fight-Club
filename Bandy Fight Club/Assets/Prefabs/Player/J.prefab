@@ -160,6 +160,7 @@ MonoBehaviour:
   hitParticles: {fileID: 2653833485904765781, guid: b6307853dc53dd141951ad23156ca745, type: 3}
   audio: {fileID: 7112663735537830072}
   hurtSoundName: flute_hurt
+  hit: 0
 --- !u!114 &9045482197941810018
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -373,7 +374,7 @@ MonoBehaviour:
   slash2ComboTime: 0.9
   timeSinceSlash2: 0
   slash3ComboTime: 1
-  piccoloBulletConfig: {fileID: 11400000, guid: a86ca759d4df37642b11c441a1034f27, type: 2}
+  piccoloBulletConfig: {fileID: 11400000, guid: e277688db158e154287cf75ae6e4065b, type: 2}
   piccoloSideThrowDirection: {x: 1, y: 1.2}
   piccoloUpThrowDirection: {x: 0.2, y: 1.8}
   piccoloDownThrowDirection: {x: 0.8, y: -0.3}
@@ -1275,10 +1276,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6dfec4b6e974591489ec01d0b40a8c65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  soundList: {fileID: 11400000, guid: 79add24d7fd3c664f8f8cfd797f6236f, type: 2}
+  soundList: {fileID: 11400000, guid: 1b2d042c069980c40a2e4bc13592569e, type: 2}
   sounds: []
   playName: 
   play: 0
+  musicSource: {fileID: 0}
+  musicVolume: 1
+  fadeOutMusicTime: 1
+  musicPlaying: 0
 --- !u!1001 &6095673352925186394
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1334,7 +1339,7 @@ PrefabInstance:
     - target: {fileID: 1085727441473210169, guid: fe70ef1e12400454dab17dbd913906c3, type: 3}
       propertyPath: matList.Array.data[1]
       value: 
-      objectReference: {fileID: 2100000, guid: ca73f2f9a2aa87e4eb2e8aca4166e3d2, type: 2}
+      objectReference: {fileID: 2100000, guid: 5dc7b63aedd576c43a58da879aac0af1, type: 2}
     - target: {fileID: 1303233468433770994, guid: fe70ef1e12400454dab17dbd913906c3, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.87100077
@@ -1497,7 +1502,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3253132466191578433, guid: fe70ef1e12400454dab17dbd913906c3, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3263962523017334358, guid: fe70ef1e12400454dab17dbd913906c3, type: 3}
       propertyPath: groundCheck
@@ -1538,7 +1543,7 @@ PrefabInstance:
     - target: {fileID: 4495119660588407729, guid: fe70ef1e12400454dab17dbd913906c3, type: 3}
       propertyPath: m_Materials.Array.data[1]
       value: 
-      objectReference: {fileID: 2100000, guid: ca73f2f9a2aa87e4eb2e8aca4166e3d2, type: 2}
+      objectReference: {fileID: 2100000, guid: 5dc7b63aedd576c43a58da879aac0af1, type: 2}
     - target: {fileID: 4671806020913821040, guid: fe70ef1e12400454dab17dbd913906c3, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.6519536
@@ -1553,7 +1558,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5025514420458976631, guid: fe70ef1e12400454dab17dbd913906c3, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5195405121069291475, guid: fe70ef1e12400454dab17dbd913906c3, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1561,7 +1566,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5211838575459231317, guid: fe70ef1e12400454dab17dbd913906c3, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5514850836187110592, guid: fe70ef1e12400454dab17dbd913906c3, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1599,6 +1604,10 @@ PrefabInstance:
       propertyPath: playerFunc
       value: 
       objectReference: {fileID: 9045482197941810018}
+    - target: {fileID: 5841460466195172434, guid: fe70ef1e12400454dab17dbd913906c3, type: 3}
+      propertyPath: materialTextures
+      value: 
+      objectReference: {fileID: 11400000, guid: 3a8094f5c8fbf2e4f9a79b7d51601cb7, type: 2}
     - target: {fileID: 5858325304405173183, guid: fe70ef1e12400454dab17dbd913906c3, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.6480593

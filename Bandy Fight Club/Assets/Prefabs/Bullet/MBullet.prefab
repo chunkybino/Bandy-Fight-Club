@@ -143,10 +143,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6dfec4b6e974591489ec01d0b40a8c65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  soundList: {fileID: 11400000, guid: 79add24d7fd3c664f8f8cfd797f6236f, type: 2}
+  soundList: {fileID: 11400000, guid: 1b2d042c069980c40a2e4bc13592569e, type: 2}
   sounds: []
   playName: 
   play: 0
+  musicSource: {fileID: 0}
+  musicVolume: 1
+  fadeOutMusicTime: 1
+  musicPlaying: 0
 --- !u!1 &4222346916652543117
 GameObject:
   m_ObjectHideFlags: 0
@@ -225,7 +229,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb22805db3257be49801dfc2fb0c0458, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  config: {fileID: 0}
+  config: {fileID: 11400000, guid: fe8ce96499ba2964583b98135faf541a, type: 2}
   rb: {fileID: 4521466663391286362}
   circleCollider: {fileID: 8270670476711904369}
   bounding: {fileID: 1514156296546020105}

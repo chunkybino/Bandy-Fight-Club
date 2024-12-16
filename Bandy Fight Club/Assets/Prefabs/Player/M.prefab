@@ -1064,7 +1064,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &4819398962081511147
 Transform:
   m_ObjectHideFlags: 0
@@ -8105,7 +8105,7 @@ MonoBehaviour:
   groundedGroundSlamJumpHeight: 64
   airGroundSlamJumpHeight: 12
   groundSlamForwardBoost: 12
-  shootBulletConfig: {fileID: 11400000, guid: bb8c2ff14a4bdd7478bc7a3c8abc298a, type: 2}
+  shootBulletConfig: {fileID: 11400000, guid: fe8ce96499ba2964583b98135faf541a, type: 2}
   downShootFirePos: {fileID: 815222321699161271}
   upShootFirePos: {fileID: 1458049588809779948}
 --- !u!114 &2187926393758900239
@@ -8492,7 +8492,7 @@ MonoBehaviour:
   renderTexSize: 1024
   meshRenderer: {fileID: 55706118241902123}
   doIt: 0
-  materialTextures: {fileID: 11400000, guid: 3bc50daa089981643aff5754b4e0be3d, type: 2}
+  materialTextures: {fileID: 11400000, guid: 3a8094f5c8fbf2e4f9a79b7d51601cb7, type: 2}
   num: 0
   countPlayers: 1
   outlineColor: {r: 0.5566038, g: 0.5566038, b: 0.5566038, a: 1}
@@ -14438,7 +14438,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7013597616700356713
 Transform:
   m_ObjectHideFlags: 0
@@ -31826,7 +31826,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6dfec4b6e974591489ec01d0b40a8c65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  soundList: {fileID: 11400000, guid: 79add24d7fd3c664f8f8cfd797f6236f, type: 2}
+  soundList: {fileID: 11400000, guid: 1b2d042c069980c40a2e4bc13592569e, type: 2}
   sounds: []
   playName: 
   play: 0
@@ -32143,7 +32143,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5352229651196760658
 Transform:
   m_ObjectHideFlags: 0
@@ -37504,7 +37504,7 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 7010daeb2f6b3154eb20694ae282768d, type: 2}
-  - {fileID: 2100000, guid: ca73f2f9a2aa87e4eb2e8aca4166e3d2, type: 2}
+  - {fileID: 2100000, guid: 5dc7b63aedd576c43a58da879aac0af1, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -38829,7 +38829,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &5826143062103385731
 Transform:
   m_ObjectHideFlags: 0
@@ -39315,7 +39315,7 @@ MonoBehaviour:
   matIndex: 1
   matList:
   - {fileID: 2100000, guid: 7010daeb2f6b3154eb20694ae282768d, type: 2}
-  - {fileID: 2100000, guid: ca73f2f9a2aa87e4eb2e8aca4166e3d2, type: 2}
+  - {fileID: 2100000, guid: 5dc7b63aedd576c43a58da879aac0af1, type: 2}
 --- !u!1 &4850601721930291891
 GameObject:
   m_ObjectHideFlags: 0
@@ -44480,7 +44480,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &7221455671337490899
 Transform:
   m_ObjectHideFlags: 0
@@ -60270,7 +60270,7 @@ Transform:
   m_GameObject: {fileID: 6847843464433933857}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.3400116, y: -2.5166016, z: 6.8769855}
+  m_LocalPosition: {x: -0.3400116, y: -2.5166016, z: 6.8769875}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -64199,7 +64199,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6770952830286235009
 Transform:
   m_ObjectHideFlags: 0
