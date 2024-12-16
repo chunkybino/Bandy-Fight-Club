@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4dedaa009a835e34fab225d8a157d012, type: 3}
+  m_Name: ShakeWaves 1
+  m_EditorClassIdentifier: 
+  shakeWaves:
+  - freq: 1
+    amp: 4
+  - freq: 4
+    amp: 1
+  - freq: 10
+    amp: 0.6

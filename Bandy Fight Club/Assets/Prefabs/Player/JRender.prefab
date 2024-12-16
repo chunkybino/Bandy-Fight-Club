@@ -1161,6 +1161,8 @@ MonoBehaviour:
   constraintIndex: -1
   constraintTransforms: []
   trailTimeMult: 0.5
+  doZOverride: 0
+  zOverride: -1
 --- !u!96 &304812476112588019
 TrailRenderer:
   serializedVersion: 3
@@ -17926,6 +17928,8 @@ MonoBehaviour:
   - {fileID: 2271128319276003035}
   - {fileID: 0}
   trailTimeMult: 0.3
+  doZOverride: 0
+  zOverride: -1
 --- !u!96 &7836385727429427416
 TrailRenderer:
   serializedVersion: 3
@@ -24712,6 +24716,7 @@ MonoBehaviour:
   disguiseOnSilhouette: 0
   disguiseOnQWeap: 0
   disguiseOnJWeap: 0
+  disguiseOnMWeap: 0
   inverse: 0
   targetObject: {fileID: 5211838575459231317}
   inverseObject: {fileID: 3253132466191578433}
@@ -24913,6 +24918,8 @@ MonoBehaviour:
   - {fileID: 3113745757888769167}
   - {fileID: 6792553474723529398}
   trailTimeMult: 0.3
+  doZOverride: 0
+  zOverride: -1
 --- !u!96 &7028071976732218350
 TrailRenderer:
   serializedVersion: 3
@@ -32843,6 +32850,7 @@ MonoBehaviour:
   disguiseOnSilhouette: 0
   disguiseOnQWeap: 0
   disguiseOnJWeap: 0
+  disguiseOnMWeap: 0
   inverse: 0
   targetObject: {fileID: 5025514420458976631}
   inverseObject: {fileID: 0}
@@ -34167,6 +34175,7 @@ MonoBehaviour:
   disguiseOnSilhouette: 0
   disguiseOnQWeap: 0
   disguiseOnJWeap: 0
+  disguiseOnMWeap: 0
   inverse: 0
   targetObject: {fileID: 5251067734741121158}
   inverseObject: {fileID: 0}
@@ -46954,6 +46963,7 @@ MonoBehaviour:
   disguiseOnSilhouette: 0
   disguiseOnQWeap: 0
   disguiseOnJWeap: 1
+  disguiseOnMWeap: 0
   inverse: 0
   targetObject: {fileID: 6998480806903363780}
   inverseObject: {fileID: 0}
@@ -50294,7 +50304,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96651f70c28d50145acf7bce7f3194a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shakeWaves: {fileID: 11400000, guid: 1f092c553161db441be06585ccc6d1b0, type: 2}
+  shakeWaves: {fileID: 11400000, guid: 7ef508fc0b251e54f82466e6af862ba3, type: 2}
   speedMult: 8
   ampMult: 3
   shakeDecayFactor: 6
@@ -50330,6 +50340,7 @@ MonoBehaviour:
   disguiseOnSilhouette: 0
   disguiseOnQWeap: 0
   disguiseOnJWeap: 0
+  disguiseOnMWeap: 0
   inverse: 0
   targetObject: {fileID: 4426812985412133292}
   inverseObject: {fileID: 0}
@@ -50778,6 +50789,7 @@ MonoBehaviour:
   disguiseOnSilhouette: 0
   disguiseOnQWeap: 0
   disguiseOnJWeap: 1
+  disguiseOnMWeap: 0
   inverse: 0
   targetObject: {fileID: 390882783039539325}
   inverseObject: {fileID: 0}

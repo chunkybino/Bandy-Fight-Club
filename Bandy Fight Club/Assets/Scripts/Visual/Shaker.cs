@@ -104,17 +104,3 @@ public class Shaker : MonoBehaviour
         public bool dontDoVerticalShake; //onyl shake back and forth in the direciton given
     }
 }
-
-[System.Serializable]
-[CreateAssetMenu(fileName = "ShakeWaves", menuName = "ScriptableObjects/ShaveWaves")]
-public class ShakeWaves : ScriptableObject
-{
-    public WaveData[] shakeWaves;
-
-    [System.Serializable]
-    public struct WaveData
-    {
-        public float freq;
-        public float amp;
-    }
-}
