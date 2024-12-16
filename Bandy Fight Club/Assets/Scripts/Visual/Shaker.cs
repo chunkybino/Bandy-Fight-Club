@@ -105,6 +105,7 @@ public class Shaker : MonoBehaviour
     }
 }
 
+[System.Serializable]
 [CreateAssetMenu(fileName = "ShakeWaves", menuName = "ScriptableObjects/ShaveWaves")]
 public class ShakeWaves : ScriptableObject
 {

@@ -422,6 +422,7 @@ public class PlayerInfo
     public bool dead;
 }
 
+[System.Serializable]
 [CreateAssetMenu(fileName = "TeamColorSO", menuName = "ScriptableObjects/TeamColor")]
 public class TeamColorsSO : ScriptableObject
 {

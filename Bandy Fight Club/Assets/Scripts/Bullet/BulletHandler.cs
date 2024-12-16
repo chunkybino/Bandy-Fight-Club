@@ -75,6 +75,8 @@ public class BulletHandler : MonoBehaviour
         DestroyAllBullets();
     }
 }
+
+[System.Serializable]
 [CreateAssetMenu(fileName = "BulletSO", menuName = "ScriptableObjects/Bullet")]
 public class BulletConfig : ScriptableObject
 {

@@ -41,8 +41,8 @@ public class QSaxBulletFunc : BulletFunc
     [SerializeField] string saxClashSoundName;
 
     [SerializeField] List<string> hitSounds = new List<string>();
-    [SerializeField] float hitSoundVol = 1;
-    [SerializeField] float hitSoundPitch = 1;
+    [SerializeField] float hitSoundsVol = 1;
+    [SerializeField] float hitSoundsPitch = 1;
 
     [SerializeField] List<string> getParrySounds = new List<string>();
     [SerializeField] float getParryVol = 1;
@@ -105,7 +105,7 @@ public class QSaxBulletFunc : BulletFunc
         }
         else
         {
-            GameManager.singleton.audio.PlayList(hitSounds, hitSoundVol, hitSoundPitch);
+            GameManager.singleton.audio.PlayList(hitSounds, hitSoundsVol, hitSoundsPitch);
         }
 
         if (damageable.damageableTags.Contains(saxClashTag)) return;

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
 [CreateAssetMenu(fileName = "SoundListSO", menuName = "ScriptableObjects/SoundList")]
 public class SoundsListSO : ScriptableObject
 {

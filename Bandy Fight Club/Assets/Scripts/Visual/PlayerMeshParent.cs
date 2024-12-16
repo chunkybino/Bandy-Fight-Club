@@ -146,6 +146,7 @@ public class PlayerMeshParent : MonoBehaviour
     }
 }
 
+[System.Serializable]
 [CreateAssetMenu(fileName = "RenderTextures", menuName = "ScriptableObjects/RenderTextures")]
 public class RenderTextureMaterials : ScriptableObject
 {
