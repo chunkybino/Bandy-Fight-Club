@@ -163,7 +163,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: {x: 17.23, y: -20.091, z: 36.871}
+        value: {x: 21.187, y: -10.321, z: 11.176}
         inSlope: {x: 0, y: 0, z: 0}
         outSlope: {x: 0, y: 0, z: 0}
         tangentMode: 0
@@ -372,7 +372,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: {x: -0.97, y: -0.15, z: -0.52}
+        value: {x: -1.9400041, y: -0.18999982, z: -0.9900043}
         inSlope: {x: 0, y: 0, z: 0}
         outSlope: {x: 0, y: 0, z: 0}
         tangentMode: 0
@@ -467,6 +467,27 @@ AnimationClip:
       m_RotationOrder: 4
     attribute: m_FlipX
     path: flan/leftleg/feet/diagfoot (1)
+    classID: 212
+    script: {fileID: 0}
+    flags: 0
+  - serializedVersion: 2
+    curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 35
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 69
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_SortingOrder
+    path: flan/lweapon/flute/carileft
     classID: 212
     script: {fileID: 0}
     flags: 0
@@ -727,6 +748,15 @@ AnimationClip:
       script: {fileID: 0}
       typeID: 4
       customType: 4
+      isPPtrCurve: 0
+      isIntCurve: 0
+      isSerializeReferenceCurve: 0
+    - serializedVersion: 2
+      path: 2306359552
+      attribute: 3762991556
+      script: {fileID: 0}
+      typeID: 212
+      customType: 26
       isPPtrCurve: 0
       isIntCurve: 0
       isSerializeReferenceCurve: 0
@@ -1955,7 +1985,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 17.23
+        value: 21.187
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -1976,7 +2006,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: -20.091
+        value: -10.321
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -1997,7 +2027,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 36.871
+        value: 11.176
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -2018,7 +2048,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: -0.97
+        value: -1.9400041
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -2039,7 +2069,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: -0.15
+        value: -0.18999982
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -2060,7 +2090,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: -0.52
+        value: -0.9900043
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -2474,6 +2504,27 @@ AnimationClip:
     classID: 4
     script: {fileID: 0}
     flags: 0
+  - serializedVersion: 2
+    curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 35
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 69
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_SortingOrder
+    path: flan/lweapon/flute/carileft
+    classID: 212
+    script: {fileID: 0}
+    flags: 0
   m_EulerEditorCurves:
   - serializedVersion: 2
     curve:
@@ -2519,7 +2570,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: dude/LWeapon/lweaponren
+    path: dude/leg 2/leftfoot/rightfootren
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -2531,7 +2582,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: dude/LWeapon/lweaponren
+    path: dude/leg 2/leftfoot/rightfootren
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -2543,7 +2594,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: dude/LWeapon/lweaponren
+    path: dude/leg 2/leftfoot/rightfootren
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -2879,7 +2930,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: dude/leg 2/leftfoot/rightfootren
+    path: dude/LWeapon/lweaponren
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -2891,7 +2942,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: dude/leg 2/leftfoot/rightfootren
+    path: dude/LWeapon/lweaponren
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -2903,7 +2954,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: dude/leg 2/leftfoot/rightfootren
+    path: dude/LWeapon/lweaponren
     classID: 4
     script: {fileID: 0}
     flags: 0
