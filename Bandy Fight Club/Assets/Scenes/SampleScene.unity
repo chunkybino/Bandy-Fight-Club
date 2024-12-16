@@ -29463,6 +29463,18 @@ PrefabInstance:
       propertyPath: menuSpotlights
       value: 
       objectReference: {fileID: 1435887229}
+    - target: {fileID: 3199789326275481341, guid: 3521a558ec11f604b8e1e0c4d1bf3781, type: 3}
+      propertyPath: characterNames.Array.data[0]
+      value: Big Q
+      objectReference: {fileID: 0}
+    - target: {fileID: 3199789326275481341, guid: 3521a558ec11f604b8e1e0c4d1bf3781, type: 3}
+      propertyPath: characterNames.Array.data[1]
+      value: Big J
+      objectReference: {fileID: 0}
+    - target: {fileID: 3199789326275481341, guid: 3521a558ec11f604b8e1e0c4d1bf3781, type: 3}
+      propertyPath: characterNames.Array.data[2]
+      value: Big M
+      objectReference: {fileID: 0}
     - target: {fileID: 3614335715130022193, guid: 3521a558ec11f604b8e1e0c4d1bf3781, type: 3}
       propertyPath: m_Name
       value: Menu
