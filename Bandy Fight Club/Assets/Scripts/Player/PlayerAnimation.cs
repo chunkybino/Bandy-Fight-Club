@@ -62,6 +62,9 @@ public class PlayerAnimation : MonoBehaviour
     public bool isDodging;
     public float targetSideSpeed;
 
+    public int idleSquashIndex;
+    float prevMusicBeatCount;
+
     void Awake()
     {
         if (playerFunc) characterFunc = playerFunc.characterFunc;
@@ -198,6 +201,16 @@ public class PlayerAnimation : MonoBehaviour
         }
 
         walking = doWalk;
+
+        if (animName == "Idle")
+        {
+            if (prevMusicBeatCount < GameManager.singleton.audio.musicBeatCounter)
+            {
+                prevMusicBeatCount = GameManager.singleton.audio.musicBeatCounter;
+
+                DoSquash(idleSquashIndex);
+            }
+        }
 
         return animName;
     }

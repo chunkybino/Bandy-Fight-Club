@@ -100,6 +100,7 @@ public class BigMFunc : PlayerFunc, ICharacterFunc
         else if (inputs.downHeld)
         {
             attackName = "downAttack";
+            playerAttack.attackStunTimer = 0.05f;
         }
 
         return attackName;

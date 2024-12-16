@@ -19,6 +19,10 @@ public class AudioManager : MonoBehaviour
 
     public bool musicPlaying;
 
+    public float musicTimer;
+    public float musicBPM;
+    public float musicBeatCounter;
+
     void Start()
     {
         if (musicSource)
@@ -50,6 +54,21 @@ public class AudioManager : MonoBehaviour
             musicSource.Stop();
             fadeOutMusicTimer = -1;
             musicPlaying = false;
+        }
+
+        if (musicPlaying)
+        {
+            musicTimer += Time.deltaTime;
+
+            if (musicBeatCounter*60/musicBPM < musicTimer)
+            {
+                musicBeatCounter++;
+            }
+        }
+        else
+        {
+            musicTimer = 0;
+            musicBeatCounter = 0;
         }
     }
 
@@ -112,6 +131,9 @@ public class AudioManager : MonoBehaviour
         fadeOutMusicTimer = -1;
 
         musicPlaying = true;
+
+        musicTimer = 0;
+        musicBeatCounter = 0;
     }
     public void StopMusic()
     {

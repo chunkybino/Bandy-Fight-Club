@@ -1284,6 +1284,8 @@ MonoBehaviour:
   musicVolume: 1
   fadeOutMusicTime: 1
   musicPlaying: 0
+  musicTimer: 0
+  musicBPM: 0
 --- !u!1001 &6095673352925186394
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1432,6 +1434,10 @@ PrefabInstance:
       propertyPath: playerStatus
       value: 
       objectReference: {fileID: 7082116060841657837}
+    - target: {fileID: 2388454519947707244, guid: fe70ef1e12400454dab17dbd913906c3, type: 3}
+      propertyPath: idleSquashIndex
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 2388454519947707244, guid: fe70ef1e12400454dab17dbd913906c3, type: 3}
       propertyPath: squashDatas.Array.size
       value: 5

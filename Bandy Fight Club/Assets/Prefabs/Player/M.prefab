@@ -19137,7 +19137,7 @@ MonoBehaviour:
   onAttackStart:
     m_PersistentCalls:
       m_Calls: []
-  attackTime: 1.25
+  attackTime: 0.6
 --- !u!1 &3264629875315900132
 GameObject:
   m_ObjectHideFlags: 0
@@ -24912,9 +24912,9 @@ MonoBehaviour:
     perpAmp: 1.5
     doPivotOnGrounded: 1
   - name: idle
-    speed: 3
+    speed: 2
     amplitude: 0.1
-    freqency: 1
+    freqency: 1.4
     decayPower: 2
     flipXY: 0
     doPivot: 0
@@ -24947,6 +24947,7 @@ MonoBehaviour:
   isBlocking: 0
   isDodging: 0
   targetSideSpeed: 0
+  idleSquashIndex: 4
 --- !u!210 &4178105641860947772
 SortingGroup:
   m_ObjectHideFlags: 0
@@ -31834,6 +31835,9 @@ MonoBehaviour:
   musicVolume: 1
   fadeOutMusicTime: 1
   musicPlaying: 0
+  musicTimer: 0
+  musicBPM: 0
+  musicBeatCounter: 0
 --- !u!1 &4157677101270882683
 GameObject:
   m_ObjectHideFlags: 0
@@ -44270,7 +44274,7 @@ Transform:
   m_Children:
   - {fileID: 3610378268810629827}
   m_Father: {fileID: 3432397626589382938}
-  m_LocalEulerAnglesHint: {x: -28.909, y: 23.468, z: 5.829}
+  m_LocalEulerAnglesHint: {x: -23.594, y: 24.741, z: -1.63}
 --- !u!1773428102 &5512246892489411772
 ParentConstraint:
   m_ObjectHideFlags: 0
