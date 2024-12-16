@@ -58,7 +58,7 @@ public class AudioManager : MonoBehaviour
 
         if (musicPlaying)
         {
-            musicTimer += Time.deltaTime;
+            musicTimer += Time.unscaledDeltaTime;
 
             if (musicBeatCounter*60/musicBPM < musicTimer)
             {
